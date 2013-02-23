@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
+		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
+		689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825B016D9320C00D89D0B /* CoreGraphics.framework */; };
+		689825B716D9320C00D89D0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 689825B516D9320C00D89D0B /* InfoPlist.strings */; };
+		689825B916D9320C00D89D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825B816D9320C00D89D0B /* main.m */; };
+		689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825BC16D9320C00D89D0B /* TKAppDelegate.m */; };
+		689825BF16D9320C00D89D0B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 689825BE16D9320C00D89D0B /* Default.png */; };
+		689825C116D9320C00D89D0B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 689825C016D9320C00D89D0B /* Default@2x.png */; };
+		689825C316D9320C00D89D0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 689825C216D9320C00D89D0B /* Default-568h@2x.png */; };
+		689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689825C416D9320C00D89D0B /* MainStoryboard.storyboard */; };
+		689825C916D9320C00D89D0B /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825C816D9320C00D89D0B /* TKViewController.m */; };
+		689825D116D9320C00D89D0B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825D016D9320C00D89D0B /* SenTestingKit.framework */; };
+		689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
+		689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
+		689825DB16D9320C00D89D0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 689825D916D9320C00D89D0B /* InfoPlist.strings */; };
+		689825DE16D9320C00D89D0B /* TumeKyouenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825DD16D9320C00D89D0B /* TumeKyouenTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		689825D416D9320C00D89D0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 689825A116D9320C00D89D0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 689825A816D9320C00D89D0B;
+			remoteInfo = TumeKyouen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		689825AC16D9320C00D89D0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		689825AE16D9320C00D89D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		689825B016D9320C00D89D0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouen-Info.plist"; sourceTree = "<group>"; };
+		689825B616D9320C00D89D0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		689825B816D9320C00D89D0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Prefix.pch"; sourceTree = "<group>"; };
+		689825BB16D9320C00D89D0B /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
+		689825BC16D9320C00D89D0B /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
+		689825BE16D9320C00D89D0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		689825C016D9320C00D89D0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		689825C216D9320C00D89D0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		689825C516D9320C00D89D0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		689825C716D9320C00D89D0B /* TKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
+		689825C816D9320C00D89D0B /* TKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
+		689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		689825D016D9320C00D89D0B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
+		689825DA16D9320C00D89D0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
+		689825DD16D9320C00D89D0B /* TumeKyouenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		689825A616D9320C00D89D0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
+				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
+				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		689825CB16D9320C00D89D0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825D116D9320C00D89D0B /* SenTestingKit.framework in Frameworks */,
+				689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */,
+				689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		689825A016D9320C00D89D0B = {
+			isa = PBXGroup;
+			children = (
+				689825B216D9320C00D89D0B /* TumeKyouen */,
+				689825D616D9320C00D89D0B /* TumeKyouenTests */,
+				689825AB16D9320C00D89D0B /* Frameworks */,
+				689825AA16D9320C00D89D0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		689825AA16D9320C00D89D0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				689825A916D9320C00D89D0B /* TumeKyouen.app */,
+				689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		689825AB16D9320C00D89D0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				689825AC16D9320C00D89D0B /* UIKit.framework */,
+				689825AE16D9320C00D89D0B /* Foundation.framework */,
+				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
+				689825D016D9320C00D89D0B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		689825B216D9320C00D89D0B /* TumeKyouen */ = {
+			isa = PBXGroup;
+			children = (
+				689825BB16D9320C00D89D0B /* TKAppDelegate.h */,
+				689825BC16D9320C00D89D0B /* TKAppDelegate.m */,
+				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
+				689825C716D9320C00D89D0B /* TKViewController.h */,
+				689825C816D9320C00D89D0B /* TKViewController.m */,
+				689825B316D9320C00D89D0B /* Supporting Files */,
+			);
+			path = TumeKyouen;
+			sourceTree = "<group>";
+		};
+		689825B316D9320C00D89D0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */,
+				689825B516D9320C00D89D0B /* InfoPlist.strings */,
+				689825B816D9320C00D89D0B /* main.m */,
+				689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */,
+				689825BE16D9320C00D89D0B /* Default.png */,
+				689825C016D9320C00D89D0B /* Default@2x.png */,
+				689825C216D9320C00D89D0B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		689825D616D9320C00D89D0B /* TumeKyouenTests */ = {
+			isa = PBXGroup;
+			children = (
+				689825DC16D9320C00D89D0B /* TumeKyouenTests.h */,
+				689825DD16D9320C00D89D0B /* TumeKyouenTests.m */,
+				689825D716D9320C00D89D0B /* Supporting Files */,
+			);
+			path = TumeKyouenTests;
+			sourceTree = "<group>";
+		};
+		689825D716D9320C00D89D0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */,
+				689825D916D9320C00D89D0B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		689825A816D9320C00D89D0B /* TumeKyouen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */;
+			buildPhases = (
+				689825A516D9320C00D89D0B /* Sources */,
+				689825A616D9320C00D89D0B /* Frameworks */,
+				689825A716D9320C00D89D0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TumeKyouen;
+			productName = TumeKyouen;
+			productReference = 689825A916D9320C00D89D0B /* TumeKyouen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		689825CE16D9320C00D89D0B /* TumeKyouenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 689825E416D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouenTests" */;
+			buildPhases = (
+				689825CA16D9320C00D89D0B /* Sources */,
+				689825CB16D9320C00D89D0B /* Frameworks */,
+				689825CC16D9320C00D89D0B /* Resources */,
+				689825CD16D9320C00D89D0B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				689825D516D9320C00D89D0B /* PBXTargetDependency */,
+			);
+			name = TumeKyouenTests;
+			productName = TumeKyouenTests;
+			productReference = 689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		689825A116D9320C00D89D0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TK;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = noboru;
+			};
+			buildConfigurationList = 689825A416D9320C00D89D0B /* Build configuration list for PBXProject "TumeKyouen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 689825A016D9320C00D89D0B;
+			productRefGroup = 689825AA16D9320C00D89D0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				689825A816D9320C00D89D0B /* TumeKyouen */,
+				689825CE16D9320C00D89D0B /* TumeKyouenTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		689825A716D9320C00D89D0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825B716D9320C00D89D0B /* InfoPlist.strings in Resources */,
+				689825BF16D9320C00D89D0B /* Default.png in Resources */,
+				689825C116D9320C00D89D0B /* Default@2x.png in Resources */,
+				689825C316D9320C00D89D0B /* Default-568h@2x.png in Resources */,
+				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		689825CC16D9320C00D89D0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825DB16D9320C00D89D0B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		689825CD16D9320C00D89D0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		689825A516D9320C00D89D0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825B916D9320C00D89D0B /* main.m in Sources */,
+				689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */,
+				689825C916D9320C00D89D0B /* TKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		689825CA16D9320C00D89D0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689825DE16D9320C00D89D0B /* TumeKyouenTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		689825D516D9320C00D89D0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 689825A816D9320C00D89D0B /* TumeKyouen */;
+			targetProxy = 689825D416D9320C00D89D0B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		689825B516D9320C00D89D0B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689825B616D9320C00D89D0B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		689825C416D9320C00D89D0B /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689825C516D9320C00D89D0B /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		689825D916D9320C00D89D0B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689825DA16D9320C00D89D0B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		689825DF16D9320C00D89D0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		689825E016D9320C00D89D0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		689825E216D9320C00D89D0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		689825E316D9320C00D89D0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		689825E516D9320C00D89D0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		689825E616D9320C00D89D0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		689825A416D9320C00D89D0B /* Build configuration list for PBXProject "TumeKyouen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689825DF16D9320C00D89D0B /* Debug */,
+				689825E016D9320C00D89D0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689825E216D9320C00D89D0B /* Debug */,
+				689825E316D9320C00D89D0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		689825E416D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689825E516D9320C00D89D0B /* Debug */,
+				689825E616D9320C00D89D0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 689825A116D9320C00D89D0B /* Project object */;
+}
