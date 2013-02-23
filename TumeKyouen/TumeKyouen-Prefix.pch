@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'TumeKyouen' target in the 'TumeKyouen' project
+// Prefix header for all source files of the 'Kyouen' target in the 'Kyouen' project
 //
 
 #import <Availability.h>
@@ -11,4 +11,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    // AdMob
+    #define MY_BANNER_UNIT_ID	@"a15122454742422"
 #endif
