@@ -31,14 +31,13 @@
 }
 
 - (void)initialize {
-    NSLog(@"initialize");
     [self addTarget:self
              action:@selector(changeState:)
    forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)changeState:(id)sender {
-    NSLog(@"changeState");
+    LOG(@"changeState");
     switch (state_) {
         case 0:
             return;

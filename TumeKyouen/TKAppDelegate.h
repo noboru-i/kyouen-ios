@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 noboru. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface TKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

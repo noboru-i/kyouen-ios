@@ -7,8 +7,27 @@
 //
 
 #import "TKAppDelegate.h"
+#import "TumeKyouenModel.h"
+
+@interface TKAppDelegate ()
+
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (NSURL *)applicationDocumentsDirectory;
+
+@end
 
 @implementation TKAppDelegate
+
+@synthesize window=_window;
+@synthesize managedObjectModel=_managedObjectModel;
+@synthesize managedObjectContext=_managedObjectContext;
+@synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
+
+#pragma mark -
+#pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,6 +35,11 @@
 
     // 例外のハンドリング
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
+    [self managedObjectContext];
+    [self initializeData];
+    NSArray *result = [self fetchData];
+    LOG(@"result = %@", result);
 
     return YES;
 }
@@ -47,11 +71,139 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark -
+#pragma mark Core Data stack
+
+/*
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *) managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    return _managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TumeKyouen" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+/*
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TumeKyouen.CDBStore"];
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    
+    NSError *error;
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+        // TODO 復帰できないエラー？
+        LOG(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+#pragma mark -
+#pragma mark Application's documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark -
+
+- (void)initializeData {
+    if (![self isEmptyData]) {
+        // 初期データ投入の必要なし
+        LOG(@"初期データ投入の必要なし");
+        return;
+    }
+    
+    NSURL *csvURL = [[NSBundle mainBundle] URLForResource:@"initial_stage" withExtension:@"csv"];
+    NSString *content = [NSString stringWithContentsOfURL:csvURL encoding:NSUTF8StringEncoding error:nil];
+    
+    NSArray *lines = [content componentsSeparatedByString:@"\n"];
+    for (NSString *row in lines) {
+        NSArray *items = [row componentsSeparatedByString:@","];
+        LOG(@"items.count = %d", items.count);
+        
+        TumeKyouenModel* newObject = (TumeKyouenModel*)[NSEntityDescription insertNewObjectForEntityForName:@"TumeKyouenModel" inManagedObjectContext:_managedObjectContext];
+        
+        [newObject setStageNo:[[NSNumber alloc] initWithInt:[items[0] intValue]]];
+        [newObject setSize:[[NSNumber alloc] initWithInt:[items[1] intValue]]];
+        [newObject setStage:items[2]];
+        [newObject setCreator:items[3]];
+    }
+    
+    NSError *error;
+    [_managedObjectContext save:&error];
+}
+
+- (BOOL)isEmptyData {
+    NSArray *array = [self fetchData];
+    if (array.count == 0) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSArray*)fetchData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *stageNoDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stageNo" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:stageNoDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSFetchedResultsController *resultsController = [[NSFetchedResultsController alloc]
+                                                     initWithFetchRequest:fetchRequest
+                                                     managedObjectContext:[self managedObjectContext]
+                                                     sectionNameKeyPath:nil
+                                                     cacheName:nil];
+    // TODO abort?
+    NSError *error;
+    if (![resultsController performFetch:&error]) {
+        LOG(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    NSArray *result = resultsController.fetchedObjects;
+    return result;
+}
+
 void uncaughtExceptionHandler(NSException *exception) {
     // ここで例外発生時の情報を出力
-    NSLog(@"%@", exception.name);
-    NSLog(@"%@", exception.reason);
-    NSLog(@"%@", exception.callStackSymbols);
+    LOG(@"%@", exception.name);
+    LOG(@"%@", exception.reason);
+    LOG(@"%@", exception.callStackSymbols);
 }
 
 @end

@@ -11,6 +11,13 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+
+    #ifdef DEBUG
+        #define LOG(fmt,...) NSLog((@"%s %d "fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+    #else
+        #define LOG(...)
+    #endif
 
     // AdMob
     #define MY_BANNER_UNIT_ID	@"a15122454742422"
