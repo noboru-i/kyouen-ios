@@ -27,6 +27,10 @@
 
 - (void) setStage:(TumeKyouenModel *) model
 {
+    for (StoneButton *button in self.buttons) {
+        [button removeFromSuperview];
+    }
+    self.buttons = [[NSMutableArray alloc] init];
     NSString *stage = model.stage;
     int size = [model.size intValue];
     for (int x = 0; x < size; x++) {

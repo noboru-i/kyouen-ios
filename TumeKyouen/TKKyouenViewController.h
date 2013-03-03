@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView;
 
 @property (nonatomic, strong) TumeKyouenModel *currentModel;
+- (IBAction)moveNextStage:(id)sender;
+- (IBAction)movePrevStage:(id)sender;
+- (IBAction)checkKyouen:(id)sender;
 
 @end
