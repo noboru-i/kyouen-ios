@@ -22,7 +22,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jdg-gS-Wux" kind="push" id="wCe-AW-8sV"/>
+                                    <segue destination="jdg-gS-Wux" kind="push" identifier="StartSegue" id="wCe-AW-8sV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="詰め共円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afL-oT-hP3">
@@ -67,6 +67,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXU-ga-JKW">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="vs9-kW-8PH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="前へ">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,7 +91,6 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="created by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-ai-sIB">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="7wI-bA-XIH"/>
                                     <constraint firstAttribute="height" constant="21" id="h5v-kV-Dvk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -117,12 +119,13 @@
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="top" secondItem="zXU-ga-JKW" secondAttribute="top" type="default" id="1wT-H6-3p6"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7LM-Vj-ePp"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="82" id="CI5-AE-PGl"/>
+                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="zXU-ga-JKW" secondAttribute="bottom" type="default" id="EeN-cy-0cp"/>
+                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="centerX" secondItem="r9h-sH-t7c" secondAttribute="centerX" type="default" id="HWC-XD-5IX"/>
+                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KRJ-DD-vWm"/>
                             <constraint firstAttribute="trailing" secondItem="zPH-Y1-LpH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="L5e-Ak-Pee"/>
-                            <constraint firstItem="YAC-EM-KjT" firstAttribute="leading" secondItem="Uy7-ai-sIB" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="O1Z-F5-7G8"/>
                             <constraint firstItem="r9h-sH-t7c" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="OCC-dr-top"/>
                             <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="Tmm-Wh-xDR"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="trailing" secondItem="njD-DB-Aey" secondAttribute="trailing" type="default" id="fof-LU-taL"/>
-                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="YAC-EM-KjT" secondAttribute="bottom" type="default" id="jzD-Mk-9de"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lQE-66-qn4"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="3" id="nyi-3M-gJx"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" type="default" id="vWy-9l-jLG"/>
@@ -130,6 +133,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mCreator" destination="Uy7-ai-sIB" id="LbO-Nj-rhN"/>
+                        <outlet property="mKyouenImageView" destination="r9h-sH-t7c" id="IHH-ix-R9j"/>
                         <outlet property="mStageNo" destination="zPT-D8-uAE" id="bFO-lv-G19"/>
                     </connections>
                 </viewController>
@@ -156,20 +161,6 @@
             <point key="canvasLocation" x="-267" y="243"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TKKyouenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKKyouenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mStageNo" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TKTitleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKTitleViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

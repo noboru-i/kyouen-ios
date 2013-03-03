@@ -7,6 +7,7 @@
 //
 
 #import "TKAppDelegate.h"
+#import "TKTumeKyouenDao.h"
 #import "TumeKyouenModel.h"
 
 @interface TKAppDelegate ()
@@ -14,8 +15,6 @@
 @property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-- (NSURL *)applicationDocumentsDirectory;
 
 @end
 
@@ -38,7 +37,10 @@
     
     [self managedObjectContext];
     [self initializeData];
-    NSArray *result = [self fetchData];
+    
+    // TODO テスト用
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    TumeKyouenModel *result = [dao selectByStageNo:@1];
     LOG(@"result = %@", result);
 
     return YES;
@@ -141,7 +143,9 @@
 #pragma mark -
 
 - (void)initializeData {
-    if (![self isEmptyData]) {
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    NSUInteger count = [dao selectCount];
+    if (count != 0) {
         // 初期データ投入の必要なし
         LOG(@"初期データ投入の必要なし");
         return;
@@ -153,12 +157,12 @@
     NSArray *lines = [content componentsSeparatedByString:@"\n"];
     for (NSString *row in lines) {
         NSArray *items = [row componentsSeparatedByString:@","];
-        LOG(@"items.count = %d", items.count);
         
-        TumeKyouenModel* newObject = (TumeKyouenModel*)[NSEntityDescription insertNewObjectForEntityForName:@"TumeKyouenModel" inManagedObjectContext:_managedObjectContext];
-        
-        [newObject setStageNo:[[NSNumber alloc] initWithInt:[items[0] intValue]]];
-        [newObject setSize:[[NSNumber alloc] initWithInt:[items[1] intValue]]];
+        TumeKyouenModel* newObject = (TumeKyouenModel*)[NSEntityDescription insertNewObjectForEntityForName:@"TumeKyouenModel"
+                                                                                     inManagedObjectContext:_managedObjectContext];
+
+        [newObject setStageNo:@([items[0] intValue])];
+        [newObject setSize:@([items[1] intValue])];
         [newObject setStage:items[2]];
         [newObject setCreator:items[3]];
     }
@@ -167,39 +171,8 @@
     [_managedObjectContext save:&error];
 }
 
-- (BOOL)isEmptyData {
-    NSArray *array = [self fetchData];
-    if (array.count == 0) {
-        return YES;
-    }
-    return NO;
-}
-
-- (NSArray*)fetchData {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *stageNoDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stageNo" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:stageNoDescriptor, nil];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    NSFetchedResultsController *resultsController = [[NSFetchedResultsController alloc]
-                                                     initWithFetchRequest:fetchRequest
-                                                     managedObjectContext:[self managedObjectContext]
-                                                     sectionNameKeyPath:nil
-                                                     cacheName:nil];
-    // TODO abort?
-    NSError *error;
-    if (![resultsController performFetch:&error]) {
-        LOG(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    NSArray *result = resultsController.fetchedObjects;
-    return result;
-}
-
-void uncaughtExceptionHandler(NSException *exception) {
+void uncaughtExceptionHandler(NSException *exception)
+{
     // ここで例外発生時の情報を出力
     LOG(@"%@", exception.name);
     LOG(@"%@", exception.reason);

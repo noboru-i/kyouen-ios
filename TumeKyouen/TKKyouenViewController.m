@@ -6,10 +6,9 @@
 //  Copyright (c) 2013年 noboru. All rights reserved.
 //
 
-#import "TKKyouenViewController.h"
-#import "AdMobUtil.h"
-
 #import <QuartzCore/QuartzCore.h>
+
+#import "TKKyouenViewController.h"
 
 @interface TKKyouenViewController ()
 
@@ -17,19 +16,22 @@
 
 @implementation TKKyouenViewController
 
+@synthesize currentModel;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    // paint background color
+
+    // 背景色の描画
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
     
     // 初期化
-    [_mStageNo setText:@"STAGE:1"];
+    [self.mStageNo setText:[NSString stringWithFormat:@"STAGE:%@", self.currentModel.stageNo]];
+    [self.mCreator setText:[NSString stringWithFormat:@"created by %@", self.currentModel.creator]];
+    [self.mKyouenImageView setStage:currentModel];
 }
 
 - (void)didReceiveMemoryWarning

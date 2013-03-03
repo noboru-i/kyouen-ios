@@ -10,7 +10,9 @@
 
 @implementation StoneButton
 
-- (id)initWithOptions:(int)size int:(int)state {
+@synthesize state=state_;
+
+- (id)initWithOptions:(int)size state:(int)defaultState {
     // 6x6 : 51, 9x9 : 34
     int stoneSize = 0;
     if (size == 6) {
@@ -23,29 +25,26 @@
                                userInfo:nil]
          raise];
     }
-    self = [super initWithFrame:CGRectMake(0, 0, stoneSize, stoneSize)];
-    state_ = state;
-    [self initialize];
+    if (self == [super initWithFrame:CGRectMake(0, 0, stoneSize, stoneSize)]) {
+        self.state = defaultState;
+        [self addTarget:self
+                 action:@selector(changeState:)
+       forControlEvents:UIControlEventTouchDown];
+    }
     
     return self;
 }
 
-- (void)initialize {
-    [self addTarget:self
-             action:@selector(changeState:)
-   forControlEvents:UIControlEventTouchDown];
-}
-
 - (void)changeState:(id)sender {
     LOG(@"changeState");
-    switch (state_) {
+    switch (self.state) {
         case 0:
             return;
         case 1:
-            state_ = 2;
+            self.state = 2;
             break;
         case 2:
-            state_ = 1;
+            self.state = 1;
             break;
         default:
             break;
@@ -65,7 +64,7 @@
     CGContextStrokeLineSegments(context, points, 4);
     
     // 石の描画
-    if (state_ == 1) {
+    if (self.state == 1) {
         // 黒い石を描画
         CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         CGContextFillEllipseInRect(context, CGRectMake(0, 0, width, width));
@@ -88,7 +87,7 @@
         
         CGGradientRelease(gradient);
         CGColorSpaceRelease(colorspace);
-    } else if (state_ == 2) {
+    } else if (self.state == 2) {
         // 白い石を描画
         CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
         CGContextFillEllipseInRect(context, CGRectMake(0, 0, width, width));

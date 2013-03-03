@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TumeKyouenModel.h"
+#import "KyouenImageView.h"
+
 @interface TKKyouenViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UILabel *mStageNo;
+@property (weak, nonatomic) IBOutlet UILabel *mCreator;
+@property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView;
+
+@property (nonatomic, strong) TumeKyouenModel *currentModel;
 
 @end

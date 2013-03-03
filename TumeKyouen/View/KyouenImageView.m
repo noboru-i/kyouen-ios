@@ -11,24 +11,31 @@
 
 @implementation KyouenImageView
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     if (self = [super initWithCoder:aDecoder]) {
         [self initialize];
     }
     return self;
 }
 
-- (void)initialize {
+- (void)initialize
+{
     self.userInteractionEnabled = YES;
     self.backgroundColor = [UIColor greenColor];
-    
-    int size = 6;
+}
+
+- (void) setStage:(TumeKyouenModel *) model
+{
+    NSString *stage = model.stage;
+    int size = [model.size intValue];
     for (int x = 0; x < size; x++) {
         for (int y = 0; y < size; y++) {
             // TODO: optionは仮
-            StoneButton *button = [[StoneButton alloc] initWithOptions:size int:((x+y)%2)];
+            int state = [[stage substringWithRange:NSMakeRange(x + y * size, 1)] intValue];
+            StoneButton *button = [[StoneButton alloc] initWithOptions:size state:state];
             button.transform = CGAffineTransformMakeTranslation(x * button.frame.size.width, y * button.frame.size.width);
-            [buttons_ addObject:button];
+            [self.buttons addObject:button];
             [self addSubview:button];
         }
     }

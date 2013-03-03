@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KyouenImageView : UIImageView {
-@private
-    NSMutableArray *buttons_;
-}
+#import "TumeKyouenModel.h"
+
+@interface KyouenImageView : UIImageView
+
+@property NSMutableArray *buttons;
+
+- (void) setStage:(TumeKyouenModel *) model;
+
 @end

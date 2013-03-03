@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoneButton : UIButton {
-@private
-    int state_;
-}
+@interface StoneButton : UIButton
 
-- (id)initWithOptions:(int)size int:(int)state;
+@property int state;
+
+- (id)initWithOptions:(int)size state:(int)state;
 
 @end

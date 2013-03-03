@@ -6,10 +6,12 @@
 //  Copyright (c) 2013年 noboru. All rights reserved.
 //
 
-#import "TKTitleViewController.h"
-#import "AdMobUtil.h"
-
 #import <QuartzCore/QuartzCore.h>
+
+#import "TKTitleViewController.h"
+#import "TKKyouenViewController.h"
+#import "TKTumeKyouenDao.h"
+#import "AdMobUtil.h"
 
 @interface TKTitleViewController ()
 
@@ -21,7 +23,7 @@
 {
     [super viewDidLoad];
 
-    // paint background color
+    // 背景色の描画
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
@@ -35,6 +37,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    LOG(@"prepareForSegue id=%@", [segue identifier]);
+    if ([[segue identifier] isEqualToString:@"StartSegue"]) {
+        // TODO 前回終了時のステージ番号を渡す
+        TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+        TumeKyouenModel *model = [dao selectByStageNo:@1];
+
+        TKKyouenViewController *viewController = (TKKyouenViewController*)[segue destinationViewController];
+        viewController.currentModel = model;
+        LOG(@"controller = %@", viewController);
+    }
 }
 
 @end
