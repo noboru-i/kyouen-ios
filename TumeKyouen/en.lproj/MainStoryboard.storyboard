@@ -103,10 +103,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-sH-t7c" customClass="KyouenImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-bK-aqy" userLabel="Next Kyouen Image View" customClass="KyouenImageView">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="306" id="XEb-44-nSg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-sH-t7c" userLabel="Current Kyouen Image View" customClass="KyouenImageView">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="306" id="NPG-9i-efg"/>
-                                    <constraint firstAttribute="height" constant="306" id="k6y-gN-ihq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPH-Y1-LpH">
@@ -128,13 +132,17 @@
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="top" secondItem="zXU-ga-JKW" secondAttribute="top" type="default" id="1wT-H6-3p6"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7LM-Vj-ePp"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="82" id="CI5-AE-PGl"/>
+                            <constraint firstItem="r9h-sH-t7c" firstAttribute="trailing" secondItem="4tS-bK-aqy" secondAttribute="trailing" type="default" id="EAe-GK-CcN"/>
                             <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="zXU-ga-JKW" secondAttribute="bottom" type="default" id="EeN-cy-0cp"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="leading" secondItem="r9h-sH-t7c" secondAttribute="leading" type="default" id="Egi-q3-m95"/>
                             <constraint firstItem="Uy7-ai-sIB" firstAttribute="centerX" secondItem="r9h-sH-t7c" secondAttribute="centerX" type="default" id="HWC-XD-5IX"/>
                             <constraint firstItem="Uy7-ai-sIB" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KRJ-DD-vWm"/>
                             <constraint firstAttribute="trailing" secondItem="zPH-Y1-LpH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="L5e-Ak-Pee"/>
                             <constraint firstItem="r9h-sH-t7c" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="OCC-dr-top"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="Tmm-Wh-xDR"/>
+                            <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="eUy-Ds-MtB"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="trailing" secondItem="njD-DB-Aey" secondAttribute="trailing" type="default" id="fof-LU-taL"/>
+                            <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gfr-XJ-vLM"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="top" type="default" id="hPQ-eU-cay"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lQE-66-qn4"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="3" id="nyi-3M-gJx"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" type="default" id="vWy-9l-jLG"/>
@@ -143,7 +151,10 @@
                     </view>
                     <connections>
                         <outlet property="mCreator" destination="Uy7-ai-sIB" id="LbO-Nj-rhN"/>
-                        <outlet property="mKyouenImageView" destination="r9h-sH-t7c" id="IHH-ix-R9j"/>
+                        <outlet property="mKyouenImageView1" destination="r9h-sH-t7c" id="bf2-l5-h0X"/>
+                        <outlet property="mKyouenImageView2" destination="4tS-bK-aqy" id="wwi-xY-Ea3"/>
+                        <outlet property="mNextButton" destination="YAC-EM-KjT" id="D4T-Hd-bzz"/>
+                        <outlet property="mPrevButton" destination="zXU-ga-JKW" id="x44-y8-KKg"/>
                         <outlet property="mStageNo" destination="zPT-D8-uAE" id="bFO-lv-G19"/>
                     </connections>
                 </viewController>

@@ -13,9 +13,12 @@
 
 @interface TKKyouenViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *mPrevButton;
+@property (weak, nonatomic) IBOutlet UIButton *mNextButton;
 @property (weak, nonatomic) IBOutlet UILabel *mStageNo;
 @property (weak, nonatomic) IBOutlet UILabel *mCreator;
-@property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView;
+@property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView1;
+@property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView2;
 
 @property (nonatomic, strong) TumeKyouenModel *currentModel;
 - (IBAction)moveNextStage:(id)sender;
