@@ -38,8 +38,8 @@
 		6898264916D93A9200D89D0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264816D93A9200D89D0B /* Default-568h@2x.png */; };
 		6898268616D93BC300D89D0B /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268516D93BC300D89D0B /* libGoogleAdMobAds.a */; };
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
-		6898268D16DA326D00D89D0B /* TumeKyouenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6898268C16DA326D00D89D0B /* TumeKyouenModel.m */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
+		68AFAE3B16EA30320076DE31 /* TumeKyouenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,9 +105,9 @@
 		6898268416D93BC300D89D0B /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		6898268516D93BC300D89D0B /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		6898268916DA2A5B00D89D0B /* TumeKyouen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TumeKyouen.xcdatamodel; sourceTree = "<group>"; };
-		6898268B16DA326D00D89D0B /* TumeKyouenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumeKyouenModel.h; sourceTree = "<group>"; };
-		6898268C16DA326D00D89D0B /* TumeKyouenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenModel.m; sourceTree = "<group>"; };
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		68AFAE3916EA30320076DE31 /* TumeKyouenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumeKyouenModel.h; sourceTree = "<group>"; };
+		68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,19 +193,13 @@
 		689825B216D9320C00D89D0B /* TumeKyouen */ = {
 			isa = PBXGroup;
 			children = (
-				6831FDC816E32E3800291810 /* Dao */,
 				6898269016DA5E1900D89D0B /* Application Delegate */,
-				689825BB16D9320C00D89D0B /* TKAppDelegate.h */,
-				689825BC16D9320C00D89D0B /* TKAppDelegate.m */,
-				689825F916D933AC00D89D0B /* TKTitleViewController.h */,
-				689825FA16D933AC00D89D0B /* TKTitleViewController.m */,
-				689825E716D933AC00D89D0B /* TKKyouenViewController.h */,
-				689825E816D933AC00D89D0B /* TKKyouenViewController.m */,
-				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
-				689825F516D933AC00D89D0B /* Resources */,
-				689825FB16D933AC00D89D0B /* Util */,
+				68AFAE3C16EA30D10076DE31 /* View Controllers */,
+				6831FDC816E32E3800291810 /* Dao */,
+				68AFAE3816EA30320076DE31 /* Dto */,
 				689825FE16D933AC00D89D0B /* View */,
-				6898268716DA193B00D89D0B /* Model */,
+				689825FB16D933AC00D89D0B /* Util */,
+				689825F516D933AC00D89D0B /* Resources */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
 				6898265816D93B2800D89D0B /* Other Sources */,
 			);
@@ -245,6 +239,7 @@
 		689825F516D933AC00D89D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
 				6898264416D9396C00D89D0B /* Default.png */,
 				6898264616D93A8900D89D0B /* Default@2x.png */,
@@ -299,20 +294,33 @@
 			path = GoogleAdMobAdsSdkiOS;
 			sourceTree = "<group>";
 		};
-		6898268716DA193B00D89D0B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6898268B16DA326D00D89D0B /* TumeKyouenModel.h */,
-				6898268C16DA326D00D89D0B /* TumeKyouenModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		6898269016DA5E1900D89D0B /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				689825BB16D9320C00D89D0B /* TKAppDelegate.h */,
+				689825BC16D9320C00D89D0B /* TKAppDelegate.m */,
 			);
-			name = "Application Delegate";
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		68AFAE3816EA30320076DE31 /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				68AFAE3916EA30320076DE31 /* TumeKyouenModel.h */,
+				68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */,
+			);
+			path = Dto;
+			sourceTree = "<group>";
+		};
+		68AFAE3C16EA30D10076DE31 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				689825F916D933AC00D89D0B /* TKTitleViewController.h */,
+				689825FA16D933AC00D89D0B /* TKTitleViewController.m */,
+				689825E716D933AC00D89D0B /* TKKyouenViewController.h */,
+				689825E816D933AC00D89D0B /* TKKyouenViewController.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,9 +443,9 @@
 				6898260A16D933AC00D89D0B /* KyouenImageView.m in Sources */,
 				6898260B16D933AC00D89D0B /* StoneButton.m in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
-				6898268D16DA326D00D89D0B /* TumeKyouenModel.m in Sources */,
 				6831FDCB16E32E7600291810 /* BaseDao.m in Sources */,
 				6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */,
+				68AFAE3B16EA30320076DE31 /* TumeKyouenModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +482,7 @@
 				689825C516D9320C00D89D0B /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		689825D916D9320C00D89D0B /* InfoPlist.strings */ = {
