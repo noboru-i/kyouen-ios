@@ -7,6 +7,8 @@
 //
 
 #import "TKTumeKyouenDao.h"
+#import "TumeKyouenModel.h"
+
 
 @implementation TKTumeKyouenDao
 

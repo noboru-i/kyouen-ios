@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "TumeKyouenModel.h"
-#import "KyouenImageView.h"
+
+@class KyouenImageView;
 
 @interface TKKyouenViewController : UIViewController
 

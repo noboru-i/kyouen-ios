@@ -8,6 +8,7 @@
 
 #import "KyouenImageView.h"
 #import "StoneButton.h"
+#import "TumeKyouenModel.h"
 
 @implementation KyouenImageView
 
@@ -27,15 +28,19 @@
 
 - (void) setStage:(TumeKyouenModel *) model
 {
+    self.model = model;
+
+    // ボタン情報を初期化
     for (StoneButton *button in self.buttons) {
         [button removeFromSuperview];
     }
     self.buttons = [[NSMutableArray alloc] init];
-    NSString *stage = model.stage;
-    int size = [model.size intValue];
+
+    // 設定されているステージ情報を反映
+    NSString *stage = self.model.stage;
+    int size = [self.model.size intValue];
     for (int x = 0; x < size; x++) {
         for (int y = 0; y < size; y++) {
-            // TODO: optionは仮
             int state = [[stage substringWithRange:NSMakeRange(x + y * size, 1)] intValue];
             StoneButton *button = [[StoneButton alloc] initWithOptions:size state:state];
             button.transform = CGAffineTransformMakeTranslation(x * button.frame.size.width, y * button.frame.size.width);
@@ -43,6 +48,17 @@
             [self addSubview:button];
         }
     }
+}
+
+- (NSString *) getCurrentStage
+{
+    NSMutableString *stage = [[NSMutableString alloc] init];
+    int size = [self.model.size intValue];
+    for (int i = 0; i < size * size; i++) {
+        StoneButton *button = [self.buttons objectAtIndex:i];
+        [stage appendString:[NSString stringWithFormat:@"%d",button.state]];
+    }
+    return stage;
 }
 
 @end

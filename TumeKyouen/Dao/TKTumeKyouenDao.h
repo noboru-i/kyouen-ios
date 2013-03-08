@@ -7,7 +7,8 @@
 //
 
 #import "BaseDao.h"
-#import "TumeKyouenModel.h"
+
+@class TumeKyouenModel;
 
 @interface TKTumeKyouenDao : BaseDao
 

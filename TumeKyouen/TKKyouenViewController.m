@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "TKKyouenViewController.h"
+#import "KyouenImageView.h"
 #import "TKTumeKyouenDao.h"
 
 @interface TKKyouenViewController ()
@@ -59,6 +60,8 @@
 
 - (IBAction)checkKyouen:(id)sender
 {
+    // TODO
+    LOG(@"stage = %@", [self.mKyouenImageView1 getCurrentStage]);
 }
 
 

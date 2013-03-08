@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TumeKyouenModel.h"
+@class TumeKyouenModel;
 
 @interface KyouenImageView : UIImageView
 
 @property NSMutableArray *buttons;
+@property TumeKyouenModel *model;
 
 - (void) setStage:(TumeKyouenModel *) model;
+- (NSString *) getCurrentStage;
 
 @end

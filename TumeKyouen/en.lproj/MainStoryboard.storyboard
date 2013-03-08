@@ -181,6 +181,31 @@
             <point key="canvasLocation" x="-267" y="243"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="KyouenImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KyouenImageView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TKKyouenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKKyouenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="checkKyouen:"/>
+                <relationship kind="action" name="moveNextStage:"/>
+                <relationship kind="action" name="movePrevStage:"/>
+                <relationship kind="outlet" name="mCreator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mKyouenImageView1" candidateClass="KyouenImageView"/>
+                <relationship kind="outlet" name="mKyouenImageView2" candidateClass="KyouenImageView"/>
+                <relationship kind="outlet" name="mNextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mPrevButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mStageNo" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TKTitleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKTitleViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
