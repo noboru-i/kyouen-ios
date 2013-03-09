@@ -36,7 +36,6 @@
 }
 
 - (void)changeState:(id)sender {
-    LOG(@"changeState");
     switch (self.state) {
         case 0:
             return;

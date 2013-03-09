@@ -40,6 +40,10 @@
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
 		68AFAE3B16EA30320076DE31 /* TumeKyouenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */; };
+		68AFAE4016EA334C0076DE31 /* TKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE3F16EA334C0076DE31 /* TKGameModel.m */; };
+		68AFAE4316EA38B80076DE31 /* TKKyouenData.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4216EA38B80076DE31 /* TKKyouenData.m */; };
+		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
+		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,14 @@
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		68AFAE3916EA30320076DE31 /* TumeKyouenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumeKyouenModel.h; sourceTree = "<group>"; };
 		68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenModel.m; sourceTree = "<group>"; };
+		68AFAE3E16EA334C0076DE31 /* TKGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGameModel.h; sourceTree = "<group>"; };
+		68AFAE3F16EA334C0076DE31 /* TKGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGameModel.m; sourceTree = "<group>"; };
+		68AFAE4116EA38B80076DE31 /* TKKyouenData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKyouenData.h; sourceTree = "<group>"; };
+		68AFAE4216EA38B80076DE31 /* TKKyouenData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKyouenData.m; sourceTree = "<group>"; };
+		68AFAE4416EA44E10076DE31 /* TKLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLine.h; sourceTree = "<group>"; };
+		68AFAE4516EA44E10076DE31 /* TKLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLine.m; sourceTree = "<group>"; };
+		68AFAE4716EA4CBE0076DE31 /* TKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPoint.h; sourceTree = "<group>"; };
+		68AFAE4816EA4CBE0076DE31 /* TKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +210,7 @@
 				6831FDC816E32E3800291810 /* Dao */,
 				68AFAE3816EA30320076DE31 /* Dto */,
 				689825FE16D933AC00D89D0B /* View */,
+				68AFAE3D16EA32F00076DE31 /* Model */,
 				689825FB16D933AC00D89D0B /* Util */,
 				689825F516D933AC00D89D0B /* Resources */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
@@ -323,6 +336,21 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		68AFAE3D16EA32F00076DE31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				68AFAE3E16EA334C0076DE31 /* TKGameModel.h */,
+				68AFAE3F16EA334C0076DE31 /* TKGameModel.m */,
+				68AFAE4116EA38B80076DE31 /* TKKyouenData.h */,
+				68AFAE4216EA38B80076DE31 /* TKKyouenData.m */,
+				68AFAE4416EA44E10076DE31 /* TKLine.h */,
+				68AFAE4516EA44E10076DE31 /* TKLine.m */,
+				68AFAE4716EA4CBE0076DE31 /* TKPoint.h */,
+				68AFAE4816EA4CBE0076DE31 /* TKPoint.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,6 +474,10 @@
 				6831FDCB16E32E7600291810 /* BaseDao.m in Sources */,
 				6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */,
 				68AFAE3B16EA30320076DE31 /* TumeKyouenModel.m in Sources */,
+				68AFAE4016EA334C0076DE31 /* TKGameModel.m in Sources */,
+				68AFAE4316EA38B80076DE31 /* TKKyouenData.m in Sources */,
+				68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */,
+				68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

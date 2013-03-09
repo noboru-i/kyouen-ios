@@ -11,10 +11,17 @@
 #import "TKKyouenViewController.h"
 #import "KyouenImageView.h"
 #import "TKTumeKyouenDao.h"
+#import "TKGameModel.h"
+#import "TKKyouenData.h"
 
 @interface TKKyouenViewController ()
 
 @end
+
+typedef NS_ENUM(NSInteger, TKAlertTag)
+{
+    TKAlertTagKyouen
+};
 
 @implementation TKKyouenViewController
 
@@ -60,8 +67,57 @@
 
 - (IBAction)checkKyouen:(id)sender
 {
-    // TODO
-    LOG(@"stage = %@", [self.mKyouenImageView1 getCurrentStage]);
+    TKGameModel *model = [[TKGameModel alloc] initWithSizeAndStage:[self.currentModel.size intValue]
+                                                             stage:[self.mKyouenImageView1 getCurrentStage]];
+    // 4つ選択されているかのチェック
+    if ([model getStoneCount:2] != 4) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"4つの石を選択してください"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
+    // 共円のチェック
+    TKKyouenData *kyouenData = [model isKyouen];
+    if (kyouenData == nil) {
+        [self setStage:currentModel to:self.mKyouenImageView1];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"共円ではありません"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:@"共円！！"
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"Next", nil];
+    alert.tag = TKAlertTagKyouen;
+    [alert show];
+}
+
+
+#pragma mark -
+#pragma mark delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (alertView.tag) {
+        case TKAlertTagKyouen:
+        {
+            NSNumber *nextStageNo = @([currentModel.stageNo intValue] + 1);
+            [self moveStage:nextStageNo
+                  direction:1];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -72,6 +128,7 @@
 {
     TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
     TumeKyouenModel *model = [dao selectByStageNo:stageNo];
+    // TODO 取得できなかった場合の処理
     [self setStageWithAnimation:model direction:direction];
 }
 

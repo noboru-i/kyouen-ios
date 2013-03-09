@@ -12,7 +12,7 @@
 
 @class KyouenImageView;
 
-@interface TKKyouenViewController : UIViewController
+@interface TKKyouenViewController : UIViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *mPrevButton;
 @property (weak, nonatomic) IBOutlet UIButton *mNextButton;

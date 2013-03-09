@@ -41,7 +41,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    LOG(@"prepareForSegue id=%@", [segue identifier]);
     if ([[segue identifier] isEqualToString:@"StartSegue"]) {
         // TODO 前回終了時のステージ番号を渡す
         TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
@@ -49,7 +48,6 @@
 
         TKKyouenViewController *viewController = (TKKyouenViewController*)[segue destinationViewController];
         viewController.currentModel = model;
-        LOG(@"controller = %@", viewController);
     }
 }
 
