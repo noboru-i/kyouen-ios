@@ -12,6 +12,26 @@
 
 @implementation TKTumeKyouenDao
 
+- (void)insertWithCsvString:(NSString *)csv
+{
+    
+    NSArray *lines = [csv componentsSeparatedByString:@"\n"];
+    for (NSString *row in lines) {
+        NSArray *items = [row componentsSeparatedByString:@","];
+        
+        TumeKyouenModel* newObject = (TumeKyouenModel*)[NSEntityDescription insertNewObjectForEntityForName:@"TumeKyouenModel"
+                                                                                     inManagedObjectContext:self.managedObjectContext];
+        
+        [newObject setStageNo:@([items[0] intValue])];
+        [newObject setSize:@([items[1] intValue])];
+        [newObject setStage:items[2]];
+        [newObject setCreator:items[3]];
+    }
+    
+    NSError *error;
+    [self.managedObjectContext save:&error];
+}
+
 - (TumeKyouenModel *)selectByStageNo:(NSNumber *)stageNo
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -53,7 +73,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    
+
     // 取得
     NSError *error;
     NSUInteger count = [[self managedObjectContext] countForFetchRequest:fetchRequest error:&error];
@@ -61,6 +81,20 @@
         return 0;
     }
     return count;
+}
+
+- (void)updateClearFlag:(TumeKyouenModel *)model date:(NSDate *)date
+{
+    if (date == nil) {
+        date = [[NSDate alloc] init];
+        LOG(@"date = %@", date);
+    }
+
+    [model setClearFlag:@1];
+    [model setClearDate:date];
+
+    NSError *error;
+    [self.managedObjectContext save:&error];
 }
 
 @end

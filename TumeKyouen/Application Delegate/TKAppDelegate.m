@@ -25,6 +25,7 @@
 @synthesize managedObjectContext=_managedObjectContext;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
 
+
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -150,25 +151,11 @@
         LOG(@"初期データ投入の必要なし");
         return;
     }
-    
+
     NSURL *csvURL = [[NSBundle mainBundle] URLForResource:@"initial_stage" withExtension:@"csv"];
     NSString *content = [NSString stringWithContentsOfURL:csvURL encoding:NSUTF8StringEncoding error:nil];
-    
-    NSArray *lines = [content componentsSeparatedByString:@"\n"];
-    for (NSString *row in lines) {
-        NSArray *items = [row componentsSeparatedByString:@","];
-        
-        TumeKyouenModel* newObject = (TumeKyouenModel*)[NSEntityDescription insertNewObjectForEntityForName:@"TumeKyouenModel"
-                                                                                     inManagedObjectContext:_managedObjectContext];
 
-        [newObject setStageNo:@([items[0] intValue])];
-        [newObject setSize:@([items[1] intValue])];
-        [newObject setStage:items[2]];
-        [newObject setCreator:items[3]];
-    }
-    
-    NSError *error;
-    [_managedObjectContext save:&error];
+    [dao insertWithCsvString:content];
 }
 
 void uncaughtExceptionHandler(NSException *exception)

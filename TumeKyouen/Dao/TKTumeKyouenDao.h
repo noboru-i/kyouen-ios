@@ -12,7 +12,9 @@
 
 @interface TKTumeKyouenDao : BaseDao
 
+- (void)insertWithCsvString:(NSString *)csv;
 - (TumeKyouenModel *)selectByStageNo:(NSNumber *)stageNo;
 - (NSUInteger)selectCount;
+- (void)updateClearFlag:(TumeKyouenModel *)model date:(NSDate *)date;
 
 @end

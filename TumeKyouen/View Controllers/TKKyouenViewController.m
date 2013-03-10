@@ -92,6 +92,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
         [alert show];
         return;
     }
+    
+    // 共円の場合
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    [dao updateClearFlag:currentModel date:nil];
+    [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:@"共円！！"
                                                    delegate:self
@@ -135,6 +140,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 - (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
 {
     self.currentModel = model;
+    if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
+        [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
+    } else {
+        [self.mStageNo setTextColor:[UIColor whiteColor]];
+    }
     [self.mStageNo setText:[NSString stringWithFormat:@"STAGE:%@", self.currentModel.stageNo]];
     [self.mCreator setText:[NSString stringWithFormat:@"created by %@", self.currentModel.creator]];
     [imageView setStage:currentModel];
