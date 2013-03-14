@@ -50,4 +50,13 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"points = %@, isLine = %d, center = %@, radius = %f, line = %@",
+            self.points,
+            self.isLine,
+            self.center,
+            self.radius,
+            self.line];
+}
+
 @end

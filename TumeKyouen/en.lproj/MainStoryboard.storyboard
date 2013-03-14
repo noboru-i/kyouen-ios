@@ -103,14 +103,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-bK-aqy" userLabel="Next Kyouen Image View" customClass="KyouenImageView">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="306" id="XEb-44-nSg"/>
-                                </constraints>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-bK-aqy" userLabel="Next Kyouen Image View" customClass="KyouenImageView"/>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-sH-t7c" userLabel="Current Kyouen Image View" customClass="KyouenImageView">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="306" id="NPG-9i-efg"/>
+                                    <constraint firstAttribute="height" constant="306" id="HVZ-cn-EyK"/>
+                                    <constraint firstAttribute="width" constant="306" id="rXp-tx-Fsh"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPH-Y1-LpH">
@@ -126,27 +123,34 @@
                                     <action selector="checkKyouen:" destination="jdg-gS-Wux" eventType="touchUpInside" id="ezu-h9-6q0"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-pw-S2e" customClass="TKOverlayKyouenView">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="1lV-81-wxm"/>
+                            <constraint firstItem="r9h-sH-t7c" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="1pH-uD-6II"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="top" secondItem="zXU-ga-JKW" secondAttribute="top" type="default" id="1wT-H6-3p6"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7LM-Vj-ePp"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="82" id="CI5-AE-PGl"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="trailing" secondItem="4tS-bK-aqy" secondAttribute="trailing" type="default" id="EAe-GK-CcN"/>
-                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="zXU-ga-JKW" secondAttribute="bottom" type="default" id="EeN-cy-0cp"/>
-                            <constraint firstItem="4tS-bK-aqy" firstAttribute="leading" secondItem="r9h-sH-t7c" secondAttribute="leading" type="default" id="Egi-q3-m95"/>
-                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="centerX" secondItem="r9h-sH-t7c" secondAttribute="centerX" type="default" id="HWC-XD-5IX"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="leading" secondItem="r9h-sH-t7c" secondAttribute="leading" type="default" id="EJ2-0R-IUd"/>
+                            <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="top" type="default" id="Ii7-Bz-RX1"/>
                             <constraint firstItem="Uy7-ai-sIB" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KRJ-DD-vWm"/>
                             <constraint firstAttribute="trailing" secondItem="zPH-Y1-LpH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="L5e-Ak-Pee"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="OCC-dr-top"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="eUy-Ds-MtB"/>
+                            <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="iuy-pw-S2e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XcU-Il-8wp"/>
+                            <constraint firstItem="iuy-pw-S2e" firstAttribute="trailing" secondItem="r9h-sH-t7c" secondAttribute="trailing" type="default" id="bsv-MO-XHV"/>
+                            <constraint firstItem="iuy-pw-S2e" firstAttribute="centerX" secondItem="Uy7-ai-sIB" secondAttribute="centerX" type="default" id="e1Z-JO-vd0"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="trailing" secondItem="njD-DB-Aey" secondAttribute="trailing" type="default" id="fof-LU-taL"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gfr-XJ-vLM"/>
-                            <constraint firstItem="4tS-bK-aqy" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="top" type="default" id="hPQ-eU-cay"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lQE-66-qn4"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="3" id="nyi-3M-gJx"/>
+                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="top" type="default" id="rhc-EJ-YQu"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" type="default" id="vWy-9l-jLG"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="baseline" secondItem="zXU-ga-JKW" secondAttribute="baseline" type="default" id="wIK-Pt-yiO"/>
+                            <constraint firstItem="r9h-sH-t7c" firstAttribute="leading" secondItem="iuy-pw-S2e" secondAttribute="leading" type="default" id="wpn-iG-JJe"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="trailing" secondItem="r9h-sH-t7c" secondAttribute="trailing" type="default" id="wyM-Ud-5j9"/>
+                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="YAC-EM-KjT" secondAttribute="bottom" type="default" id="wyd-GY-1on"/>
                         </constraints>
                     </view>
                     <connections>
@@ -154,6 +158,7 @@
                         <outlet property="mKyouenImageView1" destination="r9h-sH-t7c" id="bf2-l5-h0X"/>
                         <outlet property="mKyouenImageView2" destination="4tS-bK-aqy" id="wwi-xY-Ea3"/>
                         <outlet property="mNextButton" destination="YAC-EM-KjT" id="D4T-Hd-bzz"/>
+                        <outlet property="mOverlayKyouenView" destination="iuy-pw-S2e" id="FcZ-Ac-AuZ"/>
                         <outlet property="mPrevButton" destination="zXU-ga-JKW" id="x44-y8-KKg"/>
                         <outlet property="mStageNo" destination="zPT-D8-uAE" id="bFO-lv-G19"/>
                     </connections>
@@ -198,9 +203,13 @@
                 <relationship kind="outlet" name="mKyouenImageView1" candidateClass="KyouenImageView"/>
                 <relationship kind="outlet" name="mKyouenImageView2" candidateClass="KyouenImageView"/>
                 <relationship kind="outlet" name="mNextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mOverlayKyouenView" candidateClass="TKOverlayKyouenView"/>
                 <relationship kind="outlet" name="mPrevButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mStageNo" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="TKOverlayKyouenView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKOverlayKyouenView.h"/>
         </class>
         <class className="TKTitleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TKTitleViewController.h"/>

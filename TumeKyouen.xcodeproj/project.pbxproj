@@ -44,6 +44,7 @@
 		68AFAE4316EA38B80076DE31 /* TKKyouenData.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4216EA38B80076DE31 /* TKKyouenData.m */; };
 		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
 		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
+		68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		68AFAE4516EA44E10076DE31 /* TKLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLine.m; sourceTree = "<group>"; };
 		68AFAE4716EA4CBE0076DE31 /* TKPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPoint.h; sourceTree = "<group>"; };
 		68AFAE4816EA4CBE0076DE31 /* TKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPoint.m; sourceTree = "<group>"; };
+		68AFAE4A16ECDF1B0076DE31 /* TKOverlayKyouenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOverlayKyouenView.h; sourceTree = "<group>"; };
+		68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOverlayKyouenView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +281,8 @@
 				6898260016D933AC00D89D0B /* KyouenImageView.m */,
 				6898260116D933AC00D89D0B /* StoneButton.h */,
 				6898260216D933AC00D89D0B /* StoneButton.m */,
+				68AFAE4A16ECDF1B0076DE31 /* TKOverlayKyouenView.h */,
+				68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				68AFAE4316EA38B80076DE31 /* TKKyouenData.m in Sources */,
 				68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */,
 				68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */,
+				68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

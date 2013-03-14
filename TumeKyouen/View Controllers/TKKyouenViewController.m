@@ -10,9 +10,11 @@
 
 #import "TKKyouenViewController.h"
 #import "KyouenImageView.h"
+#import "TKOverlayKyouenView.h"
 #import "TKTumeKyouenDao.h"
 #import "TKGameModel.h"
 #import "TKKyouenData.h"
+#import "TKLine.h"
 
 @interface TKKyouenViewController ()
 
@@ -67,8 +69,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
 - (IBAction)checkKyouen:(id)sender
 {
-    TKGameModel *model = [[TKGameModel alloc] initWithSizeAndStage:[self.currentModel.size intValue]
-                                                             stage:[self.mKyouenImageView1 getCurrentStage]];
+    TKGameModel *model = [[TKGameModel alloc] initWithSize:[self.currentModel.size intValue]
+                                                     stage:[self.mKyouenImageView1 getCurrentStage]];
     // 4つ選択されているかのチェック
     if ([model getStoneCount:2] != 4) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
@@ -97,6 +99,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
     [dao updateClearFlag:currentModel date:nil];
     [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
+    [self.mOverlayKyouenView drawKyouen:kyouenData tumeKyouenModel:self.currentModel];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:@"共円！！"
                                                    delegate:self
@@ -133,21 +136,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 {
     TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
     TumeKyouenModel *model = [dao selectByStageNo:stageNo];
-    // TODO 取得できなかった場合の処理
-    [self setStageWithAnimation:model direction:direction];
-}
-
-- (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
-{
-    self.currentModel = model;
-    if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
-        [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
-    } else {
-        [self.mStageNo setTextColor:[UIColor whiteColor]];
+    if (model == nil) {
+        // TODO 取得できなかった場合の処理
+        return;
     }
-    [self.mStageNo setText:[NSString stringWithFormat:@"STAGE:%@", self.currentModel.stageNo]];
-    [self.mCreator setText:[NSString stringWithFormat:@"created by %@", self.currentModel.creator]];
-    [imageView setStage:currentModel];
+    [self setStageWithAnimation:model direction:direction];
 }
 
 - (void)setStageWithAnimation:(TumeKyouenModel *)model direction:(int)direction
@@ -181,6 +174,21 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     
     self.mKyouenImageView1 = nextImageView;
     self.mKyouenImageView2 = currentImageView;
+}
+
+- (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
+{
+    self.currentModel = model;
+    if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
+        [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
+    } else {
+        [self.mStageNo setTextColor:[UIColor whiteColor]];
+    }
+    [self.mStageNo setText:[NSString stringWithFormat:@"STAGE:%@", self.currentModel.stageNo]];
+    [self.mCreator setText:[NSString stringWithFormat:@"created by %@", self.currentModel.creator]];
+    [imageView setStage:currentModel];
+    
+    self.mOverlayKyouenView.alpha = 0;
 }
 
 - (void)endSetStageAnimation

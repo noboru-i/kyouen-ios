@@ -39,8 +39,8 @@
     // 設定されているステージ情報を反映
     NSString *stage = self.model.stage;
     int size = [self.model.size intValue];
-    for (int x = 0; x < size; x++) {
-        for (int y = 0; y < size; y++) {
+    for (int y = 0; y < size; y++) {
+        for (int x = 0; x < size; x++) {
             int state = [[stage substringWithRange:NSMakeRange(x + y * size, 1)] intValue];
             StoneButton *button = [[StoneButton alloc] initWithOptions:size state:state];
             button.transform = CGAffineTransformMakeTranslation(x * button.frame.size.width, y * button.frame.size.width);

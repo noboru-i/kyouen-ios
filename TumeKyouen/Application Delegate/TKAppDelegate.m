@@ -38,11 +38,6 @@
     
     [self managedObjectContext];
     [self initializeData];
-    
-    // TODO テスト用
-    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-    TumeKyouenModel *result = [dao selectByStageNo:@1];
-    LOG(@"result = %@", result);
 
     return YES;
 }

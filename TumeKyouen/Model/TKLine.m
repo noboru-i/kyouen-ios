@@ -38,6 +38,17 @@
     return self;
 }
 
+- (double)getX:(double)y
+{
+    double x = -1 * (self.b * y + self.c) / self.a;
+    return x;
+}
+- (double)getY:(double)x
+{
+    double y = -1 * (self.a * x + self.c) / self.b;
+    return y;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"p1 = %@, p2 = %@, a = %f, b = %f, c = %f",
             self.p1,

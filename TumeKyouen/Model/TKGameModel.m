@@ -21,7 +21,7 @@
 
 @implementation TKGameModel
 
-- (id)initWithSizeAndStage:(int)size stage:(NSString *)stage
+- (id)initWithSize:(int)size stage:(NSString *)stage
 {
     if (self = [super init]) {
         self.size = size;
@@ -90,7 +90,7 @@
     
     NSString *stateString = [NSString stringWithFormat:@"%d", state];
     
-    // 指定されたstateと同一文字の数を数える
+    // 指定されたstateと同一文字の座標を取得
     NSMutableArray *points = [[NSMutableArray alloc] initWithCapacity:4];
     for (int i = 0; i < [self.stage length]; i++) {
         if ([[self.stage substringWithRange:NSMakeRange(i, 1)] isEqualToString:stateString]) {

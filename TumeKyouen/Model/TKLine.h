@@ -20,4 +20,7 @@
 
 - (id)initWithPoints:(TKPoint *)p1 anotherPoint:(TKPoint *)p2;
 
+- (double)getX:(double)y;
+- (double)getY:(double)x;
+
 @end

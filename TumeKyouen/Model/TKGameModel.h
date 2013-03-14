@@ -12,7 +12,7 @@
 
 @interface TKGameModel : NSObject
 
-- (id)initWithSizeAndStage:(int)size stage:(NSString *)stage;
+- (id)initWithSize:(int)size stage:(NSString *)stage;
 - (int)getStoneCount:(int)state;
 - (TKKyouenData *)isKyouen;
 

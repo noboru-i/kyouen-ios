@@ -16,9 +16,9 @@
     // 6x6 : 51, 9x9 : 34
     int stoneSize = 0;
     if (size == 6) {
-        stoneSize = 51;
+        stoneSize = 51; // 306/6
     } else if (size == 9) {
-        stoneSize = 34;
+        stoneSize = 34; // 306/9
     } else {
         [[NSException exceptionWithName:@"IllegalArgumentException"
                                  reason:@"unknown size"
@@ -57,9 +57,10 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // マス目の描画
-    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
+    CGContextSetRGBStrokeColor(context, 0.25, 0.25, 0.25, 1.0);
     CGPoint points[4] = {CGPointMake(0, width/2), CGPointMake(width, width/2),
         CGPointMake(width/2, 0), CGPointMake(width/2, width)};
+    CGContextSetLineWidth(context, 2);
     CGContextStrokeLineSegments(context, points, 4);
     
     // 石の描画
