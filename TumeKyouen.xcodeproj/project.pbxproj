@@ -10,6 +10,7 @@
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
+		684D801016F3868600C01937 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 684D800F16F3868600C01937 /* libGoogleAdMobAds.a */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825B016D9320C00D89D0B /* CoreGraphics.framework */; };
@@ -36,7 +37,6 @@
 		6898264516D9396C00D89D0B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264416D9396C00D89D0B /* Default.png */; };
 		6898264716D93A8900D89D0B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264616D93A8900D89D0B /* Default@2x.png */; };
 		6898264916D93A9200D89D0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264816D93A9200D89D0B /* Default-568h@2x.png */; };
-		6898268616D93BC300D89D0B /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268516D93BC300D89D0B /* libGoogleAdMobAds.a */; };
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
 		68AFAE3B16EA30320076DE31 /* TumeKyouenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE3A16EA30320076DE31 /* TumeKyouenModel.m */; };
@@ -45,6 +45,7 @@
 		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
 		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
 		68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */; };
+		B4331424D3C5462EB6DF85D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC0D356DA104F5595C559A9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FC0D356DA104F5595C559A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6831FDC616E1BF0A00291810 /* initial_stage.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_stage.csv; sourceTree = "<group>"; };
 		6831FDC916E32E7600291810 /* BaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDao.h; sourceTree = "<group>"; };
 		6831FDCA16E32E7600291810 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
 		6831FDCC16E3320100291810 /* TKTumeKyouenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenDao.h; sourceTree = "<group>"; };
 		6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenDao.m; sourceTree = "<group>"; };
+		684D800F16F3868600C01937 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = ../../Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825AC16D9320C00D89D0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		689825AE16D9320C00D89D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,16 +102,6 @@
 		6898264416D9396C00D89D0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6898264616D93A8900D89D0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6898264816D93A9200D89D0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6898267C16D93BBA00D89D0B /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		6898267D16D93BC300D89D0B /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		6898267E16D93BC300D89D0B /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		6898267F16D93BC300D89D0B /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		6898268016D93BC300D89D0B /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		6898268116D93BC300D89D0B /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		6898268216D93BC300D89D0B /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		6898268316D93BC300D89D0B /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		6898268416D93BC300D89D0B /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		6898268516D93BC300D89D0B /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		6898268916DA2A5B00D89D0B /* TumeKyouen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TumeKyouen.xcdatamodel; sourceTree = "<group>"; };
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		68AFAE3916EA30320076DE31 /* TumeKyouenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumeKyouenModel.h; sourceTree = "<group>"; };
@@ -123,6 +116,7 @@
 		68AFAE4816EA4CBE0076DE31 /* TKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPoint.m; sourceTree = "<group>"; };
 		68AFAE4A16ECDF1B0076DE31 /* TKOverlayKyouenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOverlayKyouenView.h; sourceTree = "<group>"; };
 		68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOverlayKyouenView.m; sourceTree = "<group>"; };
+		A25B15A373A149CCB873811F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684D801016F3868600C01937 /* libGoogleAdMobAds.a in Frameworks */,
 				6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */,
 				6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */,
 				6898262B16D934FA00D89D0B /* AdSupport.framework in Frameworks */,
@@ -140,7 +135,7 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
-				6898268616D93BC300D89D0B /* libGoogleAdMobAds.a in Frameworks */,
+				B4331424D3C5462EB6DF85D6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +170,7 @@
 				689825D616D9320C00D89D0B /* TumeKyouenTests */,
 				689825AB16D9320C00D89D0B /* Frameworks */,
 				689825AA16D9320C00D89D0B /* Products */,
+				A25B15A373A149CCB873811F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +197,7 @@
 				689825AE16D9320C00D89D0B /* Foundation.framework */,
 				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
 				689825D016D9320C00D89D0B /* SenTestingKit.framework */,
+				2FC0D356DA104F5595C559A9 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -290,26 +287,9 @@
 		6898265816D93B2800D89D0B /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6898266516D93B4800D89D0B /* GoogleAdMobAdsSdkiOS */,
+				684D800F16F3868600C01937 /* libGoogleAdMobAds.a */,
 			);
 			path = "Other Sources";
-			sourceTree = "<group>";
-		};
-		6898266516D93B4800D89D0B /* GoogleAdMobAdsSdkiOS */ = {
-			isa = PBXGroup;
-			children = (
-				6898267D16D93BC300D89D0B /* GADAdNetworkExtras.h */,
-				6898267E16D93BC300D89D0B /* GADAdSize.h */,
-				6898267F16D93BC300D89D0B /* GADBannerView.h */,
-				6898268016D93BC300D89D0B /* GADBannerViewDelegate.h */,
-				6898268116D93BC300D89D0B /* GADInterstitial.h */,
-				6898268216D93BC300D89D0B /* GADInterstitialDelegate.h */,
-				6898268316D93BC300D89D0B /* GADRequest.h */,
-				6898268416D93BC300D89D0B /* GADRequestError.h */,
-				6898268516D93BC300D89D0B /* libGoogleAdMobAds.a */,
-				6898267C16D93BBA00D89D0B /* GADAdMobExtras.h */,
-			);
-			path = GoogleAdMobAdsSdkiOS;
 			sourceTree = "<group>";
 		};
 		6898269016DA5E1900D89D0B /* Application Delegate */ = {
@@ -366,6 +346,7 @@
 				689825A516D9320C00D89D0B /* Sources */,
 				689825A616D9320C00D89D0B /* Frameworks */,
 				689825A716D9320C00D89D0B /* Resources */,
+				1EECD561BEA54EA29864F42D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -448,6 +429,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1EECD561BEA54EA29864F42D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		689825CD16D9320C00D89D0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -592,6 +587,7 @@
 		};
 		689825E216D9320C00D89D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
@@ -599,7 +595,8 @@
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TumeKyouen/Other Sources/GoogleAdMobAdsSdkiOS\"",
+					"\"$(SRCROOT)/Pods/AdMob/GoogleAdMobAdsSdkiOS-6.3.0\"",
+					"\"$(SRCROOT)/Pods/AdMob\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -609,6 +606,7 @@
 		};
 		689825E316D9320C00D89D0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
@@ -616,7 +614,8 @@
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TumeKyouen/Other Sources/GoogleAdMobAdsSdkiOS\"",
+					"\"$(SRCROOT)/Pods/AdMob/GoogleAdMobAdsSdkiOS-6.3.0\"",
+					"\"$(SRCROOT)/Pods/AdMob\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
