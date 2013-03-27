@@ -11,6 +11,7 @@
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
 		684D801016F3868600C01937 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 684D800F16F3868600C01937 /* libGoogleAdMobAds.a */; };
+		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825B016D9320C00D89D0B /* CoreGraphics.framework */; };
@@ -66,6 +67,8 @@
 		6831FDCC16E3320100291810 /* TKTumeKyouenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenDao.h; sourceTree = "<group>"; };
 		6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenDao.m; sourceTree = "<group>"; };
 		684D800F16F3868600C01937 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = ../../Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
+		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
 		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825AC16D9320C00D89D0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		689825AE16D9320C00D89D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,15 @@
 			path = Dao;
 			sourceTree = "<group>";
 		};
+		6890DEAF16F614E8001E6A09 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */,
+				6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		689825A016D9320C00D89D0B = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +223,7 @@
 				68AFAE3816EA30320076DE31 /* Dto */,
 				689825FE16D933AC00D89D0B /* View */,
 				68AFAE3D16EA32F00076DE31 /* Model */,
+				6890DEAF16F614E8001E6A09 /* Network */,
 				689825FB16D933AC00D89D0B /* Util */,
 				689825F516D933AC00D89D0B /* Resources */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
@@ -479,6 +492,7 @@
 				68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */,
 				68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */,
 				68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */,
+				6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +609,6 @@
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Pods/AdMob/GoogleAdMobAdsSdkiOS-6.3.0\"",
 					"\"$(SRCROOT)/Pods/AdMob\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -614,7 +627,6 @@
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Pods/AdMob/GoogleAdMobAdsSdkiOS-6.3.0\"",
 					"\"$(SRCROOT)/Pods/AdMob\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";

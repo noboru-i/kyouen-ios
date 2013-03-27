@@ -15,6 +15,7 @@
 #import "TKGameModel.h"
 #import "TKKyouenData.h"
 #import "TKLine.h"
+#import "TKTumeKyouenServer.h"
 
 @interface TKKyouenViewController ()
 
@@ -134,10 +135,42 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
 - (void)moveStage:(NSNumber *)stageNo direction:(int)direction
 {
+    LOG(@"moveStage");
     TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
     TumeKyouenModel *model = [dao selectByStageNo:stageNo];
     if (model == nil) {
-        // TODO 取得できなかった場合の処理
+        // 取得できなかった場合の処理
+        [self.mIndicator setAlpha:1];
+        [self.mIndicator startAnimating];
+
+        TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+        [server getStageData:([stageNo intValue] -1) callback:^(NSString *result) {
+            if (result == nil || [result length] == 0) {
+                // 取得できなかった
+                [self.mIndicator setAlpha:0];
+                [self.mIndicator stopAnimating];
+                return;
+            }
+            if ([result isEqualToString:@"no_data"]) {
+                // データなし
+                [self.mIndicator setAlpha:0];
+                [self.mIndicator stopAnimating];
+                return;
+            }
+
+            // データの登録
+            TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+            NSArray *lines = [result componentsSeparatedByString:@"\n"];
+            for (NSString *line in lines) {
+                if (![dao insertWithCsvString:line]) {
+                    // エラー発生時
+                    break;
+                }
+            }
+            [self.mIndicator setAlpha:0];
+            [self.mIndicator stopAnimating];
+        }];
+
         return;
     }
     [self setStageWithAnimation:model direction:direction];
@@ -145,6 +178,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
 - (void)setStageWithAnimation:(TumeKyouenModel *)model direction:(int)direction
 {
+    LOG(@"setStageWithAnimation");
     KyouenImageView *currentImageView = self.mKyouenImageView1;
     KyouenImageView *nextImageView = self.mKyouenImageView2;
     [self setStage:model
@@ -178,6 +212,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
 - (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
 {
+    LOG(@"setStage");
     self.currentModel = model;
     if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
         [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];

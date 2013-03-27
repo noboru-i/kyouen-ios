@@ -12,7 +12,7 @@
 
 @implementation TKTumeKyouenDao
 
-- (void)insertWithCsvString:(NSString *)csv
+- (BOOL)insertWithCsvString:(NSString *)csv
 {
     
     NSArray *lines = [csv componentsSeparatedByString:@"\n"];
@@ -29,7 +29,7 @@
     }
     
     NSError *error;
-    [self.managedObjectContext save:&error];
+    return [self.managedObjectContext save:&error];
 }
 
 - (TumeKyouenModel *)selectByStageNo:(NSNumber *)stageNo

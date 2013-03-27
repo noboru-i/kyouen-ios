@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EHJ-b6-MhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EHJ-b6-MhR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -126,35 +126,41 @@
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-pw-S2e" customClass="TKOverlayKyouenView">
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xbY-R4-ZE3">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="1lV-81-wxm"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="1pH-uD-6II"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="top" secondItem="zXU-ga-JKW" secondAttribute="top" type="default" id="1wT-H6-3p6"/>
+                            <constraint firstItem="xbY-R4-ZE3" firstAttribute="centerX" secondItem="Uy7-ai-sIB" secondAttribute="centerX" type="default" id="6xb-dL-ElQ"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7LM-Vj-ePp"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="51" id="AyA-Rx-e1a"/>
                             <constraint firstItem="zPT-D8-uAE" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="82" id="CI5-AE-PGl"/>
                             <constraint firstItem="4tS-bK-aqy" firstAttribute="leading" secondItem="r9h-sH-t7c" secondAttribute="leading" type="default" id="EJ2-0R-IUd"/>
+                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="zXU-ga-JKW" secondAttribute="bottom" type="default" id="HhD-vX-yYk"/>
                             <constraint firstItem="r9h-sH-t7c" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="top" type="default" id="Ii7-Bz-RX1"/>
                             <constraint firstItem="Uy7-ai-sIB" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="KRJ-DD-vWm"/>
                             <constraint firstAttribute="trailing" secondItem="zPH-Y1-LpH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="L5e-Ak-Pee"/>
+                            <constraint firstItem="4tS-bK-aqy" firstAttribute="leading" secondItem="iuy-pw-S2e" secondAttribute="leading" type="default" id="NZw-Yg-eEa"/>
+                            <constraint firstItem="xbY-R4-ZE3" firstAttribute="centerX" secondItem="4tS-bK-aqy" secondAttribute="centerX" type="default" id="S91-AD-McY"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="iuy-pw-S2e" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XcU-Il-8wp"/>
                             <constraint firstItem="iuy-pw-S2e" firstAttribute="trailing" secondItem="r9h-sH-t7c" secondAttribute="trailing" type="default" id="bsv-MO-XHV"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="centerX" secondItem="Uy7-ai-sIB" secondAttribute="centerX" type="default" id="e1Z-JO-vd0"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="trailing" secondItem="njD-DB-Aey" secondAttribute="trailing" type="default" id="fof-LU-taL"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gfr-XJ-vLM"/>
                             <constraint firstItem="zPH-Y1-LpH" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lQE-66-qn4"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="3" id="nyi-3M-gJx"/>
                             <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="top" type="default" id="rhc-EJ-YQu"/>
+                            <constraint firstItem="xbY-R4-ZE3" firstAttribute="centerY" secondItem="njD-DB-Aey" secondAttribute="centerY" type="default" id="sK9-Pi-36t"/>
+                            <constraint firstItem="xbY-R4-ZE3" firstAttribute="centerX" secondItem="zPH-Y1-LpH" secondAttribute="centerX" type="default" id="u6q-nm-IMh"/>
                             <constraint firstItem="zXU-ga-JKW" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leading" type="default" id="vWy-9l-jLG"/>
                             <constraint firstItem="YAC-EM-KjT" firstAttribute="baseline" secondItem="zXU-ga-JKW" secondAttribute="baseline" type="default" id="wIK-Pt-yiO"/>
-                            <constraint firstItem="r9h-sH-t7c" firstAttribute="leading" secondItem="iuy-pw-S2e" secondAttribute="leading" type="default" id="wpn-iG-JJe"/>
                             <constraint firstItem="4tS-bK-aqy" firstAttribute="trailing" secondItem="r9h-sH-t7c" secondAttribute="trailing" type="default" id="wyM-Ud-5j9"/>
-                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="bottom" secondItem="YAC-EM-KjT" secondAttribute="bottom" type="default" id="wyd-GY-1on"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mCreator" destination="Uy7-ai-sIB" id="LbO-Nj-rhN"/>
+                        <outlet property="mIndicator" destination="xbY-R4-ZE3" id="98s-xr-EXd"/>
                         <outlet property="mKyouenImageView1" destination="r9h-sH-t7c" id="bf2-l5-h0X"/>
                         <outlet property="mKyouenImageView2" destination="4tS-bK-aqy" id="wwi-xY-Ea3"/>
                         <outlet property="mNextButton" destination="YAC-EM-KjT" id="D4T-Hd-bzz"/>
@@ -200,6 +206,7 @@
                 <relationship kind="action" name="moveNextStage:"/>
                 <relationship kind="action" name="movePrevStage:"/>
                 <relationship kind="outlet" name="mCreator" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="mKyouenImageView1" candidateClass="KyouenImageView"/>
                 <relationship kind="outlet" name="mKyouenImageView2" candidateClass="KyouenImageView"/>
                 <relationship kind="outlet" name="mNextButton" candidateClass="UIButton"/>
