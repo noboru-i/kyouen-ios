@@ -1,0 +1,10 @@
+PODS:
+  - AdMob (6.0.3)
+
+DEPENDENCIES:
+  - AdMob
+
+SPEC CHECKSUMS:
+  AdMob: 9916fb48a71e45dba76dd780ba6a2b523b64dce4
+
+COCOAPODS: 0.22.2

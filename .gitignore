@@ -4,6 +4,5 @@
 *.xcworkspace/*
 !*.xcworkspace/contents.xcworkspacedata
 .DS_Store
-Podfile.lock
 Pods
 
