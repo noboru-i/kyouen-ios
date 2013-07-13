@@ -1,10 +1,13 @@
 PODS:
-  - AdMob (6.0.3)
+  - AdMob (6.4.2)
+  - AFNetworking (1.3.1)
 
 DEPENDENCIES:
   - AdMob
+  - AFNetworking
 
 SPEC CHECKSUMS:
-  AdMob: 9916fb48a71e45dba76dd780ba6a2b523b64dce4
+  AdMob: 44f411d138329b8db372997d9958e62cd33c2fa2
+  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
 
 COCOAPODS: 0.22.2

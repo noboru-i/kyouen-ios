@@ -1,4 +1,5 @@
-platform :ios
-dependency 'AdMob'
-xcodeproj 'TumeKyouen.xcodeproj'
+platform :ios, '5.0'
+
+pod 'AFNetworking'
+pod 'AdMob'
 

@@ -10,7 +10,7 @@
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
-		684D801016F3868600C01937 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 684D800F16F3868600C01937 /* libGoogleAdMobAds.a */; };
+		686A2A141791C5A7000DA915 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
@@ -46,6 +46,9 @@
 		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
 		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
 		68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */; };
+		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
+		68BD36191791974C00B45FDE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36181791974C00B45FDE /* Security.framework */; };
+		68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD361A1791988500B45FDE /* MobileCoreServices.framework */; };
 		B4331424D3C5462EB6DF85D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC0D356DA104F5595C559A9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +69,7 @@
 		6831FDCA16E32E7600291810 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
 		6831FDCC16E3320100291810 /* TKTumeKyouenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenDao.h; sourceTree = "<group>"; };
 		6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenDao.m; sourceTree = "<group>"; };
-		684D800F16F3868600C01937 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = ../../Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
 		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
 		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +122,9 @@
 		68AFAE4816EA4CBE0076DE31 /* TKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPoint.m; sourceTree = "<group>"; };
 		68AFAE4A16ECDF1B0076DE31 /* TKOverlayKyouenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOverlayKyouenView.h; sourceTree = "<group>"; };
 		68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOverlayKyouenView.m; sourceTree = "<group>"; };
+		68BD36161791973C00B45FDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		68BD36181791974C00B45FDE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A25B15A373A149CCB873811F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -127,7 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684D801016F3868600C01937 /* libGoogleAdMobAds.a in Frameworks */,
+				686A2A141791C5A7000DA915 /* libGoogleAdMobAds.a in Frameworks */,
+				68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */,
+				68BD36191791974C00B45FDE /* Security.framework in Frameworks */,
+				68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */,
 				6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */,
 				6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */,
 				6898262B16D934FA00D89D0B /* AdSupport.framework in Frameworks */,
@@ -198,6 +207,10 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */,
+				68BD361A1791988500B45FDE /* MobileCoreServices.framework */,
+				68BD36181791974C00B45FDE /* Security.framework */,
+				68BD36161791973C00B45FDE /* CFNetwork.framework */,
 				6898268E16DA592000D89D0B /* CoreData.framework */,
 				6898262C16D9350000D89D0B /* StoreKit.framework */,
 				6898262A16D934FA00D89D0B /* AdSupport.framework */,
@@ -227,7 +240,6 @@
 				689825FB16D933AC00D89D0B /* Util */,
 				689825F516D933AC00D89D0B /* Resources */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
-				6898265816D93B2800D89D0B /* Other Sources */,
 			);
 			path = TumeKyouen;
 			sourceTree = "<group>";
@@ -295,14 +307,6 @@
 				68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6898265816D93B2800D89D0B /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				684D800F16F3868600C01937 /* libGoogleAdMobAds.a */,
-			);
-			path = "Other Sources";
 			sourceTree = "<group>";
 		};
 		6898269016DA5E1900D89D0B /* Application Delegate */ = {
