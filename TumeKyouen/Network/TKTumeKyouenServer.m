@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 noboru. All rights reserved.
 //
 
+#import "AFNetworking.h"
 #import "TKTumeKyouenServer.h"
 
 @implementation TKTumeKyouenServer
@@ -13,18 +14,20 @@
 - (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback
 {
     NSString *domain = @"http://localhost:8080";
-    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", domain, currentMaxStageNo]]
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", domain, currentMaxStageNo]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url
                                          cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                      timeoutInterval:10.0f];
-    [NSURLConnection sendAsynchronousRequest:req
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error) {
-                               NSString *resultString = [[NSString alloc] initWithData:data
-                                                                              encoding:NSUTF8StringEncoding];
-                               callback(resultString);
-                           }];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        LOG(@"%@", operation.responseString);
+        callback(operation.responseString);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        LOG(@"%@", error.localizedDescription);
+    }];
+    [operation start];
+
     return nil;
 }
 

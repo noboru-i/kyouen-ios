@@ -145,6 +145,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
         TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
         [server getStageData:([stageNo intValue] -1) callback:^(NSString *result) {
+            LOG(@"callback");
+            LOG(@"%@", result);
             if (result == nil || [result length] == 0) {
                 // 取得できなかった
                 [self.mIndicator setAlpha:0];
@@ -169,6 +171,9 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
             }
             [self.mIndicator setAlpha:0];
             [self.mIndicator stopAnimating];
+
+            // ステージの移動
+            [self moveStage:stageNo direction:direction];
         }];
 
         return;
