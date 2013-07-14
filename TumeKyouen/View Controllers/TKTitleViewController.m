@@ -11,6 +11,7 @@
 #import "TKTitleViewController.h"
 #import "TKKyouenViewController.h"
 #import "TKTumeKyouenDao.h"
+#import "TKSettingDao.h"
 #import "AdMobUtil.h"
 
 @interface TKTitleViewController ()
@@ -43,8 +44,10 @@
 {
     if ([[segue identifier] isEqualToString:@"StartSegue"]) {
         // TODO 前回終了時のステージ番号を渡す
+        TKSettingDao *settingDao = [[TKSettingDao alloc] init];
+        NSNumber *stageNo = [settingDao loadStageNo];
         TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-        TumeKyouenModel *model = [dao selectByStageNo:@1];
+        TumeKyouenModel *model = [dao selectByStageNo:stageNo];
 
         TKKyouenViewController *viewController = (TKKyouenViewController*)[segue destinationViewController];
         viewController.currentModel = model;

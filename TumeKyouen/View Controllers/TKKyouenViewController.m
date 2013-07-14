@@ -12,6 +12,7 @@
 #import "KyouenImageView.h"
 #import "TKOverlayKyouenView.h"
 #import "TKTumeKyouenDao.h"
+#import "TKSettingDao.h"
 #import "TKGameModel.h"
 #import "TKKyouenData.h"
 #import "TKLine.h"
@@ -179,6 +180,10 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
         return;
     }
     [self setStageWithAnimation:model direction:direction];
+
+    // 表示したステージ番号を保存
+    TKSettingDao *settingDao = [[TKSettingDao alloc] init];
+    [settingDao saveStageNo:model.stageNo];
 }
 
 - (void)setStageWithAnimation:(TumeKyouenModel *)model direction:(int)direction

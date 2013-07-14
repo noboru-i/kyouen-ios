@@ -10,6 +10,8 @@
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
+		68390B571792AD6E00954896 /* TKSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B561792AD6E00954896 /* TKSettingModel.m */; };
+		68390B5A1792ADE900954896 /* TKSettingDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B591792ADE900954896 /* TKSettingDao.m */; };
 		686A2A141791C5A7000DA915 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
@@ -69,6 +71,10 @@
 		6831FDCA16E32E7600291810 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
 		6831FDCC16E3320100291810 /* TKTumeKyouenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenDao.h; sourceTree = "<group>"; };
 		6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenDao.m; sourceTree = "<group>"; };
+		68390B551792AD6E00954896 /* TKSettingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSettingModel.h; sourceTree = "<group>"; };
+		68390B561792AD6E00954896 /* TKSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSettingModel.m; sourceTree = "<group>"; };
+		68390B581792ADE900954896 /* TKSettingDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSettingDao.h; sourceTree = "<group>"; };
+		68390B591792ADE900954896 /* TKSettingDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSettingDao.m; sourceTree = "<group>"; };
 		686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
 		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 				6831FDCA16E32E7600291810 /* BaseDao.m */,
 				6831FDCC16E3320100291810 /* TKTumeKyouenDao.h */,
 				6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */,
+				68390B581792ADE900954896 /* TKSettingDao.h */,
+				68390B591792ADE900954896 /* TKSettingDao.m */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -349,6 +357,8 @@
 				68AFAE4516EA44E10076DE31 /* TKLine.m */,
 				68AFAE4716EA4CBE0076DE31 /* TKPoint.h */,
 				68AFAE4816EA4CBE0076DE31 /* TKPoint.m */,
+				68390B551792AD6E00954896 /* TKSettingModel.h */,
+				68390B561792AD6E00954896 /* TKSettingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -497,6 +507,8 @@
 				68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */,
 				68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */,
 				6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */,
+				68390B571792AD6E00954896 /* TKSettingModel.m in Sources */,
+				68390B5A1792ADE900954896 /* TKSettingDao.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
