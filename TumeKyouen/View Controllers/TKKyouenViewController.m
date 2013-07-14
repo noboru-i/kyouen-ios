@@ -223,6 +223,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 - (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
 {
     LOG(@"setStage");
+
+    // 移動ボタンを無効化
+    [self.mPrevButton setEnabled:NO];
+    [self.mNextButton setEnabled:NO];
+
     self.currentModel = model;
     if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
         [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
@@ -234,12 +239,18 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     [imageView setStage:currentModel];
     
     self.mOverlayKyouenView.alpha = 0;
+
+    [self endSetStageAnimation];
 }
 
 - (void)endSetStageAnimation
 {
+    LOG(@"stageNo = %@", self.currentModel.stageNo);
+    if (![self.currentModel.stageNo isEqual: @1]) {
+        // ステージ１の場合は戻れない
+        [self.mPrevButton setEnabled:YES];
+    }
     // 移動ボタンを有効化
-    [self.mPrevButton setEnabled:YES];
     [self.mNextButton setEnabled:YES];
 }
 
