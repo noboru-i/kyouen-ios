@@ -13,11 +13,12 @@
 
 - (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback
 {
+//    NSString *domain = @"https://my-android-server.appspot.com";
     NSString *domain = @"http://localhost:8080";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", domain, currentMaxStageNo]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
-                                         cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                     timeoutInterval:10.0f];
+                                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                         timeoutInterval:10.0f];
 
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -29,6 +30,34 @@
     [operation start];
 
     return nil;
+}
+
+- (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *))callback
+{
+    LOG(@"token = %@", token);
+    LOG(@"tokenSecret = %@", tokenSecret);
+
+//    NSString *domain = @"https://my-android-server.appspot.com";
+    NSString *domain = @"http://localhost:8080";
+    NSString* content = [NSString stringWithFormat:@"token=%@&token_secret=%@", token, tokenSecret];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/page/api_login", domain]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:10.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        LOG(@"%@", operation.responseString);
+        callback(operation.responseString);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        LOG(@"%@", error.localizedDescription);
+    }];
+    [operation start];
+
+    return;
 }
 
 @end

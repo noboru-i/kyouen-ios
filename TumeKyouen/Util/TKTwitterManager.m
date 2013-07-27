@@ -11,6 +11,7 @@
 
 #import "TKTwitterManager.h"
 #import "TKSignedRequest.h"
+#import "TKTwitterTokenDao.h"
 
 typedef void(^TKAPIHandler)(NSData *data, NSError *error);
 
@@ -43,7 +44,6 @@ typedef void(^TKAPIHandler)(NSData *data, NSError *error);
 
 - (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(TKAPIHandler)handler
 {
-    LOG(@"account=%@", account);
     [self _step1WithCompletion:^(NSData *data, NSError *error) {
         if (!data) {
             
@@ -56,8 +56,21 @@ typedef void(^TKAPIHandler)(NSData *data, NSError *error);
                 if (responseData) {
                     NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
                     NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
+                    NSString *oauthToken = nil;
+                    NSString *oauthTokenSecret = nil;
                     for (NSString *line in parts) {
-                        LOG(@"line = %@", line);
+                        NSArray *keyValue = [line componentsSeparatedByString:@"="];
+                        NSString *key = keyValue[0];
+                        if ([key isEqualToString:@"oauth_token"]) {
+                            oauthToken = keyValue[1];
+                        } else if ([key isEqualToString:@"oauth_token_secret"]) {
+                            oauthTokenSecret = keyValue[1];
+                        }
+                    }
+                    if (oauthToken && oauthTokenSecret) {
+                        // 保存する
+                        TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
+                        [dao saveToken:oauthToken oauthTokenSecret:oauthTokenSecret];
                     }
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{

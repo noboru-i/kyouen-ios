@@ -10,7 +10,10 @@
 
 @interface TKTitleViewController : UIViewController<UIActionSheetDelegate> {
 }
+@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
+@property (weak, nonatomic) IBOutlet UIButton *syncButton;
 
 - (IBAction)connectTwitterAction:(id)sender;
+- (IBAction)syncDataAction:(id)sender;
 
 @end

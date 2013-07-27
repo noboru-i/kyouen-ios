@@ -14,8 +14,10 @@
 #import "TKKyouenViewController.h"
 #import "TKTumeKyouenDao.h"
 #import "TKSettingDao.h"
+#import "TKTwitterTokenDao.h"
 #import "AdMobUtil.h"
 #import "TKTwitterManager.h"
+#import "TKTumeKyouenServer.h"
 
 @interface TKTitleViewController ()
 
@@ -70,7 +72,7 @@
 }
 
 - (IBAction)connectTwitterAction:(id)sender {
-    LOG(@"connectTwitterAction");
+    LOG_METHOD;
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     for (ACAccount *acct in _accounts) {
@@ -80,28 +82,34 @@
     [sheet showInView:self.view];
 }
 
+- (IBAction)syncDataAction:(id)sender {
+    LOG_METHOD;
+}
+
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
         LOG(@"buttonIndex=%d", buttonIndex);
-        [_twitterManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
-            if (responseData) {
-                NSString *responseStr = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 
-                NSArray *parts = [responseStr componentsSeparatedByString:@"&"];
-                NSString *lined = [parts componentsJoinedByString:@"\n"];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!" message:lined delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                });
-            }
-            else {
+        [_twitterManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+            if (!responseData) {
                 // TODO Reverse Auth process failed.
                 LOG(@"Reverse Auth process failed.");
+                return;
             }
+
+            // 認証情報を送信
+            TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
+            NSString *oauthToken = [dao getOauthToken];
+            NSString *oauthTokenSecret = [dao getOauthTokenSecret];
+            TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+            [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
+                LOG(@"response = %@", response);
+                [self.twitterButton setHidden:YES];
+                [self.syncButton setHidden:NO];
+            }];
         }];
     }
 }

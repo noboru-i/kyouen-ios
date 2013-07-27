@@ -14,9 +14,11 @@
     #import <CoreData/CoreData.h>
 
     #ifdef DEBUG
-        #define LOG(fmt,...) NSLog((@"%s %d "fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+        #define LOG(fmt,...) NSLog((@"%s %d "fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+        #define LOG_METHOD NSLog(@"%s", __func__)
     #else
         #define LOG(...)
+        #define LOG_METHOD
     #endif
 
     // AdMob
