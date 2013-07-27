@@ -17,5 +17,6 @@
 - (NSUInteger)selectCount;
 - (void)updateClearFlag:(TumeKyouenModel *)model date:(NSDate *)date;
 - (NSArray *)selectAllClearStage;
+- (void)updateSyncClearData:(NSArray *)clearStages;
 
 @end

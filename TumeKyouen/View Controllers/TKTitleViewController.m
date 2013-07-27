@@ -88,11 +88,9 @@
     NSArray *stages = [dao selectAllClearStage];
 
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-    [server addAllStageUser:stages callback:^(NSDictionary *response) {
-        for (NSDictionary *dic in [response objectForKey:@"data"]) {
-            LOG(@"dic = %@", dic);
-            // TODO 取得したデータをCoreDataに投入
-        }
+    [server addAllStageUser:stages callback:^(NSArray *response) {
+        LOG_METHOD;
+        [dao updateSyncClearData:response];
     }];
 }
 

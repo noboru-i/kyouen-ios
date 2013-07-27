@@ -128,4 +128,22 @@
     return result;
 }
 
+- (void)updateSyncClearData:(NSArray *)clearStages
+{
+    LOG_METHOD;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+
+    for (NSDictionary *dic in clearStages) {
+        LOG(@"model = %@", dic);
+        TumeKyouenModel *model = [self selectByStageNo:[dic objectForKey:@"stageNo"]];
+        if (!model) {
+            continue;
+        }
+        NSDate *clearDate = [formatter dateFromString:[dic objectForKey:@"clearDate"]];
+        [self updateClearFlag:model date:clearDate];
+    }
+}
+
 @end

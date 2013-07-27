@@ -61,8 +61,9 @@
     return;
 }
 
-- (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSDictionary *))callback
+- (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *))callback
 {
+    LOG_METHOD;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -90,7 +91,11 @@
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         LOG(@"operation.responseString = %@", operation.responseString);
         NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingAllowFragments error:nil];
-        callback(responseJson);
+        NSArray *responseData = [responseJson objectForKey:@"data"];
+        if (responseData == nil) {
+            callback(nil);
+        }
+        callback(responseData);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LOG(@"%@", error.localizedDescription);
     }];
