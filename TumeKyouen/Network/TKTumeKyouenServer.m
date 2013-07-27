@@ -104,4 +104,22 @@
     return;
 }
 
+- (void)addStageUser:(NSNumber *) stageNo
+{
+    LOG(@"stageNo = %@", stageNo);
+    NSString* content = [NSString stringWithFormat:@"stageNo=%@", stageNo];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/page/add", SERVER_DOMAIN]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:10.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation start];
+
+    return;
+}
+
 @end
