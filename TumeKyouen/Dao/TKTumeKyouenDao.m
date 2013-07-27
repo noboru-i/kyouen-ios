@@ -97,4 +97,35 @@
     [self.managedObjectContext save:&error];
 }
 
+- (NSArray *)selectAllClearStage
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+
+    // 条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %d", @"clearFlag", 1];
+    [fetchRequest setPredicate:predicate];
+
+    // ソート順
+    NSSortDescriptor *stageNoDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stageNo" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:stageNoDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    // 取得
+    NSFetchedResultsController *resultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                                                                       managedObjectContext:[self managedObjectContext]
+                                                                                         sectionNameKeyPath:nil
+                                                                                                  cacheName:nil];
+    // TODO abort?
+    NSError *error;
+    if (![resultsController performFetch:&error]) {
+        LOG(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    NSArray *result = resultsController.fetchedObjects;
+    return result;
+}
+
 @end

@@ -84,6 +84,16 @@
 
 - (IBAction)syncDataAction:(id)sender {
     LOG_METHOD;
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    NSArray *stages = [dao selectAllClearStage];
+
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [server addAllStageUser:stages callback:^(NSDictionary *response) {
+        for (NSDictionary *dic in [response objectForKey:@"data"]) {
+            LOG(@"dic = %@", dic);
+            // TODO 取得したデータをCoreDataに投入
+        }
+    }];
 }
 
 #pragma mark - UIActionSheetDelegate
