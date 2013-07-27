@@ -109,6 +109,10 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
                                           otherButtonTitles:@"Next", nil];
     alert.tag = TKAlertTagKyouen;
     [alert show];
+
+    // クリアデータの送信
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [server addStageUser:currentModel.stageNo];
 }
 
 

@@ -12,6 +12,11 @@
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
 		68390B571792AD6E00954896 /* TKSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B561792AD6E00954896 /* TKSettingModel.m */; };
 		68390B5A1792ADE900954896 /* TKSettingDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B591792ADE900954896 /* TKSettingDao.m */; };
+		68390B5D179305E000954896 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5B179301E700954896 /* Social.framework */; };
+		68390B5F17A3B0A500954896 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5E17A3B0A500954896 /* Accounts.framework */; };
+		68390B6217A3BAE600954896 /* TKTwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6117A3BAE600954896 /* TKTwitterManager.m */; };
+		68390B6517A3C00E00954896 /* TKSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6417A3C00E00954896 /* TKSignedRequest.m */; };
+		68390B6817A3E23900954896 /* TKTwitterTokenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6717A3E23900954896 /* TKTwitterTokenDao.m */; };
 		686A2A141791C5A7000DA915 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
@@ -75,6 +80,14 @@
 		68390B561792AD6E00954896 /* TKSettingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSettingModel.m; sourceTree = "<group>"; };
 		68390B581792ADE900954896 /* TKSettingDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSettingDao.h; sourceTree = "<group>"; };
 		68390B591792ADE900954896 /* TKSettingDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSettingDao.m; sourceTree = "<group>"; };
+		68390B5B179301E700954896 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		68390B5E17A3B0A500954896 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		68390B6017A3BAE600954896 /* TKTwitterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTwitterManager.h; sourceTree = "<group>"; };
+		68390B6117A3BAE600954896 /* TKTwitterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTwitterManager.m; sourceTree = "<group>"; };
+		68390B6317A3C00E00954896 /* TKSignedRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSignedRequest.h; sourceTree = "<group>"; };
+		68390B6417A3C00E00954896 /* TKSignedRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSignedRequest.m; sourceTree = "<group>"; };
+		68390B6617A3E23900954896 /* TKTwitterTokenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTwitterTokenDao.h; sourceTree = "<group>"; };
+		68390B6717A3E23900954896 /* TKTwitterTokenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTwitterTokenDao.m; sourceTree = "<group>"; };
 		686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
 		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
@@ -139,6 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68390B5F17A3B0A500954896 /* Accounts.framework in Frameworks */,
+				68390B5D179305E000954896 /* Social.framework in Frameworks */,
 				686A2A141791C5A7000DA915 /* libGoogleAdMobAds.a in Frameworks */,
 				68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */,
 				68BD36191791974C00B45FDE /* Security.framework in Frameworks */,
@@ -179,6 +194,8 @@
 				6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */,
 				68390B581792ADE900954896 /* TKSettingDao.h */,
 				68390B591792ADE900954896 /* TKSettingDao.m */,
+				68390B6617A3E23900954896 /* TKTwitterTokenDao.h */,
+				68390B6717A3E23900954896 /* TKTwitterTokenDao.m */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -215,6 +232,8 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68390B5E17A3B0A500954896 /* Accounts.framework */,
+				68390B5B179301E700954896 /* Social.framework */,
 				686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */,
 				68BD361A1791988500B45FDE /* MobileCoreServices.framework */,
 				68BD36181791974C00B45FDE /* Security.framework */,
@@ -300,6 +319,10 @@
 			children = (
 				689825FC16D933AC00D89D0B /* AdMobUtil.h */,
 				689825FD16D933AC00D89D0B /* AdMobUtil.m */,
+				68390B6017A3BAE600954896 /* TKTwitterManager.h */,
+				68390B6117A3BAE600954896 /* TKTwitterManager.m */,
+				68390B6317A3C00E00954896 /* TKSignedRequest.h */,
+				68390B6417A3C00E00954896 /* TKSignedRequest.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -509,6 +532,9 @@
 				6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */,
 				68390B571792AD6E00954896 /* TKSettingModel.m in Sources */,
 				68390B5A1792ADE900954896 /* TKSettingDao.m in Sources */,
+				68390B6217A3BAE600954896 /* TKTwitterManager.m in Sources */,
+				68390B6517A3C00E00954896 /* TKSignedRequest.m in Sources */,
+				68390B6817A3E23900954896 /* TKTwitterTokenDao.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

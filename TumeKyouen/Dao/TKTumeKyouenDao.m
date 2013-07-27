@@ -97,4 +97,53 @@
     [self.managedObjectContext save:&error];
 }
 
+- (NSArray *)selectAllClearStage
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+
+    // 条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %d", @"clearFlag", 1];
+    [fetchRequest setPredicate:predicate];
+
+    // ソート順
+    NSSortDescriptor *stageNoDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stageNo" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:stageNoDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    // 取得
+    NSFetchedResultsController *resultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                                                                       managedObjectContext:[self managedObjectContext]
+                                                                                         sectionNameKeyPath:nil
+                                                                                                  cacheName:nil];
+    // TODO abort?
+    NSError *error;
+    if (![resultsController performFetch:&error]) {
+        LOG(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    NSArray *result = resultsController.fetchedObjects;
+    return result;
+}
+
+- (void)updateSyncClearData:(NSArray *)clearStages
+{
+    LOG_METHOD;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+
+    for (NSDictionary *dic in clearStages) {
+        LOG(@"model = %@", dic);
+        TumeKyouenModel *model = [self selectByStageNo:[dic objectForKey:@"stageNo"]];
+        if (!model) {
+            continue;
+        }
+        NSDate *clearDate = [formatter dateFromString:[dic objectForKey:@"clearDate"]];
+        [self updateClearFlag:model date:clearDate];
+    }
+}
+
 @end

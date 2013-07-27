@@ -36,5 +36,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>TWITTER_CONSUMER_KEY</key>
+	<string></string>
+	<key>TWITTER_CONSUMER_SECRET</key>
+	<string></string>
 </dict>
 </plist>
