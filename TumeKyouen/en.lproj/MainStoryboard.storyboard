@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EHJ-b6-MhR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EHJ-b6-MhR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -34,10 +34,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Twitterでログイン">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectTwitterAction:" destination="2" eventType="touchUpInside" id="s6Y-a6-zjV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="48t-uF-wuo"/>
                             <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="3" secondAttribute="top" constant="252" id="DUX-TK-CGE"/>
+                            <constraint firstItem="AOV-He-KSv" firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" type="default" id="WwN-aj-XJy"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" type="user" id="atM-w8-ho5"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" type="default" id="sZa-r8-w0U"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="tD9-ja-7tU"/>
@@ -192,36 +207,6 @@
             <point key="canvasLocation" x="-267" y="243"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="KyouenImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KyouenImageView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TKKyouenViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKKyouenViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="checkKyouen:"/>
-                <relationship kind="action" name="moveNextStage:"/>
-                <relationship kind="action" name="movePrevStage:"/>
-                <relationship kind="outlet" name="mCreator" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="mKyouenImageView1" candidateClass="KyouenImageView"/>
-                <relationship kind="outlet" name="mKyouenImageView2" candidateClass="KyouenImageView"/>
-                <relationship kind="outlet" name="mNextButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mOverlayKyouenView" candidateClass="TKOverlayKyouenView"/>
-                <relationship kind="outlet" name="mPrevButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mStageNo" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TKOverlayKyouenView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKOverlayKyouenView.h"/>
-        </class>
-        <class className="TKTitleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TKTitleViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

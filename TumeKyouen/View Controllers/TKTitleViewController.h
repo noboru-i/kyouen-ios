@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKTitleViewController : UIViewController {
+@interface TKTitleViewController : UIViewController<UIActionSheetDelegate> {
 }
+
+- (IBAction)connectTwitterAction:(id)sender;
 
 @end
