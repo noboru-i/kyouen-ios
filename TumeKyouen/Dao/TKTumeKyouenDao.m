@@ -83,6 +83,31 @@
     return count;
 }
 
+- (NSUInteger)selectCountClearStage
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TumeKyouenModel"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+
+    // 条件
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %d", @"clearFlag", 1];
+    [fetchRequest setPredicate:predicate];
+
+    // ソート順
+    NSSortDescriptor *stageNoDescriptor = [[NSSortDescriptor alloc] initWithKey:@"stageNo" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:stageNoDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    // 取得
+    NSError *error = nil;
+    NSUInteger count = [[self managedObjectContext] countForFetchRequest:fetchRequest error:&error];
+    if (count == NSNotFound) {
+        return 0;
+    }
+    return count;
+}
+
 - (void)updateClearFlag:(TumeKyouenModel *)model date:(NSDate *)date
 {
     if (date == nil) {

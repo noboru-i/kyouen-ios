@@ -60,22 +60,35 @@
                                     <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="adg-Q0-GsP"/>
+                                    <constraint firstAttribute="height" constant="21" id="iJb-bv-4VY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AOV-He-KSv" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="1YL-gk-xjV"/>
-                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="48t-uF-wuo"/>
+                            <constraint firstItem="uEa-3G-MJv" firstAttribute="trailing" secondItem="yfo-Eg-GFX" secondAttribute="trailing" type="default" id="6xu-JT-BSM"/>
+                            <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="AZ9-Ft-n7Q"/>
                             <constraint firstItem="AOV-He-KSv" firstAttribute="trailing" secondItem="yfo-Eg-GFX" secondAttribute="trailing" type="default" id="CHC-NU-L29"/>
-                            <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="3" secondAttribute="top" constant="252" id="DUX-TK-CGE"/>
                             <constraint firstItem="yfo-Eg-GFX" firstAttribute="baseline" secondItem="AOV-He-KSv" secondAttribute="baseline" type="default" id="MKz-zL-fA8"/>
-                            <constraint firstItem="AOV-He-KSv" firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" type="default" id="WwN-aj-XJy"/>
+                            <constraint firstItem="uEa-3G-MJv" firstAttribute="leading" secondItem="yfo-Eg-GFX" secondAttribute="leading" type="default" id="QeJ-YD-5Va"/>
+                            <constraint firstItem="uEa-3G-MJv" firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" type="default" id="ZMJ-RM-nfe"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="3" secondAttribute="top" constant="70" type="user" id="atM-w8-ho5"/>
+                            <constraint firstAttribute="bottom" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="134" id="b6R-bf-bcm"/>
+                            <constraint firstAttribute="trailing" secondItem="aLh-Fz-0B5" secondAttribute="trailing" constant="50" id="cvu-br-yDI"/>
                             <constraint firstItem="yfo-Eg-GFX" firstAttribute="leading" secondItem="AOV-He-KSv" secondAttribute="leading" type="default" id="iDM-Ro-24c"/>
-                            <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" type="default" id="sZa-r8-w0U"/>
+                            <constraint firstAttribute="bottom" secondItem="yfo-Eg-GFX" secondAttribute="bottom" constant="70" id="qrn-zM-6v2"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wHH-o0-0RU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sJP-uf-2ZN"/>
                     <connections>
+                        <outlet property="stageCountLabel" destination="aLh-Fz-0B5" id="Gyb-fJ-dR2"/>
                         <outlet property="syncButton" destination="yfo-Eg-GFX" id="ClF-bS-K9E"/>
                         <outlet property="twitterButton" destination="AOV-He-KSv" id="9iW-h7-FdG"/>
                     </connections>
@@ -258,6 +271,7 @@
             <relationships>
                 <relationship kind="action" name="connectTwitterAction:"/>
                 <relationship kind="action" name="syncDataAction:"/>
+                <relationship kind="outlet" name="stageCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="syncButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
             </relationships>

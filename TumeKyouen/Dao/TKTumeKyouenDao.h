@@ -15,6 +15,7 @@
 - (BOOL)insertWithCsvString:(NSString *)csv;
 - (TumeKyouenModel *)selectByStageNo:(NSNumber *)stageNo;
 - (NSUInteger)selectCount;
+- (NSUInteger)selectCountClearStage;
 - (void)updateClearFlag:(TumeKyouenModel *)model date:(NSDate *)date;
 - (NSArray *)selectAllClearStage;
 - (void)updateSyncClearData:(NSArray *)clearStages;

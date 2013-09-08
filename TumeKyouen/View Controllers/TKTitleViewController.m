@@ -38,7 +38,7 @@
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
-    
+
     // AdMob
     [AdMobUtil show:self];
     
@@ -49,6 +49,7 @@
 {
     [super viewWillAppear:animated];
     [self refreshTwitterAccounts];
+    [self refreshCounts];
 }
 
 - (void)didReceiveMemoryWarning
@@ -162,6 +163,15 @@
     };
     
     [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
+}
+
+- (void)refreshCounts
+{
+    // ステージ番号の描画
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    NSUInteger clearCount = [dao selectCountClearStage];
+    NSUInteger allCount = [dao selectCount];
+    self.stageCountLabel.text = [NSString stringWithFormat:@"%d/%d", clearCount, allCount];
 }
 
 @end

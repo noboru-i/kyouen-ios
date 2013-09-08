@@ -12,6 +12,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *twitterButton;
 @property (weak, nonatomic) IBOutlet UIButton *syncButton;
+@property (weak, nonatomic) IBOutlet UILabel *stageCountLabel;
 
 - (IBAction)connectTwitterAction:(id)sender;
 - (IBAction)syncDataAction:(id)sender;
