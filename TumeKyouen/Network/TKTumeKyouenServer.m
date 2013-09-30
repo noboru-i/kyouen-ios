@@ -122,4 +122,19 @@
     return;
 }
 
+- (void)registDeviceToken:(NSString *)deviceToken
+{
+    LOG(@"deviceToken = %@", deviceToken);
+    NSString* content = [NSString stringWithFormat:@"device_token=%@", deviceToken];
+
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/apns/regist", SERVER_DOMAIN]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:10.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation start];
+}
 @end

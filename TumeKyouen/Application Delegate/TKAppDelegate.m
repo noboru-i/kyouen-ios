@@ -9,6 +9,7 @@
 #import "TKAppDelegate.h"
 #import "TKTumeKyouenDao.h"
 #import "TumeKyouenModel.h"
+#import "TKTumeKyouenServer.h"
 
 @interface TKAppDelegate ()
 
@@ -31,13 +32,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-
     // 例外のハンドリング
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     [self managedObjectContext];
     [self initializeData];
+
+    // PUSH通知の設定
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge|
+                                                                            UIRemoteNotificationTypeSound|
+                                                                            UIRemoteNotificationTypeAlert)];
 
     return YES;
 }
@@ -67,6 +71,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    NSMutableString *tokenId = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@",devToken]];
+    // TODO 変換が必要？
+    NSLog(@"deviceToken: %@", tokenId);
+    //TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    //[server registDeviceToken:tokenId];
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)err{
+    NSLog(@"Errorinregistration:%@",err);
 }
 
 #pragma mark -

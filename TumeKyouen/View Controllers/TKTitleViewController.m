@@ -129,15 +129,12 @@
 {
     
     if (![TKTwitterManager isLocalTwitterAccountAvailable]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:@"no account" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        // TODO twitterアカウントが設定されていない
     }
     else {
         [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (granted) {
-                    // TODO ?
-                    //                    _reverseAuthBtn.enabled = YES;
                 } else {
                     // 設定画面にてTwitter連携がされていない
                     // TODO Twitterでログインボタンをdisableにする？

@@ -14,5 +14,6 @@
 - (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *))callback;
 - (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *))callback;
 - (void)addStageUser:(NSNumber *) stageNo;
+- (void)registDeviceToken:(NSString *)deviceToken;
 
 @end

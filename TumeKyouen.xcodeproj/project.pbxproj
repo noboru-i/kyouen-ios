@@ -435,6 +435,11 @@
 				CLASSPREFIX = TK;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = noboru;
+				TargetAttributes = {
+					689825A816D9320C00D89D0B = {
+						DevelopmentTeam = 56W5SXE4HE;
+					};
+				};
 			};
 			buildConfigurationList = 689825A416D9320C00D89D0B /* Build configuration list for PBXProject "TumeKyouen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -645,6 +650,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: NOBORU ISHIKURA (CAJB52C9EZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -655,6 +662,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8D15D385-DE59-44DC-BD90-D73B697D498B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -663,6 +671,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: NOBORU ISHIKURA (CAJB52C9EZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -673,6 +683,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8D15D385-DE59-44DC-BD90-D73B697D498B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
