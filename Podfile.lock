@@ -1,19 +1,36 @@
 PODS:
-  - AdMob (6.4.2)
-  - AFNetworking (1.3.1)
+  - AFNetworking (2.0.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.0.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.0.3):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.0.3)
+  - AFNetworking/Security (2.0.3)
+  - AFNetworking/Serialization (2.0.3)
+  - AFNetworking/UIKit (2.0.3):
+    - AFNetworking/NSURLConnection
+  - Google-Mobile-Ads-SDK (6.7.0)
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
 
 DEPENDENCIES:
-  - AdMob
   - AFNetworking
+  - Google-Mobile-Ads-SDK
   - OAuthCore
 
 SPEC CHECKSUMS:
-  AdMob: 44f411d138329b8db372997d9958e62cd33c2fa2
-  AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
-  NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
+  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  Google-Mobile-Ads-SDK: d82c5e060532258a7517e59426632c2a41dd8cf2
+  NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
   OAuthCore: 4164eec5e28c68f794953446e68f91054ffe570c
 
-COCOAPODS: 0.22.2
+COCOAPODS: 0.29.0

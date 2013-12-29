@@ -1,6 +1,6 @@
-platform :ios, '5.0'
+platform :ios, '7.0'
 
 pod 'AFNetworking'
-pod 'AdMob'
+pod 'Google-Mobile-Ads-SDK'
 pod 'OAuthCore'
 
