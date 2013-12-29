@@ -16,7 +16,6 @@
     GADBannerView* bannerView = [[GADBannerView alloc]
                    initWithFrame:CGRectMake(0.0,
                                             controller.view.frame.size.height
-                                            - controller.navigationController.navigationBar.frame.size.height
                                             - GAD_SIZE_320x50.height,
                                             GAD_SIZE_320x50.width,
                                             GAD_SIZE_320x50.height)];
