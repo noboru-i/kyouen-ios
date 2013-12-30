@@ -1,0 +1,30 @@
+
+/* Class = "IBUIButton"; normalTitle = "Twitterでログイン"; ObjectID = "AOV-He-KSv"; */
+"AOV-He-KSv.normalTitle" = "Twitterでログイン";
+
+/* Class = "IBUILabel"; text = "created by"; ObjectID = "Uy7-ai-sIB"; */
+"Uy7-ai-sIB.text" = "created by";
+
+/* Class = "IBUIButton"; normalTitle = "次へ"; ObjectID = "YAC-EM-KjT"; */
+"YAC-EM-KjT.normalTitle" = "次へ";
+
+/* Class = "IBUILabel"; text = "0000/0000"; ObjectID = "aLh-Fz-0B5"; */
+"aLh-Fz-0B5.text" = "0000/0000";
+
+/* Class = "IBUILabel"; text = "詰め共円"; ObjectID = "afL-oT-hP3"; */
+"afL-oT-hP3.text" = "詰め共円";
+
+/* Class = "IBUIButton"; normalTitle = "スタート"; ObjectID = "uEa-3G-MJv"; */
+"uEa-3G-MJv.normalTitle" = "スタート";
+
+/* Class = "IBUIButton"; normalTitle = "クリア情報を同期"; ObjectID = "yfo-Eg-GFX"; */
+"yfo-Eg-GFX.normalTitle" = "クリア情報を同期";
+
+/* Class = "IBUIButton"; normalTitle = "共円！！"; ObjectID = "zPH-Y1-LpH"; */
+"zPH-Y1-LpH.normalTitle" = "共円！！";
+
+/* Class = "IBUILabel"; text = "STAGE:"; ObjectID = "zPT-D8-uAE"; */
+"zPT-D8-uAE.text" = "STAGE:";
+
+/* Class = "IBUIButton"; normalTitle = "前へ"; ObjectID = "zXU-ga-JKW"; */
+"zXU-ga-JKW.normalTitle" = "前へ";

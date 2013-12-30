@@ -92,11 +92,15 @@
 		686A2A131791C5A7000DA915 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = Pods/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		688A435D18704ED000B19834 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
 		688A435F187059EF00B19834 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		688A4361187059FA00B19834 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
-		688A436318705D9C00B19834 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
+		688A4361187059FA00B19834 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
+		688A436318705D9C00B19834 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
 		688A436518705E0B00B19834 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
 		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
+		68924FB6187158670029B234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		68924FB7187158A70029B234 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		68924FB8187158A70029B234 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		68924FB9187158A70029B234 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825AC16D9320C00D89D0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		689825AE16D9320C00D89D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,7 +111,6 @@
 		689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Prefix.pch"; sourceTree = "<group>"; };
 		689825BB16D9320C00D89D0B /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
 		689825BC16D9320C00D89D0B /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
-		689825C516D9320C00D89D0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825D016D9320C00D89D0B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				ja,
 			);
 			mainGroup = 689825A016D9320C00D89D0B;
 			productRefGroup = 689825AA16D9320C00D89D0B /* Products */;
@@ -580,6 +585,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				689825B616D9320C00D89D0B /* en */,
+				68924FB8187158A70029B234 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -587,7 +593,8 @@
 		689825C416D9320C00D89D0B /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				689825C516D9320C00D89D0B /* en */,
+				68924FB6187158670029B234 /* Base */,
+				68924FB7187158A70029B234 /* ja */,
 			);
 			name = MainStoryboard.storyboard;
 			path = ..;
@@ -597,6 +604,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				689825DA16D9320C00D89D0B /* en */,
+				68924FB9187158A70029B234 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -670,7 +678,7 @@
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/ishikuranoboru/workspace/ios/TumeKyouen/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0",
@@ -693,7 +701,7 @@
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/ishikuranoboru/workspace/ios/TumeKyouen/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0",
