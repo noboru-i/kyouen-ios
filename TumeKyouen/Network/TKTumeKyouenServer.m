@@ -12,12 +12,11 @@
 
 @implementation TKTumeKyouenServer
 
-// #define SERVER_DOMAIN @"https://my-android-server.appspot.com"
-#define SERVER_DOMAIN @"http://localhost:8080"
+#define SERVER_DOMAIN @"https://my-android-server.appspot.com"
+// #define SERVER_DOMAIN @"http://localhost:8080"
 
 - (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback
 {
-//    NSString *domain = @"https://my-android-server.appspot.com";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", SERVER_DOMAIN, currentMaxStageNo]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
