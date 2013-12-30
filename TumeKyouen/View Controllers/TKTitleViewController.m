@@ -77,7 +77,7 @@
     LOG_METHOD;
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-    for (ACAccount *acct in _accounts) {
+    for (ACAccount *acct in self.accounts) {
         [sheet addButtonWithTitle:acct.username];
     }
     sheet.cancelButtonIndex = [sheet addButtonWithTitle:@"Cancel"];
@@ -106,10 +106,12 @@
     if (buttonIndex != actionSheet.cancelButtonIndex) {
         LOG(@"buttonIndex=%d", buttonIndex);
 
-        [_twitterManager performReverseAuthForAccount:_accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        [_twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (!responseData) {
                 // TODO Reverse Auth process failed.
                 LOG(@"Reverse Auth process failed.");
+                [SVProgressHUD showErrorWithStatus:@"認証に失敗しました。"];
                 return;
             }
 
@@ -122,6 +124,7 @@
                 LOG(@"response = %@", response);
                 [self.twitterButton setHidden:YES];
                 [self.syncButton setHidden:NO];
+                [SVProgressHUD showSuccessWithStatus:@"認証に成功しました。"];
             }];
         }];
     }
