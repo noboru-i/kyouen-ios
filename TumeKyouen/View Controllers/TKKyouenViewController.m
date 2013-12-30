@@ -193,6 +193,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     LOG(@"setStageWithAnimation");
     KyouenImageView *currentImageView = self.mKyouenImageView1;
     KyouenImageView *nextImageView = self.mKyouenImageView2;
+    nextImageView.alpha = 1.0f;
     [self setStage:model
                 to:nextImageView];
 
@@ -214,6 +215,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     [UIView setAnimationDuration:0.4];
     frame.origin.x = origX - direction * 320;
     [currentImageView setFrame:frame];
+    currentImageView.alpha = 0.0f;
     frame.origin.x = origX;
     [nextImageView setFrame:frame];
     [UIView commitAnimations];
@@ -254,8 +256,6 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     }
     // 移動ボタンを有効化
     [self.mNextButton setEnabled:YES];
-
-    // TODO 不要になったViewを非表示化
 }
 
 @end
