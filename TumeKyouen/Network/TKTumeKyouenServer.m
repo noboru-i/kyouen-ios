@@ -13,7 +13,7 @@
 @implementation TKTumeKyouenServer
 
 #define SERVER_DOMAIN @"https://my-android-server.appspot.com"
-// #define SERVER_DOMAIN @"http://localhost:8080"
+// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
 
 - (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback
 {

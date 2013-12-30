@@ -74,11 +74,14 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
-    NSMutableString *tokenId = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@",devToken]];
-    // TODO 変換が必要？
-    NSLog(@"deviceToken: %@", tokenId);
-    //TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-    //[server registDeviceToken:tokenId];
+    const char *data = [devToken bytes];
+    NSMutableString *token = [NSMutableString string];
+    for (int i = 0; i < [devToken length]; i++)
+    [token appendFormat:@"%02.2hhX", data[i]];
+
+    NSLog(@"deviceToken: %@", token);
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [server registDeviceToken:token];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)err{
