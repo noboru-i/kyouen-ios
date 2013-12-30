@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     // 4つ選択されているかのチェック
     if ([model getStoneCount:2] != 4) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"4つの石を選択してください"
+                                                        message:NSLocalizedString(@"alert_less_stone", nil)
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     if (kyouenData == nil) {
         [self setStage:currentModel to:self.mKyouenImageView1];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"共円ではありません"
+                                                        message:NSLocalizedString(@"alert_not_kyouen", nil)
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
     [self.mOverlayKyouenView drawKyouen:kyouenData tumeKyouenModel:self.currentModel];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:@"共円！！"
+                                                    message:NSLocalizedString(@"kyouen", nil)
                                                    delegate:self
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"Next", nil];
@@ -114,6 +114,17 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     // クリアデータの送信
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
     [server addStageUser:currentModel.stageNo];
+}
+
+- (IBAction)selectStage:(id)sender
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"dialog_title_stage_select", nil)
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:NSLocalizedString(@"dialog_select", nil), nil];
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
 }
 
 

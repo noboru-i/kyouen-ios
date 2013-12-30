@@ -28,5 +28,6 @@
 - (IBAction)moveNextStage:(id)sender;
 - (IBAction)movePrevStage:(id)sender;
 - (IBAction)checkKyouen:(id)sender;
+- (IBAction)selectStage:(id)sender;
 
 @end
