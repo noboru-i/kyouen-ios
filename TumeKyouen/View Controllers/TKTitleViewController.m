@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
+#import <SVProgressHUD.h>
 
 #import "TKTitleViewController.h"
 #import "TKKyouenViewController.h"
@@ -88,10 +89,13 @@
     TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
     NSArray *stages = [dao selectAllClearStage];
 
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
     [server addAllStageUser:stages callback:^(NSArray *response) {
         LOG_METHOD;
         [dao updateSyncClearData:response];
+        [self refreshCounts];
+        [SVProgressHUD showSuccessWithStatus:@"同期に成功しました"];
     }];
 }
 

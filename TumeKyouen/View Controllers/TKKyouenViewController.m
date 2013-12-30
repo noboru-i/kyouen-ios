@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <SVProgressHUD.h>
 
 #import "TKKyouenViewController.h"
 #import "KyouenImageView.h"
@@ -145,8 +146,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     TumeKyouenModel *model = [dao selectByStageNo:stageNo];
     if (model == nil) {
         // 取得できなかった場合の処理
-        [self.mIndicator setAlpha:1];
-        [self.mIndicator startAnimating];
+
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
         TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
         [server getStageData:([stageNo intValue] -1) callback:^(NSString *result) {
@@ -154,14 +155,12 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
             LOG(@"%@", result);
             if (result == nil || [result length] == 0) {
                 // 取得できなかった
-                [self.mIndicator setAlpha:0];
-                [self.mIndicator stopAnimating];
+                [SVProgressHUD dismiss];
                 return;
             }
             if ([result isEqualToString:@"no_data"]) {
                 // データなし
-                [self.mIndicator setAlpha:0];
-                [self.mIndicator stopAnimating];
+                [SVProgressHUD dismiss];
                 return;
             }
 
@@ -174,8 +173,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
                     break;
                 }
             }
-            [self.mIndicator setAlpha:0];
-            [self.mIndicator stopAnimating];
+            [SVProgressHUD dismiss];
 
             // ステージの移動
             [self moveStage:stageNo direction:direction];
@@ -256,6 +254,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     }
     // 移動ボタンを有効化
     [self.mNextButton setEnabled:YES];
+
+    // TODO 不要になったViewを非表示化
 }
 
 @end

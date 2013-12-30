@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView1;
 @property (weak, nonatomic) IBOutlet KyouenImageView *mKyouenImageView2;
 @property (weak, nonatomic) IBOutlet TKOverlayKyouenView *mOverlayKyouenView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *mIndicator;
 
 
 @property (nonatomic, strong) TumeKyouenModel *currentModel;

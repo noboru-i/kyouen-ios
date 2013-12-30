@@ -21,16 +21,19 @@ PODS:
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
+  - SVProgressHUD (1.0)
 
 DEPENDENCIES:
-  - AFNetworking
-  - Google-Mobile-Ads-SDK
-  - OAuthCore
+  - AFNetworking (~> 2.0.3)
+  - Google-Mobile-Ads-SDK (~> 6.7.0)
+  - OAuthCore (~> 0.0.1)
+  - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   Google-Mobile-Ads-SDK: d82c5e060532258a7517e59426632c2a41dd8cf2
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
   OAuthCore: 4164eec5e28c68f794953446e68f91054ffe570c
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
 
 COCOAPODS: 0.29.0
