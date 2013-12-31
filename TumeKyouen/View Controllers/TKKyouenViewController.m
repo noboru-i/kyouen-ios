@@ -18,6 +18,7 @@
 #import "TKKyouenData.h"
 #import "TKLine.h"
 #import "TKTumeKyouenServer.h"
+#import "AdMobUtil.h"
 
 @interface TKKyouenViewController ()
 
@@ -25,7 +26,8 @@
 
 typedef NS_ENUM(NSInteger, TKAlertTag)
 {
-    TKAlertTagKyouen
+    TKAlertTagKyouen,
+    TKAlertTagStageSelect
 };
 
 @implementation TKKyouenViewController
@@ -41,7 +43,15 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
     [self.view.layer insertSublayer:gradient atIndex:0];
-    
+
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if(screenSize.width == 320.0 && screenSize.height == 568.0)
+    {
+        //4インチの場合
+        // AdMob
+        [AdMobUtil show:self];
+    }
+
     // 初期化
     [self setStage:currentModel to:self.mKyouenImageView1];
 }
@@ -118,12 +128,17 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
 - (IBAction)selectStage:(id)sender
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"dialog_title_stage_select", nil)
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    NSUInteger maxStageNo = [dao selectCount];
+    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"dialog_title_stage_select", nil), 1, maxStageNo];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
                                                       message:nil
                                                      delegate:self
                                             cancelButtonTitle:@"Cancel"
                                             otherButtonTitles:NSLocalizedString(@"dialog_select", nil), nil];
+    message.tag = TKAlertTagStageSelect;
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message textFieldAtIndex:0].keyboardType=  UIKeyboardTypeNumbersAndPunctuation;
     [message show];
 }
 
@@ -137,6 +152,28 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
         case TKAlertTagKyouen:
         {
             NSNumber *nextStageNo = @([currentModel.stageNo intValue] + 1);
+            [self moveStage:nextStageNo
+                  direction:1];
+        }
+            break;
+        case TKAlertTagStageSelect:
+        {
+            if (buttonIndex == 0) {
+                // キャンセルボタンは処理をスキップ
+                break;
+            }
+            NSString *inputText = [[alertView textFieldAtIndex:0] text];
+            NSNumber *nextStageNo = [NSNumber numberWithInt:[inputText intValue]];
+            if (nextStageNo == 0) {
+                break;
+            }
+            LOG(@"nextStageNo = %@", nextStageNo);
+            TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+            TumeKyouenModel *model = [dao selectByStageNo:nextStageNo];
+            if (model == nil) {
+                // 取得できなかった場合は終了
+                break;
+            }
             [self moveStage:nextStageNo
                   direction:1];
         }

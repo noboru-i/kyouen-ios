@@ -42,7 +42,7 @@
 
     // AdMob
     [AdMobUtil show:self];
-    
+
     _twitterManager = [[TKTwitterManager alloc] init];
 }
 
