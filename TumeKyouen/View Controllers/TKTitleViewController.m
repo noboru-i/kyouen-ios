@@ -48,9 +48,29 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    LOG_METHOD;
     [super viewWillAppear:animated];
-    [self refreshTwitterAccounts];
     [self refreshCounts];
+    // 通知を設定
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+}
+
+// UIApplicationDidBecomeActiveNotification にて呼び出される
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    LOG_METHOD;
+    [self refreshTwitterAccounts];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    LOG_METHOD;
+    [super viewWillDisappear:animated];
+    //通知を終了
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,8 +95,19 @@
 
 - (IBAction)connectTwitterAction:(id)sender {
     LOG_METHOD;
-    
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Choose an Account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    if ([self.accounts count] == 0) {
+        // アカウントが設定されていない場合
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:NSLocalizedString(@"alert_no_twitter_account", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
+    NSString *title = NSLocalizedString(@"action_title_choose", nil);
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     for (ACAccount *acct in self.accounts) {
         [sheet addButtonWithTitle:acct.username];
     }
@@ -95,7 +126,7 @@
         LOG_METHOD;
         [dao updateSyncClearData:response];
         [self refreshCounts];
-        [SVProgressHUD showSuccessWithStatus:@"同期に成功しました"]; // TODO 文字列を外部化
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_sync_complete", nil)];
     }];
 }
 
@@ -109,6 +140,83 @@
     int stageCount = [dao selectCount];
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
     [self getStage:stageCount server:server kyouenDao:dao];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        LOG(@"buttonIndex=%d", buttonIndex);
+
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        [_twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+            if (!responseData) {
+                LOG(@"Reverse Auth process failed.");
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"progress_auth_fail", nil)];
+                return;
+            }
+
+            // 認証情報を送信
+            TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
+            NSString *oauthToken = [dao getOauthToken];
+            NSString *oauthTokenSecret = [dao getOauthTokenSecret];
+            TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+            [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
+                LOG(@"response = %@", response);
+                [self.twitterButton setHidden:YES];
+                [self.syncButton setHidden:NO];
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_auth_success", nil)];
+            }];
+        }];
+    }
+}
+
+#pragma mark - Private
+
+- (void)refreshTwitterAccounts
+{
+    LOG_METHOD;
+    if (![TKTwitterManager isLocalTwitterAccountAvailable]) {
+        // TODO twitterアカウントが設定されていない
+    }
+    else {
+        [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (granted) {
+                } else {
+                    // 設定画面にてTwitter連携がされていない
+                    // TODO Twitterでログインボタンをdisableにする？
+                }
+            });
+        }];
+    }
+}
+
+- (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
+{
+    LOG_METHOD;
+    _accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
+        if (granted) {
+            self.accounts = [_accountStore accountsWithAccountType:twitterType];
+        }
+        
+        block(granted);
+    };
+    
+    [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
+}
+
+- (void)refreshCounts
+{
+    // ステージ番号の描画
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    NSUInteger clearCount = [dao selectCountClearStage];
+    NSUInteger allCount = [dao selectCount];
+    self.stageCountLabel.text = [NSString stringWithFormat:@"%d/%d", clearCount, allCount];
 }
 
 - (void)getStage:(int)maxStageNo server:(TKTumeKyouenServer *)server kyouenDao:(TKTumeKyouenDao *)dao
@@ -139,84 +247,6 @@
         [self refreshCounts];
         [self getStage:(maxStageNo + [lines count]) server:server kyouenDao:dao];
     }];
-}
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex != actionSheet.cancelButtonIndex) {
-        LOG(@"buttonIndex=%d", buttonIndex);
-
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-        [_twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
-            if (!responseData) {
-                LOG(@"Reverse Auth process failed.");
-                [SVProgressHUD showErrorWithStatus:@"認証に失敗しました。"]; // TODO 文字列を外部化
-                return;
-            }
-
-            // 認証情報を送信
-            TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
-            NSString *oauthToken = [dao getOauthToken];
-            NSString *oauthTokenSecret = [dao getOauthTokenSecret];
-            TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-            [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
-                LOG(@"response = %@", response);
-                [self.twitterButton setHidden:YES];
-                [self.syncButton setHidden:NO];
-                [SVProgressHUD showSuccessWithStatus:@"認証に成功しました。"]; // TODO 文字列を外部化
-            }];
-        }];
-    }
-}
-
-#pragma mark - Private
-
-- (void)refreshTwitterAccounts
-{
-    
-    if (![TKTwitterManager isLocalTwitterAccountAvailable]) {
-        // TODO twitterアカウントが設定されていない
-    }
-    else {
-        [self obtainAccessToAccountsWithBlock:^(BOOL granted) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (granted) {
-                } else {
-                    // 設定画面にてTwitter連携がされていない
-                    // TODO Twitterでログインボタンをdisableにする？
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"title" message:@"perm access" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                }
-            });
-        }];
-    }
-}
-
-- (void)obtainAccessToAccountsWithBlock:(void (^)(BOOL))block
-{
-    _accountStore = [[ACAccountStore alloc] init];
-    ACAccountType *twitterType = [_accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    ACAccountStoreRequestAccessCompletionHandler handler = ^(BOOL granted, NSError *error) {
-        if (granted) {
-            self.accounts = [_accountStore accountsWithAccountType:twitterType];
-        }
-        
-        block(granted);
-    };
-    
-    [_accountStore requestAccessToAccountsWithType:twitterType options:nil completion:handler];
-}
-
-- (void)refreshCounts
-{
-    // ステージ番号の描画
-    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-    NSUInteger clearCount = [dao selectCountClearStage];
-    NSUInteger allCount = [dao selectCount];
-    self.stageCountLabel.text = [NSString stringWithFormat:@"%d/%d", clearCount, allCount];
 }
 
 @end
