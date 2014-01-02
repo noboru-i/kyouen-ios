@@ -16,5 +16,6 @@
 
 - (IBAction)connectTwitterAction:(id)sender;
 - (IBAction)syncDataAction:(id)sender;
+- (IBAction)getStages:(id)sender;
 
 @end

@@ -95,7 +95,49 @@
         LOG_METHOD;
         [dao updateSyncClearData:response];
         [self refreshCounts];
-        [SVProgressHUD showSuccessWithStatus:@"同期に成功しました"];
+        [SVProgressHUD showSuccessWithStatus:@"同期に成功しました"]; // TODO 文字列を外部化
+    }];
+}
+
+- (IBAction)getStages:(id)sender
+{
+    LOG_METHOD;
+
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+
+    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    int stageCount = [dao selectCount];
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [self getStage:stageCount server:server kyouenDao:dao];
+}
+
+- (void)getStage:(int)maxStageNo server:(TKTumeKyouenServer *)server kyouenDao:(TKTumeKyouenDao *)dao
+{
+    LOG_METHOD;
+    [server getStageData:(maxStageNo -1) callback:^(NSString *result) {
+        if (result == nil || [result length] == 0) {
+            // 取得できなかった
+            [self refreshCounts];
+            [SVProgressHUD dismiss];
+            return;
+        }
+        if ([result isEqualToString:@"no_data"]) {
+            // データなし
+            [self refreshCounts];
+            [SVProgressHUD dismiss];
+            return;
+        }
+
+        // データの登録
+        NSArray *lines = [result componentsSeparatedByString:@"\n"];
+        for (NSString *line in lines) {
+            if (![dao insertWithCsvString:line]) {
+                // エラー発生時
+                break;
+            }
+        }
+        [self refreshCounts];
+        [self getStage:(maxStageNo + [lines count]) server:server kyouenDao:dao];
     }];
 }
 
@@ -109,9 +151,8 @@
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         [_twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (!responseData) {
-                // TODO Reverse Auth process failed.
                 LOG(@"Reverse Auth process failed.");
-                [SVProgressHUD showErrorWithStatus:@"認証に失敗しました。"];
+                [SVProgressHUD showErrorWithStatus:@"認証に失敗しました。"]; // TODO 文字列を外部化
                 return;
             }
 
@@ -124,7 +165,7 @@
                 LOG(@"response = %@", response);
                 [self.twitterButton setHidden:YES];
                 [self.syncButton setHidden:NO];
-                [SVProgressHUD showSuccessWithStatus:@"認証に成功しました。"];
+                [SVProgressHUD showSuccessWithStatus:@"認証に成功しました。"]; // TODO 文字列を外部化
             }];
         }];
     }
