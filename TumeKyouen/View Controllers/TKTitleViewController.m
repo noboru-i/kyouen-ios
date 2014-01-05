@@ -60,7 +60,11 @@
     }
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-    [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
+    [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response, NSError *error) {
+        if (error != nil) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"progress_auth_fail", nil)];
+            return;
+        }
         LOG(@"response = %@", response);
         [self.twitterButton setHidden:YES];
         [self.syncButton setHidden:NO];

@@ -34,7 +34,7 @@
     return nil;
 }
 
-- (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *))callback
+- (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *, NSError *))callback
 {
     LOG(@"token = %@", token);
     LOG(@"tokenSecret = %@", tokenSecret);
@@ -51,9 +51,10 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         LOG(@"%@", operation.responseString);
-        callback(operation.responseString);
+        callback(operation.responseString, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LOG(@"%@", error.localizedDescription);
+        callback(nil, error);
     }];
     [operation start];
 
