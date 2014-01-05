@@ -48,30 +48,6 @@
     [self sendTwitterAccount];
 }
 
-- (void)sendTwitterAccount
-{
-    // 認証情報を送信
-    TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
-    NSString *oauthToken = [dao getOauthToken];
-    NSString *oauthTokenSecret = [dao getOauthTokenSecret];
-    if (oauthToken == nil || oauthTokenSecret == nil) {
-        [SVProgressHUD dismiss];
-        return;
-    }
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-    [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response, NSError *error) {
-        if (error != nil) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"progress_auth_fail", nil)];
-            return;
-        }
-        LOG(@"response = %@", response);
-        [self.twitterButton setHidden:YES];
-        [self.syncButton setHidden:NO];
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_auth_success", nil)];
-    }];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     LOG_METHOD;
@@ -269,6 +245,30 @@
         }
         [self refreshCounts];
         [self getStage:(maxStageNo + [lines count]) server:server kyouenDao:dao];
+    }];
+}
+
+- (void)sendTwitterAccount
+{
+    // 認証情報を送信
+    TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
+    NSString *oauthToken = [dao getOauthToken];
+    NSString *oauthTokenSecret = [dao getOauthTokenSecret];
+    if (oauthToken == nil || oauthTokenSecret == nil) {
+        [SVProgressHUD dismiss];
+        return;
+    }
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response, NSError *error) {
+        if (error != nil) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"progress_auth_fail", nil)];
+            return;
+        }
+        LOG(@"response = %@", response);
+        [self.twitterButton setHidden:YES];
+        [self.syncButton setHidden:NO];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_auth_success", nil)];
     }];
 }
 
