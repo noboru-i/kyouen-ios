@@ -17,6 +17,7 @@
 		68390B6217A3BAE600954896 /* TKTwitterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6117A3BAE600954896 /* TKTwitterManager.m */; };
 		68390B6517A3C00E00954896 /* TKSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6417A3C00E00954896 /* TKSignedRequest.m */; };
 		68390B6817A3E23900954896 /* TKTwitterTokenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6717A3E23900954896 /* TKTwitterTokenDao.m */; };
+		6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6878F9B618799A8700BBF8A9 /* Images.xcassets */; };
 		688A436618705E0B00B19834 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688A436518705E0B00B19834 /* libGoogleAdMobAds.a */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
@@ -88,6 +89,7 @@
 		68390B6417A3C00E00954896 /* TKSignedRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSignedRequest.m; sourceTree = "<group>"; };
 		68390B6617A3E23900954896 /* TKTwitterTokenDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTwitterTokenDao.h; sourceTree = "<group>"; };
 		68390B6717A3E23900954896 /* TKTwitterTokenDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTwitterTokenDao.m; sourceTree = "<group>"; };
+		6878F9B618799A8700BBF8A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		688A435F187059EF00B19834 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		688A436518705E0B00B19834 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				6890DEAF16F614E8001E6A09 /* Network */,
 				689825FB16D933AC00D89D0B /* Util */,
 				689825F516D933AC00D89D0B /* Resources */,
+				6878F9B618799A8700BBF8A9 /* Images.xcassets */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
 			);
 			path = TumeKyouen;
@@ -474,6 +477,7 @@
 			files = (
 				689825B716D9320C00D89D0B /* Localizable.strings in Resources */,
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
+				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6898264516D9396C00D89D0B /* Default.png in Resources */,
 				6898264716D93A8900D89D0B /* Default@2x.png in Resources */,
 				6898264916D93A9200D89D0B /* Default-568h@2x.png in Resources */,
@@ -652,6 +656,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -675,6 +681,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
