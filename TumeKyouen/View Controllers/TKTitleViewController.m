@@ -239,7 +239,13 @@
 - (void)getStage:(int)maxStageNo server:(TKTumeKyouenServer *)server kyouenDao:(TKTumeKyouenDao *)dao
 {
     LOG_METHOD;
-    [server getStageData:(maxStageNo -1) callback:^(NSString *result) {
+    [server getStageData:(maxStageNo -1) callback:^(NSString *result, NSError *error) {
+        if (error != nil) {
+            // 取得できなかった
+            [self refreshCounts];
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+            return;
+        }
         if (result == nil || [result length] == 0) {
             // 取得できなかった
             [self refreshCounts];

@@ -198,10 +198,10 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
         TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-        [server getStageData:([stageNo intValue] -1) callback:^(NSString *result) {
+        [server getStageData:([stageNo intValue] -1) callback:^(NSString *result, NSError *error) {
             LOG(@"callback");
             LOG(@"%@", result);
-            if (result == nil || [result length] == 0) {
+            if (error != nil || result == nil || [result length] == 0) {
                 // 取得できなかった
                 [SVProgressHUD dismiss];
                 return;

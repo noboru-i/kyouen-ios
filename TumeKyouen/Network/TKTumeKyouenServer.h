@@ -10,7 +10,7 @@
 
 @interface TKTumeKyouenServer : NSObject
 
-- (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback;
+- (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *, NSError *))callback;
 - (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *, NSError *))callback;
 - (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *))callback;
 - (void)addStageUser:(NSNumber *) stageNo;

@@ -15,7 +15,7 @@
 #define SERVER_DOMAIN @"https://my-android-server.appspot.com"
 // #define SERVER_DOMAIN @"http://kyouen.jp:8080"
 
-- (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *))callback
+- (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *, NSError *error))callback
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", SERVER_DOMAIN, currentMaxStageNo]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url
@@ -25,9 +25,10 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         LOG(@"%@", operation.responseString);
-        callback(operation.responseString);
+        callback(operation.responseString, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LOG(@"%@", error.localizedDescription);
+        callback(nil, error);
     }];
     [operation start];
 
