@@ -44,6 +44,28 @@
     [AdMobUtil show:self];
 
     _twitterManager = [[TKTwitterManager alloc] init];
+
+    [self sendTwitterAccount];
+}
+
+- (void)sendTwitterAccount
+{
+    // 認証情報を送信
+    TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
+    NSString *oauthToken = [dao getOauthToken];
+    NSString *oauthTokenSecret = [dao getOauthTokenSecret];
+    if (oauthToken == nil || oauthTokenSecret == nil) {
+        [SVProgressHUD dismiss];
+        return;
+    }
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
+        LOG(@"response = %@", response);
+        [self.twitterButton setHidden:YES];
+        [self.syncButton setHidden:NO];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_auth_success", nil)];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -150,7 +172,7 @@
         LOG(@"buttonIndex=%d", buttonIndex);
 
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-        [_twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
+        [self.twitterManager performReverseAuthForAccount:self.accounts[buttonIndex] withHandler:^(NSData *responseData, NSError *error) {
             if (!responseData) {
                 LOG(@"Reverse Auth process failed.");
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"progress_auth_fail", nil)];
@@ -158,16 +180,7 @@
             }
 
             // 認証情報を送信
-            TKTwitterTokenDao *dao = [[TKTwitterTokenDao alloc] init];
-            NSString *oauthToken = [dao getOauthToken];
-            NSString *oauthTokenSecret = [dao getOauthTokenSecret];
-            TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-            [server registUser:oauthToken tokenSecret:oauthTokenSecret callback:^(NSString *response) {
-                LOG(@"response = %@", response);
-                [self.twitterButton setHidden:YES];
-                [self.syncButton setHidden:NO];
-                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_auth_success", nil)];
-            }];
+            [self sendTwitterAccount];
         }];
     }
 }
