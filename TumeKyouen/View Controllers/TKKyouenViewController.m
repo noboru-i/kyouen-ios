@@ -214,12 +214,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
             // データの登録
             TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-            NSArray *lines = [result componentsSeparatedByString:@"\n"];
-            for (NSString *line in lines) {
-                if (![dao insertWithCsvString:line]) {
-                    // エラー発生時
-                    break;
-                }
+            if (![dao insertWithCsvString:result]) {
+                // エラー発生時
             }
             [SVProgressHUD dismiss];
 

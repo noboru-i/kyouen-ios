@@ -236,14 +236,11 @@
         }
 
         // データの登録
-        NSArray *lines = [result componentsSeparatedByString:@"\n"];
-        for (NSString *line in lines) {
-            if (![dao insertWithCsvString:line]) {
-                // エラー発生時
-                break;
-            }
+        if (![dao insertWithCsvString:result]) {
+            // エラー発生時
         }
         [self refreshCounts];
+        NSArray *lines = [result componentsSeparatedByString:@"\n"];
         [self getStage:(maxStageNo + [lines count]) server:server kyouenDao:dao];
     }];
 }

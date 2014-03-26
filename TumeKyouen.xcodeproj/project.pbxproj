@@ -18,7 +18,6 @@
 		68390B6517A3C00E00954896 /* TKSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6417A3C00E00954896 /* TKSignedRequest.m */; };
 		68390B6817A3E23900954896 /* TKTwitterTokenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6717A3E23900954896 /* TKTwitterTokenDao.m */; };
 		6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6878F9B618799A8700BBF8A9 /* Images.xcassets */; };
-		688A436618705E0B00B19834 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688A436518705E0B00B19834 /* libGoogleAdMobAds.a */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
@@ -27,7 +26,6 @@
 		689825B916D9320C00D89D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825B816D9320C00D89D0B /* main.m */; };
 		689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825BC16D9320C00D89D0B /* TKAppDelegate.m */; };
 		689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689825C416D9320C00D89D0B /* MainStoryboard.storyboard */; };
-		689825D116D9320C00D89D0B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825D016D9320C00D89D0B /* SenTestingKit.framework */; };
 		689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825DE16D9320C00D89D0B /* TumeKyouenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825DD16D9320C00D89D0B /* TumeKyouenTests.m */; };
@@ -54,6 +52,8 @@
 		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
 		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
 		68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */; };
+		68B183A818E333D500CCF333 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A718E333D500CCF333 /* libGoogleAdMobAds.a */; };
+		68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A918E3348400CCF333 /* CoreTelephony.framework */; };
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
 		68BD36191791974C00B45FDE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36181791974C00B45FDE /* Security.framework */; };
 		68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD361A1791988500B45FDE /* MobileCoreServices.framework */; };
@@ -107,8 +107,7 @@
 		689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Prefix.pch"; sourceTree = "<group>"; };
 		689825BB16D9320C00D89D0B /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
 		689825BC16D9320C00D89D0B /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
-		689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		689825D016D9320C00D89D0B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		689825CF16D9320C00D89D0B /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
 		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
 		689825DD16D9320C00D89D0B /* TumeKyouenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenTests.m; sourceTree = "<group>"; };
@@ -146,6 +145,9 @@
 		68AFAE4816EA4CBE0076DE31 /* TKPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPoint.m; sourceTree = "<group>"; };
 		68AFAE4A16ECDF1B0076DE31 /* TKOverlayKyouenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKOverlayKyouenView.h; sourceTree = "<group>"; };
 		68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKOverlayKyouenView.m; sourceTree = "<group>"; };
+		68B183A518E3332900CCF333 /* libPods-Google-Mobile-Ads-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Google-Mobile-Ads-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Google-Mobile-Ads-SDK.a"; sourceTree = "<group>"; };
+		68B183A718E333D500CCF333 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
+		68B183A918E3348400CCF333 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		68BD36161791973C00B45FDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		68BD36181791974C00B45FDE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -158,7 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				688A436618705E0B00B19834 /* libGoogleAdMobAds.a in Frameworks */,
+				68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */,
+				68B183A818E333D500CCF333 /* libGoogleAdMobAds.a in Frameworks */,
 				6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */,
 				6898262B16D934FA00D89D0B /* AdSupport.framework in Frameworks */,
 				6899B32218704B5A00C0441E /* AVFoundation.framework in Frameworks */,
@@ -183,7 +186,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689825D116D9320C00D89D0B /* SenTestingKit.framework in Frameworks */,
 				689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */,
 			);
@@ -231,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				689825A916D9320C00D89D0B /* TumeKyouen.app */,
-				689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */,
+				689825CF16D9320C00D89D0B /* TumeKyouenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +241,9 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68B183A918E3348400CCF333 /* CoreTelephony.framework */,
+				68B183A718E333D500CCF333 /* libGoogleAdMobAds.a */,
+				68B183A518E3332900CCF333 /* libPods-Google-Mobile-Ads-SDK.a */,
 				688A436518705E0B00B19834 /* libGoogleAdMobAds.a */,
 				688A435F187059EF00B19834 /* iAd.framework */,
 				6899B32118704B5A00C0441E /* AVFoundation.framework */,
@@ -257,7 +262,6 @@
 				689825AC16D9320C00D89D0B /* UIKit.framework */,
 				689825AE16D9320C00D89D0B /* Foundation.framework */,
 				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
-				689825D016D9320C00D89D0B /* SenTestingKit.framework */,
 				2FC0D356DA104F5595C559A9 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -432,8 +436,8 @@
 			);
 			name = TumeKyouenTests;
 			productName = TumeKyouenTests;
-			productReference = 689825CF16D9320C00D89D0B /* TumeKyouenTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 689825CF16D9320C00D89D0B /* TumeKyouenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -442,6 +446,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TK;
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = noboru;
 				TargetAttributes = {
@@ -623,7 +628,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -669,7 +674,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ishikuranoboru/workspace/ios/TumeKyouen/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,7 +700,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/ishikuranoboru/workspace/ios/TumeKyouen/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -709,15 +716,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -726,15 +733,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
 				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
