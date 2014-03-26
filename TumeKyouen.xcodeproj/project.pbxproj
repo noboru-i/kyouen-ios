@@ -40,9 +40,6 @@
 		6898262916D934F400D89D0B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262816D934F400D89D0B /* SystemConfiguration.framework */; };
 		6898262B16D934FA00D89D0B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262A16D934FA00D89D0B /* AdSupport.framework */; };
 		6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262C16D9350000D89D0B /* StoreKit.framework */; };
-		6898264516D9396C00D89D0B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264416D9396C00D89D0B /* Default.png */; };
-		6898264716D93A8900D89D0B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264616D93A8900D89D0B /* Default@2x.png */; };
-		6898264916D93A9200D89D0B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6898264816D93A9200D89D0B /* Default-568h@2x.png */; };
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
 		6899B32218704B5A00C0441E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6899B32118704B5A00C0441E /* AVFoundation.framework */; };
@@ -127,9 +124,6 @@
 		6898262816D934F400D89D0B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6898262A16D934FA00D89D0B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6898262C16D9350000D89D0B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		6898264416D9396C00D89D0B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		6898264616D93A8900D89D0B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		6898264816D93A9200D89D0B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6898268916DA2A5B00D89D0B /* TumeKyouen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TumeKyouen.xcdatamodel; sourceTree = "<group>"; };
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6899B32118704B5A00C0441E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -319,9 +313,6 @@
 			children = (
 				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
-				6898264416D9396C00D89D0B /* Default.png */,
-				6898264616D93A8900D89D0B /* Default@2x.png */,
-				6898264816D93A9200D89D0B /* Default-568h@2x.png */,
 				6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */,
 			);
 			path = Resources;
@@ -483,9 +474,6 @@
 				689825B716D9320C00D89D0B /* Localizable.strings in Resources */,
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
-				6898264516D9396C00D89D0B /* Default.png in Resources */,
-				6898264716D93A8900D89D0B /* Default@2x.png in Resources */,
-				6898264916D93A9200D89D0B /* Default-568h@2x.png in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
