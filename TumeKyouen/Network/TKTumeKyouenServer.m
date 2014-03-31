@@ -62,7 +62,7 @@
     return;
 }
 
-- (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *))callback
+- (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *, NSError *))callback
 {
     LOG_METHOD;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -94,11 +94,12 @@
         NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingAllowFragments error:nil];
         NSArray *responseData = [responseJson objectForKey:@"data"];
         if (responseData == nil) {
-            callback(nil);
+            callback(nil, nil);
         }
-        callback(responseData);
+        callback(responseData, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         LOG(@"%@", error.localizedDescription);
+        callback(nil, error);
     }];
     [operation start];
 

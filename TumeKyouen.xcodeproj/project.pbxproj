@@ -18,6 +18,7 @@
 		68390B6517A3C00E00954896 /* TKSignedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6417A3C00E00954896 /* TKSignedRequest.m */; };
 		68390B6817A3E23900954896 /* TKTwitterTokenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 68390B6717A3E23900954896 /* TKTwitterTokenDao.m */; };
 		6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6878F9B618799A8700BBF8A9 /* Images.xcassets */; };
+		688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688C015118E9C08F00EECC9A /* InfoPlist.strings */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
@@ -90,6 +91,8 @@
 		6878F9B618799A8700BBF8A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		688A435F187059EF00B19834 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		688A436518705E0B00B19834 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.7.0/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
+		688C015018E9C08F00EECC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		688C015218E9C09500EECC9A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6890DEB016F61687001E6A09 /* TKTumeKyouenServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTumeKyouenServer.h; sourceTree = "<group>"; };
 		6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTumeKyouenServer.m; sourceTree = "<group>"; };
 		68924FB6187158670029B234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 				689825B516D9320C00D89D0B /* Localizable.strings */,
 				689825B816D9320C00D89D0B /* main.m */,
 				689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */,
+				688C015118E9C08F00EECC9A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -477,6 +481,7 @@
 				689825B716D9320C00D89D0B /* Localizable.strings in Resources */,
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
 				68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */,
+				688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
 			);
@@ -570,6 +575,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		688C015118E9C08F00EECC9A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				688C015018E9C08F00EECC9A /* en */,
+				688C015218E9C09500EECC9A /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		689825B516D9320C00D89D0B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

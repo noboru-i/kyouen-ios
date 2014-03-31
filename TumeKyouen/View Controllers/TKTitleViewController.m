@@ -124,8 +124,13 @@
 
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-    [server addAllStageUser:stages callback:^(NSArray *response) {
+    [server addAllStageUser:stages callback:^(NSArray *response, NSError *error) {
         LOG_METHOD;
+        if (error) {
+            // 通信が異常終了
+            [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
+            return;
+        }
         [dao updateSyncClearData:response];
         [self refreshCounts];
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"progress_sync_complete", nil)];
