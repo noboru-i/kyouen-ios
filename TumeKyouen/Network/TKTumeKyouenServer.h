@@ -10,10 +10,10 @@
 
 @interface TKTumeKyouenServer : NSObject
 
-- (NSString *)getStageData:(int)currentMaxStageNo callback:(void(^)(NSString *, NSError *))callback;
-- (void)registUser:(NSString *)token tokenSecret:(NSString *)tokenSecret callback:(void(^)(NSString *, NSError *))callback;
-- (void)addAllStageUser:(NSArray *)stages callback:(void(^)(NSArray *, NSError *))callback;
-- (void)addStageUser:(NSNumber *) stageNo;
-- (void)registDeviceToken:(NSString *)deviceToken;
+- (NSString*)getStageData:(int)currentMaxStageNo callback:(void (^)(NSString*, NSError*))callback;
+- (void)registUser:(NSString*)token tokenSecret:(NSString*)tokenSecret callback:(void (^)(NSString*, NSError*))callback;
+- (void)addAllStageUser:(NSArray*)stages callback:(void (^)(NSArray*, NSError*))callback;
+- (void)addStageUser:(NSNumber*)stageNo;
+- (void)registDeviceToken:(NSString*)deviceToken;
 
 @end

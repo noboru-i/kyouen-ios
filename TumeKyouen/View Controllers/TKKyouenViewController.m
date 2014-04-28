@@ -24,8 +24,7 @@
 
 @end
 
-typedef NS_ENUM(NSInteger, TKAlertTag)
-{
+typedef NS_ENUM(NSInteger, TKAlertTag) {
     TKAlertTagKyouen,
     TKAlertTagStageSelect
 };
@@ -39,21 +38,22 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     [super viewDidLoad];
 
     // 背景色の描画
-    CAGradientLayer *gradient = [CAGradientLayer layer];
+    CAGradientLayer* gradient = [CAGradientLayer layer];
     gradient.frame = self.view.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor], nil];
-    [self.view.layer insertSublayer:gradient atIndex:0];
+    [self.view.layer insertSublayer:gradient
+                            atIndex:0];
 
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    if(screenSize.width == 320.0 && screenSize.height == 568.0)
-    {
+    if (screenSize.width == 320.0 && screenSize.height == 568.0) {
         //4インチの場合
         // AdMob
         [AdMobUtil show:self];
     }
 
     // 初期化
-    [self setStage:currentModel to:self.mKyouenImageView1];
+    [self setStage:currentModel
+                to:self.mKyouenImageView1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,31 +62,30 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark -
 #pragma mark actions
 
 - (IBAction)moveNextStage:(id)sender
 {
-    NSNumber *nextStageNo = @([currentModel.stageNo intValue] + 1);
+    NSNumber* nextStageNo = @([currentModel.stageNo intValue] + 1);
     [self moveStage:nextStageNo
           direction:1];
 }
 
 - (IBAction)movePrevStage:(id)sender
 {
-    NSNumber *nextStageNo = @([currentModel.stageNo intValue] - 1);
+    NSNumber* nextStageNo = @([currentModel.stageNo intValue] - 1);
     [self moveStage:nextStageNo
           direction:-1];
 }
 
 - (IBAction)checkKyouen:(id)sender
 {
-    TKGameModel *model = [[TKGameModel alloc] initWithSize:[self.currentModel.size intValue]
+    TKGameModel* model = [[TKGameModel alloc] initWithSize:[self.currentModel.size intValue]
                                                      stage:[self.mKyouenImageView1 getCurrentStage]];
     // 4つ選択されているかのチェック
     if ([model getStoneCount:2] != 4) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
                                                         message:NSLocalizedString(@"alert_less_stone", nil)
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
@@ -96,10 +95,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     }
 
     // 共円のチェック
-    TKKyouenData *kyouenData = [model isKyouen];
+    TKKyouenData* kyouenData = [model isKyouen];
     if (kyouenData == nil) {
-        [self setStage:currentModel to:self.mKyouenImageView1];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+        [self setStage:currentModel
+                    to:self.mKyouenImageView1];
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
                                                         message:NSLocalizedString(@"alert_not_kyouen", nil)
                                                        delegate:nil
                                               cancelButtonTitle:nil
@@ -107,13 +107,18 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
         [alert show];
         return;
     }
-    
+
     // 共円の場合
-    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-    [dao updateClearFlag:currentModel date:nil];
-    [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
-    [self.mOverlayKyouenView drawKyouen:kyouenData tumeKyouenModel:self.currentModel];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+    TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
+    [dao updateClearFlag:currentModel
+                    date:nil];
+    [self.mStageNo setTextColor:[UIColor colorWithRed:1.0
+                                                green:0.3
+                                                 blue:0.3
+                                                alpha:1]];
+    [self.mOverlayKyouenView drawKyouen:kyouenData
+                        tumeKyouenModel:self.currentModel];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
                                                     message:NSLocalizedString(@"kyouen", nil)
                                                    delegate:self
                                           cancelButtonTitle:nil
@@ -122,83 +127,78 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     [alert show];
 
     // クリアデータの送信
-    TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
+    TKTumeKyouenServer* server = [[TKTumeKyouenServer alloc] init];
     [server addStageUser:currentModel.stageNo];
 }
 
 - (IBAction)selectStage:(id)sender
 {
-    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
+    TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
     NSUInteger maxStageNo = [dao selectCount];
-    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"dialog_title_stage_select", nil), 1, maxStageNo];
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
+    NSString* title = [NSString stringWithFormat:NSLocalizedString(@"dialog_title_stage_select", nil), 1, maxStageNo];
+    UIAlertView* message = [[UIAlertView alloc] initWithTitle:title
                                                       message:nil
                                                      delegate:self
                                             cancelButtonTitle:@"Cancel"
                                             otherButtonTitles:NSLocalizedString(@"dialog_select", nil), nil];
     message.tag = TKAlertTagStageSelect;
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    [message textFieldAtIndex:0].keyboardType=  UIKeyboardTypeNumbersAndPunctuation;
+    [message textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     [message show];
 }
-
 
 #pragma mark -
 #pragma mark delegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (alertView.tag) {
-        case TKAlertTagKyouen:
-        {
-            NSNumber *nextStageNo = @([currentModel.stageNo intValue] + 1);
-            [self moveStage:nextStageNo
-                  direction:1];
+    case TKAlertTagKyouen: {
+        NSNumber* nextStageNo = @([currentModel.stageNo intValue] + 1);
+        [self moveStage:nextStageNo
+              direction:1];
+    } break;
+    case TKAlertTagStageSelect: {
+        if (buttonIndex == 0) {
+            // キャンセルボタンは処理をスキップ
+            break;
         }
+        NSString* inputText = [[alertView textFieldAtIndex:0] text];
+        NSNumber* nextStageNo = [NSNumber numberWithInt:[inputText intValue]];
+        if (nextStageNo == 0) {
             break;
-        case TKAlertTagStageSelect:
-        {
-            if (buttonIndex == 0) {
-                // キャンセルボタンは処理をスキップ
-                break;
-            }
-            NSString *inputText = [[alertView textFieldAtIndex:0] text];
-            NSNumber *nextStageNo = [NSNumber numberWithInt:[inputText intValue]];
-            if (nextStageNo == 0) {
-                break;
-            }
-            LOG(@"nextStageNo = %@", nextStageNo);
-            TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-            TumeKyouenModel *model = [dao selectByStageNo:nextStageNo];
-            if (model == nil) {
-                // 取得できなかった場合は終了
-                break;
-            }
-            [self moveStage:nextStageNo
-                  direction:1];
         }
+        LOG(@"nextStageNo = %@", nextStageNo);
+        TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
+        TumeKyouenModel* model = [dao selectByStageNo:nextStageNo];
+        if (model == nil) {
+            // 取得できなかった場合は終了
             break;
-        default:
-            break;
+        }
+        [self moveStage:nextStageNo
+              direction:1];
+    } break;
+    default:
+        break;
     }
 }
-
 
 #pragma mark -
 #pragma mark private methods
 
-- (void)moveStage:(NSNumber *)stageNo direction:(int)direction
+- (void)moveStage:(NSNumber*)stageNo direction:(int)direction
 {
     LOG(@"moveStage");
-    TKTumeKyouenDao *dao = [[TKTumeKyouenDao alloc] init];
-    TumeKyouenModel *model = [dao selectByStageNo:stageNo];
+    TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
+    TumeKyouenModel* model = [dao selectByStageNo:stageNo];
     if (model == nil) {
         // 取得できなかった場合の処理
 
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
-        TKTumeKyouenServer *server = [[TKTumeKyouenServer alloc] init];
-        [server getStageData:([stageNo intValue] -1) callback:^(NSString *result, NSError *error) {
+        TKTumeKyouenServer* server = [[TKTumeKyouenServer alloc] init];
+        [server getStageData:([stageNo intValue] - 1)
+                    callback:^(NSString* result, NSError* error) {
             LOG(@"callback");
             LOG(@"%@", result);
             if (error != nil || result == nil || [result length] == 0) {
@@ -221,22 +221,23 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
             // ステージの移動
             [self moveStage:stageNo direction:direction];
-        }];
+                    }];
 
         return;
     }
-    [self setStageWithAnimation:model direction:direction];
+    [self setStageWithAnimation:model
+                      direction:direction];
 
     // 表示したステージ番号を保存
-    TKSettingDao *settingDao = [[TKSettingDao alloc] init];
+    TKSettingDao* settingDao = [[TKSettingDao alloc] init];
     [settingDao saveStageNo:model.stageNo];
 }
 
-- (void)setStageWithAnimation:(TumeKyouenModel *)model direction:(int)direction
+- (void)setStageWithAnimation:(TumeKyouenModel*)model direction:(int)direction
 {
     LOG(@"setStageWithAnimation");
-    KyouenImageView *currentImageView = self.mKyouenImageView1;
-    KyouenImageView *nextImageView = self.mKyouenImageView2;
+    KyouenImageView* currentImageView = self.mKyouenImageView1;
+    KyouenImageView* nextImageView = self.mKyouenImageView2;
     nextImageView.alpha = 1.0f;
     [self setStage:model
                 to:nextImageView];
@@ -253,7 +254,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
     // 2つのImageViewを移動
     CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:nil context:context];
+    [UIView beginAnimations:nil
+                    context:context];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(endSetStageAnimation)];
     [UIView setAnimationDuration:0.4];
@@ -263,12 +265,12 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
     frame.origin.x = origX;
     [nextImageView setFrame:frame];
     [UIView commitAnimations];
-    
+
     self.mKyouenImageView1 = nextImageView;
     self.mKyouenImageView2 = currentImageView;
 }
 
-- (void)setStage:(TumeKyouenModel *)model to:(KyouenImageView *)imageView
+- (void)setStage:(TumeKyouenModel*)model to:(KyouenImageView*)imageView
 {
     LOG(@"setStage");
 
@@ -278,14 +280,17 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 
     self.currentModel = model;
     if ([self.currentModel.clearFlag isEqualToNumber:@1]) {
-        [self.mStageNo setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
+        [self.mStageNo setTextColor:[UIColor colorWithRed:1.0
+                                                    green:0.3
+                                                     blue:0.3
+                                                    alpha:1]];
     } else {
         [self.mStageNo setTextColor:[UIColor whiteColor]];
     }
     [self.mStageNo setText:[NSString stringWithFormat:@"STAGE:%@", self.currentModel.stageNo]];
     [self.mCreator setText:[NSString stringWithFormat:@"created by %@", self.currentModel.creator]];
     [imageView setStage:currentModel];
-    
+
     self.mOverlayKyouenView.alpha = 0;
 
     [self endSetStageAnimation];
@@ -294,7 +299,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag)
 - (void)endSetStageAnimation
 {
     LOG(@"stageNo = %@", self.currentModel.stageNo);
-    if (![self.currentModel.stageNo isEqual: @1]) {
+    if (![self.currentModel.stageNo isEqual:@1]) {
         // ステージ１の場合は戻れない
         [self.mPrevButton setEnabled:YES];
     }

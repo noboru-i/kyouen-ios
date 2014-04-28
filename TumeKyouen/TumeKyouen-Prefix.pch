@@ -9,18 +9,18 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-    #ifdef DEBUG
-        #define LOG(fmt,...) NSLog((@"%s %d "fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-        #define LOG_METHOD NSLog(@"%s", __func__)
-    #else
-        #define LOG(...)
-        #define LOG_METHOD
-    #endif
+#ifdef DEBUG
+#define LOG(fmt, ...) NSLog((@"%s %d " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define LOG_METHOD NSLog(@"%s", __func__)
+#else
+#define LOG(...)
+#define LOG_METHOD
+#endif
 
-    // AdMob
-    #define MY_BANNER_UNIT_ID	@"a15122454742422"
+// AdMob
+#define MY_BANNER_UNIT_ID @"a15122454742422"
 #endif
