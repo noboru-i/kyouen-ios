@@ -3,6 +3,7 @@ pod 'AFNetworking', '~> 2.2'
 pod 'Google-Mobile-Ads-SDK', '~> 6.8'
 pod 'OAuthCore', '~> 0.0.1'
 pod 'SVProgressHUD', '~> 1.0'
+pod 'FLEX', '~> 1.0'
 
 post_install do | installer |
     require 'fileutils'

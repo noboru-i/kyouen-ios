@@ -11,6 +11,10 @@
 #import <Accounts/Accounts.h>
 #import <SVProgressHUD.h>
 
+#if DEBUG
+#import "FLEXManager.h"
+#endif
+
 #import "TKTitleViewController.h"
 #import "TKKyouenViewController.h"
 #import "TKTumeKyouenDao.h"
@@ -47,6 +51,10 @@
     _twitterManager = [[TKTwitterManager alloc] init];
 
     [self sendTwitterAccount];
+
+#if DEBUG
+    [[FLEXManager sharedManager] showExplorer];
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated
