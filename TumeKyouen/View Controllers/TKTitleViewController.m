@@ -241,7 +241,7 @@
 - (void)getStage:(NSUInteger)maxStageNo server:(TKTumeKyouenServer*)server kyouenDao:(TKTumeKyouenDao*)dao
 {
     LOG_METHOD;
-    [server getStageData:(maxStageNo - 1L)
+    [server getStageData:maxStageNo
                 callback:^(NSString* result, NSError* error) {
         if (error != nil)
         {
