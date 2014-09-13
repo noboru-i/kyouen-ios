@@ -81,15 +81,17 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 
 - (IBAction)checkKyouen:(id)sender
 {
+    LOG_METHOD;
     TKGameModel* model = [[TKGameModel alloc] initWithSize:[self.currentModel.size intValue]
                                                      stage:[self.mKyouenImageView1 getCurrentStage]];
     // 4つ選択されているかのチェック
+    LOG(@"count = %d", [model getStoneCount:2]);
     if ([model getStoneCount:2] != 4) {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(@"alert_less_stone", nil)
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert_less_stone", nil)
+                                                        message:nil
                                                        delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
         [alert show];
         return;
     }
@@ -99,8 +101,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     if (kyouenData == nil) {
         [self setStage:currentModel
                     to:self.mKyouenImageView1];
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(@"alert_not_kyouen", nil)
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert_not_kyouen", nil)
+                                                        message:nil
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK", nil];
@@ -118,8 +120,8 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
                                                 alpha:1]];
     [self.mOverlayKyouenView drawKyouen:kyouenData
                         tumeKyouenModel:self.currentModel];
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:NSLocalizedString(@"kyouen", nil)
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"kyouen", nil)
+                                                    message:nil
                                                    delegate:self
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"Next", nil];

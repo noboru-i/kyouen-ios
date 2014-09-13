@@ -109,8 +109,8 @@
     LOG_METHOD;
     if ([self.accounts count] == 0) {
         // アカウントが設定されていない場合
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(@"alert_no_twitter_account", nil)
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"alert_no_twitter_account", nil)
+                                                        message:nil
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
