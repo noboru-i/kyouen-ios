@@ -15,9 +15,9 @@
 #define SERVER_DOMAIN @"https://my-android-server.appspot.com"
 // #define SERVER_DOMAIN @"http://kyouen.jp:8080"
 
-- (NSString*)getStageData:(int)currentMaxStageNo callback:(void (^)(NSString*, NSError* error))callback
+- (NSString*)getStageData:(NSInteger)currentMaxStageNo callback:(void (^)(NSString*, NSError* error))callback
 {
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%d", SERVER_DOMAIN, currentMaxStageNo]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/kyouen/get?stageNo=%ld", SERVER_DOMAIN, (long)currentMaxStageNo]];
     NSURLRequest* request = [NSURLRequest requestWithURL:url
                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                          timeoutInterval:10.0f];

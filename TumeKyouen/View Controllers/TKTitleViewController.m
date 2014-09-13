@@ -160,7 +160,7 @@
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
 
     TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
-    int stageCount = [dao selectCount];
+    NSUInteger stageCount = [dao selectCount];
     TKTumeKyouenServer* server = [[TKTumeKyouenServer alloc] init];
     [self getStage:stageCount
             server:server
@@ -172,7 +172,7 @@
 - (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex != actionSheet.cancelButtonIndex) {
-        LOG(@"buttonIndex=%d", buttonIndex);
+        LOG(@"buttonIndex=%ld", (long)buttonIndex);
 
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         [self.twitterManager performReverseAuthForAccount:self.accounts[buttonIndex]
@@ -235,13 +235,13 @@
     TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
     NSUInteger clearCount = [dao selectCountClearStage];
     NSUInteger allCount = [dao selectCount];
-    self.stageCountLabel.text = [NSString stringWithFormat:@"%d/%d", clearCount, allCount];
+    self.stageCountLabel.text = [NSString stringWithFormat:@"%ld/%ld", (unsigned long)clearCount, (unsigned long)allCount];
 }
 
-- (void)getStage:(int)maxStageNo server:(TKTumeKyouenServer*)server kyouenDao:(TKTumeKyouenDao*)dao
+- (void)getStage:(NSUInteger)maxStageNo server:(TKTumeKyouenServer*)server kyouenDao:(TKTumeKyouenDao*)dao
 {
     LOG_METHOD;
-    [server getStageData:(maxStageNo - 1)
+    [server getStageData:(maxStageNo - 1L)
                 callback:^(NSString* result, NSError* error) {
         if (error != nil)
         {

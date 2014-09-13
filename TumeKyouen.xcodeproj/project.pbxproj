@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03881A6DB5A440759B40D20A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC0D356DA104F5595C559A9 /* libPods.a */; };
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
 		6831FDCE16E3320200291810 /* TKTumeKyouenDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCD16E3320100291810 /* TKTumeKyouenDao.m */; };
@@ -20,6 +21,7 @@
 		6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6878F9B618799A8700BBF8A9 /* Images.xcassets */; };
 		688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688C015118E9C08F00EECC9A /* InfoPlist.strings */; };
 		6890DEB216F61687001E6A09 /* TKTumeKyouenServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890DEB116F61687001E6A09 /* TKTumeKyouenServer.m */; };
+		6893DB6E19C40CC100579BD5 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6893DB6D19C40CC100579BD5 /* libGoogleAdMobAds.a */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825B016D9320C00D89D0B /* CoreGraphics.framework */; };
@@ -50,13 +52,11 @@
 		68AFAE4616EA44E10076DE31 /* TKLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4516EA44E10076DE31 /* TKLine.m */; };
 		68AFAE4916EA4CBE0076DE31 /* TKPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4816EA4CBE0076DE31 /* TKPoint.m */; };
 		68AFAE4C16ECDF1B0076DE31 /* TKOverlayKyouenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AFAE4B16ECDF1B0076DE31 /* TKOverlayKyouenView.m */; };
-		68B183A818E333D500CCF333 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A718E333D500CCF333 /* libGoogleAdMobAds.a */; };
 		68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A918E3348400CCF333 /* CoreTelephony.framework */; };
 		68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68B8F98818E86D5500EDC03A /* Settings.bundle */; };
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
 		68BD36191791974C00B45FDE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36181791974C00B45FDE /* Security.framework */; };
 		68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD361A1791988500B45FDE /* MobileCoreServices.framework */; };
-		B4331424D3C5462EB6DF85D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC0D356DA104F5595C559A9 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +98,7 @@
 		68924FB6187158670029B234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		68924FB7187158A70029B234 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		68924FB8187158A70029B234 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6893DB6D19C40CC100579BD5 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Pods/Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.11.1/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		689825A916D9320C00D89D0B /* TumeKyouen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumeKyouen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825AC16D9320C00D89D0B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		689825AE16D9320C00D89D0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6893DB6E19C40CC100579BD5 /* libGoogleAdMobAds.a in Frameworks */,
 				68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */,
-				68B183A818E333D500CCF333 /* libGoogleAdMobAds.a in Frameworks */,
 				6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */,
 				6898262B16D934FA00D89D0B /* AdSupport.framework in Frameworks */,
 				6899B32218704B5A00C0441E /* AVFoundation.framework in Frameworks */,
@@ -177,7 +178,7 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
-				B4331424D3C5462EB6DF85D6 /* libPods.a in Frameworks */,
+				03881A6DB5A440759B40D20A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +241,7 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6893DB6D19C40CC100579BD5 /* libGoogleAdMobAds.a */,
 				68B183A918E3348400CCF333 /* CoreTelephony.framework */,
 				68B183A718E333D500CCF333 /* libGoogleAdMobAds.a */,
 				68B183A518E3332900CCF333 /* libPods-Google-Mobile-Ads-SDK.a */,
@@ -404,6 +406,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */;
 			buildPhases = (
+				7C7808BA44A74436B4209603 /* Check Pods Manifest.lock */,
 				689825A516D9320C00D89D0B /* Sources */,
 				689825A616D9320C00D89D0B /* Frameworks */,
 				689825A716D9320C00D89D0B /* Resources */,
@@ -510,6 +513,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		689825CD16D9320C00D89D0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -523,6 +527,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		7C7808BA44A74436B4209603 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -634,8 +653,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -662,6 +682,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -680,12 +701,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.11.1",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -705,12 +726,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.11.1",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
