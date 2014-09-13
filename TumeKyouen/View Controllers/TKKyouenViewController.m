@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
                             atIndex:0];
 
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    if (screenSize.width == 320.0 && screenSize.height == 568.0) {
+    if (screenSize.width >= 320.0 && screenSize.height >= 568.0) {
         //4インチの場合
         // AdMob
         [AdMobUtil show:self];
