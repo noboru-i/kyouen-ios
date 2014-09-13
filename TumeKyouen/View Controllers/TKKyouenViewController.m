@@ -120,6 +120,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
                                                 alpha:1]];
     [self.mOverlayKyouenView drawKyouen:kyouenData
                         tumeKyouenModel:self.currentModel];
+    self.mOverlayKyouenView.layer.zPosition = 3;
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"kyouen", nil)
                                                     message:nil
                                                    delegate:self
@@ -253,16 +254,14 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     CGFloat origX = frame.origin.x;
     frame.origin.x = origX + direction * 320;
     [nextImageView setFrame:frame];
+    currentImageView.layer.zPosition = 1;
+    nextImageView.layer.zPosition = 2;
 
     // 2つのImageViewを移動
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:nil
-                    context:context];
+    [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(endSetStageAnimation)];
     [UIView setAnimationDuration:0.4];
-    frame.origin.x = origX - direction * 320;
-    [currentImageView setFrame:frame];
     currentImageView.alpha = 0.0f;
     frame.origin.x = origX;
     [nextImageView setFrame:frame];
