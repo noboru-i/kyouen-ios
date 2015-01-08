@@ -7,5 +7,5 @@ pod 'FLEX', '~> 1.0'
 
 post_install do | installer |
     require 'fileutils'
-    FileUtils.cp_r('Pods/Pods-Acknowledgements.plist', 'TumeKyouen/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+    FileUtils.cp_r('Pods/Target Support Files/Pods/Pods-acknowledgements.plist', 'TumeKyouen/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 end

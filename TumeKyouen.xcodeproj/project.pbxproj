@@ -152,7 +152,8 @@
 		68BD36181791974C00B45FDE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		68EC8BDC1871EB49002D79B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
-		A25B15A373A149CCB873811F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +195,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BE51DC4D28C15EC17E2FBC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */,
+				E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6831FDC816E32E3800291810 /* Dao */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +235,7 @@
 				689825D616D9320C00D89D0B /* TumeKyouenTests */,
 				689825AB16D9320C00D89D0B /* Frameworks */,
 				689825AA16D9320C00D89D0B /* Products */,
-				A25B15A373A149CCB873811F /* Pods.xcconfig */,
+				2BE51DC4D28C15EC17E2FBC4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -512,7 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		689825CD16D9320C00D89D0B /* ShellScript */ = {
@@ -688,7 +698,7 @@
 		};
 		689825E216D9320C00D89D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
+			baseConfigurationReference = EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -703,6 +713,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.11.1",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -713,7 +724,7 @@
 		};
 		689825E316D9320C00D89D0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A25B15A373A149CCB873811F /* Pods.xcconfig */;
+			baseConfigurationReference = E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
