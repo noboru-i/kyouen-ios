@@ -1,19 +1,20 @@
 machine:
   environment:
-    PATH: $PATH:/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support
-    LC_CTYPE: en_US.UTF-8
+    XCODE_SCHEME: TumeKyouen
+    XCODE_WORKSPACE: TumeKyouen.xcworkspace
+    DEVELOPER_NAME: 'iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)'
+    APPNAME: TumeKyouen
+    PROFILE_UUID: 74edbd65-f0eb-46fd-82de-7f6b080a2a36
 
 dependencies:
   override:
-    - sudo gem install xcpretty
-
-test:
-  override:
-    - rake test
+    - pod install:
+        timeout: 300
 
 deployment:
   master:
     branch: master
     commands:
-      - agvtool new-version -all $CIRCLE_BUILD_NUM
-      - rake deploy
+      - ./scripts/add-key.sh
+      - ./scripts/testflight.sh
+      - ./scripts/remove-key.sh
