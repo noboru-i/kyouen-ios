@@ -3,7 +3,7 @@ machine:
     XCODE_SCHEME: TumeKyouen_adhoc
     XCODE_WORKSPACE: TumeKyouen.xcworkspace
     DEVELOPER_NAME: 'iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)'
-    APPNAME: TumeKyouen
+    APPNAME: TumeKyouen_adhoc
     PROFILE_UUID: 74edbd65-f0eb-46fd-82de-7f6b080a2a36
 
 dependencies:
