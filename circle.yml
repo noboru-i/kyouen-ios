@@ -1,6 +1,6 @@
 machine:
   environment:
-    XCODE_SCHEME: TumeKyouen
+    XCODE_SCHEME: TumeKyouen_adhoc
     XCODE_WORKSPACE: TumeKyouen.xcworkspace
     DEVELOPER_NAME: 'iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)'
     APPNAME: TumeKyouen
