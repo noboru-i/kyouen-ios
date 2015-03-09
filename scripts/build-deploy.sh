@@ -30,4 +30,4 @@ curl https://deploygate.com/api/users/noboru-i/apps \
 echo "********************"
 echo "*  Save Artifacts  *"
 echo "********************"
-mv @$APP_DIR/$APPNAME.ipa $CIRCLE_ARTIFACTS
+mv $APP_DIR/$APPNAME.ipa $CIRCLE_ARTIFACTS
