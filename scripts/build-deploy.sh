@@ -4,7 +4,9 @@ PROVISIONING_PROFILE="$HOME/Library/MobileDevice/Provisioning Profiles/$PROFILE_
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 ARCHIVE_PATH="$PWD/build.xcarchive"
 APP_DIR="$ARCHIVE_PATH/Products/Applications"
-DSYM_DIR="$ARCHIVE_PATH/dSYMs"
+
+LAST_COMMIT_HASH=`git rev-parse HEAD`
+LAST_COMMIT_MESSAGE=`git log -1 --pretty='%s'`
 
 echo "********************"
 echo "*     Archive      *"
@@ -16,13 +18,10 @@ echo "*     Signing      *"
 echo "********************"
 xcrun -log -sdk iphoneos PackageApplication "$APP_DIR/$APPNAME.app" -o "$APP_DIR/$APPNAME.ipa" -sign "$DEVELOPER_NAME" -embed "$PROVISIONING_PROFILE"
 
-RELEASE_NOTES="Build: $CIRCLE_BUILD_NUM\nUploaded: $RELEASE_DATE"
-
-zip -r -9 "$DSYM_DIR/$APPNAME.app.dSYM.zip" "$DSYM_DIR/$APPNAME.app.dSYM"
-
 echo "********************"
 echo "*    Uploading     *"
 echo "********************"
+RELEASE_NOTES="Commit: $LAST_COMMIT_HASH / LAST_COMMIT_MESSAGE, Build: $CIRCLE_BUILD_NUM, Uploaded: $RELEASE_DATE"
 curl https://deploygate.com/api/users/noboru-i/apps \
   -F "file=@$APP_DIR/$APPNAME.ipa" \
   -F "token=$DEPLOY_GATE_KEY" \
