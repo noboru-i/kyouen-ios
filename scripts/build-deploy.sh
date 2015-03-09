@@ -26,3 +26,8 @@ curl https://deploygate.com/api/users/noboru-i/apps \
   -F "file=@$APP_DIR/$APPNAME.ipa" \
   -F "token=$DEPLOY_GATE_KEY" \
   -F "message=$RELEASE_NOTES" -v
+
+echo "********************"
+echo "*  Save Artifacts  *"
+echo "********************"
+mv @$APP_DIR/$APPNAME.ipa $CIRCLE_ARTIFACTS
