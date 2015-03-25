@@ -21,7 +21,7 @@ xcrun -log -sdk iphoneos PackageApplication "$APP_DIR/$APPNAME.app" -o "$APP_DIR
 echo "********************"
 echo "*    Uploading     *"
 echo "********************"
-RELEASE_NOTES="Commit: $LAST_COMMIT_HASH / LAST_COMMIT_MESSAGE, Build: $CIRCLE_BUILD_NUM, Uploaded: $RELEASE_DATE"
+RELEASE_NOTES="Commit: $LAST_COMMIT_HASH / $LAST_COMMIT_MESSAGE, Build: $CIRCLE_BUILD_NUM, Uploaded: $RELEASE_DATE"
 curl https://deploygate.com/api/users/noboru-i/apps \
   -F "file=@$APP_DIR/$APPNAME.ipa" \
   -F "token=$DEPLOY_GATE_KEY" \
@@ -30,4 +30,13 @@ curl https://deploygate.com/api/users/noboru-i/apps \
 echo "********************"
 echo "*  Save Artifacts  *"
 echo "********************"
-mv $APP_DIR/$APPNAME.ipa $CIRCLE_ARTIFACTS
+cp $APP_DIR/$APPNAME.ipa $CIRCLE_ARTIFACTS
+
+echo "********************"
+echo "*  GitHub Release  *"
+echo "********************"
+export HUB_CONFIG="$PWD/hub_config"
+echo "github.com:" > $HUB_CONFIG
+echo "- user: $CIRCLE_PROJECT_USERNAME" >> $HUB_CONFIG
+echo "  oauth_token: $GITHUB_ACCESS_TOKEN" >> $HUB_CONFIG
+hub release create -p -a $APP_DIR/$APPNAME.ipa -m "Build: $CIRCLE_BUILD_NUM" "v`date '+%Y%m%d%H%M%S'`"
