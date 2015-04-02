@@ -1,45 +1,45 @@
 PODS:
-  - AFNetworking (2.4.1):
-    - AFNetworking/NSURLConnection (= 2.4.1)
-    - AFNetworking/NSURLSession (= 2.4.1)
-    - AFNetworking/Reachability (= 2.4.1)
-    - AFNetworking/Security (= 2.4.1)
-    - AFNetworking/Serialization (= 2.4.1)
-    - AFNetworking/UIKit (= 2.4.1)
-  - AFNetworking/NSURLConnection (2.4.1):
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
+  - AFNetworking/NSURLSession (2.5.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - FLEX (1.1.1)
-  - Google-Mobile-Ads-SDK (6.11.1)
+  - FLEX (2.0.2)
+  - Google-Mobile-Ads-SDK (7.1.0)
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
-  - SVProgressHUD (1.0)
+  - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.2)
-  - FLEX (~> 1.0)
-  - Google-Mobile-Ads-SDK (~> 6.8)
+  - AFNetworking (~> 2.5)
+  - FLEX (~> 2.0)
+  - Google-Mobile-Ads-SDK (~> 7.1)
   - OAuthCore (~> 0.0.1)
   - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  FLEX: 8e53751b915759215d77c7c72b1c7bd28665dac2
-  Google-Mobile-Ads-SDK: 657fcbf9436363d0f925cf905d176fb1cb10df85
-  NSData+Base64: aae92a2e3f0bd88b29fe6093551ded3f5c062548
-  OAuthCore: 09d3c56dd3f64a61d1ffcbf103f28118ff8ca2e9
-  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  FLEX: 321e6150cbababb76aaadde355dfce2ee1cac2d8
+  Google-Mobile-Ads-SDK: 9b7c22345f13de4164e9e6d90ad49cce42124c3c
+  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
+  OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3

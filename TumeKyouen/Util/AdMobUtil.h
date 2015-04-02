@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GADBannerView.h"
-
 @interface AdMobUtil : NSObject {
     
 }

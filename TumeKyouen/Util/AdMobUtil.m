@@ -8,6 +8,8 @@
 
 #import "AdMobUtil.h"
 
+@import GoogleMobileAds;
+
 @implementation AdMobUtil
 
 + (void) show:(UIViewController *) controller {
@@ -24,9 +26,7 @@
     bannerView.rootViewController = controller;
     [controller.view addSubview:bannerView];
 
-    GADRequest *request =[GADRequest request];
-    request.testDevices = [NSArray arrayWithObjects:GAD_SIMULATOR_ID, nil];
-    [bannerView loadRequest:request];
+    [bannerView loadRequest:[GADRequest request]];
 }
 
 @end

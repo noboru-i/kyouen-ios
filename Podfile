@@ -1,9 +1,9 @@
 platform :ios, '7.0'
-pod 'AFNetworking', '~> 2.2'
-pod 'Google-Mobile-Ads-SDK', '~> 6.8'
+pod 'AFNetworking', '~> 2.5'
+pod 'Google-Mobile-Ads-SDK', '~> 7.1'
 pod 'OAuthCore', '~> 0.0.1'
 pod 'SVProgressHUD', '~> 1.0'
-pod 'FLEX', '~> 1.0'
+pod 'FLEX', '~> 2.0'
 
 post_install do | installer |
     require 'fileutils'
