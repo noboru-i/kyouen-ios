@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 noboru. All rights reserved.
 //
 
-@interface TKAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TKAppDelegate : UIResponder<UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
-- (NSManagedObjectContext *) managedObjectContext;
+- (NSManagedObjectContext *)managedObjectContext;
 
 @end

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKTitleViewController : UIViewController <UIActionSheetDelegate> {
+@interface TKTitleViewController : UIViewController<UIActionSheetDelegate> {
 }
-@property (weak, nonatomic) IBOutlet UIButton* twitterButton;
-@property (weak, nonatomic) IBOutlet UIButton* syncButton;
-@property (weak, nonatomic) IBOutlet UILabel* stageCountLabel;
+@property(weak, nonatomic) IBOutlet UIButton* twitterButton;
+@property(weak, nonatomic) IBOutlet UIButton* syncButton;
+@property(weak, nonatomic) IBOutlet UILabel* stageCountLabel;
 
 - (IBAction)connectTwitterAction:(id)sender;
 - (IBAction)syncDataAction:(id)sender;

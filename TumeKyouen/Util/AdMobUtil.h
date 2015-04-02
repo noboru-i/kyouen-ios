@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface AdMobUtil : NSObject {
-    
 }
 
-+ (void) show:(UIViewController *) controller;
++ (void)show:(UIViewController *)controller;
 
 @end

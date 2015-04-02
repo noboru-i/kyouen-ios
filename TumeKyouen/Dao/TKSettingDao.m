@@ -10,15 +10,13 @@
 
 @implementation TKSettingDao
 
-- (void)saveStageNo:(NSNumber *)stageNo
-{
+- (void)saveStageNo:(NSNumber *)stageNo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:stageNo forKey:@"stageNo"];
     [defaults synchronize];
 }
 
-- (NSNumber *) loadStageNo
-{
+- (NSNumber *)loadStageNo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSNumber *stageNo = [defaults objectForKey:@"stageNo"];
     if (stageNo == nil) {

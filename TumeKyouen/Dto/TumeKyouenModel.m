@@ -8,7 +8,6 @@
 
 #import "TumeKyouenModel.h"
 
-
 @implementation TumeKyouenModel
 
 @dynamic stageNo;
@@ -19,13 +18,11 @@
 @dynamic creator;
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"stageNo = %@, size = %@, stage = %@, creator = %@, clearFlag = %@, clearDate = %@",
-            self.stageNo,
-            self.size,
-            self.stage,
-            self.creator,
-            self.clearFlag,
-            self.clearDate];
+    return [NSString
+        stringWithFormat:@"stageNo = %@, size = %@, stage = %@, creator = %@, "
+                         @"clearFlag = %@, clearDate = %@",
+                         self.stageNo, self.size, self.stage, self.creator,
+                         self.clearFlag, self.clearDate];
 }
 
 @end

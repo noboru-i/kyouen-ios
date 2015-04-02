@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^ReverseAuthResponseHandler)(NSData *responseData, NSError *error);
+typedef void (^ReverseAuthResponseHandler)(NSData *responseData,
+                                           NSError *error);
 
 @interface TKTwitterManager : NSObject
 
-- (void)performReverseAuthForAccount:(ACAccount *)account withHandler:(ReverseAuthResponseHandler)handler;
+- (void)performReverseAuthForAccount:(ACAccount *)account
+                         withHandler:(ReverseAuthResponseHandler)handler;
 
 + (BOOL)isLocalTwitterAccountAvailable;
 

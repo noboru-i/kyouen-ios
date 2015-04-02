@@ -12,11 +12,11 @@
 
 @interface TKLine : NSObject
 
-@property (nonatomic, readonly) TKPoint *p1;
-@property (nonatomic, readonly) TKPoint *p2;
-@property (nonatomic, readonly) double a;
-@property (nonatomic, readonly) double b;
-@property (nonatomic, readonly) double c;
+@property(nonatomic, readonly) TKPoint *p1;
+@property(nonatomic, readonly) TKPoint *p2;
+@property(nonatomic, readonly) double a;
+@property(nonatomic, readonly) double b;
+@property(nonatomic, readonly) double c;
 
 - (id)initWithPoints:(TKPoint *)p1 anotherPoint:(TKPoint *)p2;
 

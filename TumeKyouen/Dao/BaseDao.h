@@ -10,6 +10,6 @@
 
 @interface BaseDao : NSObject
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property(nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end

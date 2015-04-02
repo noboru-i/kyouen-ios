@@ -10,8 +10,8 @@
 
 @interface TKPoint : NSObject
 
-@property (nonatomic) double x;
-@property (nonatomic) double y;
+@property(nonatomic) double x;
+@property(nonatomic) double y;
 
 - (id)initWithX:(double)x Y:(double)y;
 

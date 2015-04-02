@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
 @interface TumeKyouenModel : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * stageNo;
-@property (nonatomic, retain) NSDate * clearDate;
-@property (nonatomic, retain) NSNumber * clearFlag;
-@property (nonatomic, retain) NSNumber * size;
-@property (nonatomic, retain) NSString * stage;
-@property (nonatomic, retain) NSString * creator;
+@property(nonatomic, retain) NSNumber* stageNo;
+@property(nonatomic, retain) NSDate* clearDate;
+@property(nonatomic, retain) NSNumber* clearFlag;
+@property(nonatomic, retain) NSNumber* size;
+@property(nonatomic, retain) NSString* stage;
+@property(nonatomic, retain) NSString* creator;
 
 @end
