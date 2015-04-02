@@ -13,17 +13,16 @@
 #import "TKKyouenData.h"
 #import "TumeKyouenModel.h"
 
-@interface TKOverlayKyouenView()
+@interface TKOverlayKyouenView ()
 
-@property (nonatomic, strong)TKKyouenData *kyouenData;
-@property (nonatomic, strong)TumeKyouenModel *tumeKyouenModel;
+@property(nonatomic, strong) TKKyouenData *kyouenData;
+@property(nonatomic, strong) TumeKyouenModel *tumeKyouenModel;
 
 @end
 
 @implementation TKOverlayKyouenView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -31,15 +30,14 @@
     return self;
 }
 
-- (void)drawKyouen:(TKKyouenData *)kyouenData tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel
-{
+- (void)drawKyouen:(TKKyouenData *)kyouenData
+    tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel {
     self.kyouenData = kyouenData;
     self.tumeKyouenModel = tumeKyouenModel;
     [self setNeedsDisplay];
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     LOG(@"drawRect");
     if (self.kyouenData == nil) {
         self.alpha = 0;
@@ -68,7 +66,7 @@
             endX = width;
             endY = ([line getY:width] + 0.5) * stoneSize;
             LOG(@"x=%f, y=%f, x2=%f, y2=%f", startX, startY, endX, endY);
-        } else if(line.b == 0) {
+        } else if (line.b == 0) {
             // y軸と平行な場合
             startX = ([line getX:0] + 0.5) * stoneSize;
             startY = 0;
@@ -80,24 +78,26 @@
             if (line.c / line.b < 0) {
                 startX = ([line getX:-0.5] + 0.5) * stoneSize;
                 startY = 0;
-                endX = ([line getX:(size -0.5)] + 0.5) * stoneSize;
+                endX = ([line getX:(size - 0.5)] + 0.5) * stoneSize;
                 endY = width;
             } else {
                 startX = 0;
                 startY = ([line getY:-0.5] + 0.5) * stoneSize;
                 endX = width;
-                endY = ([line getY:(size -0.5)] + 0.5) * stoneSize;
+                endY = ([line getY:(size - 0.5)] + 0.5) * stoneSize;
             }
         }
-        
-        CGPoint points[2] = {CGPointMake(startX, startY), CGPointMake(endX, endY)};
+
+        CGPoint points[2] = {CGPointMake(startX, startY),
+                             CGPointMake(endX, endY)};
         CGContextStrokeLineSegments(context, points, 2);
     } else {
         // 円の場合
         double cx = (self.kyouenData.center.x + 0.5) * stoneSize;
         double cy = (self.kyouenData.center.y + 0.5) * stoneSize;
         double radius = self.kyouenData.radius * stoneSize;
-        CGRect rectEllipse = CGRectMake(cx - radius, cy - radius, radius*2, radius*2);
+        CGRect rectEllipse =
+            CGRectMake(cx - radius, cy - radius, radius * 2, radius * 2);
         CGContextStrokeEllipseInRect(context, rectEllipse);
     }
 

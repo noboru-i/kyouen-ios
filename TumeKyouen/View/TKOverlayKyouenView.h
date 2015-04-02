@@ -13,6 +13,7 @@
 
 @interface TKOverlayKyouenView : UIView
 
-- (void)drawKyouen:(TKKyouenData *)kyouenData tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel;
+- (void)drawKyouen:(TKKyouenData *)kyouenData
+    tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel;
 
 @end

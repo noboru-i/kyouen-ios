@@ -15,7 +15,7 @@
 @property NSMutableArray *buttons;
 @property TumeKyouenModel *model;
 
-- (void) setStage:(TumeKyouenModel *) model;
-- (NSString *) getCurrentStage;
+- (void)setStage:(TumeKyouenModel *)model;
+- (NSString *)getCurrentStage;
 
 @end

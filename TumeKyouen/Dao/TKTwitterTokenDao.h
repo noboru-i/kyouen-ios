@@ -10,7 +10,8 @@
 
 @interface TKTwitterTokenDao : NSObject
 
-- (void)saveToken:(NSString *)oauthToken oauthTokenSecret:(NSString *) oauthTokenSecret;
+- (void)saveToken:(NSString *)oauthToken
+    oauthTokenSecret:(NSString *)oauthTokenSecret;
 - (NSString *)getOauthToken;
 - (NSString *)getOauthTokenSecret;
 

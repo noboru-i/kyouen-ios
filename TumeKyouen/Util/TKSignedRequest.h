@@ -16,15 +16,18 @@ enum TKSignedRequestMethod {
 
 typedef enum TKSignedRequestMethod TKSignedRequestMethod;
 
-typedef void(^TKSignedRequestHandler) (NSData *data, NSURLResponse *response, NSError *error);
+typedef void (^TKSignedRequestHandler)(NSData *data, NSURLResponse *response,
+                                       NSError *error);
 
 @interface TKSignedRequest : NSObject
 
-@property (nonatomic, copy) NSString *authToken;
-@property (nonatomic, copy) NSString *authTokenSecret;
+@property(nonatomic, copy) NSString *authToken;
+@property(nonatomic, copy) NSString *authTokenSecret;
 
 // Creates a new request
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TKSignedRequestMethod)requestMethod;
+- (id)initWithURL:(NSURL *)url
+       parameters:(NSDictionary *)parameters
+    requestMethod:(TKSignedRequestMethod)requestMethod;
 
 // Perform the request, and notify handler of results
 - (void)performRequestWithHandler:(TKSignedRequestHandler)handler;

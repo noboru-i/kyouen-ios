@@ -13,10 +13,10 @@
 
 @synthesize managedObjectContext;
 
-- (id)init
-{
+- (id)init {
     if (self = [super init]) {
-        TKAppDelegate *appDelegate = (TKAppDelegate *)[[UIApplication sharedApplication] delegate];
+        TKAppDelegate *appDelegate =
+            (TKAppDelegate *)[[UIApplication sharedApplication] delegate];
         managedObjectContext = [appDelegate managedObjectContext];
     }
     return self;

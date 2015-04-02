@@ -22,8 +22,7 @@
 static NSString *gTKConsumerKey;
 static NSString *gTKConsumerSecret;
 
-@interface TKSignedRequest()
-{
+@interface TKSignedRequest () {
     NSURL *_url;
     NSDictionary *_parameters;
     TKSignedRequestMethod _signedRequestMethod;
@@ -37,8 +36,9 @@ static NSString *gTKConsumerSecret;
 @synthesize authToken = _authToken;
 @synthesize authTokenSecret = _authTokenSecret;
 
-- (id)initWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(TKSignedRequestMethod)requestMethod
-{
+- (id)initWithURL:(NSURL *)url
+       parameters:(NSDictionary *)parameters
+    requestMethod:(TKSignedRequestMethod)requestMethod {
     self = [super init];
     if (self) {
         _url = url;
@@ -48,10 +48,9 @@ static NSString *gTKConsumerSecret;
     return self;
 }
 
-- (NSURLRequest *)_buildRequest
-{
+- (NSURLRequest *)_buildRequest {
     NSString *method;
-    
+
     switch (_signedRequestMethod) {
         case TKSignedRequestMethodPOST:
             method = TW_HTTP_METHOD_POST;
@@ -63,53 +62,57 @@ static NSString *gTKConsumerSecret;
         default:
             method = TW_HTTP_METHOD_GET;
     }
-    
+
     //  Build our parameter string
     NSMutableString *paramsAsString = [[NSMutableString alloc] init];
-    [_parameters enumerateKeysAndObjectsUsingBlock:
-     ^(id key, id obj, BOOL *stop) {
-         [paramsAsString appendFormat:@"%@=%@&", key, obj];
-     }];
-    
+    [_parameters
+        enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+          [paramsAsString appendFormat:@"%@=%@&", key, obj];
+        }];
+
     //  Create the authorization header and attach to our request
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authorizationHeader = OAuthorizationHeader(_url, method, bodyData, [TKSignedRequest consumerKey], [TKSignedRequest consumerSecret], _authToken, _authTokenSecret);
+    NSString *authorizationHeader = OAuthorizationHeader(
+        _url, method, bodyData, [TKSignedRequest consumerKey],
+        [TKSignedRequest consumerSecret], _authToken, _authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
     [request setHTTPMethod:method];
-    [request setValue:authorizationHeader forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
+    [request setValue:authorizationHeader
+        forHTTPHeaderField:TW_HTTP_HEADER_AUTHORIZATION];
     [request setHTTPBody:bodyData];
-    
+
     return request;
 }
 
-- (void)performRequestWithHandler:(TKSignedRequestHandler)handler
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURLResponse *response;
-        NSError *error;
-        NSData *data = [NSURLConnection sendSynchronousRequest:[self _buildRequest] returningResponse:&response error:&error];
-        handler(data, response, error);
-    });
+- (void)performRequestWithHandler:(TKSignedRequestHandler)handler {
+    dispatch_async(
+        dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+          NSURLResponse *response;
+          NSError *error;
+          NSData *data =
+              [NSURLConnection sendSynchronousRequest:[self _buildRequest]
+                                    returningResponse:&response
+                                                error:&error];
+          handler(data, response, error);
+        });
 }
 
-+ (NSString *)consumerKey
-{
++ (NSString *)consumerKey {
     if (!gTKConsumerKey) {
-        NSBundle* bundle = [NSBundle mainBundle];
+        NSBundle *bundle = [NSBundle mainBundle];
         gTKConsumerKey = bundle.infoDictionary[TW_CONSUMER_KEY];
     }
-    
+
     return gTKConsumerKey;
 }
 
-+ (NSString *)consumerSecret
-{
++ (NSString *)consumerSecret {
     if (!gTKConsumerSecret) {
-        NSBundle* bundle = [NSBundle mainBundle];
+        NSBundle *bundle = [NSBundle mainBundle];
         gTKConsumerSecret = bundle.infoDictionary[TW_CONSUMER_SECRET];
     }
-    
+
     return gTKConsumerSecret;
 }
 

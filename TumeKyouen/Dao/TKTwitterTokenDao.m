@@ -10,23 +10,21 @@
 
 @implementation TKTwitterTokenDao
 
-- (void)saveToken:(NSString *)oauthToken oauthTokenSecret:(NSString *) oauthTokenSecret
-{
+- (void)saveToken:(NSString *)oauthToken
+    oauthTokenSecret:(NSString *)oauthTokenSecret {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:oauthToken forKey:@"oauthToken"];
     [defaults setObject:oauthTokenSecret forKey:@"oauthTokenSecret"];
     [defaults synchronize];
 }
 
-- (NSString *)getOauthToken
-{
+- (NSString *)getOauthToken {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *oauthToken = [defaults objectForKey:@"oauthToken"];
     return oauthToken;
 }
 
-- (NSString *)getOauthTokenSecret
-{
+- (NSString *)getOauthTokenSecret {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *oauthTokenSecret = [defaults objectForKey:@"oauthTokenSecret"];
     return oauthTokenSecret;
