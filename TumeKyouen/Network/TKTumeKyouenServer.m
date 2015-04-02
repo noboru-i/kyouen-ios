@@ -90,7 +90,7 @@
     NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/page/add_all", SERVER_DOMAIN]];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                       timeoutInterval:10.0f];
+                                                       timeoutInterval:180.0f];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]];
 
