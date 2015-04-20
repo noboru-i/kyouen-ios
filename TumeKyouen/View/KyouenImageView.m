@@ -55,7 +55,7 @@
     int size = [self.model.size intValue];
     for (int i = 0; i < size * size; i++) {
         StoneButton *button = [self.buttons objectAtIndex:i];
-        [stage appendString:[NSString stringWithFormat:@"%d", button.state]];
+        [stage appendString:[NSString stringWithFormat:@"%d", button.stoneState]];
     }
     return stage;
 }

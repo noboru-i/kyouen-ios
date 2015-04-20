@@ -25,7 +25,7 @@
                                userInfo:nil] raise];
     }
     if (self == [super initWithFrame:CGRectMake(0, 0, stoneSize, stoneSize)]) {
-        self.state = defaultState;
+        self.stoneState = defaultState;
         [self addTarget:self
                       action:@selector(changeState:)
             forControlEvents:UIControlEventTouchDown];
@@ -39,10 +39,10 @@
         case 0:
             return;
         case 1:
-            self.state = 2;
+            self.stoneState = 2;
             break;
         case 2:
-            self.state = 1;
+            self.stoneState = 1;
             break;
         default:
             break;

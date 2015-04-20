@@ -10,7 +10,7 @@
 
 @interface StoneButton : UIButton
 
-@property int state;
+@property (nonatomic) int stoneState;
 
 - (id)initWithOptions:(int)size state:(int)state;
 
