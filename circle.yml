@@ -6,6 +6,8 @@ machine:
     APPNAME: TumeKyouen
     PROFILE_UUID: 74edbd65-f0eb-46fd-82de-7f6b080a2a36
   timezone: Asia/Tokyo
+  xcode:
+    version: "6.2"
 dependencies:
   pre:
   - brew install hub
