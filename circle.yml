@@ -11,10 +11,13 @@ machine:
 dependencies:
   pre:
   - brew install hub
+test:
+  override:
+    - ./scripts/add-key.sh
+    - ./scripts/build.sh
+    - ./scripts/remove-key.sh
 deployment:
   master:
     branch: master
     commands:
-      - ./scripts/add-key.sh
-      - ./scripts/build-deploy.sh
-      - ./scripts/remove-key.sh
+      - ./scripts/deploy.sh
