@@ -7,7 +7,7 @@ APP_DIR="$ARCHIVE_PATH/Products/Applications"
 echo "********************"
 echo "*     Archive      *"
 echo "********************"
-xcodebuild -scheme "$XCODE_SCHEME" -workspace "$XCODE_WORKSPACE" -archivePath "$ARCHIVE_PATH" clean archive CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
+xcodebuild -scheme "$XCODE_SCHEME" -workspace "$XCODE_WORKSPACE" -archivePath "$ARCHIVE_PATH" -derivedDataPath "$PWD/derivedData" archive CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
 
 echo "********************"
 echo "*     Signing      *"
