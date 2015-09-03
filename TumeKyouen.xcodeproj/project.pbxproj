@@ -716,7 +716,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "570ca7ad-2b38-4a7b-a033-a19c273f07f7";
+				PROVISIONING_PROFILE = "d36aee51-7930-4ec9-8300-fb7364a3e5f0";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -739,7 +739,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "74edbd65-f0eb-46fd-82de-7f6b080a2a36";
+				PROVISIONING_PROFILE = "782470c3-cccd-45af-99c2-2de4abc1e4d1";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
