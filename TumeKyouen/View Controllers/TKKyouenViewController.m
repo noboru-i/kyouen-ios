@@ -31,8 +31,6 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 
 @implementation TKKyouenViewController
 
-@synthesize currentModel;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -52,7 +50,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     }
 
     // 初期化
-    [self setStage:currentModel to:self.mKyouenImageView1];
+    [self setStage:self.currentModel to:self.mKyouenImageView1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,12 +62,12 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 #pragma mark actions
 
 - (IBAction)moveNextStage:(id)sender {
-    NSNumber* nextStageNo = @([currentModel.stageNo intValue] + 1);
+    NSNumber* nextStageNo = @([self.currentModel.stageNo intValue] + 1);
     [self moveStage:nextStageNo direction:1];
 }
 
 - (IBAction)movePrevStage:(id)sender {
-    NSNumber* nextStageNo = @([currentModel.stageNo intValue] - 1);
+    NSNumber* nextStageNo = @([self.currentModel.stageNo intValue] - 1);
     [self moveStage:nextStageNo direction:-1];
 }
 
@@ -94,7 +92,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     // 共円のチェック
     TKKyouenData* kyouenData = [model isKyouen];
     if (kyouenData == nil) {
-        [self setStage:currentModel to:self.mKyouenImageView1];
+        [self setStage:self.currentModel to:self.mKyouenImageView1];
         UIAlertView* alert = [[UIAlertView alloc]
                 initWithTitle:NSLocalizedString(@"alert_not_kyouen", nil)
                       message:nil
@@ -107,7 +105,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 
     // 共円の場合
     TKTumeKyouenDao* dao = [[TKTumeKyouenDao alloc] init];
-    [dao updateClearFlag:currentModel date:nil];
+    [dao updateClearFlag:self.currentModel date:nil];
     [self.mStageNo
         setTextColor:[UIColor colorWithRed:1.0 green:0.3 blue:0.3 alpha:1]];
     [self.mOverlayKyouenView drawKyouen:kyouenData
@@ -124,7 +122,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 
     // クリアデータの送信
     TKTumeKyouenServer* server = [[TKTumeKyouenServer alloc] init];
-    [server addStageUser:currentModel.stageNo];
+    [server addStageUser:self.currentModel.stageNo];
 }
 
 - (IBAction)selectStage:(id)sender {
@@ -153,7 +151,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (alertView.tag) {
         case TKAlertTagKyouen: {
-            NSNumber* nextStageNo = @([currentModel.stageNo intValue] + 1);
+            NSNumber* nextStageNo = @([self.currentModel.stageNo intValue] + 1);
             [self moveStage:nextStageNo direction:1];
         } break;
         case TKAlertTagStageSelect: {
@@ -283,7 +281,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     [self.mCreator
         setText:[NSString stringWithFormat:@"created by %@",
                                            self.currentModel.creator]];
-    [imageView setStage:currentModel];
+    [imageView setStage:self.currentModel];
 
     self.mOverlayKyouenView.alpha = 0;
 

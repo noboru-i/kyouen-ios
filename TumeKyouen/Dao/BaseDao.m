@@ -11,13 +11,11 @@
 
 @implementation BaseDao
 
-@synthesize managedObjectContext;
-
 - (id)init {
     if (self = [super init]) {
         TKAppDelegate *appDelegate =
             (TKAppDelegate *)[[UIApplication sharedApplication] delegate];
-        managedObjectContext = [appDelegate managedObjectContext];
+        _managedObjectContext = [appDelegate managedObjectContext];
     }
     return self;
 }
