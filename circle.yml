@@ -7,7 +7,7 @@ machine:
     PROFILE_UUID: 782470c3-cccd-45af-99c2-2de4abc1e4d1
   timezone: Asia/Tokyo
   xcode:
-    version: "6.2"
+    version: "7.0"
 dependencies:
   pre:
   - brew install hub
