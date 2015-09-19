@@ -33,8 +33,6 @@ static NSString *gTKConsumerSecret;
 @end
 
 @implementation TKSignedRequest
-@synthesize authToken = _authToken;
-@synthesize authTokenSecret = _authTokenSecret;
 
 - (id)initWithURL:(NSURL *)url
        parameters:(NSDictionary *)parameters
@@ -74,7 +72,7 @@ static NSString *gTKConsumerSecret;
     NSData *bodyData = [paramsAsString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *authorizationHeader = OAuthorizationHeader(
         _url, method, bodyData, [TKSignedRequest consumerKey],
-        [TKSignedRequest consumerSecret], _authToken, _authTokenSecret);
+        [TKSignedRequest consumerSecret], self.authToken, self.authTokenSecret);
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     [request setTimeoutInterval:REQUEST_TIMEOUT_INTERVAL];
     [request setHTTPMethod:method];

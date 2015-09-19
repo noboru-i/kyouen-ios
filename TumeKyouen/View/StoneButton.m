@@ -10,8 +10,6 @@
 
 @implementation StoneButton
 
-@synthesize state = state_;
-
 - (id)initWithOptions:(int)size state:(int)defaultState {
     // 6x6 : 51, 9x9 : 34
     int stoneSize = 0;
@@ -35,7 +33,7 @@
 }
 
 - (void)changeState:(id)sender {
-    switch (self.state) {
+    switch (self.stoneState) {
         case 0:
             return;
         case 1:
@@ -63,7 +61,7 @@
     CGContextStrokeLineSegments(context, points, 4);
 
     // 石の描画
-    if (self.state == 1) {
+    if (self.stoneState == 1) {
         // 黒い石を描画
         CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
         CGContextFillEllipseInRect(context, CGRectMake(0, 0, width, width));
@@ -89,7 +87,7 @@
 
         CGGradientRelease(gradient);
         CGColorSpaceRelease(colorspace);
-    } else if (self.state == 2) {
+    } else if (self.stoneState == 2) {
         // 白い石を描画
         CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
         CGContextFillEllipseInRect(context, CGRectMake(0, 0, width, width));
