@@ -13,12 +13,13 @@ dependencies:
   - brew install hub
 test:
   override:
-    - ./scripts/add-key.sh
-    - ./scripts/analyze.sh
-    - ./scripts/build.sh
-    - ./scripts/remove-key.sh
+    - echo 'skip'
 deployment:
   master:
     branch: master
     commands:
       - ./scripts/deploy.sh
+  test:
+    branch: fastlane
+    commands:
+      - bundle exec fastlane beta

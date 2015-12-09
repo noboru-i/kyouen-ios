@@ -1,0 +1,41 @@
+fastlane_version "1.46.1"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    if is_ci?
+      Helper.log.info 'skip cocoapods'
+    else
+      cocoapods
+    end
+  end
+
+  desc "Submit a new Beta Build to DeployGate"
+  lane :beta do
+    create_keychain(
+      name: 'ios-build.keychain',
+      password: SecureRandom.uuid,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+
+    gym(
+      workspace: 'TumeKyouen.xcworkspace',
+      scheme: 'TumeKyouen_adhoc',
+      output_name: 'TumeKyouen.ipa',
+      provisioning_profile_path: './fastlane/cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision'
+    )
+
+    deploygate(
+      api_token: ENV['DEPLOY_GATE_KEY'],
+      user: 'noboru-i',
+      ipa: './TumeKyouen.ipa',
+      message: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
+    )
+  end
+end
