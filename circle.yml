@@ -18,8 +18,4 @@ deployment:
   master:
     branch: master
     commands:
-      - ./scripts/deploy.sh
-  test:
-    branch: fastlane
-    commands:
       - bundle exec fastlane beta
