@@ -15,16 +15,7 @@ platform :ios do
 
   desc "Submit a new Beta Build to DeployGate"
   lane :beta do
-    create_keychain(
-      name: 'ios-build.keychain',
-      password: SecureRandom.uuid,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true
-    )
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+    add_keychain
 
     gym(
       workspace: 'TumeKyouen.xcworkspace',
@@ -59,6 +50,8 @@ platform :ios do
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :analyze do
+    add_keychain
+
     Helper.log.info 'Execute analyze task'
     xcodebuild(
       analyze: true,
@@ -81,5 +74,18 @@ ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
     | checkstyle_filter-git diff origin/master \
     | saddler report --require saddler/reporter/github --reporter #{reporter}
     EOS
+  end
+
+  def add_keychain
+    create_keychain(
+      name: 'ios-build.keychain',
+      password: SecureRandom.uuid,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
   end
 end
