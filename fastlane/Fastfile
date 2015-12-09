@@ -34,11 +34,12 @@ platform :ios do
     Helper.log.info 'Save Artifacts'
     sh "cp #{lane_context[SharedValues::IPA_OUTPUT_PATH]} $CIRCLE_ARTIFACTS"
 
+    message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
     deploygate(
       api_token: ENV['DEPLOY_GATE_KEY'],
       user: 'noboru-i',
-      ipa: './TumeKyouen.ipa',
-      message: "Build #{lane_context[SharedValues::BUILD_NUMBER]}",
+      ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
+      message: message,
     )
   end
 end
