@@ -3,6 +3,8 @@ fastlane_version "1.46.1"
 default_platform :ios
 
 platform :ios do
+  # archive_path = './build.xcarchive'
+
   before_all do
     if is_ci?
       Helper.log.info 'skip cocoapods'
@@ -52,5 +54,32 @@ platform :ios do
       is_prerelease: true,
       upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
     )
+  end
+
+  desc 'Analyze codes'
+  desc 'This may comment to pull request'
+  lane :analyze do
+    Helper.log.info 'Execute analyze task'
+    xcodebuild(
+      analyze: true,
+      # archive_path: archive_path,
+      scheme: 'TumeKyouen_adhoc',
+      workspace: 'TumeKyouen.xcworkspace',
+      derivedDataPath: './derivedData'
+    )
+
+    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
+      'Saddler::Reporter::Github::CommitReviewComment'
+    else
+      'Saddler::Reporter::Github::PullRequestReviewComment'
+    end
+    Helper.log.info 'Execute analyze task' + reporter
+
+    sh <<-EOS
+cd ../;
+ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
+    | checkstyle_filter-git diff origin/master \
+    | saddler report --require saddler/reporter/github --reporter #{reporter}
+    EOS
   end
 end

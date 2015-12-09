@@ -8,12 +8,9 @@ machine:
   timezone: Asia/Tokyo
   xcode:
     version: "7.1"
-dependencies:
-  pre:
-  - brew install hub
 test:
   override:
-    - echo 'skip'
+    - bundle exec fastlane analyze
 deployment:
   master:
     branch: master
