@@ -31,6 +31,9 @@ platform :ios do
       provisioning_profile_path: './fastlane/cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision'
     )
 
+    Helper.log.info 'Save Artifacts'
+    sh "cp #{lane_context[SharedValues::IPA_OUTPUT_PATH]} $CIRCLE_ARTIFACTS"
+
     deploygate(
       api_token: ENV['DEPLOY_GATE_KEY'],
       user: 'noboru-i',
