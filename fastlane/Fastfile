@@ -1,0 +1,106 @@
+fastlane_version '1.46.1'
+
+default_platform :ios
+
+workspace_name = 'TumeKyouen.xcworkspace'
+scheme_name = 'TumeKyouen_adhoc'
+deploygate_user_name = 'noboru-i'
+project_name = 'TumeKyouen'
+
+platform :ios do
+  before_all do
+    if is_ci?
+      Helper.log.info 'skip cocoapods'
+
+      add_keychain
+    else
+      cocoapods
+    end
+  end
+
+  after_all do
+    remove_keychain if is_ci?
+  end
+
+  desc 'Submit a new Beta Build to DeployGate'
+  lane :beta do
+    gym(
+      workspace: workspace_name,
+      scheme: scheme_name,
+      output_name: "#{project_name}.ipa"
+    )
+
+    Helper.log.info 'Save Artifacts'
+    sh "cp #{lane_context[SharedValues::IPA_OUTPUT_PATH]} $CIRCLE_ARTIFACTS"
+
+    message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
+    deploygate(
+      api_token: ENV['DEPLOY_GATE_KEY'],
+      user: deploygate_user_name,
+      ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
+      message: message
+    )
+
+    set_github_release(
+      repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
+      api_token: ENV['GITHUB_ACCESS_TOKEN'],
+      name: "Build: #{ENV['CIRCLE_BUILD_NUM']}",
+      commitish: ENV['CIRCLE_SHA1'],
+      description: '',
+      tag_name: "v#{Time.now.strftime('%Y%m%d%H%M%S')}",
+      is_prerelease: true,
+      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
+    )
+  end
+
+  desc 'Analyze codes'
+  desc 'This may comment to pull request'
+  lane :analyze do
+    Helper.log.info 'Execute analyze task'
+    xcodebuild(
+      analyze: true,
+      scheme: scheme_name,
+      workspace: workspace_name,
+      derivedDataPath: './derivedData'
+    )
+
+    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
+                 'Saddler::Reporter::Github::CommitReviewComment'
+               else
+                 'Saddler::Reporter::Github::PullRequestReviewComment'
+               end
+    Helper.log.info 'Execute analyze task' + reporter
+
+    sh <<-EOS
+cd ../;
+ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
+    | checkstyle_filter-git diff origin/master \
+    | saddler report --require saddler/reporter/github --reporter #{reporter}
+    EOS
+  end
+
+  private_lane :add_keychain do
+    create_keychain(
+      name: 'ios-build.keychain',
+      password: SecureRandom.uuid,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+
+    Helper.log.info "mobileprovision count is #{Dir.glob('./fastlane/cert/*.mobileprovision').size}"
+    Dir.glob('./cert/*.mobileprovision').each do |provisioning_file|
+      FastlaneCore::ProvisioningProfile.install(provisioning_file)
+    end
+  end
+
+  private_lane :remove_keychain do
+    delete_keychain(
+      name: 'ios-build.keychain'
+    )
+    sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
+  end
+end
