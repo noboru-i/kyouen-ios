@@ -2,6 +2,8 @@ fastlane_version '1.46.1'
 
 default_platform :ios
 
+actions_path './actions/'
+
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'
@@ -77,6 +79,13 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
     | checkstyle_filter-git diff origin/master \
     | saddler report --require saddler/reporter/github --reporter #{reporter}
     EOS
+  end
+
+  lane :lint do
+    swiftlint(
+      output_file: 'swiftlint.result.json',
+      reporter: 'json'
+    )
   end
 
   private_lane :add_keychain do
