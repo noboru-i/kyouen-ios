@@ -85,10 +85,21 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
       reporter: 'json'
     )
 
-    sh 'ls -la'
-    sh 'ls -la ../'
-    sh 'echo $CIRCLE_ARTIFACTS'
     sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
+
+    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
+                 'Saddler::Reporter::Github::CommitReviewComment'
+               else
+                 'Saddler::Reporter::Github::PullRequestReviewComment'
+               end
+
+    sh <<-EOS
+cd ../;
+cat swiftlint.result.json \
+    | swiftlint_translate_checkstyle_format translate \
+    | checkstyle_filter-git diff origin/master \
+    | saddler report --require saddler/reporter/github --reporter #{reporter}
+    EOS
   end
 
   private_lane :add_keychain do
