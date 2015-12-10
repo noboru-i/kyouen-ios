@@ -29,7 +29,7 @@
             forControlEvents:UIControlEventTouchDown];
     }
 
-     return self;
+    return self;
 }
 
 - (void)changeState:(id)sender {
