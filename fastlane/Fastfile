@@ -80,7 +80,7 @@ ios_analytics translate --appName="#{app_name}" --derivedData="./derivedData" \
     EOS
   end
 
-  def add_keychain
+  private_lane :add_keychain do
     create_keychain(
       name: 'ios-build.keychain',
       password: SecureRandom.uuid,
@@ -95,7 +95,7 @@ ios_analytics translate --appName="#{app_name}" --derivedData="./derivedData" \
     FastlaneCore::ProvisioningProfile.install("./cert/#{provisioning_profile_uuid}.mobileprovision")
   end
 
-  def remove_keychain
+  private_lane :remove_keychain do
     delete_keychain(
       name: 'ios-build.keychain'
     )
