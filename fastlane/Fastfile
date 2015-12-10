@@ -2,8 +2,6 @@ fastlane_version '1.46.1'
 
 default_platform :ios
 
-actions_path './actions/'
-
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'

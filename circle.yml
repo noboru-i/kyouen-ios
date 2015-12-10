@@ -9,7 +9,8 @@ dependencies:
 test:
   override:
     # - bundle exec fastlane analyze
-    - bundle exec fastlane lint
+    # - bundle exec fastlane lint
+    - swiftlint
 deployment:
   master:
     branch: master
