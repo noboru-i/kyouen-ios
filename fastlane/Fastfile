@@ -84,6 +84,11 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
       output_file: 'swiftlint.result.json',
       reporter: 'json'
     )
+
+    sh 'ls -la'
+    sh 'ls -la ../'
+    sh 'echo $CIRCLE_ARTIFACTS'
+    sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
   end
 
   private_lane :add_keychain do
