@@ -3,8 +3,6 @@ fastlane_version '1.46.1'
 default_platform :ios
 
 platform :ios do
-  # archive_path = './build.xcarchive'
-
   before_all do
     if is_ci?
       Helper.log.info 'skip cocoapods'
@@ -16,7 +14,7 @@ platform :ios do
   end
 
   after_all do
-    remove_keychain
+    remove_keychain if is_ci?
   end
 
   desc 'Submit a new Beta Build to DeployGate'
