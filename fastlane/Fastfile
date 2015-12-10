@@ -5,7 +5,6 @@ default_platform :ios
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'
-provisioning_profile_uuid = '782470c3-cccd-45af-99c2-2de4abc1e4d1'
 app_name = 'TumeKyouen'
 
 platform :ios do
@@ -92,7 +91,10 @@ ios_analytics translate --appName="#{app_name}" --derivedData="./derivedData" \
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
 
-    FastlaneCore::ProvisioningProfile.install("./cert/#{provisioning_profile_uuid}.mobileprovision")
+    Helper.log.info "mobileprovision count is #{Dir.glob('./fastlane/cert/*.mobileprovision').size}"
+    Dir.glob('./cert/*.mobileprovision').each do |provisioning_file|
+      FastlaneCore::ProvisioningProfile.install(provisioning_file)
+    end
   end
 
   private_lane :remove_keychain do
