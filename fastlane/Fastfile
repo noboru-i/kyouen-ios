@@ -1,4 +1,4 @@
-fastlane_version "1.46.1"
+fastlane_version '1.46.1'
 
 default_platform :ios
 
@@ -13,15 +13,14 @@ platform :ios do
     end
   end
 
-  desc "Submit a new Beta Build to DeployGate"
+  desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     add_keychain
 
     gym(
       workspace: 'TumeKyouen.xcworkspace',
       scheme: 'TumeKyouen_adhoc',
-      output_name: 'TumeKyouen.ipa',
-      provisioning_profile_path: './fastlane/cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision'
+      output_name: 'TumeKyouen.ipa'
     )
 
     Helper.log.info 'Save Artifacts'
@@ -32,7 +31,7 @@ platform :ios do
       api_token: ENV['DEPLOY_GATE_KEY'],
       user: 'noboru-i',
       ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
-      message: message,
+      message: message
     )
 
     set_github_release(
@@ -55,17 +54,16 @@ platform :ios do
     Helper.log.info 'Execute analyze task'
     xcodebuild(
       analyze: true,
-      # archive_path: archive_path,
       scheme: 'TumeKyouen_adhoc',
       workspace: 'TumeKyouen.xcworkspace',
       derivedDataPath: './derivedData'
     )
 
     reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-      'Saddler::Reporter::Github::CommitReviewComment'
-    else
-      'Saddler::Reporter::Github::PullRequestReviewComment'
-    end
+                 'Saddler::Reporter::Github::CommitReviewComment'
+               else
+                 'Saddler::Reporter::Github::PullRequestReviewComment'
+               end
     Helper.log.info 'Execute analyze task' + reporter
 
     sh <<-EOS
@@ -87,5 +85,7 @@ ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
     )
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+
+    FastlaneCore::ProvisioningProfile.install('./cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision')
   end
 end
