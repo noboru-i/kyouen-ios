@@ -5,7 +5,7 @@ default_platform :ios
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'
-app_name = 'TumeKyouen'
+project_name = 'TumeKyouen'
 
 platform :ios do
   before_all do
@@ -27,7 +27,7 @@ platform :ios do
     gym(
       workspace: workspace_name,
       scheme: scheme_name,
-      output_name: "#{app_name}.ipa"
+      output_name: "#{project_name}.ipa"
     )
 
     Helper.log.info 'Save Artifacts'
@@ -73,7 +73,7 @@ platform :ios do
 
     sh <<-EOS
 cd ../;
-ios_analytics translate --appName="#{app_name}" --derivedData="./derivedData" \
+ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
     | checkstyle_filter-git diff origin/master \
     | saddler report --require saddler/reporter/github --reporter #{reporter}
     EOS
