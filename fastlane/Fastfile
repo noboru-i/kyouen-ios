@@ -95,6 +95,6 @@ ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
     delete_keychain(
       name: 'ios-build.keychain'
     )
-    sh "rm \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
+    sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
   end
 end
