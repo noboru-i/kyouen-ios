@@ -4,7 +4,8 @@ machine:
     version: "7.1"
 dependencies:
   pre:
-  - brew install swiftlint
+    - brew update
+    - brew install swiftlint
 test:
   override:
     # - bundle exec fastlane analyze
