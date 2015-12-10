@@ -2,6 +2,12 @@ fastlane_version '1.46.1'
 
 default_platform :ios
 
+workspace_name = 'TumeKyouen.xcworkspace'
+scheme_name = 'TumeKyouen_adhoc'
+deploygate_user_name = 'noboru-i'
+provisioning_profile_uuid = '782470c3-cccd-45af-99c2-2de4abc1e4d1'
+app_name = 'TumeKyouen'
+
 platform :ios do
   before_all do
     if is_ci?
@@ -20,9 +26,9 @@ platform :ios do
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     gym(
-      workspace: 'TumeKyouen.xcworkspace',
-      scheme: 'TumeKyouen_adhoc',
-      output_name: 'TumeKyouen.ipa'
+      workspace: workspace_name,
+      scheme: scheme_name,
+      output_name: "#{app_name}.ipa"
     )
 
     Helper.log.info 'Save Artifacts'
@@ -31,7 +37,7 @@ platform :ios do
     message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
     deploygate(
       api_token: ENV['DEPLOY_GATE_KEY'],
-      user: 'noboru-i',
+      user: deploygate_user_name,
       ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
       message: message
     )
@@ -54,8 +60,8 @@ platform :ios do
     Helper.log.info 'Execute analyze task'
     xcodebuild(
       analyze: true,
-      scheme: 'TumeKyouen_adhoc',
-      workspace: 'TumeKyouen.xcworkspace',
+      scheme: scheme_name,
+      workspace: workspace_name,
       derivedDataPath: './derivedData'
     )
 
@@ -68,7 +74,7 @@ platform :ios do
 
     sh <<-EOS
 cd ../;
-ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
+ios_analytics translate --appName="#{app_name}" --derivedData="./derivedData" \
     | checkstyle_filter-git diff origin/master \
     | saddler report --require saddler/reporter/github --reporter #{reporter}
     EOS
@@ -86,7 +92,7 @@ ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
 
-    FastlaneCore::ProvisioningProfile.install('./cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision')
+    FastlaneCore::ProvisioningProfile.install("./cert/#{provisioning_profile_uuid}.mobileprovision")
   end
 
   def remove_keychain
