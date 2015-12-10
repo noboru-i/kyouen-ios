@@ -56,7 +56,11 @@ platform :ios do
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :analyze do
-    Helper.log.info 'Execute analyze task'
+    xcode_analyze
+    lint
+  end
+
+  private_lane :xcode_analyze do
     xcodebuild(
       analyze: true,
       scheme: scheme_name,
@@ -79,7 +83,7 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
     EOS
   end
 
-  lane :lint do
+  private_lane :lint do
     swiftlint(
       output_file: 'swiftlint.result.json',
       reporter: 'json'
