@@ -8,15 +8,19 @@ platform :ios do
   before_all do
     if is_ci?
       Helper.log.info 'skip cocoapods'
+
+      add_keychain
     else
       cocoapods
     end
   end
 
+  after_all do
+    remove_keychain
+  end
+
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
-    add_keychain
-
     gym(
       workspace: 'TumeKyouen.xcworkspace',
       scheme: 'TumeKyouen_adhoc',
@@ -49,8 +53,6 @@ platform :ios do
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :analyze do
-    add_keychain
-
     Helper.log.info 'Execute analyze task'
     xcodebuild(
       analyze: true,
@@ -87,5 +89,12 @@ ios_analytics translate --appName="TumeKyouen" --derivedData="./derivedData" \
     import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
 
     FastlaneCore::ProvisioningProfile.install('./cert/782470c3-cccd-45af-99c2-2de4abc1e4d1.mobileprovision')
+  end
+
+  def remove_keychain
+    delete_keychain(
+      name: 'ios-build.keychain'
+    )
+    sh "rm \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
   end
 end
