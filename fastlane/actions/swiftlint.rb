@@ -8,21 +8,33 @@ module Fastlane
           fail 'You have to install swiftlint using `brew install swiftlint`'.red
         end
 
-        require 'yaml'
         config_file = '.swiftlint.yml'
-        FileUtils.cp(config_file, "#{config_file}.back", preserve: true)
-        lint_config = File.exist?(config_file) ? YAML.load_file(config_file) : []
-        lint_config['reporter'] = params[:reporter]
-        open config_file, 'w' do |f|
-          YAML.dump(lint_config, f)
-        end
+        backup(config_file)
+        update_config(config_file, params[:reporter])
 
         command = 'swiftlint'
         command << " > #{params[:output_file]}" if params[:output_file]
         Actions.sh(command)
 
+        restore(config_file)
+      end
+
+      def self.backup(config_file)
+        FileUtils.cp(config_file, "#{config_file}.back", preserve: true)
+      end
+
+      def self.restore(config_file)
         FileUtils.cp("#{config_file}.back", config_file, preserve: true)
         FileUtils.rm("#{config_file}.back")
+      end
+
+      def self.update_config(config_file, reporter)
+        require 'yaml'
+        lint_config = File.exist?(config_file) ? YAML.load_file(config_file) : []
+        lint_config['reporter'] = reporter
+        open config_file, 'w' do |f|
+          YAML.dump(lint_config, f)
+        end
       end
 
       #####################################################

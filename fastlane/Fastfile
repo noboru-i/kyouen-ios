@@ -1,21 +1,21 @@
-fastlane_version '1.46.1'
+fastlane_version '1.47.0'
 
 default_platform :ios
 
+# You need to set your project values.
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'
 project_name = 'TumeKyouen'
 
+# And you need to set environment variables.
+# DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
+# GITHUB_ACCESS_TOKEN : GitHub access token, using when comment to Pull Request and create release.
+# KEY_PASSWORD : p12 password, using when import *.p12 files.
+
 platform :ios do
   before_all do
-    if is_ci?
-      Helper.log.info 'skip cocoapods'
-
-      add_keychain
-    else
-      cocoapods
-    end
+    add_keychain if is_ci?
   end
 
   after_all do
@@ -68,13 +68,6 @@ platform :ios do
       derivedDataPath: './derivedData'
     )
 
-    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-                 'Saddler::Reporter::Github::CommitReviewComment'
-               else
-                 'Saddler::Reporter::Github::PullRequestReviewComment'
-               end
-    Helper.log.info 'Execute analyze task' + reporter
-
     sh <<-EOS
 cd ../;
 ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
@@ -90,12 +83,6 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
     )
 
     sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
-
-    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-                 'Saddler::Reporter::Github::CommitReviewComment'
-               else
-                 'Saddler::Reporter::Github::PullRequestReviewComment'
-               end
 
     sh <<-EOS
 cd ../;
@@ -115,11 +102,12 @@ cat swiftlint.result.json \
       timeout: 3600,
       lock_when_sleeps: true
     )
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/cert/apple.cer'
+    Dir.glob('cert/*.p12').each do |cert_file|
+      import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/' + cert_file, certificate_password: ENV['KEY_PASSWORD']
+    end
 
-    Helper.log.info "mobileprovision count is #{Dir.glob('./fastlane/cert/*.mobileprovision').size}"
-    Dir.glob('./cert/*.mobileprovision').each do |provisioning_file|
+    Dir.glob('cert/*.mobileprovision').each do |provisioning_file|
       FastlaneCore::ProvisioningProfile.install(provisioning_file)
     end
   end
@@ -129,5 +117,13 @@ cat swiftlint.result.json \
       name: 'ios-build.keychain'
     )
     sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
+  end
+
+  def reporter
+    if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
+      'Saddler::Reporter::Github::CommitReviewComment'
+    else
+      'Saddler::Reporter::Github::PullRequestReviewComment'
+    end
   end
 end
