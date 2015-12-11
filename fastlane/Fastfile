@@ -68,13 +68,6 @@ platform :ios do
       derivedDataPath: './derivedData'
     )
 
-    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-                 'Saddler::Reporter::Github::CommitReviewComment'
-               else
-                 'Saddler::Reporter::Github::PullRequestReviewComment'
-               end
-    Helper.log.info 'Execute analyze task' + reporter
-
     sh <<-EOS
 cd ../;
 ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
@@ -90,12 +83,6 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
     )
 
     sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
-
-    reporter = if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-                 'Saddler::Reporter::Github::CommitReviewComment'
-               else
-                 'Saddler::Reporter::Github::PullRequestReviewComment'
-               end
 
     sh <<-EOS
 cd ../;
@@ -129,5 +116,13 @@ cat swiftlint.result.json \
       name: 'ios-build.keychain'
     )
     sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
+  end
+
+  def reporter
+    if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
+      'Saddler::Reporter::Github::CommitReviewComment'
+    else
+      'Saddler::Reporter::Github::PullRequestReviewComment'
+    end
   end
 end
