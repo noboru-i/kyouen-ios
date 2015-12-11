@@ -10,7 +10,7 @@ project_name = 'TumeKyouen'
 platform :ios do
   before_all do
     if is_ci?
-      Helper.log.info 'skip cocoapods'
+      Helper.log.info 'already executed cocoapods in CI'
 
       add_keychain
     else
@@ -102,11 +102,12 @@ cat swiftlint.result.json \
       timeout: 3600,
       lock_when_sleeps: true
     )
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/apple.cer'
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: './fastlane/cert/dist.p12', certificate_password: ENV['KEY_PASSWORD']
+    import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/cert/apple.cer'
+    Dir.glob('cert/*.p12').each do |cert_file|
+      import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/' + cert_file, certificate_password: ENV['KEY_PASSWORD']
+    end
 
-    Helper.log.info "mobileprovision count is #{Dir.glob('./fastlane/cert/*.mobileprovision').size}"
-    Dir.glob('./cert/*.mobileprovision').each do |provisioning_file|
+    Dir.glob('cert/*.mobileprovision').each do |provisioning_file|
       FastlaneCore::ProvisioningProfile.install(provisioning_file)
     end
   end
