@@ -10,7 +10,6 @@ test:
   override:
     # workaround https://github.com/realm/SwiftLint/issues/13
     - ln -s /Applications/Xcode-7.1.app /Applications/Xcode.app
-    - bundle exec fastlane beta
     - bundle exec fastlane analyze
 deployment:
   master:
