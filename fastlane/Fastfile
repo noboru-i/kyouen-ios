@@ -2,20 +2,20 @@ fastlane_version '1.47.0'
 
 default_platform :ios
 
+# You need to set your project values.
 workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name = 'TumeKyouen_adhoc'
 deploygate_user_name = 'noboru-i'
 project_name = 'TumeKyouen'
 
+# And you need to set environment variables.
+# DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
+# GITHUB_ACCESS_TOKEN : GitHub access token, using when comment to Pull Request and create release.
+# KEY_PASSWORD : p12 password, using when import *.p12 files.
+
 platform :ios do
   before_all do
-    if is_ci?
-      Helper.log.info 'already executed cocoapods in CI'
-
-      add_keychain
-    else
-      cocoapods
-    end
+    add_keychain if is_ci?
   end
 
   after_all do
