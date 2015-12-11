@@ -1,15 +1,15 @@
 machine:
-  environment:
-    XCODE_SCHEME: TumeKyouen_adhoc
-    XCODE_WORKSPACE: TumeKyouen.xcworkspace
-    DEVELOPER_NAME: 'iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)'
-    APPNAME: TumeKyouen
-    PROFILE_UUID: 782470c3-cccd-45af-99c2-2de4abc1e4d1
   timezone: Asia/Tokyo
   xcode:
     version: "7.1"
+dependencies:
+  pre:
+    - brew update
+    - brew install swiftlint
 test:
   override:
+    # workaround https://github.com/realm/SwiftLint/issues/13
+    - ln -s /Applications/Xcode-7.1.app /Applications/Xcode.app
     - bundle exec fastlane analyze
 deployment:
   master:
