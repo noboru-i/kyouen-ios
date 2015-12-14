@@ -1,37 +1,42 @@
 module Fastlane
   module Actions
     class SwiftlintAction < Action
-      REPORTERS = ['xcode', 'json', 'csv']
+      VALID_REPORTERS = ['xcode', 'json', 'csv']
 
       def self.run(params)
         if `which swiftlint`.to_s.length == 0 and !Helper.test?
-          fail 'You have to install swiftlint using `brew install swiftlint`'.red
+          raise "You have to install swiftlint using `brew install swiftlint`".red
         end
 
         config_file = '.swiftlint.yml'
         backup(config_file)
-        update_config(config_file, params[:reporter])
+        update_config(config_file, params)
 
         command = 'swiftlint'
         command << " > #{params[:output_file]}" if params[:output_file]
         Actions.sh(command)
 
+      ensure
         restore(config_file)
       end
 
       def self.backup(config_file)
-        FileUtils.cp(config_file, "#{config_file}.back", preserve: true)
+        FileUtils.cp(config_file, "#{config_file}.back", preserve: true) if File.exist? config_file
       end
 
       def self.restore(config_file)
-        FileUtils.cp("#{config_file}.back", config_file, preserve: true)
-        FileUtils.rm("#{config_file}.back")
+        if File.exist? "#{config_file}.back"
+          FileUtils.cp("#{config_file}.back", config_file, preserve: true)
+          FileUtils.rm("#{config_file}.back")
+        else
+          FileUtils.rm(config_file)
+        end
       end
 
-      def self.update_config(config_file, reporter)
+      def self.update_config(config_file, params)
         require 'yaml'
-        lint_config = File.exist?(config_file) ? YAML.load_file(config_file) : []
-        lint_config['reporter'] = reporter
+        lint_config = File.exist?(config_file) ? YAML.load_file(config_file) : {}
+        lint_config['reporter'] = params[:reporter]
         open config_file, 'w' do |f|
           YAML.dump(lint_config, f)
         end
@@ -42,7 +47,7 @@ module Fastlane
       #####################################################
 
       def self.description
-        'Run swift code validation using SwiftLint'
+        "Run swift code validation using SwiftLint"
       end
 
       def self.details
@@ -58,7 +63,7 @@ module Fastlane
                                        optional: true,
                                        default_value: 'xcode',
                                        verify_block: proc do |value|
-                                         fail 'Unknown reporter' unless REPORTERS.include?(value)
+                                         fail 'Unknown reporter' unless VALID_REPORTERS.include?(value)
                                        end)
         ]
       end
@@ -70,7 +75,7 @@ module Fastlane
       end
 
       def self.authors
-        ['KrauseFx', 'noboru-i']
+        ["KrauseFx"]
       end
 
       def self.is_supported?(platform)
