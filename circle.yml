@@ -4,8 +4,10 @@ machine:
     version: "7.1"
 dependencies:
   pre:
-    - brew update
-    - brew install swiftlint
+    # - brew update
+    # - brew install swiftlint
+    - curl -L -O https://github.com/realm/SwiftLint/releases/download/0.5.1/SwiftLint.pkg
+    - sudo installer -pkg SwiftLint.pkg -target /
 test:
   override:
     # workaround https://github.com/realm/SwiftLint/issues/13
