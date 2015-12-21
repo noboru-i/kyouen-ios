@@ -1,8 +1,6 @@
 module Fastlane
   module Actions
     class SwiftlintAction < Action
-      VALID_REPORTERS = ['xcode', 'json', 'csv']
-
       def self.run(params)
         if `which swiftlint`.to_s.length == 0 and !Helper.test?
           raise "You have to install swiftlint using `brew install swiftlint`".red
