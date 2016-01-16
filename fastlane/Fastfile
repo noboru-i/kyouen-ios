@@ -1,4 +1,4 @@
-fastlane_version '1.47.0'
+fastlane_version '1.51.0'
 
 default_platform :ios
 
@@ -56,7 +56,7 @@ platform :ios do
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :analyze do
-    xcode_analyze
+    # xcode_analyze
     lint
   end
 
@@ -77,9 +77,11 @@ ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData
   end
 
   private_lane :lint do
+    create_lint_config
+
     swiftlint(
       output_file: 'swiftlint.result.json',
-      reporter: 'json'
+      config_file: '.swiftlint-ci.yml'
     )
 
     sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
@@ -91,6 +93,8 @@ cat swiftlint.result.json \
     | checkstyle_filter-git diff origin/master \
     | saddler report --require saddler/reporter/github --reporter #{reporter}
     EOS
+
+    delete_lint_config
   end
 
   private_lane :add_keychain do
@@ -117,6 +121,20 @@ cat swiftlint.result.json \
       name: 'ios-build.keychain'
     )
     sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
+  end
+
+  def create_lint_config
+    File.delete('../.swiftlint-ci.yml') if File.exist?('../.swiftlint-ci.yml')
+    require 'yaml'
+    config = YAML.load_file('../.swiftlint.yml')
+    config['reporter'] = 'json'
+    open('../.swiftlint-ci.yml', 'w') do |file|
+      YAML.dump(config, file)
+    end
+  end
+
+  def delete_lint_config
+    File.delete('../.swiftlint-ci.yml')
   end
 
   def reporter
