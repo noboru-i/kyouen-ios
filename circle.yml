@@ -1,7 +1,7 @@
 machine:
   timezone: Asia/Tokyo
   xcode:
-    version: "7.1"
+    version: "7.2"
 dependencies:
   pre:
     - brew update
@@ -9,7 +9,7 @@ dependencies:
 test:
   override:
     # workaround https://github.com/realm/SwiftLint/issues/13
-    - ln -s /Applications/Xcode-7.1.app /Applications/Xcode.app
+    - ln -s /Applications/Xcode-7.2.app /Applications/Xcode.app
     - bundle exec fastlane analyze
 deployment:
   master:
