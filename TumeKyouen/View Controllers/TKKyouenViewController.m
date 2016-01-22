@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 
 #import "TKKyouenViewController.h"
 #import "KyouenImageView.h"
