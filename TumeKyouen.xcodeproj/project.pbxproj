@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03881A6DB5A440759B40D20A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC0D356DA104F5595C559A9 /* libPods.a */; };
 		51BC12F41C194F2300346BC9 /* sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BC12F31C194F2300346BC9 /* sample.swift */; };
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		6831FDCB16E32E7600291810 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6831FDCA16E32E7600291810 /* BaseDao.m */; };
@@ -57,6 +56,7 @@
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
 		68BD36191791974C00B45FDE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36181791974C00B45FDE /* Security.framework */; };
 		68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD361A1791988500B45FDE /* MobileCoreServices.framework */; };
+		6AA4400DE7E8C14DE5203EA1 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E78E4E92599A9687430F43 /* Pods_TumeKyouen.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2FC0D356DA104F5595C559A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.debug.xcconfig"; sourceTree = "<group>"; };
 		51BC12F21C194F2300346BC9 /* TumeKyouen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Bridging-Header.h"; sourceTree = "<group>"; };
 		51BC12F31C194F2300346BC9 /* sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sample.swift; sourceTree = "<group>"; };
+		5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.release.xcconfig"; sourceTree = "<group>"; };
 		6831FDC616E1BF0A00291810 /* initial_stage.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_stage.csv; sourceTree = "<group>"; };
 		6831FDC916E32E7600291810 /* BaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDao.h; sourceTree = "<group>"; };
 		6831FDCA16E32E7600291810 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
@@ -154,8 +155,7 @@
 		68BD36181791974C00B45FDE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		68EC8BDC1871EB49002D79B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
-		E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D9E78E4E92599A9687430F43 /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,7 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
-				03881A6DB5A440759B40D20A /* libPods.a in Frameworks */,
+				6AA4400DE7E8C14DE5203EA1 /* Pods_TumeKyouen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,15 +196,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BE51DC4D28C15EC17E2FBC4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */,
-				E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6831FDC816E32E3800291810 /* Dao */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +227,7 @@
 				689825D616D9320C00D89D0B /* TumeKyouenTests */,
 				689825AB16D9320C00D89D0B /* Frameworks */,
 				689825AA16D9320C00D89D0B /* Products */,
-				2BE51DC4D28C15EC17E2FBC4 /* Pods */,
+				E7A65398D8EF498105B100B3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,7 +265,7 @@
 				689825AC16D9320C00D89D0B /* UIKit.framework */,
 				689825AE16D9320C00D89D0B /* Foundation.framework */,
 				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
-				2FC0D356DA104F5595C559A9 /* libPods.a */,
+				D9E78E4E92599A9687430F43 /* Pods_TumeKyouen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -412,6 +403,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E7A65398D8EF498105B100B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */,
+				5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,13 +419,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */;
 			buildPhases = (
-				7C7808BA44A74436B4209603 /* Check Pods Manifest.lock */,
+				010B6339C739D2F40163FEB5 /* Check Pods Manifest.lock */,
 				689825A516D9320C00D89D0B /* Sources */,
 				689825A616D9320C00D89D0B /* Frameworks */,
 				689825A716D9320C00D89D0B /* Resources */,
-				1EECD561BEA54EA29864F42D /* Copy Pods Resources */,
-				7B3AAE1825377EB0DB2AB5C4 /* Embed Pods Frameworks */,
 				51BC12F51C194F4F00346BC9 /* ShellScript */,
+				626ED88FE6FEE25B7377E51F /* Embed Pods Frameworks */,
+				F27DE6D50D8EF87E241191E2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -516,19 +516,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1EECD561BEA54EA29864F42D /* Copy Pods Resources */ = {
+		010B6339C739D2F40163FEB5 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		51BC12F51C194F4F00346BC9 /* ShellScript */ = {
@@ -544,6 +544,21 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		626ED88FE6FEE25B7377E51F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		689825CD16D9320C00D89D0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,34 +572,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		7B3AAE1825377EB0DB2AB5C4 /* Embed Pods Frameworks */ = {
+		F27DE6D50D8EF87E241191E2 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7C7808BA44A74436B4209603 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -700,7 +700,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -729,7 +729,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -740,7 +740,7 @@
 		};
 		689825E216D9320C00D89D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAF64A47A521BC453A3AAA1D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -768,7 +768,7 @@
 		};
 		689825E316D9320C00D89D0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3C3AFCBE3EC338EDFAF6BD5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
