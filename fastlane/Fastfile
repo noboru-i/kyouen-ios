@@ -1,4 +1,4 @@
-fastlane_version '1.51.0'
+fastlane_version '1.52.0'
 
 default_platform :ios
 
@@ -56,7 +56,7 @@ platform :ios do
   desc 'Analyze codes'
   desc 'This may comment to pull request'
   lane :analyze do
-    # xcode_analyze
+    xcode_analyze
     lint
   end
 
