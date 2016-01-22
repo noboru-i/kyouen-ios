@@ -785,7 +785,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "782470c3-cccd-45af-99c2-2de4abc1e4d1";
+				PROVISIONING_PROFILE = "0d75cd76-6cbc-4593-9abf-3675317cf378";
 				SWIFT_OBJC_BRIDGING_HEADER = "TumeKyouen/TumeKyouen-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
