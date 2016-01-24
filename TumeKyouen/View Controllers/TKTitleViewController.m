@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 
 #if DEBUG
 #import "FLEXManager.h"

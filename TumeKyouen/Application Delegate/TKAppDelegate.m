@@ -40,10 +40,10 @@
     [self initializeData];
 
     // PUSH通知の設定
-    [[UIApplication sharedApplication]
-        registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
-                                            UIRemoteNotificationTypeSound |
-                                            UIRemoteNotificationTypeAlert)];
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 
     return YES;
 }
