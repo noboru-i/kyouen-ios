@@ -22,7 +22,7 @@
 #import "TKTwitterTokenDao.h"
 #import "AdMobUtil.h"
 #import "TKTwitterManager.h"
-#import "TKTumeKyouenServer.h"
+#import "TumeKyouen-Swift.h"
 
 @interface TKTitleViewController ()
 
