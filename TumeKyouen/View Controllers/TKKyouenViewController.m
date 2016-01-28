@@ -17,7 +17,7 @@
 #import "TKGameModel.h"
 #import "TKKyouenData.h"
 #import "TKLine.h"
-#import "TKTumeKyouenServer.h"
+#import "TumeKyouen-Swift.h"
 #import "AdMobUtil.h"
 
 @interface TKKyouenViewController ()

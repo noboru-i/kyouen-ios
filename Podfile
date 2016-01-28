@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'TumeKyouen' do
-  pod 'AFNetworking', '~> 2.5'
+  pod 'Alamofire', '~> 3.0'
   pod 'Google-Mobile-Ads-SDK', '~> 7.1'
   pod 'OAuthCore', '~> 0.0.1'
   pod 'SVProgressHUD', '~> 1.0'
