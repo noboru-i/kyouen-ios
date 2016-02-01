@@ -8,14 +8,9 @@
 
 #import "TKOverlayKyouenView.h"
 
-#import "TKPoint.h"
-#import "TKLine.h"
-#import "TKKyouenData.h"
-#import "TumeKyouenModel.h"
-
 @interface TKOverlayKyouenView ()
 
-@property(nonatomic, strong) TKKyouenData *kyouenData;
+@property(nonatomic, strong) KyouenData* kyouenData;
 @property(nonatomic, strong) TumeKyouenModel *tumeKyouenModel;
 
 @end
@@ -30,8 +25,8 @@
     return self;
 }
 
-- (void)drawKyouen:(TKKyouenData *)kyouenData
-    tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel {
+- (void)drawKyouen:(KyouenData *)kyouenData
+   tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel {
     self.kyouenData = kyouenData;
     self.tumeKyouenModel = tumeKyouenModel;
     [self setNeedsDisplay];
@@ -54,7 +49,7 @@
     int stoneSize = 306 / size;
     if (self.kyouenData.isLine) {
         // 直線の場合
-        TKLine *line = self.kyouenData.line;
+        Line *line = self.kyouenData.line;
         float startX = 0;
         float startY = 0;
         float endX = 0;
