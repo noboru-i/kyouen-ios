@@ -8,7 +8,7 @@
 
 import Foundation
 
-// swiftlint:disable variable_name_min_length
+// swiftlint:disable variable_name
 class TKPoint: NSObject {
     var x: Double
     var y: Double
@@ -34,4 +34,4 @@ func + (left: TKPoint, right: TKPoint) -> TKPoint {
 func - (left: TKPoint, right: TKPoint) -> TKPoint {
     return TKPoint(x: left.x - right.x, y: left.y - right.y)
 }
-// swiftlint:enable variable_name_min_length
+// swiftlint:enable variable_name

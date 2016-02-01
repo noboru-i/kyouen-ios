@@ -76,12 +76,12 @@ class GameModel: NSObject {
         return points
     }
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     func getDistance(p1: TKPoint, p2: TKPoint) -> Double {
         return (p1 - p2).abs()
     }
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     func getIntersection(l1: Line, l2: Line) -> TKPoint! {
         let f1 = l1.p2.x - l1.p1.x
         let g1 = l1.p2.y - l1.p1.y
@@ -100,7 +100,7 @@ class GameModel: NSObject {
         return TKPoint(x: l1.p1.x + f1 * t1, y: l1.p1.y + g1 * t1)
     }
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     func getMidperpendicular(p1: TKPoint, p2: TKPoint) -> Line {
         let midpoint = getMidpoint(p1, p2: p2)
         let dif = p1 - p2
@@ -109,7 +109,7 @@ class GameModel: NSObject {
         return Line(p1: midpoint, p2: midpoint + gradient)
     }
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     func getMidpoint(p1: TKPoint, p2: TKPoint) -> TKPoint {
         return TKPoint(x:(p1.x + p2.x) / 2, y:(p1.y + p2.y) / 2)
     }

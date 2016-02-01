@@ -15,7 +15,7 @@ class KyouenData: NSObject {
     var radius: Double
     var line: Line!
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     init(p1: TKPoint, p2: TKPoint, p3: TKPoint, p4: TKPoint, line: Line) {
         self.points = [p1, p2, p3, p4]
         self.isLine = true
@@ -24,7 +24,7 @@ class KyouenData: NSObject {
         self.line = line
     }
 
-    // swiftlint:disable:next variable_name_min_length
+    // swiftlint:disable:next variable_name
     init(p1: TKPoint, p2: TKPoint, p3: TKPoint, p4: TKPoint, center: TKPoint, radius: Double) {
         self.points = [p1, p2, p3, p4]
         self.isLine = false

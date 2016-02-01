@@ -8,7 +8,7 @@
 
 import Foundation
 
-// swiftlint:disable variable_name_min_length
+// swiftlint:disable variable_name
 class Line: NSObject {
     var p1: TKPoint
     var p2: TKPoint
@@ -37,4 +37,4 @@ class Line: NSObject {
         return "p1 = \(p1), p2 = \(p2), a = \(a), b = \(b), c = \(c)"
     }
 }
-// swiftlint:enable variable_name_min_length
+// swiftlint:enable variable_name
