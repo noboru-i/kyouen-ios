@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class TKKyouenData;
-@class TumeKyouenModel;
+#import "TumeKyouenModel.h"
+#import "TumeKyouen-Swift.h"
 
 @interface TKOverlayKyouenView : UIView
 
-- (void)drawKyouen:(TKKyouenData *)kyouenData
+- (void)drawKyouen:(KyouenData *)kyouenData
     tumeKyouenModel:(TumeKyouenModel *)tumeKyouenModel;
 
 @end

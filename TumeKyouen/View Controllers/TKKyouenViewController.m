@@ -14,9 +14,6 @@
 #import "TKOverlayKyouenView.h"
 #import "TKTumeKyouenDao.h"
 #import "TKSettingDao.h"
-#import "TKGameModel.h"
-#import "TKKyouenData.h"
-#import "TKLine.h"
 #import "TumeKyouen-Swift.h"
 #import "AdMobUtil.h"
 
@@ -73,11 +70,11 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
 
 - (IBAction)checkKyouen:(id)sender {
     LOG_METHOD;
-    TKGameModel* model = [[TKGameModel alloc]
+    GameModel* model = [[GameModel alloc]
         initWithSize:[self.currentModel.size intValue]
                stage:[self.mKyouenImageView1 getCurrentStage]];
     // 4つ選択されているかのチェック
-    LOG(@"count = %d", [model getStoneCount:2]);
+    LOG(@"count = %ld", (long)[model getStoneCount:2]);
     if ([model getStoneCount:2] != 4) {
         UIAlertView* alert = [[UIAlertView alloc]
                 initWithTitle:NSLocalizedString(@"alert_less_stone", nil)
@@ -90,7 +87,7 @@ typedef NS_ENUM(NSInteger, TKAlertTag) {
     }
 
     // 共円のチェック
-    TKKyouenData* kyouenData = [model isKyouen];
+    KyouenData* kyouenData = [model isKyouen];
     if (kyouenData == nil) {
         [self setStage:self.currentModel to:self.mKyouenImageView1];
         UIAlertView* alert = [[UIAlertView alloc]
