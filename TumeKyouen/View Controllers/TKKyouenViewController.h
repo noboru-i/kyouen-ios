@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TumeKyouenModel.h"
+#import "TumeKyouen-Swift.h"
 
 @class KyouenImageView;
 @class TKOverlayKyouenView;

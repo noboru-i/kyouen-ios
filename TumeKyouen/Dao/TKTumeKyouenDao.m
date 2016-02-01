@@ -7,7 +7,7 @@
 //
 
 #import "TKTumeKyouenDao.h"
-#import "TumeKyouenModel.h"
+#import "TumeKyouen-Swift.h"
 
 @implementation TKTumeKyouenDao
 
