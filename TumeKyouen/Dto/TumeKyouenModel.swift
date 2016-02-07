@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(TumeKyouenModel)
 class TumeKyouenModel: NSManagedObject {
     @NSManaged var stageNo: NSNumber
     @NSManaged var clearDate: NSDate
@@ -16,8 +17,4 @@ class TumeKyouenModel: NSManagedObject {
     @NSManaged var size: NSNumber
     @NSManaged var stage: String
     @NSManaged var creator: String
-
-    override var description: String {
-        return "stageNo = \(stageNo), size = \(size), stage = \(stage), creator = \(creator), clearFlag = \(clearFlag), clearDate = \(clearDate)"
-    }
 }

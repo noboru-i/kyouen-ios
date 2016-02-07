@@ -7,7 +7,6 @@
 //
 
 #import "TKAppDelegate.h"
-#import "TKTumeKyouenDao.h"
 #import "TumeKyouen-Swift.h"
 
 @interface TKAppDelegate ()

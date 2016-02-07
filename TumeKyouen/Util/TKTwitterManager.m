@@ -11,7 +11,7 @@
 
 #import "TKTwitterManager.h"
 #import "TKSignedRequest.h"
-#import "TKTwitterTokenDao.h"
+#import "TumeKyouen-Swift.h"
 
 typedef void (^TKAPIHandler)(NSData *data, NSError *error);
 

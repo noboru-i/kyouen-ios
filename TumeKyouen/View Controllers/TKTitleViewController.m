@@ -17,9 +17,6 @@
 
 #import "TKTitleViewController.h"
 #import "TKKyouenViewController.h"
-#import "TKTumeKyouenDao.h"
-#import "TKSettingDao.h"
-#import "TKTwitterTokenDao.h"
 #import "AdMobUtil.h"
 #import "TKTwitterManager.h"
 #import "TumeKyouen-Swift.h"
