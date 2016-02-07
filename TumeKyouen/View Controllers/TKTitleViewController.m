@@ -54,25 +54,7 @@
     LOG_METHOD;
     [super viewWillAppear:animated];
     [self refreshCounts];
-    // 通知を設定
-    [[NSNotificationCenter defaultCenter]
-        addObserver:self
-           selector:@selector(applicationDidBecomeActive:)
-               name:UIApplicationDidBecomeActiveNotification
-             object:nil];
-}
-
-// UIApplicationDidBecomeActiveNotification にて呼び出される
-- (void)applicationDidBecomeActive:(NSNotification*)notification {
-    LOG_METHOD;
     [self refreshTwitterAccounts];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    LOG_METHOD;
-    [super viewWillDisappear:animated];
-    //通知を終了
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
