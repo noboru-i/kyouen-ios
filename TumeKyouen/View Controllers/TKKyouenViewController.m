@@ -12,8 +12,6 @@
 #import "TKKyouenViewController.h"
 #import "KyouenImageView.h"
 #import "TKOverlayKyouenView.h"
-#import "TKTumeKyouenDao.h"
-#import "TKSettingDao.h"
 #import "TumeKyouen-Swift.h"
 #import "AdMobUtil.h"
 

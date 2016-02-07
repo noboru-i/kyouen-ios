@@ -40,7 +40,7 @@ class TKTumeKyouenServer: NSObject {
             }
     }
 
-    func addAllStageUser(stages: NSArray, callback: (NSArray!, NSError!) -> Void) {
+    func addAllStageUser(stages: [TumeKyouenModel], callback: (NSArray!, NSError!) -> Void) {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = NSTimeZone(name: "UTC")

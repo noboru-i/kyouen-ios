@@ -8,7 +8,7 @@
 
 #import "KyouenImageView.h"
 #import "StoneButton.h"
-#import "TumeKyouenModel.h"
+#import "TumeKyouen-Swift.h"
 
 @implementation KyouenImageView
 
