@@ -10,8 +10,6 @@
 #import "SVProgressHUD.h"
 
 #import "TKKyouenViewController.h"
-#import "KyouenImageView.h"
-#import "TKOverlayKyouenView.h"
 #import "TumeKyouen-Swift.h"
 #import "AdMobUtil.h"
 
