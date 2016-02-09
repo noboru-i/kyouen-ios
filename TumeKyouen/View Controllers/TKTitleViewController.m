@@ -17,8 +17,6 @@
 
 #import "TKTitleViewController.h"
 #import "TKKyouenViewController.h"
-#import "AdMobUtil.h"
-#import "TKTwitterManager.h"
 #import "TumeKyouen-Swift.h"
 
 @interface TKTitleViewController ()
