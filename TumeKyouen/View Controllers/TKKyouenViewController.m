@@ -11,7 +11,6 @@
 
 #import "TKKyouenViewController.h"
 #import "TumeKyouen-Swift.h"
-#import "AdMobUtil.h"
 
 @interface TKKyouenViewController ()
 
