@@ -83,7 +83,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
         let dao = TKTumeKyouenDao()
         let stages = dao.selectAllClearStage()
 
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.show()
         let server = TKTumeKyouenServer()
         server.addAllStageUser(stages, callback: {response, error in
             if error != nil {
@@ -103,7 +103,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
     }
 
     @IBAction func getStages(_: AnyObject) {
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.show()
 
         let dao = TKTumeKyouenDao()
         let stageCount = dao.selectCount()
@@ -117,7 +117,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
             return
         }
 
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.show()
         twitterManager.performReverseAuthForAccount(accounts[buttonIndex], withHandler: {responseData, error in
             if responseData == nil {
                 SVProgressHUD.showErrorWithStatus(NSLocalizedString("progress_auth_fail", comment: ""))
@@ -210,7 +210,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
             SVProgressHUD.dismiss()
             return
         }
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.show()
         let server = TKTumeKyouenServer()
         server.registUser(oauthToken!, tokenSecret: oauthTokenSecret!, callback: {response, error in
             if error != nil {

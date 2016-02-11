@@ -153,7 +153,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         let model = dao.selectByStageNo(stageNo)
         if model == nil {
             // 取得できなかった場合の処理
-            SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+            SVProgressHUD.show()
 
             let server = TKTumeKyouenServer()
             server.getStageData(stageNo - 1, callback: {result, error in
