@@ -105,7 +105,6 @@
 		689825B016D9320C00D89D0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouen-Info.plist"; sourceTree = "<group>"; };
 		689825B616D9320C00D89D0B /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Prefix.pch"; sourceTree = "<group>"; };
 		689825CF16D9320C00D89D0B /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
 		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
@@ -261,7 +260,6 @@
 			children = (
 				689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */,
 				689825B516D9320C00D89D0B /* Localizable.strings */,
-				689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */,
 				688C015118E9C08F00EECC9A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -695,7 +693,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: NOBORU ISHIKURA (CAJB52C9EZ)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -723,7 +721,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -748,7 +746,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -766,7 +764,7 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumeKyouen/TumeKyouen-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
