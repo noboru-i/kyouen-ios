@@ -68,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.debug.xcconfig"; sourceTree = "<group>"; };
-		51BC12F21C194F2300346BC9 /* TumeKyouen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Bridging-Header.h"; sourceTree = "<group>"; };
 		5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.release.xcconfig"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		6811509F1C62349800F7B444 /* TKTumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTumeKyouenDao.swift; sourceTree = "<group>"; };
@@ -253,7 +252,6 @@
 				689825F516D933AC00D89D0B /* Resources */,
 				6878F9B618799A8700BBF8A9 /* Images.xcassets */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
-				51BC12F21C194F2300346BC9 /* TumeKyouen-Bridging-Header.h */,
 			);
 			path = TumeKyouen;
 			sourceTree = "<group>";
@@ -707,7 +705,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d36aee51-7930-4ec9-8300-fb7364a3e5f0";
-				SWIFT_OBJC_BRIDGING_HEADER = "TumeKyouen/TumeKyouen-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
@@ -734,7 +732,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0d75cd76-6cbc-4593-9abf-3675317cf378";
-				SWIFT_OBJC_BRIDGING_HEADER = "TumeKyouen/TumeKyouen-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
