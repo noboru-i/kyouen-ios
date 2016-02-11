@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class StoneButton: UIButton {
     var stoneState: Int = 0

@@ -34,8 +34,6 @@
 		689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825B016D9320C00D89D0B /* CoreGraphics.framework */; };
 		689825B716D9320C00D89D0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 689825B516D9320C00D89D0B /* Localizable.strings */; };
-		689825B916D9320C00D89D0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825B816D9320C00D89D0B /* main.m */; };
-		689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825BC16D9320C00D89D0B /* TKAppDelegate.m */; };
 		689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689825C416D9320C00D89D0B /* MainStoryboard.storyboard */; };
 		689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
@@ -54,6 +52,7 @@
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
 		68BD36191791974C00B45FDE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36181791974C00B45FDE /* Security.framework */; };
 		68BD361B1791988500B45FDE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD361A1791988500B45FDE /* MobileCoreServices.framework */; };
+		68FB69371C6CAE8C003883FE /* TKAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB69361C6CAE8C003883FE /* TKAppDelegate.swift */; };
 		6AA4400DE7E8C14DE5203EA1 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E78E4E92599A9687430F43 /* Pods_TumeKyouen.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,10 +106,7 @@
 		689825B016D9320C00D89D0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouen-Info.plist"; sourceTree = "<group>"; };
 		689825B616D9320C00D89D0B /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		689825B816D9320C00D89D0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Prefix.pch"; sourceTree = "<group>"; };
-		689825BB16D9320C00D89D0B /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
-		689825BC16D9320C00D89D0B /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
 		689825CF16D9320C00D89D0B /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
 		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
@@ -132,6 +128,7 @@
 		68BD36181791974C00B45FDE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		68EC8BDC1871EB49002D79B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
+		68FB69361C6CAE8C003883FE /* TKAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAppDelegate.swift; sourceTree = "<group>"; };
 		D9E78E4E92599A9687430F43 /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -266,7 +263,6 @@
 			children = (
 				689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */,
 				689825B516D9320C00D89D0B /* Localizable.strings */,
-				689825B816D9320C00D89D0B /* main.m */,
 				689825BA16D9320C00D89D0B /* TumeKyouen-Prefix.pch */,
 				688C015118E9C08F00EECC9A /* InfoPlist.strings */,
 			);
@@ -325,8 +321,7 @@
 		6898269016DA5E1900D89D0B /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				689825BB16D9320C00D89D0B /* TKAppDelegate.h */,
-				689825BC16D9320C00D89D0B /* TKAppDelegate.m */,
+				68FB69361C6CAE8C003883FE /* TKAppDelegate.swift */,
 			);
 			path = "Application Delegate";
 			sourceTree = "<group>";
@@ -550,11 +545,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689825B916D9320C00D89D0B /* main.m in Sources */,
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
 				68252F921C6A022E008E6E85 /* TKTitleViewController.swift in Sources */,
+				68FB69371C6CAE8C003883FE /* TKAppDelegate.swift in Sources */,
 				68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */,
-				689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */,
 				6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,

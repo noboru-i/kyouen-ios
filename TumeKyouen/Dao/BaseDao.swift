@@ -16,6 +16,6 @@ class BaseDao: NSObject {
     override init() {
         // swiftlint:disable:next force_cast
         let appDelegate = UIApplication.sharedApplication().delegate as! TKAppDelegate
-        managedObjectContext = appDelegate.managedObjectContext()
+        managedObjectContext = appDelegate.managedObjectContext
     }
 }
