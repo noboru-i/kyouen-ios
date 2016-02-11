@@ -92,9 +92,10 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         mOverlayKyouenView.layer.zPosition = 3
         let alert = UIAlertView(title: NSLocalizedString("kyouen", comment: ""),
             message: "",
-            delegate: nil,
+            delegate: self,
             cancelButtonTitle: nil,
             otherButtonTitles: "Next")
+        alert.tag = TKAlertTag.Kyouen.rawValue
         alert.show()
 
         // クリアデータの送信
@@ -119,6 +120,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
 
     // MARK: - delegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        print(alertView.tag)
         switch alertView.tag {
         case TKAlertTag.Kyouen.rawValue:
             let nextStageNo = Int(currentModel!.stageNo) + 1
@@ -206,7 +208,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         // 2つのImageViewを移動
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDelegate(self)
-        UIView.setAnimationDidStopSelector("endSetStageAnimation:")
+        UIView.setAnimationDidStopSelector("endSetStageAnimation")
         UIView.setAnimationDuration(0.4)
         currentImageView.alpha = 0.0
         frame.origin.x = origX
@@ -237,8 +239,8 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         endSetStageAnimation()
     }
 
-    private func endSetStageAnimation() {
-        if currentModel?.stageNo == 1 {
+    func endSetStageAnimation() {
+        if currentModel?.stageNo != 1 {
             // ステージ１の場合は戻れない
             mPrevButton.enabled = true
         }
