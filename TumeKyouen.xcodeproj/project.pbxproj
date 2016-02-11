@@ -14,6 +14,8 @@
 		68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F891C68A13A008E6E85 /* AdMobUtil.swift */; };
 		68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */; };
 		68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */; };
+		68252F901C6A0225008E6E85 /* TKKyouenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8F1C6A0225008E6E85 /* TKKyouenViewController.swift */; };
+		68252F921C6A022E008E6E85 /* TKTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F911C6A022E008E6E85 /* TKTitleViewController.swift */; };
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		68390B5D179305E000954896 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5B179301E700954896 /* Social.framework */; };
 		68390B5F17A3B0A500954896 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5E17A3B0A500954896 /* Accounts.framework */; };
@@ -38,8 +40,6 @@
 		689825D216D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
 		689825D316D9320C00D89D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AE16D9320C00D89D0B /* Foundation.framework */; };
 		689825DE16D9320C00D89D0B /* TumeKyouenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825DD16D9320C00D89D0B /* TumeKyouenTests.m */; };
-		6898260316D933AC00D89D0B /* TKKyouenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825E816D933AC00D89D0B /* TKKyouenViewController.m */; };
-		6898260816D933AC00D89D0B /* TKTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689825FA16D933AC00D89D0B /* TKTitleViewController.m */; };
 		6898262316D934DA00D89D0B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262216D934DA00D89D0B /* QuartzCore.framework */; };
 		6898262516D934E300D89D0B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262416D934E300D89D0B /* AudioToolbox.framework */; };
 		6898262716D934EC00D89D0B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898262616D934EC00D89D0B /* MessageUI.framework */; };
@@ -78,6 +78,8 @@
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
 		68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTwitterManager.swift; sourceTree = "<group>"; };
 		68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSignedRequest.swift; sourceTree = "<group>"; };
+		68252F8F1C6A0225008E6E85 /* TKKyouenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKKyouenViewController.swift; sourceTree = "<group>"; };
+		68252F911C6A022E008E6E85 /* TKTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTitleViewController.swift; sourceTree = "<group>"; };
 		6831FDC616E1BF0A00291810 /* initial_stage.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_stage.csv; sourceTree = "<group>"; };
 		68390B5B179301E700954896 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		68390B5E17A3B0A500954896 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -113,10 +115,6 @@
 		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
 		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
 		689825DD16D9320C00D89D0B /* TumeKyouenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenTests.m; sourceTree = "<group>"; };
-		689825E716D933AC00D89D0B /* TKKyouenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKKyouenViewController.h; sourceTree = "<group>"; };
-		689825E816D933AC00D89D0B /* TKKyouenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKKyouenViewController.m; sourceTree = "<group>"; };
-		689825F916D933AC00D89D0B /* TKTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTitleViewController.h; sourceTree = "<group>"; };
-		689825FA16D933AC00D89D0B /* TKTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTitleViewController.m; sourceTree = "<group>"; };
 		6898262216D934DA00D89D0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6898262416D934E300D89D0B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6898262616D934EC00D89D0B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -344,10 +342,8 @@
 		68AFAE3C16EA30D10076DE31 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				689825F916D933AC00D89D0B /* TKTitleViewController.h */,
-				689825FA16D933AC00D89D0B /* TKTitleViewController.m */,
-				689825E716D933AC00D89D0B /* TKKyouenViewController.h */,
-				689825E816D933AC00D89D0B /* TKKyouenViewController.m */,
+				68252F911C6A022E008E6E85 /* TKTitleViewController.swift */,
+				68252F8F1C6A0225008E6E85 /* TKKyouenViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -556,14 +552,14 @@
 			files = (
 				689825B916D9320C00D89D0B /* main.m in Sources */,
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
+				68252F921C6A022E008E6E85 /* TKTitleViewController.swift in Sources */,
 				68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */,
 				689825BD16D9320C00D89D0B /* TKAppDelegate.m in Sources */,
 				6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */,
-				6898260316D933AC00D89D0B /* TKKyouenViewController.m in Sources */,
-				6898260816D933AC00D89D0B /* TKTitleViewController.m in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
 				686D0E781C5BB1FE00A67A0E /* TKPoint.swift in Sources */,
+				68252F901C6A0225008E6E85 /* TKKyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TKTwitterTokenDao.swift in Sources */,
 				681150A21C6234A300F7B444 /* TKSettingDao.swift in Sources */,
 				68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */,

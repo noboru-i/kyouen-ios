@@ -28,15 +28,16 @@ class KyouenImageView: UIImageView {
         buttons = [StoneButton]()
 
         // 設定されているステージ情報を反映
-        for y in 0..<Int(model.size) {
-            for x in 0..<Int(model.size) {
-                let state = Int(String(model.stage.startIndex.advancedBy(0)))!
-                let button = StoneButton(size: Int(model.size), defaultState: state)
-                button.transform = CGAffineTransformMakeTranslation(
-                    CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
-                buttons.append(button)
-                addSubview(button)
-            }
+        let size = Int(model.size)
+        for (index, c) in model.stage.characters.enumerate() {
+            let state = Int(String(c))!
+            let x = index % size
+            let y = index / size
+            let button = StoneButton(size: Int(model.size), defaultState: state)
+            button.transform = CGAffineTransformMakeTranslation(
+                CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
+            buttons.append(button)
+            addSubview(button)
         }
     }
 
