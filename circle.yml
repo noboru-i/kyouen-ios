@@ -12,6 +12,10 @@ test:
     - ln -s /Applications/Xcode-7.2.app /Applications/Xcode.app
     - bundle exec fastlane analyze
 deployment:
+  test:
+    branch: fix-ci
+    commands:
+      - bundle exec fastlane beta
   master:
     branch: master
     commands:
