@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TKOverlayKyouenView: UIView {
     var kyouenData: KyouenData?

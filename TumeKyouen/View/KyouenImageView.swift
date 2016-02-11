@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class KyouenImageView: UIImageView {
     var buttons = [StoneButton]()
