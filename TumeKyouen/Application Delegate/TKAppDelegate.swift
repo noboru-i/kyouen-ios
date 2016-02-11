@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import SVProgressHUD
 
 @UIApplicationMain
 class TKAppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,8 @@ class TKAppDelegate: UIResponder, UIApplicationDelegate {
             print(exception.reason)
             print(exception.callStackSymbols.description)
         }
+
+        SVProgressHUD.setDefaultMaskType(.Black)
 
         initializeData()
 

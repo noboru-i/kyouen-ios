@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FF8DB07D6D373E6BF2FE910 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
 		681150A01C62349800F7B444 /* TKTumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TKTumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* TKSettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* TKSettingDao.swift */; };
@@ -122,6 +123,7 @@
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		68EC8BDC1871EB49002D79B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		68FB69361C6CAE8C003883FE /* TKAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAppDelegate.swift; sourceTree = "<group>"; };
+		E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
+				1FF8DB07D6D373E6BF2FE910 /* Pods_TumeKyouen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +224,7 @@
 				689825AC16D9320C00D89D0B /* UIKit.framework */,
 				689825AE16D9320C00D89D0B /* Foundation.framework */,
 				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
+				E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -717,7 +721,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d75cd76-6cbc-4593-9abf-3675317cf378";
+				PROVISIONING_PROFILE = "fa915d7c-4c84-4978-ad02-1c9475cd3b20";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
