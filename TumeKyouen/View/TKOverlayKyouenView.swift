@@ -23,6 +23,7 @@ class TKOverlayKyouenView: UIView {
     func drawKyouen(kyouenData: KyouenData, tumeKyouenModel: TumeKyouenModel) {
         self.kyouenData = kyouenData
         self.tumeKyouenModel = tumeKyouenModel
+        setNeedsDisplay()
     }
 
     override func drawRect(rect: CGRect) {

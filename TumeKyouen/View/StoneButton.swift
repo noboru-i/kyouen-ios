@@ -27,10 +27,10 @@ class StoneButton: UIButton {
 
         super.init(frame: CGRect(x: 0, y: 0, width: stoneSize, height: stoneSize))
         stoneState = defaultState
-        addTarget(self, action: "changeState:", forControlEvents: UIControlEvents.TouchDown)
+        addTarget(self, action: "changeState:", forControlEvents: .TouchUpInside)
     }
 
-    func changeState() {
+    func changeState(_: AnyObject) {
         switch stoneState {
         case 0:
             return
@@ -73,7 +73,7 @@ class StoneButton: UIButton {
             let locations: [CGFloat] = [0.0, 1.0]
             let gradient = CGGradientCreateWithColors(colorspace, colorsBuffer, locations)
             let center = CGPoint(x: width * 0.4, y: width * 0.4)
-            CGContextDrawRadialGradient(context, gradient, center, 0, center, width * 0.3, .DrawsAfterEndLocation)
+            CGContextDrawRadialGradient(context, gradient, center, 0, center, width * 0.3, .DrawsBeforeStartLocation)
         } else if stoneState == 2 {
             // 白い石を描画
             CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0)
@@ -87,7 +87,7 @@ class StoneButton: UIButton {
             let locations: [CGFloat] = [0.0, 1.0]
             let gradient = CGGradientCreateWithColors(colorspace, colorsBuffer, locations)
             let center = CGPoint(x: width * 2 / 5, y: width * 2 / 5)
-            CGContextDrawRadialGradient(context, gradient, center, 0, center, width * 2 / 7, .DrawsAfterEndLocation)
+            CGContextDrawRadialGradient(context, gradient, center, 0, center, width * 2 / 7, .DrawsBeforeStartLocation)
         }
 
         super.drawRect(rect)
