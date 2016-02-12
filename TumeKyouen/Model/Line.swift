@@ -10,13 +10,13 @@ import Foundation
 
 // swiftlint:disable variable_name
 class Line: NSObject {
-    var p1: TKPoint
-    var p2: TKPoint
+    var p1: Point
+    var p2: Point
     var a: Double
     var b: Double
     var c: Double
 
-    init(p1: TKPoint, p2: TKPoint) {
+    init(p1: Point, p2: Point) {
         self.p1 = p1
         self.p2 = p2
 

@@ -61,28 +61,28 @@ class GameModel: NSObject {
         return nil
     }
 
-    func getStonePoints(state: Int) -> [TKPoint] {
+    func getStonePoints(state: Int) -> [Point] {
         let stateString = Character(String(state))
 
         // 指定されたstateと同一文字の座標を取得
-        var points = [TKPoint]()
+        var points = [Point]()
         for (index, c) in stage.characters.enumerate() {
             if c == stateString {
                 let x = index % size
                 let y = floor(Double(index) / Double(size))
-                points.append(TKPoint(x: Double(x), y: y))
+                points.append(Point(x: Double(x), y: y))
             }
         }
         return points
     }
 
     // swiftlint:disable:next variable_name
-    func getDistance(p1: TKPoint, p2: TKPoint) -> Double {
+    func getDistance(p1: Point, p2: Point) -> Double {
         return (p1 - p2).abs()
     }
 
     // swiftlint:disable:next variable_name
-    func getIntersection(l1: Line, l2: Line) -> TKPoint! {
+    func getIntersection(l1: Line, l2: Line) -> Point! {
         let f1 = l1.p2.x - l1.p1.x
         let g1 = l1.p2.y - l1.p1.y
         let f2 = l2.p2.x - l2.p1.x
@@ -97,20 +97,20 @@ class GameModel: NSObject {
         let dy = l2.p1.y - l1.p1.y
         let t1 = (f2 * dy - g2 * dx) / det
 
-        return TKPoint(x: l1.p1.x + f1 * t1, y: l1.p1.y + g1 * t1)
+        return Point(x: l1.p1.x + f1 * t1, y: l1.p1.y + g1 * t1)
     }
 
     // swiftlint:disable:next variable_name
-    func getMidperpendicular(p1: TKPoint, p2: TKPoint) -> Line {
+    func getMidperpendicular(p1: Point, p2: Point) -> Line {
         let midpoint = getMidpoint(p1, p2: p2)
         let dif = p1 - p2
-        let gradient = TKPoint(x: dif.y, y:-1 * dif.x)
+        let gradient = Point(x: dif.y, y:-1 * dif.x)
 
         return Line(p1: midpoint, p2: midpoint + gradient)
     }
 
     // swiftlint:disable:next variable_name
-    func getMidpoint(p1: TKPoint, p2: TKPoint) -> TKPoint {
-        return TKPoint(x:(p1.x + p2.x) / 2, y:(p1.y + p2.y) / 2)
+    func getMidpoint(p1: Point, p2: Point) -> Point {
+        return Point(x:(p1.x + p2.x) / 2, y:(p1.y + p2.y) / 2)
     }
 }

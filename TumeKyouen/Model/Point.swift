@@ -9,7 +9,7 @@
 import Foundation
 
 // swiftlint:disable variable_name
-class TKPoint: NSObject {
+class Point: NSObject {
     var x: Double
     var y: Double
 
@@ -27,11 +27,11 @@ class TKPoint: NSObject {
     }
 }
 
-func + (left: TKPoint, right: TKPoint) -> TKPoint {
-    return TKPoint(x: left.x + right.x, y: left.y + right.y)
+func + (left: Point, right: Point) -> Point {
+    return Point(x: left.x + right.x, y: left.y + right.y)
 }
 
-func - (left: TKPoint, right: TKPoint) -> TKPoint {
-    return TKPoint(x: left.x - right.x, y: left.y - right.y)
+func - (left: Point, right: Point) -> Point {
+    return Point(x: left.x - right.x, y: left.y - right.y)
 }
 // swiftlint:enable variable_name
