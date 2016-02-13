@@ -1,23 +1,22 @@
 //
-//  TKSignedRequest.swift
+//  SignedRequest.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/08.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import OAuthCore
 
-enum TKSignedRequestMethod {
+enum SignedRequestMethod {
     case GET
     case POST
     case DELETE
 }
 
-typealias TKSignedRequestHandler = (NSData?, NSURLResponse?, NSError?) -> Void
+typealias SignedRequestHandler = (NSData?, NSURLResponse?, NSError?) -> Void
 
-class TKSignedRequest: NSObject {
+class SignedRequest {
     static var gTKConsumerKey: String? = nil
     static var gTKConsumerSecret: String? = nil
 
@@ -26,13 +25,12 @@ class TKSignedRequest: NSObject {
 
     var url: NSURL
     var parameters: [String:String]
-    var signedRequestMethod: TKSignedRequestMethod
+    var signedRequestMethod: SignedRequestMethod
 
-    init(url: NSURL, parameters: [String:String], requestMethod: TKSignedRequestMethod) {
+    init(url: NSURL, parameters: [String:String], requestMethod: SignedRequestMethod) {
         self.url = url
         self.parameters = parameters
         self.signedRequestMethod = requestMethod
-        super.init()
     }
 
     func _buildRequest() -> NSURLRequest {
@@ -56,7 +54,7 @@ class TKSignedRequest: NSObject {
         let bodyData = paramsAsString.dataUsingEncoding(NSUTF8StringEncoding)
         let authorizationHeader = OAuthorizationHeader(
             url, method, bodyData,
-            TKSignedRequest.consumerKey(), TKSignedRequest.consumerSecret(),
+            SignedRequest.consumerKey(), SignedRequest.consumerSecret(),
             authToken, authTokenSecret)
         let request = NSMutableURLRequest(URL: url)
         request.timeoutInterval = 8
@@ -66,7 +64,7 @@ class TKSignedRequest: NSObject {
         return request
     }
 
-    func performRequestWithHandler(handler: TKSignedRequestHandler) {
+    func performRequestWithHandler(handler: SignedRequestHandler) {
         NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: NSOperationQueue.mainQueue(), completionHandler: {response, data, connectionError in
             handler(data, response, nil)
         })

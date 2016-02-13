@@ -9,7 +9,7 @@
         <!--Title View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="TKTitleViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2" customClass="TitleViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="92N-fl-bZT"/>
                         <viewControllerLayoutGuide type="bottom" id="DcR-Kc-9aH"/>
@@ -91,7 +91,7 @@
         <!--Kyouen View Controller-->
         <scene sceneID="gIu-ND-eQu">
             <objects>
-                <viewController id="jdg-gS-Wux" customClass="TKKyouenViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jdg-gS-Wux" customClass="KyouenViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QbC-gC-tFj"/>
                         <viewControllerLayoutGuide type="bottom" id="WA0-Dz-5dS"/>
@@ -136,7 +136,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-sH-t7c" userLabel="Current Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="6" y="115" width="306" height="306"/>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-pw-S2e" customClass="TKOverlayKyouenView" customModule="TumeKyouen" customModuleProvider="target">
+                            <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-pw-S2e" customClass="OverlayKyouenView" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="6" y="115" width="306" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>

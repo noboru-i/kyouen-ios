@@ -1,18 +1,17 @@
 //
-//  TKAppDelegate.swift
+//  AppDelegate.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/11.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 import SVProgressHUD
 
 @UIApplicationMain
-class TKAppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -48,7 +47,7 @@ class TKAppDelegate: UIResponder, UIApplicationDelegate {
             .stringByReplacingOccurrencesOfString(" ", withString: "")
         print("deviceToken: \(token)")
 
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         server.registDeviceToken(token)
     }
 
@@ -94,7 +93,7 @@ class TKAppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: -
     private func initializeData() {
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let count = dao.selectCount()
         if count != 0 {
             print("初期データ投入の必要なし")

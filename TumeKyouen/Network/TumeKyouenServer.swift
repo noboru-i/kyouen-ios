@@ -9,12 +9,12 @@
 import Foundation
 import Alamofire
 
-class TKTumeKyouenServer: NSObject {
+class TumeKyouenServer {
     //#define SERVER_DOMAIN @"https://my-android-server.appspot.com"
     //// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
     let serverDomain = "https://my-android-server.appspot.com"
 
-    func getStageData(currentMaxStageNo: NSInteger, callback: (NSString!, NSError!) -> Void) {
+    func getStageData(currentMaxStageNo: Int, callback: (String!, NSError!) -> Void) {
         let url = serverDomain + "/kyouen/get"
         Alamofire.request(.GET, url, parameters: ["stageNo": String(currentMaxStageNo)])
             .responseString { response in

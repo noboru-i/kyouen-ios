@@ -6,16 +6,14 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
 
-class BaseDao: NSObject {
-    let managedObjectContext: NSManagedObjectContext
-
-    override init() {
-        // swiftlint:disable:next force_cast
-        let appDelegate = UIApplication.sharedApplication().delegate as! TKAppDelegate
-        managedObjectContext = appDelegate.managedObjectContext
-    }
+class BaseDao {
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            abort()
+        }
+        return appDelegate.managedObjectContext
+    }()
 }

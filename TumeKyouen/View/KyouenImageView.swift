@@ -6,10 +6,9 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class KyouenImageView: UIImageView {
+class KyouenImageView: UIView {
     var buttons = [StoneButton]()
     var model: TumeKyouenModel? = nil
 
@@ -34,7 +33,7 @@ class KyouenImageView: UIImageView {
             let state = Int(String(c))!
             let x = index % size
             let y = index / size
-            let button = StoneButton(size: Int(model.size), defaultState: state)
+            let button = StoneButton(size: size, defaultState: state)
             button.transform = CGAffineTransformMakeTranslation(
                 CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
             buttons.append(button)
@@ -43,11 +42,8 @@ class KyouenImageView: UIImageView {
     }
 
     func getCurrentStage() -> String {
-        var stage = ""
-        for i in 0..<(Int(model!.size) * Int(model!.size)) {
-            let button = buttons[i]
-            stage += String(button.stoneState)
+        return buttons.reduce("") { (stage, button) -> String in
+            stage + String(button.stoneState)
         }
-        return stage
     }
 }

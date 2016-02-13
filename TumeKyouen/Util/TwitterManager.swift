@@ -1,18 +1,17 @@
 //
-//  TKTwitterManager.swift
+//  TwitterManager.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/08.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import Accounts
 import Twitter
 
 typealias ReverseAuthResponseHandler = (NSData, NSError) -> Void
 
-class TKTwitterManager: NSObject {
+class TwitterManager {
     typealias TKAPIHandler = (NSData?, NSError?) -> Void
 
     class func isLocalTwitterAccountAvailable() -> Bool {
@@ -47,7 +46,7 @@ class TKTwitterManager: NSObject {
 
                     if oauthToken != nil && oauthTokenSecret != nil {
                         // 保存する
-                        let dao = TKTwitterTokenDao()
+                        let dao = TwitterTokenDao()
                         dao.saveToken(oauthToken, oauthTokenSecret: oauthTokenSecret)
                     }
 
@@ -62,7 +61,7 @@ class TKTwitterManager: NSObject {
     func _step1WithCompletion(completion: TKAPIHandler) {
         let url = NSURL(string: "https://api.twitter.com/oauth/request_token")!
         let dict = ["x_auth_mode" : "reverse_auth"]
-        let step1Request = TKSignedRequest.init(url: url, parameters: dict, requestMethod: TKSignedRequestMethod.POST)
+        let step1Request = SignedRequest.init(url: url, parameters: dict, requestMethod: SignedRequestMethod.POST)
         step1Request.performRequestWithHandler({data, response, error in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 completion(data, error)
@@ -72,7 +71,7 @@ class TKTwitterManager: NSObject {
 
     func _step2WithAccount(account: ACAccount, signature signedReverseAuthSignature: String, andHandler completion: TKAPIHandler) {
         let step2Params = [
-            "x_reverse_auth_target": TKSignedRequest.consumerKey(),
+            "x_reverse_auth_target": SignedRequest.consumerKey(),
             "x_reverse_auth_parameters": signedReverseAuthSignature
         ]
         let authTokenURL = NSURL(string: "https://api.twitter.com/oauth/access_token")!

@@ -6,10 +6,9 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import GoogleMobileAds
 
-class AdMobUtil: NSObject {
+class AdMobUtil {
     class func show(controller: UIViewController) {
         let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         var frame = bannerView.frame

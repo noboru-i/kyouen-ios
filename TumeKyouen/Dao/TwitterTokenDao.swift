@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TKTwitterTokenDao: NSObject {
+class TwitterTokenDao {
     func saveToken(oauthToken: NSString, oauthTokenSecret: NSString) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(oauthToken, forKey: "oauthToken")

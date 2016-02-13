@@ -1,27 +1,21 @@
 //
-//  TKTitleViewController.swift
+//  TitleViewController.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/09.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import SVProgressHUD
 
-enum TKAlertTag: Int {
-    case Kyouen = 1
-    case StageSelect = 2
-}
-
-class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
+class KyouenViewController: UIViewController {
     @IBOutlet weak var mPrevButton: UIButton!
     @IBOutlet weak var mNextButton: UIButton!
     @IBOutlet weak var mStageNo: UILabel!
     @IBOutlet weak var mCreator: UILabel!
     @IBOutlet weak var mKyouenImageView1: KyouenImageView!
     @IBOutlet weak var mKyouenImageView2: KyouenImageView!
-    @IBOutlet weak var mOverlayKyouenView: TKOverlayKyouenView!
+    @IBOutlet weak var mOverlayKyouenView: OverlayKyouenView!
 
     var currentModel: TumeKyouenModel? = nil
 
@@ -62,12 +56,8 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         let model = GameModel(size: Int(currentModel!.size), stage: mKyouenImageView1.getCurrentStage())
         // 4つ選択されているかのチェック
         if model.getStoneCount(2) != 4 {
-            let alert = UIAlertView(title: NSLocalizedString("alert_less_stone", comment: ""),
-                message: "",
-                delegate: nil,
-                cancelButtonTitle: nil,
-                otherButtonTitles: "OK")
-            alert.show()
+            let alert = UIAlertController.alert("alert_less_stone")
+            presentViewController(alert, animated: true, completion: nil)
             return
         }
 
@@ -75,89 +65,65 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         let kyouenData = model.isKyouen()
         if kyouenData == nil {
             setStage(currentModel!, to: mKyouenImageView1)
-            let alert = UIAlertView(title: NSLocalizedString("alert_not_kyouen", comment: ""),
-                message: "",
-                delegate: nil,
-                cancelButtonTitle: nil,
-                otherButtonTitles: "OK")
-            alert.show()
+            let alert = UIAlertController.alert("alert_not_kyouen")
+            presentViewController(alert, animated: true, completion: nil)
             return
         }
 
         // 共円の場合
-        let dao = TKTumeKyouenDao()
-        dao.updateClearFlag(currentModel!, date: nil)
+        TumeKyouenDao().updateClearFlag(currentModel!)
         mStageNo.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
         mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel!)
         mOverlayKyouenView.layer.zPosition = 3
-        let alert = UIAlertView(title: NSLocalizedString("kyouen", comment: ""),
-            message: "",
-            delegate: self,
-            cancelButtonTitle: nil,
-            otherButtonTitles: "Next")
-        alert.tag = TKAlertTag.Kyouen.rawValue
-        alert.show()
+
+        let alert = UIAlertController(title: NSLocalizedString("kyouen", comment: ""),
+            message: nil,
+            preferredStyle: .Alert)
+        let nextButton = UIAlertAction(title: "Next", style: .Default) { (_) -> Void in
+            let nextStageNo = Int(self.currentModel!.stageNo) + 1
+            self.moveStage(nextStageNo, direction: 1)
+        }
+        alert.addAction(nextButton)
+        presentViewController(alert, animated: true, completion: nil)
 
         // クリアデータの送信
-        let server = TKTumeKyouenServer()
-        server.addStageUser(currentModel!.stageNo)
+        TumeKyouenServer().addStageUser(currentModel!.stageNo)
     }
 
     @IBAction func selectStage(_: AnyObject) {
-        let dao = TKTumeKyouenDao()
-        let maxStageNo = dao.selectCount()
+        let maxStageNo = TumeKyouenDao().selectCount()
         let title = String(format: NSLocalizedString("dialog_title_stage_select", comment: ""), arguments: [1, maxStageNo])
-        let message = UIAlertView(title: title,
-            message: "",
-            delegate: nil,
-            cancelButtonTitle: "Cancel",
-            otherButtonTitles: NSLocalizedString("dialog_select", comment: ""))
-        message.tag = TKAlertTag.StageSelect.rawValue
-        message.alertViewStyle = UIAlertViewStyle.PlainTextInput
-        message.textFieldAtIndex(0)?.keyboardType = UIKeyboardType.NumbersAndPunctuation
-        message.show()
-    }
-
-    // MARK: - delegate
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        print(alertView.tag)
-        switch alertView.tag {
-        case TKAlertTag.Kyouen.rawValue:
-            let nextStageNo = Int(currentModel!.stageNo) + 1
-            moveStage(nextStageNo, direction: 1)
-        case TKAlertTag.StageSelect.rawValue:
-            if buttonIndex == 0 {
-                break
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
+        let selectButton = UIAlertAction(title: NSLocalizedString("dialog_select", comment: ""), style: .Default) { (action) -> Void in
+            let inputText = alert.textFields![0].text!
+            let nextStageNo = Int(inputText)
+            if nextStageNo == nil || nextStageNo == 0 {
+                return
             }
-            let inputText = alertView.textFieldAtIndex(0)!.text!
-            let nextStageNo = Int(inputText)!
-            if nextStageNo == 0 {
-                break
-            }
-            let dao = TKTumeKyouenDao()
-            let model = dao.selectByStageNo(nextStageNo)
+            let model = TumeKyouenDao().selectByStageNo(nextStageNo!)
             if model == nil {
                 // 取得できなかった場合は終了
-                break
+                return
             }
-            moveStage(nextStageNo, direction: 1)
-        default:
-            break
+            self.moveStage(nextStageNo!, direction: 1)
         }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addTextFieldWithConfigurationHandler { (_) -> Void in
+        }
+        alert.addAction(selectButton)
+        alert.addAction(cancelButton)
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     // MARK: - private methods
     private func moveStage(stageNo: Int, direction: Int) {
 
-        let dao = TKTumeKyouenDao()
-        let model = dao.selectByStageNo(stageNo)
-        if model == nil {
+        guard let model = TumeKyouenDao().selectByStageNo(stageNo) else {
             // 取得できなかった場合の処理
             SVProgressHUD.show()
 
-            let server = TKTumeKyouenServer()
-            server.getStageData(stageNo - 1, callback: {result, error in
-                if error != nil || result == nil || result.length == 0 {
+            TumeKyouenServer().getStageData(stageNo - 1, callback: {result, error in
+                if error != nil || result == nil || result.characters.count == 0 {
                     // 取得できなかった
                     SVProgressHUD.dismiss()
                     return
@@ -169,8 +135,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
                 }
 
                 // データの登録
-                let dao = TKTumeKyouenDao()
-                if !dao.insertWithCsvString(result) {
+                if !TumeKyouenDao().insertWithCsvString(result) {
                     // エラー発生時
                 }
                 SVProgressHUD.dismiss()
@@ -183,8 +148,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         setStageWithAnimation(model, direction: direction)
 
         // 表示したステージ番号を保存
-        let settingDao = TKSettingDao()
-        settingDao.saveStageNo(model.stageNo)
+        SettingDao().saveStageNo(Int(model.stageNo))
     }
 
     private func setStageWithAnimation(model: TumeKyouenModel, direction: Int) {
