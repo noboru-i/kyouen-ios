@@ -99,7 +99,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         alert.show()
 
         // クリアデータの送信
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         server.addStageUser(currentModel!.stageNo)
     }
 
@@ -155,7 +155,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
             // 取得できなかった場合の処理
             SVProgressHUD.show()
 
-            let server = TKTumeKyouenServer()
+            let server = TumeKyouenServer()
             server.getStageData(stageNo - 1, callback: {result, error in
                 if error != nil || result == nil || result.length == 0 {
                     // 取得できなかった

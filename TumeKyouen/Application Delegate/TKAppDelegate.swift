@@ -48,7 +48,7 @@ class TKAppDelegate: UIResponder, UIApplicationDelegate {
             .stringByReplacingOccurrencesOfString(" ", withString: "")
         print("deviceToken: \(token)")
 
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         server.registDeviceToken(token)
     }
 

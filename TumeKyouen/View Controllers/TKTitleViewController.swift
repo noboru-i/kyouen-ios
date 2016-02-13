@@ -84,7 +84,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
         let stages = dao.selectAllClearStage()
 
         SVProgressHUD.show()
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         server.addAllStageUser(stages, callback: {response, error in
             if error != nil {
                 // 通信が異常終了
@@ -107,7 +107,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
 
         let dao = TKTumeKyouenDao()
         let stageCount = dao.selectCount()
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         getStage(stageCount, server: server, kyouenDao: dao)
     }
 
@@ -170,7 +170,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
         stageCountLabel.text = String(format: "%ld/%ld", arguments: [clearCount, allCount])
     }
 
-    private func getStage(maxStageNo: Int, server: TKTumeKyouenServer, kyouenDao dao: TKTumeKyouenDao) {
+    private func getStage(maxStageNo: Int, server: TumeKyouenServer, kyouenDao dao: TKTumeKyouenDao) {
         server.getStageData(maxStageNo, callback: {result, error in
             if error != nil {
                 // 取得できなかった
@@ -211,7 +211,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
             return
         }
         SVProgressHUD.show()
-        let server = TKTumeKyouenServer()
+        let server = TumeKyouenServer()
         server.registUser(oauthToken!, tokenSecret: oauthTokenSecret!, callback: {response, error in
             if error != nil {
                 SVProgressHUD.showErrorWithStatus(NSLocalizedString("progress_auth_fail", comment: ""))
