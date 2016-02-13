@@ -6,7 +6,6 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import Accounts
 import Twitter
 

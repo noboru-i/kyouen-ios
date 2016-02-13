@@ -6,7 +6,6 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class StoneButton: UIButton {
