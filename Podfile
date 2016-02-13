@@ -4,6 +4,7 @@ use_frameworks!
 target 'TumeKyouen' do
   pod 'Alamofire', '~> 3.0'
   pod 'Google-Mobile-Ads-SDK', '~> 7.1'
+  pod 'OAuthCore', '~> 0.0.1'
   pod 'SVProgressHUD', '2.0-beta8'
 end
 
