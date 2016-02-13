@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class BaseDao: NSObject {
+class BaseDao {
     lazy var managedObjectContext: NSManagedObjectContext = {
         guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
             abort()

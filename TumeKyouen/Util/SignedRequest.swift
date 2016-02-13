@@ -16,7 +16,7 @@ enum SignedRequestMethod {
 
 typealias SignedRequestHandler = (NSData?, NSURLResponse?, NSError?) -> Void
 
-class SignedRequest: NSObject {
+class SignedRequest {
     static var gTKConsumerKey: String? = nil
     static var gTKConsumerSecret: String? = nil
 
@@ -31,7 +31,6 @@ class SignedRequest: NSObject {
         self.url = url
         self.parameters = parameters
         self.signedRequestMethod = requestMethod
-        super.init()
     }
 
     func _buildRequest() -> NSURLRequest {

@@ -11,7 +11,7 @@ import Twitter
 
 typealias ReverseAuthResponseHandler = (NSData, NSError) -> Void
 
-class TwitterManager: NSObject {
+class TwitterManager {
     typealias TKAPIHandler = (NSData?, NSError?) -> Void
 
     class func isLocalTwitterAccountAvailable() -> Bool {

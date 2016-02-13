@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class TumeKyouenServer: NSObject {
+class TumeKyouenServer {
     //#define SERVER_DOMAIN @"https://my-android-server.appspot.com"
     //// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
     let serverDomain = "https://my-android-server.appspot.com"

@@ -9,12 +9,12 @@
 import Foundation
 
 // swiftlint:disable variable_name
-class KyouenData: NSObject {
+class KyouenData: CustomStringConvertible {
     var points: [Point]
     var isLine: Bool
-    var center: Point!
+    var center: Point?
     var radius: Double
-    var line: Line!
+    var line: Line?
 
     init(p1: Point, p2: Point, p3: Point, p4: Point, line: Line) {
         self.points = [p1, p2, p3, p4]
@@ -33,7 +33,7 @@ class KyouenData: NSObject {
         self.line = nil
     }
 
-    override var description: String {
+    var description: String {
         return "points = \(points), isLine = \(isLine), center = \(center), radius = \(radius), line = \(line)"
     }
 }

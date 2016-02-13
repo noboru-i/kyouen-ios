@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingDao: NSObject {
+class SettingDao {
 
     func saveStageNo(stageNo: Int) {
         let defaults = NSUserDefaults.standardUserDefaults()
