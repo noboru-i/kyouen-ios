@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		1FF8DB07D6D373E6BF2FE910 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
-		681150A01C62349800F7B444 /* TKTumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TKTumeKyouenDao.swift */; };
-		681150A21C6234A300F7B444 /* TKSettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* TKSettingDao.swift */; };
-		681150A41C6234B000F7B444 /* TKTwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TKTwitterTokenDao.swift */; };
+		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
+		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
+		681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TwitterTokenDao.swift */; };
 		68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F891C68A13A008E6E85 /* AdMobUtil.swift */; };
 		68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */; };
 		68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */; };
@@ -70,9 +70,9 @@
 		42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.debug.xcconfig"; sourceTree = "<group>"; };
 		5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.release.xcconfig"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
-		6811509F1C62349800F7B444 /* TKTumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTumeKyouenDao.swift; sourceTree = "<group>"; };
-		681150A11C6234A300F7B444 /* TKSettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSettingDao.swift; sourceTree = "<group>"; };
-		681150A31C6234B000F7B444 /* TKTwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTwitterTokenDao.swift; sourceTree = "<group>"; };
+		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
+		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
+		681150A31C6234B000F7B444 /* TwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTokenDao.swift; sourceTree = "<group>"; };
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
 		68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTwitterManager.swift; sourceTree = "<group>"; };
 		68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSignedRequest.swift; sourceTree = "<group>"; };
@@ -168,9 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				6811509D1C62348A00F7B444 /* BaseDao.swift */,
-				6811509F1C62349800F7B444 /* TKTumeKyouenDao.swift */,
-				681150A11C6234A300F7B444 /* TKSettingDao.swift */,
-				681150A31C6234B000F7B444 /* TKTwitterTokenDao.swift */,
+				6811509F1C62349800F7B444 /* TumeKyouenDao.swift */,
+				681150A11C6234A300F7B444 /* SettingDao.swift */,
+				681150A31C6234B000F7B444 /* TwitterTokenDao.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -542,8 +542,8 @@
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
 				686D0E781C5BB1FE00A67A0E /* Point.swift in Sources */,
 				68252F901C6A0225008E6E85 /* TKKyouenViewController.swift in Sources */,
-				681150A41C6234B000F7B444 /* TKTwitterTokenDao.swift in Sources */,
-				681150A21C6234A300F7B444 /* TKSettingDao.swift in Sources */,
+				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
+				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
 				68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
@@ -551,7 +551,7 @@
 				68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */,
 				686D0E761C5BB1F200A67A0E /* Line.swift in Sources */,
 				685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */,
-				681150A01C62349800F7B444 /* TKTumeKyouenDao.swift in Sources */,
+				681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */,
 				686D0E741C54A1AF00A67A0E /* TumeKyouenServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

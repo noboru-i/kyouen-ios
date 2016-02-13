@@ -50,9 +50,9 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "StartSegue" {
             // 前回終了時のステージ番号を渡す
-            let settingDao = TKSettingDao()
+            let settingDao = SettingDao()
             let stageNo = settingDao.loadStageNo()
-            let dao = TKTumeKyouenDao()
+            let dao = TumeKyouenDao()
             let model = dao.selectByStageNo(stageNo)
             if let vc = segue.destinationViewController as? TKKyouenViewController {
                 vc.currentModel = model
@@ -80,7 +80,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
     }
 
     @IBAction func syncDataAction(_: AnyObject) {
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let stages = dao.selectAllClearStage()
 
         SVProgressHUD.show()
@@ -105,7 +105,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
     @IBAction func getStages(_: AnyObject) {
         SVProgressHUD.show()
 
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let stageCount = dao.selectCount()
         let server = TumeKyouenServer()
         getStage(stageCount, server: server, kyouenDao: dao)
@@ -164,13 +164,13 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
 
     private func refreshCounts() {
         // ステージ番号の描画
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let clearCount = dao.selectCountClearStage()
         let allCount = dao.selectCount()
         stageCountLabel.text = String(format: "%ld/%ld", arguments: [clearCount, allCount])
     }
 
-    private func getStage(maxStageNo: Int, server: TumeKyouenServer, kyouenDao dao: TKTumeKyouenDao) {
+    private func getStage(maxStageNo: Int, server: TumeKyouenServer, kyouenDao dao: TumeKyouenDao) {
         server.getStageData(maxStageNo, callback: {result, error in
             if error != nil {
                 // 取得できなかった
@@ -203,7 +203,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
 
     private func sendTwitterAccount() {
         // 認証情報を送信
-        let dao = TKTwitterTokenDao()
+        let dao = TwitterTokenDao()
         let oauthToken = dao.getOauthToken()
         let oauthTokenSecret = dao.getOauthTokenSecret()
         if oauthToken == nil || oauthTokenSecret == nil {

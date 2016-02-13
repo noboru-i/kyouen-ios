@@ -47,7 +47,7 @@ class TKTwitterManager: NSObject {
 
                     if oauthToken != nil && oauthTokenSecret != nil {
                         // 保存する
-                        let dao = TKTwitterTokenDao()
+                        let dao = TwitterTokenDao()
                         dao.saveToken(oauthToken, oauthTokenSecret: oauthTokenSecret)
                     }
 

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class TKTumeKyouenDao: BaseDao {
+class TumeKyouenDao: BaseDao {
     func insertWithCsvString(csv: NSString) -> ObjCBool {
         let lines = csv.componentsSeparatedByString("\n")
         for row in lines {

@@ -85,7 +85,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         }
 
         // 共円の場合
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         dao.updateClearFlag(currentModel!, date: nil)
         mStageNo.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
         mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel!)
@@ -104,7 +104,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
     }
 
     @IBAction func selectStage(_: AnyObject) {
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let maxStageNo = dao.selectCount()
         let title = String(format: NSLocalizedString("dialog_title_stage_select", comment: ""), arguments: [1, maxStageNo])
         let message = UIAlertView(title: title,
@@ -134,7 +134,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
             if nextStageNo == 0 {
                 break
             }
-            let dao = TKTumeKyouenDao()
+            let dao = TumeKyouenDao()
             let model = dao.selectByStageNo(nextStageNo)
             if model == nil {
                 // 取得できなかった場合は終了
@@ -149,7 +149,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
     // MARK: - private methods
     private func moveStage(stageNo: Int, direction: Int) {
 
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let model = dao.selectByStageNo(stageNo)
         if model == nil {
             // 取得できなかった場合の処理
@@ -169,7 +169,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
                 }
 
                 // データの登録
-                let dao = TKTumeKyouenDao()
+                let dao = TumeKyouenDao()
                 if !dao.insertWithCsvString(result) {
                     // エラー発生時
                 }
@@ -183,7 +183,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
         setStageWithAnimation(model, direction: direction)
 
         // 表示したステージ番号を保存
-        let settingDao = TKSettingDao()
+        let settingDao = SettingDao()
         settingDao.saveStageNo(model.stageNo)
     }
 

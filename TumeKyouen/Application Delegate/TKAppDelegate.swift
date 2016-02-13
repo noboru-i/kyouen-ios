@@ -94,7 +94,7 @@ class TKAppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: -
     private func initializeData() {
-        let dao = TKTumeKyouenDao()
+        let dao = TumeKyouenDao()
         let count = dao.selectCount()
         if count != 0 {
             print("初期データ投入の必要なし")

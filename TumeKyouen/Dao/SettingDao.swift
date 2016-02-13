@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TKSettingDao: NSObject {
+class SettingDao: NSObject {
 
     func saveStageNo(stageNo: NSNumber) {
         let defaults = NSUserDefaults.standardUserDefaults()
