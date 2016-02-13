@@ -13,8 +13,8 @@
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
 		681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TwitterTokenDao.swift */; };
 		68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F891C68A13A008E6E85 /* AdMobUtil.swift */; };
-		68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */; };
-		68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */; };
+		68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TwitterManager.swift */; };
+		68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* SignedRequest.swift */; };
 		68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */; };
 		68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F911C6A022E008E6E85 /* TitleViewController.swift */; };
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
@@ -74,8 +74,8 @@
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
 		681150A31C6234B000F7B444 /* TwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTokenDao.swift; sourceTree = "<group>"; };
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
-		68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKTwitterManager.swift; sourceTree = "<group>"; };
-		68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSignedRequest.swift; sourceTree = "<group>"; };
+		68252F8B1C68A145008E6E85 /* TwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
+		68252F8D1C68A151008E6E85 /* SignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedRequest.swift; sourceTree = "<group>"; };
 		68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyouenViewController.swift; sourceTree = "<group>"; };
 		68252F911C6A022E008E6E85 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		6831FDC616E1BF0A00291810 /* initial_stage.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_stage.csv; sourceTree = "<group>"; };
@@ -290,8 +290,8 @@
 			isa = PBXGroup;
 			children = (
 				68252F891C68A13A008E6E85 /* AdMobUtil.swift */,
-				68252F8B1C68A145008E6E85 /* TKTwitterManager.swift */,
-				68252F8D1C68A151008E6E85 /* TKSignedRequest.swift */,
+				68252F8B1C68A145008E6E85 /* TwitterManager.swift */,
+				68252F8D1C68A151008E6E85 /* SignedRequest.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
 				68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */,
 				68FB69371C6CAE8C003883FE /* TKAppDelegate.swift in Sources */,
-				68252F8E1C68A151008E6E85 /* TKSignedRequest.swift in Sources */,
+				68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */,
 				6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
@@ -544,7 +544,7 @@
 				68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
-				68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */,
+				68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
 				685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */,

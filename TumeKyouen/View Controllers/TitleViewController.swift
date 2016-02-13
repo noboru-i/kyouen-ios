@@ -18,7 +18,7 @@ class TitleViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var stageCountLabel: UILabel!
 
     var accountStore: ACAccountStore! = nil
-    var twitterManager: TKTwitterManager! = nil
+    var twitterManager: TwitterManager! = nil
     var accounts = [ACAccount]()
 
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class TitleViewController: UIViewController, UIActionSheetDelegate {
         // AdMob
         AdMobUtil.show(self)
 
-        twitterManager = TKTwitterManager()
+        twitterManager = TwitterManager()
 
         sendTwitterAccount()
     }
@@ -131,7 +131,7 @@ class TitleViewController: UIViewController, UIActionSheetDelegate {
 
     // MARK: - Private
     private func refreshTwitterAccounts() {
-        if !TKTwitterManager.isLocalTwitterAccountAvailable() {
+        if !TwitterManager.isLocalTwitterAccountAvailable() {
             // TODO twitterアカウントが設定されていない
             return
         }
