@@ -1,5 +1,5 @@
 //
-//  TKKyouenViewController.swift
+//  KyouenViewController.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/09.
@@ -12,7 +12,7 @@ import QuartzCore
 import Accounts
 import SVProgressHUD
 
-class TKTitleViewController: UIViewController, UIActionSheetDelegate {
+class TitleViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var syncButton: UIButton!
     @IBOutlet weak var stageCountLabel: UILabel!
@@ -54,7 +54,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
             let stageNo = settingDao.loadStageNo()
             let dao = TumeKyouenDao()
             let model = dao.selectByStageNo(stageNo)
-            if let vc = segue.destinationViewController as? TKKyouenViewController {
+            if let vc = segue.destinationViewController as? KyouenViewController {
                 vc.currentModel = model
             }
         }

@@ -9,7 +9,7 @@
         <!--Title View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="TKTitleViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2" customClass="TitleViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="92N-fl-bZT"/>
                         <viewControllerLayoutGuide type="bottom" id="DcR-Kc-9aH"/>
@@ -91,7 +91,7 @@
         <!--Kyouen View Controller-->
         <scene sceneID="gIu-ND-eQu">
             <objects>
-                <viewController id="jdg-gS-Wux" customClass="TKKyouenViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jdg-gS-Wux" customClass="KyouenViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QbC-gC-tFj"/>
                         <viewControllerLayoutGuide type="bottom" id="WA0-Dz-5dS"/>

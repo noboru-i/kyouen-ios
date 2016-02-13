@@ -1,5 +1,5 @@
 //
-//  TKTitleViewController.swift
+//  TitleViewController.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/09.
@@ -14,7 +14,7 @@ enum TKAlertTag: Int {
     case StageSelect = 2
 }
 
-class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
+class KyouenViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var mPrevButton: UIButton!
     @IBOutlet weak var mNextButton: UIButton!
     @IBOutlet weak var mStageNo: UILabel!
