@@ -29,6 +29,7 @@
 		686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E791C5BBED700A67A0E /* GameModel.swift */; };
 		686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E7B1C5BBEE300A67A0E /* KyouenData.swift */; };
 		686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E7D1C5F962D00A67A0E /* TumeKyouenModel.swift */; };
+		686D5B481C6EF8A00059A480 /* UIAlertController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D5B471C6EF8A00059A480 /* UIAlertController+Additions.swift */; };
 		6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6878F9B618799A8700BBF8A9 /* Images.xcassets */; };
 		688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688C015118E9C08F00EECC9A /* InfoPlist.strings */; };
 		689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689825AC16D9320C00D89D0B /* UIKit.framework */; };
@@ -90,6 +91,7 @@
 		686D0E791C5BBED700A67A0E /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		686D0E7B1C5BBEE300A67A0E /* KyouenData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyouenData.swift; sourceTree = "<group>"; };
 		686D0E7D1C5F962D00A67A0E /* TumeKyouenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenModel.swift; sourceTree = "<group>"; };
+		686D5B471C6EF8A00059A480 /* UIAlertController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Additions.swift"; sourceTree = "<group>"; };
 		6878F9B618799A8700BBF8A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		688A435F187059EF00B19834 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		688C015018E9C08F00EECC9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = Dao;
 			sourceTree = "<group>";
 		};
+		686D5B461C6EF8700059A480 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				686D5B471C6EF8A00059A480 /* UIAlertController+Additions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		6890DEAF16F614E8001E6A09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 				68AFAE3D16EA32F00076DE31 /* Model */,
 				6890DEAF16F614E8001E6A09 /* Network */,
 				689825FB16D933AC00D89D0B /* Util */,
+				686D5B461C6EF8700059A480 /* Extensions */,
 				689825F516D933AC00D89D0B /* Resources */,
 				6878F9B618799A8700BBF8A9 /* Images.xcassets */,
 				689825B316D9320C00D89D0B /* Supporting Files */,
@@ -534,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
+				686D5B481C6EF8A00059A480 /* UIAlertController+Additions.swift in Sources */,
 				68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */,
 				68FB69371C6CAE8C003883FE /* AppDelegate.swift in Sources */,
 				68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */,
