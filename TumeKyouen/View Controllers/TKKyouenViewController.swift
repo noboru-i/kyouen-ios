@@ -21,7 +21,7 @@ class TKKyouenViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var mCreator: UILabel!
     @IBOutlet weak var mKyouenImageView1: KyouenImageView!
     @IBOutlet weak var mKyouenImageView2: KyouenImageView!
-    @IBOutlet weak var mOverlayKyouenView: TKOverlayKyouenView!
+    @IBOutlet weak var mOverlayKyouenView: OverlayKyouenView!
 
     var currentModel: TumeKyouenModel? = nil
 

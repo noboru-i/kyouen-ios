@@ -151,6 +151,7 @@ class TKTitleViewController: UIViewController, UIActionSheetDelegate {
         let twitterType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         let handler: ACAccountStoreRequestAccessCompletionHandler = {granted, error in
             if granted {
+                self.accounts.removeAll()
                 for account in self.accountStore.accountsWithAccountType(twitterType) {
                     if let account = account as? ACAccount {
                         self.accounts.append(account)

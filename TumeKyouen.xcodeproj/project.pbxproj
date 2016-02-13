@@ -22,7 +22,7 @@
 		68390B5F17A3B0A500954896 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5E17A3B0A500954896 /* Accounts.framework */; };
 		685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915EF1C6706DB001FF3AA /* KyouenImageView.swift */; };
 		685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915F11C6706EA001FF3AA /* StoneButton.swift */; };
-		685915F41C6706FE001FF3AA /* TKOverlayKyouenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915F31C6706FE001FF3AA /* TKOverlayKyouenView.swift */; };
+		685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */; };
 		686D0E741C54A1AF00A67A0E /* TumeKyouenServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E731C54A1AF00A67A0E /* TumeKyouenServer.swift */; };
 		686D0E761C5BB1F200A67A0E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E751C5BB1F200A67A0E /* Line.swift */; };
 		686D0E781C5BB1FE00A67A0E /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686D0E771C5BB1FE00A67A0E /* Point.swift */; };
@@ -83,7 +83,7 @@
 		68390B5E17A3B0A500954896 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		685915EF1C6706DB001FF3AA /* KyouenImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyouenImageView.swift; sourceTree = "<group>"; };
 		685915F11C6706EA001FF3AA /* StoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoneButton.swift; sourceTree = "<group>"; };
-		685915F31C6706FE001FF3AA /* TKOverlayKyouenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKOverlayKyouenView.swift; sourceTree = "<group>"; };
+		685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayKyouenView.swift; sourceTree = "<group>"; };
 		686D0E731C54A1AF00A67A0E /* TumeKyouenServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenServer.swift; sourceTree = "<group>"; };
 		686D0E751C5BB1F200A67A0E /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		686D0E771C5BB1FE00A67A0E /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 			children = (
 				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
 				685915F11C6706EA001FF3AA /* StoneButton.swift */,
-				685915F31C6706FE001FF3AA /* TKOverlayKyouenView.swift */,
+				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,7 +547,7 @@
 				68252F8C1C68A145008E6E85 /* TKTwitterManager.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
-				685915F41C6706FE001FF3AA /* TKOverlayKyouenView.swift in Sources */,
+				685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */,
 				68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */,
 				686D0E761C5BB1F200A67A0E /* Line.swift in Sources */,
 				685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */,

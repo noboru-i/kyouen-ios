@@ -1,5 +1,5 @@
 //
-//  TKOverlayKyouenView.swift
+//  OverlayKyouenView.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/07.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TKOverlayKyouenView: UIView {
+class OverlayKyouenView: UIView {
     var kyouenData: KyouenData?
     var tumeKyouenModel: TumeKyouenModel?
 
