@@ -1,5 +1,5 @@
 //
-//  TKAppDelegate.swift
+//  AppDelegate.swift
 //  TumeKyouen
 //
 //  Created by 石倉 昇 on 2016/02/11.
@@ -12,7 +12,7 @@ import CoreData
 import SVProgressHUD
 
 @UIApplicationMain
-class TKAppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
