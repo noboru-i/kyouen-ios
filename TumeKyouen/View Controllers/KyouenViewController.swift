@@ -72,7 +72,7 @@ class KyouenViewController: UIViewController {
         }
 
         // 共円の場合
-        TumeKyouenDao().updateClearFlag(currentModel!, date: nil)
+        TumeKyouenDao().updateClearFlag(currentModel!)
         mStageNo.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
         mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel!)
         mOverlayKyouenView.layer.zPosition = 3
@@ -88,28 +88,25 @@ class KyouenViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
 
         // クリアデータの送信
-        let server = TumeKyouenServer()
-        server.addStageUser(currentModel!.stageNo)
+        TumeKyouenServer().addStageUser(currentModel!.stageNo)
     }
 
     @IBAction func selectStage(_: AnyObject) {
-        let dao = TumeKyouenDao()
-        let maxStageNo = dao.selectCount()
+        let maxStageNo = TumeKyouenDao().selectCount()
         let title = String(format: NSLocalizedString("dialog_title_stage_select", comment: ""), arguments: [1, maxStageNo])
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
         let selectButton = UIAlertAction(title: NSLocalizedString("dialog_select", comment: ""), style: .Default) { (action) -> Void in
             let inputText = alert.textFields![0].text!
-            let nextStageNo = Int(inputText)!
-            if nextStageNo == 0 {
+            let nextStageNo = Int(inputText)
+            if nextStageNo == nil || nextStageNo == 0 {
                 return
             }
-            let dao = TumeKyouenDao()
-            let model = dao.selectByStageNo(nextStageNo)
+            let model = TumeKyouenDao().selectByStageNo(nextStageNo!)
             if model == nil {
                 // 取得できなかった場合は終了
                 return
             }
-            self.moveStage(nextStageNo, direction: 1)
+            self.moveStage(nextStageNo!, direction: 1)
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alert.addTextFieldWithConfigurationHandler { (_) -> Void in
@@ -122,15 +119,12 @@ class KyouenViewController: UIViewController {
     // MARK: - private methods
     private func moveStage(stageNo: Int, direction: Int) {
 
-        let dao = TumeKyouenDao()
-        let model = dao.selectByStageNo(stageNo)
-        if model == nil {
+        guard let model = TumeKyouenDao().selectByStageNo(stageNo) else {
             // 取得できなかった場合の処理
             SVProgressHUD.show()
 
-            let server = TumeKyouenServer()
-            server.getStageData(stageNo - 1, callback: {result, error in
-                if error != nil || result == nil || result.length == 0 {
+            TumeKyouenServer().getStageData(stageNo - 1, callback: {result, error in
+                if error != nil || result == nil || result.characters.count == 0 {
                     // 取得できなかった
                     SVProgressHUD.dismiss()
                     return
@@ -142,8 +136,7 @@ class KyouenViewController: UIViewController {
                 }
 
                 // データの登録
-                let dao = TumeKyouenDao()
-                if !dao.insertWithCsvString(result) {
+                if !TumeKyouenDao().insertWithCsvString(result) {
                     // エラー発生時
                 }
                 SVProgressHUD.dismiss()
@@ -156,8 +149,7 @@ class KyouenViewController: UIViewController {
         setStageWithAnimation(model, direction: direction)
 
         // 表示したステージ番号を保存
-        let settingDao = SettingDao()
-        settingDao.saveStageNo(model.stageNo)
+        SettingDao().saveStageNo(Int(model.stageNo))
     }
 
     private func setStageWithAnimation(model: TumeKyouenModel, direction: Int) {

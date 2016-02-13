@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class TumeKyouenDao: BaseDao {
-    func insertWithCsvString(csv: NSString) -> ObjCBool {
+    func insertWithCsvString(csv: String) -> Bool {
         let lines = csv.componentsSeparatedByString("\n")
         for row in lines {
             let items = row.componentsSeparatedByString(",")
@@ -26,18 +26,14 @@ class TumeKyouenDao: BaseDao {
         return true
     }
 
-    func selectByStageNo(stageNo: NSNumber) -> TumeKyouenModel! {
+    func selectByStageNo(stageNo: Int) -> TumeKyouenModel? {
         let fetchRequest = NSFetchRequest()
         let entity = NSEntityDescription.entityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext)
         fetchRequest.entity = entity
 
         // 条件
-        let predicate = NSPredicate(format: "%K = %ld", "stageNo", Int(stageNo))
+        let predicate = NSPredicate(format: "%K = %ld", "stageNo", stageNo)
         fetchRequest.predicate = predicate
-
-        // ソート順
-        let stageNoDescriptor = NSSortDescriptor(key: "stageNo", ascending: true)
-        fetchRequest.sortDescriptors = [stageNoDescriptor]
 
         // 取得
         do {
@@ -52,7 +48,7 @@ class TumeKyouenDao: BaseDao {
         } catch {
             // no-op
         }
-        return nil
+        abort()
     }
 
     func selectCount() -> Int {
@@ -91,12 +87,8 @@ class TumeKyouenDao: BaseDao {
         return count
     }
 
-    func updateClearFlag(model: TumeKyouenModel, date: NSDate?) {
-        if date == nil {
-            model.clearDate = NSDate()
-        } else {
-            model.clearDate = date!
-        }
+    func updateClearFlag(model: TumeKyouenModel, date: NSDate = NSDate()) {
+        model.clearDate = date
         model.clearFlag = 1
 
         _ = try? managedObjectContext.save()
@@ -130,11 +122,11 @@ class TumeKyouenDao: BaseDao {
         formatter.timeZone = NSTimeZone(name: "UTC")
 
         for dic in clearStages {
-            if let stageNo = dic["stageNo"] as? NSNumber {
+            if let stageNo = dic["stageNo"] as? Int {
                 if let model = selectByStageNo(stageNo) {
                     let clearDateString = dic["clearDate"]
                     if let c = clearDateString as? String {
-                        let clearDate = formatter.dateFromString(c)
+                        let clearDate = formatter.dateFromString(c)!
                         updateClearFlag(model, date: clearDate)
                     }
                 }

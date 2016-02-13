@@ -10,18 +10,19 @@ import Foundation
 
 class SettingDao: NSObject {
 
-    func saveStageNo(stageNo: NSNumber) {
+    func saveStageNo(stageNo: Int) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(stageNo, forKey: "stageNo")
+        // save as NSNumber (since Objective-C)
+        defaults.setObject(NSNumber.init(integer: stageNo), forKey: "stageNo")
         defaults.synchronize()
     }
 
-    func loadStageNo() -> NSNumber {
+    func loadStageNo() -> Int {
         let defaults = NSUserDefaults.standardUserDefaults()
-        if let stageNo = defaults.objectForKey("stageNo") as? NSNumber {
-            return stageNo
+        // load as NSNumber (since Objective-C)
+        guard let stageNo = defaults.objectForKey("stageNo") as? NSNumber else {
+            return 1
         }
-
-        return 1
+        return Int(stageNo)
     }
 }

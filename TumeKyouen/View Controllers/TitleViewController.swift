@@ -164,7 +164,7 @@ class TitleViewController: UIViewController {
                 SVProgressHUD.showErrorWithStatus(error.localizedDescription)
                 return
             }
-            if result?.length == 0 {
+            if result.characters.count == 0 {
                 // 取得できなかった
                 self.refreshCounts()
                 SVProgressHUD.dismiss()
