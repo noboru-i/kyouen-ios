@@ -9,13 +9,13 @@
 import SVProgressHUD
 
 class KyouenViewController: UIViewController {
-    @IBOutlet weak var mPrevButton: UIButton!
-    @IBOutlet weak var mNextButton: UIButton!
-    @IBOutlet weak var mStageNo: UILabel!
-    @IBOutlet weak var mCreator: UILabel!
-    @IBOutlet weak var mKyouenImageView1: KyouenImageView!
-    @IBOutlet weak var mKyouenImageView2: KyouenImageView!
-    @IBOutlet weak var mOverlayKyouenView: OverlayKyouenView!
+    @IBOutlet private weak var mPrevButton: UIButton!
+    @IBOutlet private weak var mNextButton: UIButton!
+    @IBOutlet private weak var mStageNo: UILabel!
+    @IBOutlet private weak var mCreator: UILabel!
+    @IBOutlet private weak var mKyouenImageView1: KyouenImageView!
+    @IBOutlet private weak var mKyouenImageView2: KyouenImageView!
+    @IBOutlet private weak var mOverlayKyouenView: OverlayKyouenView!
 
     var currentModel: TumeKyouenModel? = nil
 
@@ -42,17 +42,17 @@ class KyouenViewController: UIViewController {
     }
 
     // MARK: - actions
-    @IBAction func moveNextStage(_: AnyObject) {
+    @IBAction private func moveNextStage(_: AnyObject) {
         let nextStageNo = Int(currentModel!.stageNo) + 1
         moveStage(nextStageNo, direction: 1)
     }
 
-    @IBAction func movePrevStage(_: AnyObject) {
+    @IBAction private func movePrevStage(_: AnyObject) {
         let nextStageNo = Int(currentModel!.stageNo) - 1
         moveStage(nextStageNo, direction: -1)
     }
 
-    @IBAction func checkKyouen(_: AnyObject) {
+    @IBAction private func checkKyouen(_: AnyObject) {
         let model = GameModel(size: Int(currentModel!.size), stage: mKyouenImageView1.getCurrentStage())
         // 4つ選択されているかのチェック
         if model.getStoneCount(2) != 4 {
@@ -90,7 +90,7 @@ class KyouenViewController: UIViewController {
         TumeKyouenServer().addStageUser(currentModel!.stageNo)
     }
 
-    @IBAction func selectStage(_: AnyObject) {
+    @IBAction private func selectStage(_: AnyObject) {
         let maxStageNo = TumeKyouenDao().selectCount()
         let title = String(format: NSLocalizedString("dialog_title_stage_select", comment: ""), arguments: [1, maxStageNo])
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
