@@ -9,32 +9,17 @@
 import Foundation
 
 // swiftlint:disable variable_name
-class KyouenData: CustomStringConvertible {
-    var points: [Point]
-    var isLine: Bool
-    var center: Point?
-    var radius: Double
-    var line: Line?
-
-    init(p1: Point, p2: Point, p3: Point, p4: Point, line: Line) {
-        self.points = [p1, p2, p3, p4]
-        self.isLine = true
-        self.center = nil
-        self.radius = 0
-        self.line = line
-    }
-
-    // swiftlint:disable:next function_parameter_count
-    init(p1: Point, p2: Point, p3: Point, p4: Point, center: Point, radius: Double) {
-        self.points = [p1, p2, p3, p4]
-        self.isLine = false
-        self.center = center
-        self.radius = radius
-        self.line = nil
-    }
+enum KyouenData: CustomStringConvertible {
+    case LineKyouen([Point], Line)
+    case OvalKyouen([Point], Point, Double)
 
     var description: String {
-        return "points = \(points), isLine = \(isLine), center = \(center), radius = \(radius), line = \(line)"
+        switch self {
+        case .LineKyouen(let points, let line):
+            return "points = \(points), line = \(line)"
+        case .OvalKyouen(let points, let center, let radius):
+            return "points = \(points), center = \(center), radius = \(radius)"
+        }
     }
 }
 // swiftlint:enable variable_name

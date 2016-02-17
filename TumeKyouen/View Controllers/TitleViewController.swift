@@ -12,9 +12,9 @@ import Accounts
 import SVProgressHUD
 
 class TitleViewController: UIViewController {
-    @IBOutlet weak var twitterButton: UIButton!
-    @IBOutlet weak var syncButton: UIButton!
-    @IBOutlet weak var stageCountLabel: UILabel!
+    @IBOutlet private weak var twitterButton: UIButton!
+    @IBOutlet private weak var syncButton: UIButton!
+    @IBOutlet private weak var stageCountLabel: UILabel!
 
     var accountStore: ACAccountStore! = nil
     let twitterManager = TwitterManager()
@@ -55,7 +55,7 @@ class TitleViewController: UIViewController {
         }
     }
 
-    @IBAction func connectTwitterAction(_: AnyObject) {
+    @IBAction private func connectTwitterAction(_: AnyObject) {
         if accounts.count == 0 {
             let alert = UIAlertController.alert("alert_no_twitter_account")
             presentViewController(alert, animated: true, completion: nil)
@@ -85,7 +85,7 @@ class TitleViewController: UIViewController {
         presentViewController(sheet, animated: true, completion: nil)
     }
 
-    @IBAction func syncDataAction(_: AnyObject) {
+    @IBAction private func syncDataAction(_: AnyObject) {
         let stages = TumeKyouenDao().selectAllClearStage()
 
         SVProgressHUD.show()
@@ -106,7 +106,7 @@ class TitleViewController: UIViewController {
         })
     }
 
-    @IBAction func getStages(_: AnyObject) {
+    @IBAction private func getStages(_: AnyObject) {
         SVProgressHUD.show()
 
         let stageCount = TumeKyouenDao().selectCount()

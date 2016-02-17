@@ -9,7 +9,7 @@
 import Foundation
 
 // swiftlint:disable variable_name
-class Point: CustomStringConvertible {
+struct Point: CustomStringConvertible {
     var x: Double
     var y: Double
 
