@@ -196,7 +196,7 @@ class KyouenViewController: UIViewController {
         }
         mStageNo.text = String(format: "STAGE:%@", currentModel!.stageNo)
         mCreator.text = String(format: "created by %@", arguments: [currentModel!.creator])
-        imageView.setStage(currentModel!)
+        imageView.stage = currentModel
 
         mOverlayKyouenView.alpha = 0
 
