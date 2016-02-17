@@ -7,7 +7,7 @@
 //
 
 // swiftlint:disable variable_name
-class Line: CustomStringConvertible {
+struct Line: CustomStringConvertible {
     var p1: Point
     var p2: Point
     var a: Double

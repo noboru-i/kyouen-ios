@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameModel {
+struct GameModel {
     let size: Int
     let stage: String
 

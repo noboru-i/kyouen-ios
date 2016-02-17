@@ -9,7 +9,7 @@
 import Foundation
 
 // swiftlint:disable variable_name
-class KyouenData: CustomStringConvertible {
+struct KyouenData: CustomStringConvertible {
     var points: [Point]
     var isLine: Bool
     var center: Point?
