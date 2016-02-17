@@ -42,18 +42,13 @@ struct GameModel {
             let intersection234 = l23.getIntersection(l34)
             if intersection234 == nil {
                 // p2,p3,p4が直線状に存在する場合
-                return KyouenData(
-                    p1: p1,
-                    p2: p2,
-                    p3: p3,
-                    p4: p4,
-                    line: Line(p1: p1, p2: p2))
+                return KyouenData.LineKyouen([p1, p2, p3, p4], Line(p1: p1, p2: p2))
             }
         } else {
             let dist1 = p1.getDistance(intersection123)
             let dist2 = p4.getDistance(intersection123)
             if fabs(dist1 - dist2) < 0.0000001 {
-                return KyouenData(p1: p1, p2: p2, p3: p3, p4: p4, center: intersection123, radius: dist1)
+                return KyouenData.OvalKyouen([p1, p2, p3, p4], intersection123, dist1)
             }
         }
         return nil

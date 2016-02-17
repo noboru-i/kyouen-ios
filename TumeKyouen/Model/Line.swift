@@ -8,19 +8,27 @@
 
 // swiftlint:disable variable_name
 struct Line: CustomStringConvertible {
-    var p1: Point
-    var p2: Point
-    var a: Double
-    var b: Double
-    var c: Double
+    private var p1: Point
+    private var p2: Point
+    var a: Double {
+        get {
+            return p1.y - p2.y
+        }
+    }
+    var b: Double {
+        get {
+            return p2.x - p1.x
+        }
+    }
+    var c: Double {
+        get {
+            return p1.x * p2.y - p2.x * p1.y
+        }
+    }
 
     init(p1: Point, p2: Point) {
         self.p1 = p1
         self.p2 = p2
-
-        self.a = p1.y - p2.y
-        self.b = p2.x - p1.x
-        self.c = p1.x * p2.y - p2.x * p1.y
     }
 
     func getX(y: Double) -> Double {
