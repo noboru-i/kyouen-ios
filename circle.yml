@@ -16,3 +16,7 @@ deployment:
     branch: master
     commands:
       - bundle exec fastlane beta
+  test-pilot:
+    branch: test-pilot
+    commands:
+      - bundle exec fastlane test
