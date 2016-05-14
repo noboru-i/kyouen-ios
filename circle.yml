@@ -8,8 +8,6 @@ dependencies:
     - brew install swiftlint
 test:
   override:
-    # workaround https://github.com/realm/SwiftLint/issues/13
-    - ln -s /Applications/Xcode-7.2.app /Applications/Xcode.app
     - bundle exec fastlane analyze
 deployment:
   master:
