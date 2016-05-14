@@ -34,6 +34,16 @@ platform :ios do
       ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
       message: message
     )
+  end
+
+  lane :release do
+    gym(
+      scheme: scheme_name_store,
+      configuration: "Release",
+      use_legacy_build_api: true
+    )
+
+    pilot(skip_submission: true)
 
     set_github_release(
       repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
@@ -42,19 +52,9 @@ platform :ios do
       commitish: ENV['CIRCLE_SHA1'],
       description: '',
       tag_name: "v#{Time.now.strftime('%Y%m%d%H%M%S')}",
-      is_prerelease: true,
+      is_prerelease: false,
       upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
     )
-  end
-
-  lane :testflight do
-    gym(
-      scheme: scheme_name_store,
-      configuration: "Release",
-      use_legacy_build_api: true
-    )
-
-    pilot(skip_submission: true)
   end
 
   desc 'Analyze codes'

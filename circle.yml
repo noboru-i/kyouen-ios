@@ -16,8 +16,8 @@ deployment:
     branch: master
     commands:
       - bundle exec fastlane beta
-  test-pilot:
-    branch: test-pilot
+  release:
+    branch: release
     commands:
       - plutil -replace CFBundleVersion -string $CIRCLE_BUILD_NUM TumeKyouen/TumeKyouen-Info.plist
-      - bundle exec fastlane testflight
+      - bundle exec fastlane release

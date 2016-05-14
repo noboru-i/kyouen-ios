@@ -11,9 +11,9 @@ sudo gem install fastlane
 fastlane ios beta
 ```
 Submit a new Beta Build to DeployGate
-### ios test
+### ios release
 ```
-fastlane ios test
+fastlane ios release
 ```
 
 ### ios analyze
