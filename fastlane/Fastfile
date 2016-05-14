@@ -18,11 +18,11 @@ provisioning_profile_store = '68cc878f-edf6-4a86-ad1a-595b6296c496'
 
 platform :ios do
   before_all do
-    add_keychain if is_ci?
+    # add_keychain if is_ci?
   end
 
   after_all do
-    remove_keychain if is_ci?
+    # remove_keychain if is_ci?
   end
 
   desc 'Submit a new Beta Build to DeployGate'
