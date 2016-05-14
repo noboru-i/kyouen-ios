@@ -2,6 +2,8 @@ machine:
   timezone: Asia/Tokyo
   xcode:
     version: "7.3.1"
+  environment:
+    GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
 dependencies:
   pre:
     - brew update
