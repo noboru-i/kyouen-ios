@@ -3,7 +3,6 @@ machine:
   xcode:
     version: "7.3.1"
   environment:
-    CODE_SIGN_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
     GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
 dependencies:
   pre:

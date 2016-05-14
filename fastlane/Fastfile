@@ -69,7 +69,10 @@ platform :ios do
       analyze: true,
       scheme: scheme_name_adhoc,
       configuration: "AdHoc",
-      derivedDataPath: './derivedData'
+      derivedDataPath: './derivedData',
+      build_settings: {
+        "CODE_SIGN_IDENTITY" => ENV['GYM_CODE_SIGNING_IDENTITY']
+      }
     )
 
     sh <<-EOS
