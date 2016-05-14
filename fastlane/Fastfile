@@ -4,12 +4,11 @@ default_platform :ios
 
 # You need to set your project values.
 workspace_name = 'TumeKyouen.xcworkspace'
-scheme_name = 'TumeKyouen_adhoc'
+scheme_name_adhoc = 'TumeKyouen_adhoc'
+scheme_name_store = 'TumeKyouen_release'
 deploygate_user_name = 'noboru-i'
 project_name = 'TumeKyouen'
 bundle_id = 'hm.orz.chaos114.TumeKyouen'
-provisioning_profile_adhoc = 'fa915d7c-4c84-4978-ad02-1c9475cd3b20'
-provisioning_profile_store = '68cc878f-edf6-4a86-ad1a-595b6296c496'
 
 # And you need to set environment variables.
 # DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
@@ -17,21 +16,12 @@ provisioning_profile_store = '68cc878f-edf6-4a86-ad1a-595b6296c496'
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
-  before_all do
-    # add_keychain if is_ci?
-  end
-
-  after_all do
-    # remove_keychain if is_ci?
-  end
 
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     gym(
-      workspace: workspace_name,
-      scheme: scheme_name,
-      output_name: "#{project_name}.ipa",
-      xcargs: xcodebuild_args(profile: provisioning_profile_adhoc),
+      scheme: scheme_name_adhoc,
+      configuration: "Debug",
       use_legacy_build_api: true
     )
 
@@ -58,10 +48,9 @@ platform :ios do
     )
   end
 
-  lane :test do
+  lane :testflight do
     gym(
-      scheme: "TumeKyouen_release",
-      # xcargs: xcodebuild_args(profile: provisioning_profile_store),
+      scheme: scheme_name_store,
       configuration: "Release",
       use_legacy_build_api: true
     )
@@ -79,10 +68,9 @@ platform :ios do
   private_lane :xcode_analyze do
     xcodebuild(
       analyze: true,
-      scheme: scheme_name,
+      scheme: scheme_name_adhoc,
       workspace: workspace_name,
-      derivedDataPath: './derivedData',
-      xcargs: xcodebuild_args(profile: provisioning_profile_adhoc)
+      derivedDataPath: './derivedData'
     )
 
     sh <<-EOS
@@ -112,41 +100,6 @@ cat swiftlint.result.json \
     EOS
 
     delete_lint_config
-  end
-
-  private_lane :add_keychain do
-    create_keychain(
-      name: 'ios-build.keychain',
-      password: SecureRandom.uuid,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true
-    )
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/cert/AppleWWDRCA.cer'
-    Dir.glob('cert/*.p12').each do |cert_file|
-      import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/' + cert_file, certificate_password: ENV['KEY_PASSWORD']
-    end
-
-    Dir.glob('cert/*.mobileprovision').each do |provisioning_file|
-      FastlaneCore::ProvisioningProfile.install(provisioning_file)
-    end
-  end
-
-  private_lane :remove_keychain do
-    delete_keychain(
-      name: 'ios-build.keychain'
-    )
-    sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
-  end
-
-  private_lane :xcodebuild_args do |option|
-    {
-      PROVISIONING_PROFILE: option[:profile],
-      PRODUCT_BUNDLE_IDENTIFIER: bundle_id
-    }.map do |k, v|
-      "#{k.to_s.shellescape}=#{v.shellescape}"
-    end.join ' '
   end
 
   def create_lint_config
