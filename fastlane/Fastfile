@@ -64,6 +64,7 @@ platform :ios do
       scheme: "TumeKyouen_release",
       # output_name: "#{project_name}.ipa",
       # xcargs: xcodebuild_args(profile: provisioning_profile_store),
+      configuration: "Release",
       use_legacy_build_api: true
     )
 
