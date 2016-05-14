@@ -45,13 +45,14 @@ platform :ios do
 
     pilot(skip_submission: true)
 
+    version = get_info_plist_value(path: './Info.plist', key: 'CFBundleShortVersionString')
     set_github_release(
       repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
       api_token: ENV['GITHUB_ACCESS_TOKEN'],
       name: "Build: #{ENV['CIRCLE_BUILD_NUM']}",
       commitish: ENV['CIRCLE_SHA1'],
       description: '',
-      tag_name: "v#{Time.now.strftime('%Y%m%d%H%M%S')}",
+      tag_name: "v#{version}",
       is_prerelease: false,
       upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
     )
