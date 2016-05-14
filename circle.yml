@@ -1,18 +1,22 @@
 machine:
   timezone: Asia/Tokyo
   xcode:
-    version: "7.2"
+    version: "7.3.1"
+  environment:
+    GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
 dependencies:
   pre:
     - brew update
     - brew install swiftlint
 test:
   override:
-    # workaround https://github.com/realm/SwiftLint/issues/13
-    - ln -s /Applications/Xcode-7.2.app /Applications/Xcode.app
     - bundle exec fastlane analyze
 deployment:
   master:
     branch: master
     commands:
       - bundle exec fastlane beta
+  release:
+    branch: release
+    commands:
+      - bundle exec fastlane release

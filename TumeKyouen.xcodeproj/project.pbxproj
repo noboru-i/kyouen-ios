@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FF8DB07D6D373E6BF2FE910 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */; };
+		09A8D7F10BDA9CE6061BF6C6 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42AC321364E9246DFB76548 /* Pods_TumeKyouen.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
 		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
@@ -68,8 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.debug.xcconfig"; sourceTree = "<group>"; };
-		5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.release.xcconfig"; sourceTree = "<group>"; };
+		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
@@ -125,7 +124,9 @@
 		68BD361A1791988500B45FDE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		68EC8BDC1871EB49002D79B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
 		68FB69361C6CAE8C003883FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8B0900B57C801847BA5C20B /* Pods-TumeKyouen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.release.xcconfig"; sourceTree = "<group>"; };
+		F42AC321364E9246DFB76548 /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBE31D24C82079A62304DA91 /* Pods-TumeKyouen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +151,7 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
-				1FF8DB07D6D373E6BF2FE910 /* Pods_TumeKyouen.framework in Frameworks */,
+				09A8D7F10BDA9CE6061BF6C6 /* Pods_TumeKyouen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +167,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F66310A0771A48475440513 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBE31D24C82079A62304DA91 /* Pods-TumeKyouen.debug.xcconfig */,
+				A8B0900B57C801847BA5C20B /* Pods-TumeKyouen.release.xcconfig */,
+				35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6831FDC816E32E3800291810 /* Dao */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +211,7 @@
 				689825D616D9320C00D89D0B /* TumeKyouenTests */,
 				689825AB16D9320C00D89D0B /* Frameworks */,
 				689825AA16D9320C00D89D0B /* Products */,
-				E7A65398D8EF498105B100B3 /* Pods */,
+				1F66310A0771A48475440513 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,7 +245,7 @@
 				689825AC16D9320C00D89D0B /* UIKit.framework */,
 				689825AE16D9320C00D89D0B /* Foundation.framework */,
 				689825B016D9320C00D89D0B /* CoreGraphics.framework */,
-				E31973564E2CEDECEB1A4CE9 /* Pods_TumeKyouen.framework */,
+				F42AC321364E9246DFB76548 /* Pods_TumeKyouen.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,15 +364,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E7A65398D8EF498105B100B3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */,
-				5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -369,13 +371,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */;
 			buildPhases = (
-				010B6339C739D2F40163FEB5 /* Check Pods Manifest.lock */,
+				F90792AAA1C96FD5AB8280B1 /* 📦 Check Pods Manifest.lock */,
 				689825A516D9320C00D89D0B /* Sources */,
 				689825A616D9320C00D89D0B /* Frameworks */,
 				689825A716D9320C00D89D0B /* Resources */,
 				51BC12F51C194F4F00346BC9 /* ShellScript */,
-				626ED88FE6FEE25B7377E51F /* Embed Pods Frameworks */,
-				F27DE6D50D8EF87E241191E2 /* Copy Pods Resources */,
+				884F5977CB5198348663636C /* 📦 Embed Pods Frameworks */,
+				63DAA4B9C4CFCA0B156D9F7F /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -416,11 +418,6 @@
 				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = noboru;
-				TargetAttributes = {
-					689825A816D9320C00D89D0B = {
-						DevelopmentTeam = 56W5SXE4HE;
-					};
-				};
 			};
 			buildConfigurationList = 689825A416D9320C00D89D0B /* Build configuration list for PBXProject "TumeKyouen" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -466,21 +463,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		010B6339C739D2F40163FEB5 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		51BC12F51C194F4F00346BC9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,19 +476,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		626ED88FE6FEE25B7377E51F /* Embed Pods Frameworks */ = {
+		63DAA4B9C4CFCA0B156D9F7F /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		689825CD16D9320C00D89D0B /* ShellScript */ = {
@@ -522,19 +504,34 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		F27DE6D50D8EF87E241191E2 /* Copy Pods Resources */ = {
+		884F5977CB5198348663636C /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F90792AAA1C96FD5AB8280B1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -619,6 +616,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6809D16B1CE5ADAA00BD207D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = AdHoc;
+		};
+		6809D16C1CE5ADAA00BD207D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_RESOURCE_RULES_PATH = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = "TumeKyouen/TumeKyouen-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fa915d7c-4c84-4978-ad02-1c9475cd3b20";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AdHoc;
+		};
+		6809D16D1CE5ADAA00BD207D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "TumeKyouenTests/TumeKyouenTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = AdHoc;
+		};
 		689825DF16D9320C00D89D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -632,8 +703,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
@@ -669,8 +740,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -688,14 +759,14 @@
 		};
 		689825E216D9320C00D89D0B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42FF7AA7017D9BBB925FC02D /* Pods-TumeKyouen.debug.xcconfig */;
+			baseConfigurationReference = FBE31D24C82079A62304DA91 /* Pods-TumeKyouen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: NOBORU ISHIKURA (CAJB52C9EZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: NOBORU ISHIKURA (CAJB52C9EZ)";
-				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -716,14 +787,14 @@
 		};
 		689825E316D9320C00D89D0B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5DBFF274A3B2E0D0200A9CEC /* Pods-TumeKyouen.release.xcconfig */;
+			baseConfigurationReference = A8B0900B57C801847BA5C20B /* Pods-TumeKyouen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)";
-				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_RESOURCE_RULES_PATH = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -733,7 +804,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fa915d7c-4c84-4978-ad02-1c9475cd3b20";
+				PROVISIONING_PROFILE = "68cc878f-edf6-4a86-ad1a-595b6296c496";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
@@ -784,6 +855,7 @@
 			buildConfigurations = (
 				689825DF16D9320C00D89D0B /* Debug */,
 				689825E016D9320C00D89D0B /* Release */,
+				6809D16B1CE5ADAA00BD207D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -793,6 +865,7 @@
 			buildConfigurations = (
 				689825E216D9320C00D89D0B /* Debug */,
 				689825E316D9320C00D89D0B /* Release */,
+				6809D16C1CE5ADAA00BD207D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -802,6 +875,7 @@
 			buildConfigurations = (
 				689825E516D9320C00D89D0B /* Debug */,
 				689825E616D9320C00D89D0B /* Release */,
+				6809D16D1CE5ADAA00BD207D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

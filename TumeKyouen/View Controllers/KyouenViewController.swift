@@ -172,7 +172,7 @@ class KyouenViewController: UIViewController {
         // 2つのImageViewを移動
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDelegate(self)
-        UIView.setAnimationDidStopSelector("endSetStageAnimation")
+        UIView.setAnimationDidStopSelector(#selector(KyouenViewController.endSetStageAnimation))
         UIView.setAnimationDuration(0.4)
         currentImageView.alpha = 0.0
         frame.origin.x = origX

@@ -3,12 +3,12 @@ fastlane_version '1.52.0'
 default_platform :ios
 
 # You need to set your project values.
-workspace_name = 'TumeKyouen.xcworkspace'
-scheme_name = 'TumeKyouen_adhoc'
+scheme_name_adhoc = 'TumeKyouen_adhoc'
+scheme_name_store = 'TumeKyouen_release'
 deploygate_user_name = 'noboru-i'
 project_name = 'TumeKyouen'
 bundle_id = 'hm.orz.chaos114.TumeKyouen'
-provisioning_profile = 'fa915d7c-4c84-4978-ad02-1c9475cd3b20'
+plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 # And you need to set environment variables.
 # DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
@@ -16,21 +16,13 @@ provisioning_profile = 'fa915d7c-4c84-4978-ad02-1c9475cd3b20'
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
-  before_all do
-    add_keychain if is_ci?
-  end
-
-  after_all do
-    remove_keychain if is_ci?
-  end
 
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     gym(
-      workspace: workspace_name,
-      scheme: scheme_name,
-      output_name: "#{project_name}.ipa",
-      xcargs: xcodebuild_args
+      scheme: scheme_name_adhoc,
+      configuration: "AdHoc",
+      use_legacy_build_api: true
     )
 
     Helper.log.info 'Save Artifacts'
@@ -43,15 +35,33 @@ platform :ios do
       ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
       message: message
     )
+  end
 
+  desc 'Submit a new Release Build to TestFlight'
+  lane :release do
+    set_info_plist_value(
+      path: plist_file_path,
+      key: 'CFBundleVersion',
+      value: ENV['CIRCLE_BUILD_NUM']
+    )
+
+    gym(
+      scheme: scheme_name_store,
+      configuration: "Release",
+      use_legacy_build_api: true
+    )
+
+    pilot(skip_submission: true)
+
+    version = get_info_plist_value(path: plist_file_path, key: 'CFBundleShortVersionString')
     set_github_release(
       repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
       api_token: ENV['GITHUB_ACCESS_TOKEN'],
       name: "Build: #{ENV['CIRCLE_BUILD_NUM']}",
       commitish: ENV['CIRCLE_SHA1'],
       description: '',
-      tag_name: "v#{Time.now.strftime('%Y%m%d%H%M%S')}",
-      is_prerelease: true,
+      tag_name: "v#{version}",
+      is_prerelease: false,
       upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
     )
   end
@@ -66,10 +76,12 @@ platform :ios do
   private_lane :xcode_analyze do
     xcodebuild(
       analyze: true,
-      scheme: scheme_name,
-      workspace: workspace_name,
+      scheme: scheme_name_adhoc,
+      configuration: "AdHoc",
       derivedDataPath: './derivedData',
-      xcargs: xcodebuild_args
+      build_settings: {
+        "CODE_SIGN_IDENTITY" => ENV['GYM_CODE_SIGNING_IDENTITY']
+      }
     )
 
     sh <<-EOS
@@ -99,41 +111,6 @@ cat swiftlint.result.json \
     EOS
 
     delete_lint_config
-  end
-
-  private_lane :add_keychain do
-    create_keychain(
-      name: 'ios-build.keychain',
-      password: SecureRandom.uuid,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: true
-    )
-    import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/cert/apple.cer'
-    Dir.glob('cert/*.p12').each do |cert_file|
-      import_certificate keychain_name: 'ios-build.keychain', certificate_path: 'fastlane/' + cert_file, certificate_password: ENV['KEY_PASSWORD']
-    end
-
-    Dir.glob('cert/*.mobileprovision').each do |provisioning_file|
-      FastlaneCore::ProvisioningProfile.install(provisioning_file)
-    end
-  end
-
-  private_lane :remove_keychain do
-    delete_keychain(
-      name: 'ios-build.keychain'
-    )
-    sh "rm -f \"#{FastlaneCore::ProvisioningProfile.profiles_path}*\""
-  end
-
-  private_lane :xcodebuild_args do
-    {
-      PROVISIONING_PROFILE: provisioning_profile,
-      PRODUCT_BUNDLE_IDENTIFIER: bundle_id
-    }.map do |k, v|
-      "#{k.to_s.shellescape}=#{v.shellescape}"
-    end.join ' '
   end
 
   def create_lint_config
