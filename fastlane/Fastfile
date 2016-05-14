@@ -8,6 +8,7 @@ scheme_name_store = 'TumeKyouen_release'
 deploygate_user_name = 'noboru-i'
 project_name = 'TumeKyouen'
 bundle_id = 'hm.orz.chaos114.TumeKyouen'
+plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 # And you need to set environment variables.
 # DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
@@ -36,7 +37,14 @@ platform :ios do
     )
   end
 
+  desc 'Submit a new Release Build to TestFlight'
   lane :release do
+    set_info_plist_value(
+      path: plist_file_path,
+      key: 'CFBundleVersion',
+      value: ENV['CIRCLE_BUILD_NUM']
+    )
+
     gym(
       scheme: scheme_name_store,
       configuration: "Release",
@@ -45,7 +53,7 @@ platform :ios do
 
     pilot(skip_submission: true)
 
-    version = get_info_plist_value(path: './Info.plist', key: 'CFBundleShortVersionString')
+    version = get_info_plist_value(path: plist_file_path, key: 'CFBundleShortVersionString')
     set_github_release(
       repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
       api_token: ENV['GITHUB_ACCESS_TOKEN'],
