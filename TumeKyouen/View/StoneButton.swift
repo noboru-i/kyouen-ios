@@ -33,7 +33,7 @@ class StoneButton: UIButton {
 
         super.init(frame: CGRect(x: 0, y: 0, width: stoneSize, height: stoneSize))
         stoneState = defaultState
-        addTarget(self, action: "changeState:", forControlEvents: .TouchUpInside)
+        addTarget(self, action: #selector(StoneButton.changeState(_:)), forControlEvents: .TouchUpInside)
     }
 
     func changeState(_: AnyObject) {
