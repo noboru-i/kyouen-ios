@@ -60,10 +60,10 @@ platform :ios do
 
   lane :test do
     gym(
-      workspace: workspace_name,
+      # workspace: workspace_name,
       scheme: "TumeKyouen_release",
-      output_name: "#{project_name}.ipa",
-      xcargs: xcodebuild_args(profile: provisioning_profile_store),
+      # output_name: "#{project_name}.ipa",
+      # xcargs: xcodebuild_args(profile: provisioning_profile_store),
       use_legacy_build_api: true
     )
 
