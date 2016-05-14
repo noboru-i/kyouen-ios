@@ -3,7 +3,6 @@ fastlane_version '1.52.0'
 default_platform :ios
 
 # You need to set your project values.
-workspace_name = 'TumeKyouen.xcworkspace'
 scheme_name_adhoc = 'TumeKyouen_adhoc'
 scheme_name_store = 'TumeKyouen_release'
 deploygate_user_name = 'noboru-i'
@@ -21,7 +20,7 @@ platform :ios do
   lane :beta do
     gym(
       scheme: scheme_name_adhoc,
-      configuration: "Debug",
+      configuration: "AdHoc",
       use_legacy_build_api: true
     )
 
@@ -69,7 +68,7 @@ platform :ios do
     xcodebuild(
       analyze: true,
       scheme: scheme_name_adhoc,
-      workspace: workspace_name,
+      configuration: "AdHoc",
       derivedDataPath: './derivedData'
     )
 
