@@ -1,7 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'cocoapods'
+gem 'cocoapods', '1.1.0.rc.2'
 gem 'fastlane'
 gem 'checkstyle_filter-git'
 gem 'saddler'
