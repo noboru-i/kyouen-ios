@@ -34,8 +34,8 @@ class OverlayKyouenView: UIView {
 
         alpha = 1
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1.0)
-        CGContextSetLineWidth(context, 3)
+        CGContextSetRGBStrokeColor(context!, 0.5, 0.5, 0.5, 1.0)
+        CGContextSetLineWidth(context!, 3)
 
         let width = Double(bounds.size.width)
         let size = Double(tumeKyouenModel!.size)
@@ -89,7 +89,7 @@ class OverlayKyouenView: UIView {
             CGPoint(x: CGFloat(startX), y: CGFloat(startY)),
             CGPoint(x: CGFloat(endX), y: CGFloat(endY))
         ]
-        CGContextStrokeLineSegments(context, points, 2)
+        CGContextStrokeLineSegments(context!, points, 2)
     }
 
     private func drawOval(context: CGContext?, center: Point, radius: Double, stoneSize: Double) {
@@ -101,6 +101,6 @@ class OverlayKyouenView: UIView {
             y: CGFloat(cy - radius),
             width: CGFloat(radius * 2),
             height: CGFloat(radius * 2))
-        CGContextStrokeEllipseInRect(context, rectEllipse)
+        CGContextStrokeEllipseInRect(context!, rectEllipse)
     }
 }
