@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.2.0)
+  - Alamofire (3.5.0)
   - Google-Mobile-Ads-SDK (7.6.0)
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
@@ -13,7 +13,7 @@ DEPENDENCIES:
   - SVProgressHUD (~> 2.0.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   Google-Mobile-Ads-SDK: 0290020329c61183c4685304264b73382bc49fb4
   NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
@@ -21,4 +21,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d6b65ad1cb33187d8c13c1ed697508c78d6a3574
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.0.rc.2

@@ -56,12 +56,15 @@ class TumeKyouenDao: BaseDao {
         fetchRequest.entity = entity
 
         // 取得
-        var error: NSError? = nil
-        let count = managedObjectContext.countForFetchRequest(fetchRequest, error: &error)
-        if count == NSNotFound {
+        do {
+            let count = try managedObjectContext.countForFetchRequest(fetchRequest)
+            if count == NSNotFound {
+                return 0
+            }
+            return count
+        } catch {
             return 0
         }
-        return count
     }
 
     func selectCountClearStage() -> Int {
@@ -78,12 +81,15 @@ class TumeKyouenDao: BaseDao {
         fetchRequest.sortDescriptors = [stageNoDescriptor]
 
         // 取得
-        var error: NSError? = nil
-        let count = managedObjectContext.countForFetchRequest(fetchRequest, error: &error)
-        if count == NSNotFound {
+        do {
+            let count = try managedObjectContext.countForFetchRequest(fetchRequest)
+            if count == NSNotFound {
+                return 0
+            }
+            return count
+        } catch {
             return 0
         }
-        return count
     }
 
     func updateClearFlag(model: TumeKyouenModel, date: NSDate = NSDate()) {

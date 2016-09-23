@@ -7,7 +7,7 @@
 //
 
 import Accounts
-import Twitter
+import Social
 
 typealias ReverseAuthResponseHandler = (NSData, NSError) -> Void
 
