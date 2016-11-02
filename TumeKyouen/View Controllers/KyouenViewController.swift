@@ -31,11 +31,11 @@ class KyouenViewController: UIViewController {
         ]
         view.layer.insertSublayer(gradient, atIndex: 0)
 
-        let screenSize = UIScreen.mainScreen().bounds.size
-        if screenSize.width >= 320.0 && screenSize.height >= 568.0 {
-            // 4インチの場合
-            AdMobUtil.show(self)
-        }
+        AdMobUtil.show(self)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
         // 初期化
         setStage(currentModel!, to: mKyouenImageView1!)

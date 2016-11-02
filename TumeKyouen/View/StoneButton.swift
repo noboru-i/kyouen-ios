@@ -21,16 +21,7 @@ class StoneButton: UIButton {
         super.init(coder: aDecoder)
     }
 
-    init(size: Int, defaultState: ButtonState) {
-        var stoneSize: CGFloat = 0
-        if size == 6 {
-            stoneSize = 51 // 306/6
-        } else if size == 9 {
-            stoneSize = 34 // 306/9
-        } else {
-            NSException(name: "IllegalArgumentException", reason: "unknown size", userInfo: nil).raise()
-        }
-
+    init(stoneSize: CGFloat, defaultState: ButtonState) {
         super.init(frame: CGRect(x: 0, y: 0, width: stoneSize, height: stoneSize))
         stoneState = defaultState
         addTarget(self, action: #selector(StoneButton.changeState(_:)), forControlEvents: .TouchUpInside)
