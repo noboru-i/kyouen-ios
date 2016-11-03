@@ -17,6 +17,6 @@ deployment:
     commands:
       - bundle exec fastlane beta
   release:
-    branch: release
+    tag: /v[0-9]+(\.[0-9]+)*/
     commands:
       - bundle exec fastlane release
