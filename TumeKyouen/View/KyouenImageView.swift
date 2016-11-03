@@ -46,7 +46,8 @@ class KyouenImageView: UIView {
         let size = Int(stage!.size)
         let x = index % size
         let y = index / size
-        let button = StoneButton(size: size, defaultState: state)
+        let stoneSize = frame.width / CGFloat(size)
+        let button = StoneButton(stoneSize: stoneSize, defaultState: state)
         button.transform = CGAffineTransformMakeTranslation(
             CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
         buttons.append(button)

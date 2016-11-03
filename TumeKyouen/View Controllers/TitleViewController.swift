@@ -44,14 +44,16 @@ class TitleViewController: UIViewController {
         refreshTwitterAccounts()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "StartSegue" {
-            // 前回終了時のステージ番号を渡す
-            let stageNo = SettingDao().loadStageNo()
-            let model = TumeKyouenDao().selectByStageNo(stageNo)
-            if let vc = segue.destinationViewController as? KyouenViewController {
-                vc.currentModel = model
-            }
+    @IBAction func startKyouen(_: AnyObject) {
+        // 前回終了時のステージ番号を渡す
+        let stageNo = SettingDao().loadStageNo()
+        let model = TumeKyouenDao().selectByStageNo(stageNo)
+
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:NSBundle.mainBundle())
+        let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
+        if let vc = kyouenViewController as? KyouenViewController {
+            vc.currentModel = model
+            self.navigationController?.pushViewController(kyouenViewController!, animated: true)
         }
     }
 

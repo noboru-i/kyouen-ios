@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,79 +18,135 @@
                         <viewControllerLayoutGuide type="bottom" id="DcR-Kc-9aH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv">
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="jdg-gS-Wux" kind="push" identifier="StartSegue" id="wCe-AW-8sV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX">
-                                <state key="normal" title="Get stages">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="getStages:" destination="2" eventType="touchUpInside" id="xmv-EJ-n5D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv">
-                                <state key="normal" title="Sign in with twitter">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="connectTwitterAction:" destination="2" eventType="touchUpInside" id="s6Y-a6-zjV"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Qim-2A-8hI"/>
-                                </constraints>
-                                <state key="normal" title="Sync cleared info">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="65" placeholderIntrinsicHeight="21" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2cM-5N-kC5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TumeKyouen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afL-oT-hP3">
+                                <rect key="frame" x="90" y="100" width="140" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="60" y="260" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="QM7-l0-fzz"/>
+                                    <constraint firstAttribute="height" constant="44" id="pXc-FY-6zn"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startKyouen:" destination="2" eventType="touchUpInside" id="1RO-nj-ir3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="65" placeholderIntrinsicHeight="21" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
+                                <rect key="frame" x="232.5" y="312" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="60" y="349" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5YG-cY-gar"/>
+                                    <constraint firstAttribute="width" constant="200" id="oeM-iu-rxY"/>
+                                </constraints>
+                                <state key="normal" title="Get stages">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getStages:" destination="2" eventType="touchUpInside" id="xmv-EJ-n5D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8cP-M7-3DM"/>
+                                    <constraint firstAttribute="height" constant="44" id="aBf-u4-69F"/>
+                                </constraints>
+                                <state key="normal" title="Sign in with twitter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="connectTwitterAction:" destination="2" eventType="touchUpInside" id="s6Y-a6-zjV"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="9c2-V7-yBS"/>
+                                    <constraint firstAttribute="height" constant="44" id="HoR-IQ-hAb"/>
+                                </constraints>
+                                <state key="normal" title="Sync cleared info">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" id="3Jz-Zv-3a1"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="4" id="8cw-Ud-c0f"/>
-                            <constraint firstAttribute="centerX" secondItem="yfo-Eg-GFX" secondAttribute="centerX" id="9Rf-ib-DT8"/>
+                            <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="131" id="7eG-pR-8Lp"/>
                             <constraint firstAttribute="centerX" secondItem="4H9-9j-SQX" secondAttribute="centerX" id="Hfa-df-qKT"/>
-                            <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="1" id="Kgj-Fi-vBL"/>
-                            <constraint firstItem="DcR-Kc-9aH" firstAttribute="top" secondItem="yfo-Eg-GFX" secondAttribute="bottom" constant="253" id="RSR-cG-oq8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aLh-Fz-0B5" secondAttribute="trailing" constant="34" id="XRw-Bz-MWj"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="AOV-He-KSv" secondAttribute="top" id="YOH-4I-uTJ"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="92N-fl-bZT" secondAttribute="bottom" constant="36" id="ZgT-x1-4es"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="baseline" secondItem="AOV-He-KSv" secondAttribute="firstBaseline" id="eke-nd-Eu0"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="54" id="fhD-vN-d4Y"/>
-                            <constraint firstItem="afL-oT-hP3" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="75" id="ftH-8Z-5pc"/>
                             <constraint firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
-                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="300" id="pTA-Y6-aZO"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="leading" secondItem="AOV-He-KSv" secondAttribute="leading" id="pkZ-ey-QEm"/>
+                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
+                            <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
                             <constraint firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" id="ql8-Cv-zCJ"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="firstBaseline" secondItem="AOV-He-KSv" secondAttribute="baseline" id="rtk-vY-J0F"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="leading" secondItem="4H9-9j-SQX" secondAttribute="leading" id="vm4-U3-RBc"/>
-                            <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="18" id="wCd-IY-1OD"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
+                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="wcE-41-NId"/>
+                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="xQm-SK-sFE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sJP-uf-2ZN"/>
@@ -102,120 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="243"/>
-        </scene>
-        <!--Kyouen View Controller-->
-        <scene sceneID="gIu-ND-eQu">
-            <objects>
-                <viewController id="jdg-gS-Wux" customClass="KyouenViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QbC-gC-tFj"/>
-                        <viewControllerLayoutGuide type="bottom" id="WA0-Dz-5dS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="njD-DB-Aey">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="STAGE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPT-D8-uAE">
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXU-ga-JKW">
-                                <state key="normal" title="Prev">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="movePrevStage:" destination="jdg-gS-Wux" eventType="touchUpInside" id="0my-zP-w5l"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-EM-KjT">
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="moveNextStage:" destination="jdg-gS-Wux" eventType="touchUpInside" id="amB-nR-iNY"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="created by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy7-ai-sIB">
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-bK-aqy" userLabel="Next Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-sH-t7c" userLabel="Current Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target"/>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-pw-S2e" customClass="OverlayKyouenView" customModule="TumeKyouen" customModuleProvider="target">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPH-Y1-LpH">
-                                <state key="normal" title="Kyouen!!">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkKyouen:" destination="jdg-gS-Wux" eventType="touchUpInside" id="ezu-h9-6q0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAS-Df-245">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="2vO-fv-E7I"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectStage:" destination="jdg-gS-Wux" eventType="touchUpInside" id="MAW-cQ-jWV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iuy-pw-S2e" secondAttribute="bottom" constant="246" id="2EP-mq-kcs"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="bottom" secondItem="zXU-ga-JKW" secondAttribute="bottom" id="2aN-s2-4x8"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leadingMargin" constant="-10" id="2aa-v6-6xs"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="r9h-sH-t7c" secondAttribute="top" id="6a5-1x-Ghs"/>
-                            <constraint firstAttribute="centerX" secondItem="zPT-D8-uAE" secondAttribute="centerX" id="7oa-T4-Whr"/>
-                            <constraint firstItem="YAC-EM-KjT" firstAttribute="leading" secondItem="zPT-D8-uAE" secondAttribute="trailing" constant="19" id="A2B-7A-wJI"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="Uy7-ai-sIB" secondAttribute="bottom" constant="4" id="ANS-Du-ICG"/>
-                            <constraint firstAttribute="centerX" secondItem="r9h-sH-t7c" secondAttribute="centerX" id="GIQ-Nh-s3U"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="njD-DB-Aey" secondAttribute="top" constant="115" id="JLt-Ty-5Qt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zPH-Y1-LpH" secondAttribute="trailing" constant="64" id="KYV-mG-Zz6"/>
-                            <constraint firstAttribute="centerX" secondItem="4tS-bK-aqy" secondAttribute="centerX" id="LJk-Kq-4FB"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="top" secondItem="QbC-gC-tFj" secondAttribute="bottom" constant="1" id="PnL-2F-hXa"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="bottom" secondItem="YAC-EM-KjT" secondAttribute="bottom" id="RS7-Ha-bmx"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="top" secondItem="zPT-D8-uAE" secondAttribute="top" id="SSS-zZ-ucJ"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="17" id="SlQ-xS-KGX"/>
-                            <constraint firstItem="Uy7-ai-sIB" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leadingMargin" constant="46" id="UJ4-nu-D7g"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="leading" secondItem="4tS-bK-aqy" secondAttribute="leading" id="WgM-cL-p3a"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="leading" secondItem="r9h-sH-t7c" secondAttribute="leading" id="ZAW-ui-Yhk"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="4tS-bK-aqy" secondAttribute="top" id="biP-we-lzq"/>
-                            <constraint firstItem="zPH-Y1-LpH" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leadingMargin" constant="64" id="cex-Jo-4Zv"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="bottom" secondItem="r9h-sH-t7c" secondAttribute="bottom" id="fCM-2P-bV2"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="top" secondItem="zXU-ga-JKW" secondAttribute="top" id="fzG-DH-T9f"/>
-                            <constraint firstItem="zPT-D8-uAE" firstAttribute="leading" secondItem="zXU-ga-JKW" secondAttribute="trailing" constant="17" id="gSu-JQ-axB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YAC-EM-KjT" secondAttribute="trailing" constant="-11" id="hgK-Co-5Gz"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="top" secondItem="HAS-Df-245" secondAttribute="bottom" constant="6" id="lCZ-Co-Dgk"/>
-                            <constraint firstItem="zPH-Y1-LpH" firstAttribute="top" secondItem="iuy-pw-S2e" secondAttribute="bottom" constant="8" symbolic="YES" id="ota-4c-57T"/>
-                            <constraint firstAttribute="centerX" secondItem="iuy-pw-S2e" secondAttribute="centerX" id="pTw-ga-vaa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uy7-ai-sIB" secondAttribute="trailing" constant="47" id="pw5-wy-STv"/>
-                            <constraint firstItem="zXU-ga-JKW" firstAttribute="leading" secondItem="njD-DB-Aey" secondAttribute="leadingMargin" constant="-11" id="taz-7q-rOQ"/>
-                            <constraint firstItem="YAC-EM-KjT" firstAttribute="leading" secondItem="HAS-Df-245" secondAttribute="trailing" constant="19" id="vWH-UB-ZC8"/>
-                            <constraint firstItem="iuy-pw-S2e" firstAttribute="bottom" secondItem="4tS-bK-aqy" secondAttribute="bottom" id="xic-eE-Qi2"/>
-                            <constraint firstItem="HAS-Df-245" firstAttribute="top" secondItem="YAC-EM-KjT" secondAttribute="top" id="zzT-hj-HNF"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="mCreator" destination="Uy7-ai-sIB" id="LbO-Nj-rhN"/>
-                        <outlet property="mKyouenImageView1" destination="r9h-sH-t7c" id="bf2-l5-h0X"/>
-                        <outlet property="mKyouenImageView2" destination="4tS-bK-aqy" id="wwi-xY-Ea3"/>
-                        <outlet property="mNextButton" destination="YAC-EM-KjT" id="D4T-Hd-bzz"/>
-                        <outlet property="mOverlayKyouenView" destination="iuy-pw-S2e" id="FcZ-Ac-AuZ"/>
-                        <outlet property="mPrevButton" destination="zXU-ga-JKW" id="x44-y8-KKg"/>
-                        <outlet property="mStageNo" destination="zPT-D8-uAE" id="bFO-lv-G19"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nDj-dW-MJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="657" y="243"/>
+            <point key="canvasLocation" x="331.20000000000005" y="218.59070464767618"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kdO-wa-2JR">
@@ -233,12 +176,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNw-qR-aCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="243"/>
+            <point key="canvasLocation" x="-427.20000000000005" y="218.59070464767618"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

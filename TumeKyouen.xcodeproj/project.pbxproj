@@ -12,6 +12,8 @@
 		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
 		681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TwitterTokenDao.swift */; };
+		681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */; };
+		681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B222E1DCAD8B4005FBD8C /* BorderButton.swift */; };
 		68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F891C68A13A008E6E85 /* AdMobUtil.swift */; };
 		68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TwitterManager.swift */; };
 		68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* SignedRequest.swift */; };
@@ -60,6 +62,10 @@
 		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
 		681150A31C6234B000F7B444 /* TwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTokenDao.swift; sourceTree = "<group>"; };
+		681B22281DCAD6BD005FBD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/KyouenStoryboard.storyboard; sourceTree = "<group>"; };
+		681B222B1DCAD6C5005FBD8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
+		681B222D1DCAD6C7005FBD8C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
+		681B222E1DCAD8B4005FBD8C /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
 		68252F8B1C68A145008E6E85 /* TwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
 		68252F8D1C68A151008E6E85 /* SignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedRequest.swift; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 			children = (
 				68B8F98818E86D5500EDC03A /* Settings.bundle */,
 				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
+				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
 				6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */,
 			);
@@ -300,6 +307,7 @@
 				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
 				685915F11C6706EA001FF3AA /* StoneButton.swift */,
 				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
+				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,7 +381,7 @@
 				CLASSPREFIX = TK;
 				LastSwiftUpdateCheck = 0710;
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = noboru;
 				TargetAttributes = {
 					689825A816D9320C00D89D0B = {
@@ -407,6 +415,7 @@
 			files = (
 				689825B716D9320C00D89D0B /* Localizable.strings in Resources */,
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
+				681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */,
 				68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */,
 				688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
@@ -497,6 +506,7 @@
 				68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
+				681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */,
 				685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */,
 				68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */,
 				686D0E761C5BB1F200A67A0E /* Line.swift in Sources */,
@@ -509,6 +519,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				681B22281DCAD6BD005FBD8C /* Base */,
+				681B222B1DCAD6C5005FBD8C /* en */,
+				681B222D1DCAD6C7005FBD8C /* ja */,
+			);
+			name = KyouenStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		688C015118E9C08F00EECC9A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -718,7 +738,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hm.orz.chaos114.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d36aee51-7930-4ec9-8300-fb7364a3e5f0";
+				PROVISIONING_PROFILE = "58434e95-49ed-4ea5-a5c1-19f8198debe9";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
