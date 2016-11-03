@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Kyouen!!"; ObjectID = "7Wt-NJ-6ZQ"; */
+"7Wt-NJ-6ZQ.normalTitle" = "Kyouen!!";
+
+/* Class = "UIButton"; normalTitle = "Prev"; ObjectID = "dDF-Aj-76H"; */
+"dDF-Aj-76H.normalTitle" = "Prev";
+
+/* Class = "UILabel"; text = "created by"; ObjectID = "fjg-zV-4tR"; */
+"fjg-zV-4tR.text" = "created by";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "hDk-SS-JDk"; */
+"hDk-SS-JDk.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "STAGE:"; ObjectID = "hXc-14-5lR"; */
+"hXc-14-5lR.text" = "STAGE:";
