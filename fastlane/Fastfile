@@ -22,6 +22,7 @@ platform :ios do
     gym(
       scheme: scheme_name_adhoc,
       configuration: "AdHoc",
+      toolchain: :swift_2_3,
       use_legacy_build_api: true
     )
 
@@ -48,6 +49,7 @@ platform :ios do
     gym(
       scheme: scheme_name_store,
       configuration: "Release",
+      toolchain: :swift_2_3,
       use_legacy_build_api: true
     )
 
