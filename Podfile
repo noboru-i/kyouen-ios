@@ -6,6 +6,7 @@ target 'TumeKyouen' do
   pod 'Google-Mobile-Ads-SDK', '~> 7.1'
   pod 'OAuthCore', '~> 0.0.1'
   pod 'SVProgressHUD', '~> 2.0.0'
+  pod 'Firebase'
 end
 
 post_install do | installer |

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SVProgressHUD
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setMinimumDismissTimeInterval(0)
 
         initializeData()
+
+        FIRApp.configure()
 
         // PUSH通知の設定
         let settings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
