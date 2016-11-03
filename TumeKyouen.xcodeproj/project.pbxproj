@@ -68,6 +68,8 @@
 		681B222D1DCAD6C7005FBD8C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
 		681B222E1DCAD8B4005FBD8C /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		681B22301DCB1F3B005FBD8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		681B22321DCB24BD005FBD8C /* develop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = develop.entitlements; sourceTree = "<group>"; };
+		681B22341DCB2745005FBD8C /* release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = release.entitlements; sourceTree = "<group>"; };
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
 		68252F8B1C68A145008E6E85 /* TwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
 		68252F8D1C68A151008E6E85 /* SignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedRequest.swift; sourceTree = "<group>"; };
@@ -160,6 +162,15 @@
 				35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		681B22331DCB2693005FBD8C /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				681B22341DCB2745005FBD8C /* release.entitlements */,
+				681B22321DCB24BD005FBD8C /* develop.entitlements */,
+			);
+			path = Entitlements;
 			sourceTree = "<group>";
 		};
 		6831FDC816E32E3800291810 /* Dao */ = {
@@ -284,6 +295,7 @@
 		689825F516D933AC00D89D0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				681B22331DCB2693005FBD8C /* Entitlements */,
 				681B22301DCB1F3B005FBD8C /* GoogleService-Info.plist */,
 				68B8F98818E86D5500EDC03A /* Settings.bundle */,
 				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
@@ -389,6 +401,11 @@
 				TargetAttributes = {
 					689825A816D9320C00D89D0B = {
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -613,6 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TumeKyouen/Resources/Entitlements/release.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -729,6 +747,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TumeKyouen/Resources/Entitlements/develop.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
@@ -759,6 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TumeKyouen/Resources/Entitlements/release.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_RESOURCE_RULES_PATH = "";
