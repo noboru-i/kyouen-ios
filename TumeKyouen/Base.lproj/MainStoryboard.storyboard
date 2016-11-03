@@ -28,7 +28,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv">
+                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="87.5" y="260" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="QM7-l0-fzz"/>
@@ -37,51 +37,98 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="startKyouen:" destination="2" eventType="touchUpInside" id="1RO-nj-ir3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="65" placeholderIntrinsicHeight="21" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
-                                <rect key="frame" x="260" y="304" width="65" height="21"/>
+                                <rect key="frame" x="260" y="312" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX">
-                                <rect key="frame" x="87.5" y="333" width="200" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="349" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5YG-cY-gar"/>
                                     <constraint firstAttribute="width" constant="200" id="oeM-iu-rxY"/>
                                 </constraints>
                                 <state key="normal" title="Get stages">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="getStages:" destination="2" eventType="touchUpInside" id="xmv-EJ-n5D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv">
-                                <rect key="frame" x="87.5" y="377" width="200" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="401" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8cP-M7-3DM"/>
                                     <constraint firstAttribute="height" constant="44" id="aBf-u4-69F"/>
                                 </constraints>
                                 <state key="normal" title="Sign in with twitter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="connectTwitterAction:" destination="2" eventType="touchUpInside" id="s6Y-a6-zjV"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX">
-                                <rect key="frame" x="87.5" y="377" width="200" height="44"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="401" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9c2-V7-yBS"/>
                                     <constraint firstAttribute="height" constant="44" id="HoR-IQ-hAb"/>
                                 </constraints>
                                 <state key="normal" title="Sync cleared info">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
                                 </connections>
@@ -95,11 +142,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="aLh-Fz-0B5" secondAttribute="trailing" constant="34" id="XRw-Bz-MWj"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="92N-fl-bZT" secondAttribute="bottom" constant="36" id="ZgT-x1-4es"/>
                             <constraint firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
-                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" id="hko-6A-0jY"/>
-                            <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="8" id="qiY-fM-Bup"/>
+                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
+                            <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
                             <constraint firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" id="ql8-Cv-zCJ"/>
-                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" id="vdE-GV-xge"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" id="wcE-41-NId"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
+                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="wcE-41-NId"/>
                             <constraint firstItem="yfo-Eg-GFX" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="xQm-SK-sFE"/>
                         </constraints>
                     </view>
