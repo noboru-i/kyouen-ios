@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,17 +18,17 @@
                         <viewControllerLayoutGuide type="bottom" id="DcR-Kc-9aH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TumeKyouen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afL-oT-hP3">
-                                <rect key="frame" x="117.5" y="100" width="140" height="29"/>
+                                <rect key="frame" x="90" y="100" width="140" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="260" width="200" height="44"/>
+                                <rect key="frame" x="60" y="260" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="QM7-l0-fzz"/>
                                     <constraint firstAttribute="height" constant="44" id="pXc-FY-6zn"/>
@@ -53,13 +52,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="65" placeholderIntrinsicHeight="21" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
-                                <rect key="frame" x="260" y="312" width="65" height="21"/>
+                                <rect key="frame" x="232.5" y="312" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="349" width="200" height="44"/>
+                                <rect key="frame" x="60" y="349" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5YG-cY-gar"/>
                                     <constraint firstAttribute="width" constant="200" id="oeM-iu-rxY"/>
@@ -84,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="401" width="200" height="44"/>
+                                <rect key="frame" x="60" y="401" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8cP-M7-3DM"/>
                                     <constraint firstAttribute="height" constant="44" id="aBf-u4-69F"/>
@@ -109,7 +108,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="401" width="200" height="44"/>
+                                <rect key="frame" x="60" y="401" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9c2-V7-yBS"/>
                                     <constraint firstAttribute="height" constant="44" id="HoR-IQ-hAb"/>
@@ -139,10 +138,10 @@
                             <constraint firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" id="3Jz-Zv-3a1"/>
                             <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="131" id="7eG-pR-8Lp"/>
                             <constraint firstAttribute="centerX" secondItem="4H9-9j-SQX" secondAttribute="centerX" id="Hfa-df-qKT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aLh-Fz-0B5" secondAttribute="trailing" constant="34" id="XRw-Bz-MWj"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="92N-fl-bZT" secondAttribute="bottom" constant="36" id="ZgT-x1-4es"/>
                             <constraint firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
                             <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
                             <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
                             <constraint firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" id="ql8-Cv-zCJ"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
@@ -159,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="243"/>
+            <point key="canvasLocation" x="331.20000000000005" y="218.59070464767618"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kdO-wa-2JR">
@@ -177,12 +176,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNw-qR-aCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-267" y="243"/>
+            <point key="canvasLocation" x="-427.20000000000005" y="218.59070464767618"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>
