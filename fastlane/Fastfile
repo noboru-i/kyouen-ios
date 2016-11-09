@@ -1,4 +1,4 @@
-fastlane_version '1.52.0'
+fastlane_version '1.107.0'
 
 default_platform :ios
 
@@ -26,7 +26,7 @@ platform :ios do
       use_legacy_build_api: true
     )
 
-    Helper.log.info 'Save Artifacts'
+    UI.message 'Save Artifacts'
     sh "cp #{lane_context[SharedValues::IPA_OUTPUT_PATH]} $CIRCLE_ARTIFACTS"
 
     message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
@@ -53,7 +53,10 @@ platform :ios do
       use_legacy_build_api: true
     )
 
-    pilot(skip_submission: true)
+    pilot(
+      skip_submission: true,
+      skip_waiting_for_build_processing: true
+    )
 
     version = get_info_plist_value(path: plist_file_path, key: 'CFBundleShortVersionString')
     set_github_release(
