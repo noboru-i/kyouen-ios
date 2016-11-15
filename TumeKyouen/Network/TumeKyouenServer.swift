@@ -8,11 +8,10 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class TumeKyouenServer {
-    //#define SERVER_DOMAIN @"https://my-android-server.appspot.com"
-    //// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
-    let serverDomain = "https://my-android-server.appspot.com"
+    let serverDomain = "http://my-android-server.appspot.com:8080"
 
     func getStageData(currentMaxStageNo: Int, callback: (String!, NSError!) -> Void) {
         let url = serverDomain + "/kyouen/get"
@@ -92,5 +91,25 @@ class TumeKyouenServer {
     func registDeviceToken(deviceToken: NSString) {
         let url = serverDomain + "/apns/regist"
         Alamofire.request(.POST, url, parameters: ["device_token": deviceToken])
+    }
+
+    func fetchRealtimeBattleRooms(callback: (NSArray!, NSError!) -> Void) {
+        let url = serverDomain + "/realtime/room"
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                switch response.result {
+                case .Success:
+                    if let json = response.result.value as? NSArray {
+                        print("jsonData: \(json)")
+                        callback(json, nil)
+                        return
+                    }
+                    callback(nil, nil)
+                    break
+                case .Failure(let error):
+                    callback(nil, error)
+                    break
+                }
+        }
     }
 }

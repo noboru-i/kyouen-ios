@@ -83,8 +83,32 @@
                                     <action selector="getStages:" destination="2" eventType="touchUpInside" id="xmv-EJ-n5D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-od-mxh" userLabel="Battle Button" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bUZ-EO-ciZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="oBi-sI-e0T"/>
+                                </constraints>
+                                <state key="normal" title="Battle">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startBattle:" destination="2" eventType="touchUpInside" id="d88-HZ-1cV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="60" y="453" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="8cP-M7-3DM"/>
                                     <constraint firstAttribute="height" constant="44" id="aBf-u4-69F"/>
@@ -109,7 +133,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <rect key="frame" x="60" y="453" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9c2-V7-yBS"/>
                                     <constraint firstAttribute="height" constant="44" id="HoR-IQ-hAb"/>
@@ -138,16 +162,18 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" id="3Jz-Zv-3a1"/>
                             <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="131" id="7eG-pR-8Lp"/>
+                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="Sfh-od-mxh" secondAttribute="bottom" constant="8" id="9CZ-pA-lKB"/>
                             <constraint firstAttribute="centerX" secondItem="4H9-9j-SQX" secondAttribute="centerX" id="Hfa-df-qKT"/>
+                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="Sfh-od-mxh" secondAttribute="bottom" constant="8" id="MB4-GD-tMh"/>
                             <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="92N-fl-bZT" secondAttribute="bottom" constant="36" id="ZgT-x1-4es"/>
+                            <constraint firstItem="Sfh-od-mxh" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="bfW-ZT-Ife"/>
                             <constraint firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
-                            <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
                             <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
                             <constraint firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" id="ql8-Cv-zCJ"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="wcE-41-NId"/>
                             <constraint firstItem="yfo-Eg-GFX" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="xQm-SK-sFE"/>
+                            <constraint firstItem="Sfh-od-mxh" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="zXH-45-3hw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sJP-uf-2ZN"/>

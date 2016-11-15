@@ -13,6 +13,11 @@
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
 		681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TwitterTokenDao.swift */; };
 		681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAEC1DD0C284009F5349 /* Analytics.swift */; };
+		681AAAEF1DD8B6EC009F5349 /* RealtimeBattleRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAEE1DD8B6EC009F5349 /* RealtimeBattleRoom.swift */; };
+		681AAAF11DD9F65E009F5349 /* BattleListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */; };
+		681AAAF31DD9FD3D009F5349 /* BattleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */; };
+		681AAAF51DDA132E009F5349 /* BattleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAF41DDA132E009F5349 /* BattleListCell.swift */; };
+		681AAAF71DDB445A009F5349 /* BattleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681AAAF61DDB445A009F5349 /* BattleListCell.xib */; };
 		681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */; };
 		681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B222E1DCAD8B4005FBD8C /* BorderButton.swift */; };
 		681B22311DCB1F3B005FBD8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681B22301DCB1F3B005FBD8C /* GoogleService-Info.plist */; };
@@ -65,6 +70,11 @@
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
 		681150A31C6234B000F7B444 /* TwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTokenDao.swift; sourceTree = "<group>"; };
 		681AAAEC1DD0C284009F5349 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		681AAAEE1DD8B6EC009F5349 /* RealtimeBattleRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealtimeBattleRoom.swift; sourceTree = "<group>"; };
+		681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BattleListStoryboard.storyboard; sourceTree = "<group>"; };
+		681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewController.swift; sourceTree = "<group>"; };
+		681AAAF41DDA132E009F5349 /* BattleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListCell.swift; sourceTree = "<group>"; };
+		681AAAF61DDB445A009F5349 /* BattleListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BattleListCell.xib; sourceTree = "<group>"; };
 		681B22281DCAD6BD005FBD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/KyouenStoryboard.storyboard; sourceTree = "<group>"; };
 		681B222B1DCAD6C5005FBD8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
 		681B222D1DCAD6C7005FBD8C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
@@ -304,6 +314,7 @@
 				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
 				6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */,
+				681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -326,6 +337,8 @@
 				685915F11C6706EA001FF3AA /* StoneButton.swift */,
 				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
 				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
+				681AAAF41DDA132E009F5349 /* BattleListCell.swift */,
+				681AAAF61DDB445A009F5349 /* BattleListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				686D0E7D1C5F962D00A67A0E /* TumeKyouenModel.swift */,
+				681AAAEE1DD8B6EC009F5349 /* RealtimeBattleRoom.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -351,6 +365,7 @@
 			children = (
 				68252F911C6A022E008E6E85 /* TitleViewController.swift */,
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
+				681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -441,9 +456,11 @@
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
 				681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */,
 				68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */,
+				681AAAF71DDB445A009F5349 /* BattleListCell.xib in Resources */,
 				688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
+				681AAAF11DD9F65E009F5349 /* BattleListStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,11 +539,13 @@
 				68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */,
 				6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
+				681AAAEF1DD8B6EC009F5349 /* RealtimeBattleRoom.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
 				686D0E781C5BB1FE00A67A0E /* Point.swift in Sources */,
 				68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
+				681AAAF31DD9FD3D009F5349 /* BattleListViewController.swift in Sources */,
 				68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */,
 				681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
@@ -538,6 +557,7 @@
 				685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */,
 				681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */,
 				686D0E741C54A1AF00A67A0E /* TumeKyouenServer.swift in Sources */,
+				681AAAF51DDA132E009F5349 /* BattleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

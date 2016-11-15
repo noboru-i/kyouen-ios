@@ -57,6 +57,14 @@ class TitleViewController: UIViewController {
         }
     }
 
+    @IBAction func startBattle(sender: AnyObject) {
+        let storyboard: UIStoryboard = UIStoryboard(name:"BattleListStoryboard", bundle:NSBundle.mainBundle())
+        let vc: UIViewController? = storyboard.instantiateInitialViewController()
+        if let vc = vc as? BattleListViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     @IBAction private func connectTwitterAction(_: AnyObject) {
         if accounts.count == 0 {
             let alert = UIAlertController.alert("alert_no_twitter_account")
