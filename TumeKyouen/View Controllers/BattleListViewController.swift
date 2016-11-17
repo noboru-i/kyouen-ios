@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import APIKit
 
 class BattleListViewController: UIViewController {
 
@@ -15,36 +16,25 @@ class BattleListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    struct Battle {
-        let id: Int
-        let name: String
-    }
-    var battleList: [Battle]?
+    var battleList: [RealtimeBattleRoom]?
 
     override func viewDidLoad() {
         tableView.registerNib(UINib(nibName: "BattleListCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
         tableView.dataSource = self
 
-        TumeKyouenServer().fetchRealtimeBattleRooms { response, error in
-            if error != nil {
-                // 通信が異常終了
-                SVProgressHUD.showErrorWithStatus(error.localizedDescription)
-            }
-            self.battleList = []
-            for item in response {
-                if let dic = item as? NSDictionary {
-                    guard let id = dic["size"] as? Int else {
-                        continue
-                    }
-                    guard let nameDic = dic["player1"] as? Dictionary<String, String> else {
-                        continue
-                    }
-                    let battle = Battle(id: id, name: nameDic["scscreenName"]!)
+        let request = RealtimeBattleRoomRequest()
+        Session.sendRequest(request) { result in
+            switch result {
+            case .Success(let response):
+                self.battleList = []
+                for battle in response {
                     self.battleList?.append(battle)
                 }
+                self.tableView.reloadData()
+            case .Failure(let error):
+                print("error: \(error)")
             }
-            self.tableView.reloadData()
         }
     }
 }
@@ -66,7 +56,7 @@ extension BattleListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? BattleListCell
 
         cell!.idLabel?.text = String(battleList![indexPath.row].id)
-        cell!.nameLabel?.text = String(battleList![indexPath.row].name)
+        cell!.nameLabel?.text = String(battleList![indexPath.row].player1.screenName)
 
         return cell!
     }

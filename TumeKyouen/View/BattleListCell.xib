@@ -15,24 +15,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Un-iX-YH9" id="YDO-gB-oAD">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIF-MN-hFQ" userLabel="id Label">
-                        <rect key="frame" x="38" y="11" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saS-CN-UY6" userLabel="name Label">
+                        <rect key="frame" x="167" y="8" width="200" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="AtZ-BK-0ZE"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saS-CN-UY6" userLabel="name Label">
-                        <rect key="frame" x="167" y="11" width="140" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIF-MN-hFQ" userLabel="id Label">
+                        <rect key="frame" x="8" y="8" width="180" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="PDM-Yd-JIi"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="saS-CN-UY6" secondAttribute="bottom" constant="8" id="5Vk-yT-COr"/>
+                    <constraint firstAttribute="trailing" secondItem="saS-CN-UY6" secondAttribute="trailing" constant="8" id="9pQ-q3-0MJ"/>
+                    <constraint firstAttribute="bottom" secondItem="MIF-MN-hFQ" secondAttribute="bottom" constant="8" id="BRu-qT-6XI"/>
+                    <constraint firstItem="MIF-MN-hFQ" firstAttribute="leading" secondItem="YDO-gB-oAD" secondAttribute="leading" constant="8" id="fLi-J8-gij"/>
+                    <constraint firstItem="MIF-MN-hFQ" firstAttribute="top" secondItem="YDO-gB-oAD" secondAttribute="top" constant="8" id="h2B-Jm-i3o"/>
+                    <constraint firstItem="saS-CN-UY6" firstAttribute="top" secondItem="YDO-gB-oAD" secondAttribute="top" constant="8" id="nBK-ke-QZr"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="idLabel" destination="MIF-MN-hFQ" id="hnx-eZ-8Zj"/>
