@@ -17,6 +17,15 @@ plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 platform :ios do
 
+  lane :build_for_appium do
+    xcodebuild(
+      scheme: scheme_name_adhoc,
+      build: true,
+      sdk: 'iphonesimulator',
+      derivedDataPath: 'build'
+    )
+  end
+
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     gym(

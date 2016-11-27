@@ -29,5 +29,6 @@ deployment:
       - appium > $CIRCLE_ARTIFACTS/appium_log.txt:
           background: true
       - git clone git@github.com:noboru-i/kyouen-ui-test.git
+      - bundle exec fastlane build_for_appium
       - cd kyouen-ui-test; bundle install; OS=iOS bundle exec rspec spec
       - mv kyouen-ui-test/ss $CIRCLE_ARTIFACTS/
