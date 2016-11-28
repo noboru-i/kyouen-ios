@@ -17,6 +17,14 @@ deployment:
   master:
     branch: master
     commands:
+      - npm install -g appium
+      - appium > $CIRCLE_ARTIFACTS/appium_log.txt:
+          background: true
+      - git clone git@github.com:noboru-i/kyouen-ui-test.git
+      - bundle exec fastlane build_for_appium
+      - xcrun instruments -w 'F08BA729-6AD2-42DF-A210-34DC8D990011' || true
+      - cd kyouen-ui-test; bundle install; OS=iOS bundle exec rspec spec
+      - mv kyouen-ui-test/ss $CIRCLE_ARTIFACTS/
       - bundle exec fastlane beta
   release:
     tag: /v[0-9]+(\.[0-9]+)*/
