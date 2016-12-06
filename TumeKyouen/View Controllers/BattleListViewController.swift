@@ -21,7 +21,7 @@ class BattleListViewController: UIViewController {
     override func viewDidLoad() {
         tableView.registerNib(UINib(nibName: "BattleListCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
-        tableView.dataSource = self
+        tableView.delegate = self
 
         let request = RealtimeBattleRoomRequest()
         Session.sendRequest(request) { result in
@@ -35,6 +35,14 @@ class BattleListViewController: UIViewController {
             case .Failure(let error):
                 print("error: \(error)")
             }
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRowAtIndexPath(indexPathForSelectedRow, animated: true)
         }
     }
 }
@@ -62,6 +70,15 @@ extension BattleListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let model = TumeKyouenModel()
+        model.clearFlag = NSNumber(int: 0)
+
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:NSBundle.mainBundle())
+        let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
+        if let vc = kyouenViewController as? KyouenViewController {
+            vc.currentModel = model
+            self.navigationController?.pushViewController(kyouenViewController!, animated: true)
+        }
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
