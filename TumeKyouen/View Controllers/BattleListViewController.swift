@@ -70,12 +70,12 @@ extension BattleListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let model = TumeKyouenModel()
-        model.clearFlag = NSNumber(int: 0)
+        let stageNo = SettingDao().loadStageNo()
+        let model = TumeKyouenDao().selectByStageNo(stageNo)
 
-        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:NSBundle.mainBundle())
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"BattleStoryboard", bundle:NSBundle.mainBundle())
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
-        if let vc = kyouenViewController as? KyouenViewController {
+        if let vc = kyouenViewController as? BattleViewController {
             vc.currentModel = model
             self.navigationController?.pushViewController(kyouenViewController!, animated: true)
         }

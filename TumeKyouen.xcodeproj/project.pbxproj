@@ -56,6 +56,8 @@
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
 		6899B32218704B5A00C0441E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6899B32118704B5A00C0441E /* AVFoundation.framework */; };
+		68A398501DF83BE60069939C /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A3984F1DF83BE60069939C /* BattleViewController.swift */; };
+		68A398541DF83C6A0069939C /* BattleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */; };
 		68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A918E3348400CCF333 /* CoreTelephony.framework */; };
 		68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68B8F98818E86D5500EDC03A /* Settings.bundle */; };
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
@@ -127,6 +129,8 @@
 		6898268916DA2A5B00D89D0B /* TumeKyouen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TumeKyouen.xcdatamodel; sourceTree = "<group>"; };
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6899B32118704B5A00C0441E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		68A3984F1DF83BE60069939C /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BattleStoryboard.storyboard; sourceTree = "<group>"; };
 		68B183A918E3348400CCF333 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		68B8F98818E86D5500EDC03A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		68BD36161791973C00B45FDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -319,6 +323,7 @@
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
 				6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */,
 				681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */,
+				68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 		68AFAE3C16EA30D10076DE31 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				68A3984F1DF83BE60069939C /* BattleViewController.swift */,
 				68252F911C6A022E008E6E85 /* TitleViewController.swift */,
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
 				681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */,
@@ -464,6 +470,7 @@
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
 				681AAAF11DD9F65E009F5349 /* BattleListStoryboard.storyboard in Resources */,
+				68A398541DF83C6A0069939C /* BattleStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A398501DF83BE60069939C /* BattleViewController.swift in Sources */,
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
 				686D5B481C6EF8A00059A480 /* UIAlertController+Additions.swift in Sources */,
 				68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */,
