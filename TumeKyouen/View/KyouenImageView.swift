@@ -17,7 +17,13 @@ class KyouenImageView: UIView {
             for (index, c) in stage!.stage.characters.enumerate() {
                 let state = Int(String(c))!
                 addButton(index, StoneButton.ButtonState(rawValue: state)!)
+                setButtonDelegate()
             }
+        }
+    }
+    var delegate: TapDelegate = TumeKyouenDelegate() {
+        didSet {
+            setButtonDelegate()
         }
     }
 
@@ -40,6 +46,13 @@ class KyouenImageView: UIView {
             button.removeFromSuperview()
         }
         buttons = [StoneButton]()
+        setButtonDelegate()
+    }
+
+    private func setButtonDelegate() {
+        buttons.forEach { (button) in
+            button.delegate = delegate
+        }
     }
 
     private func addButton(index: Int, _ state: StoneButton.ButtonState) {

@@ -26,6 +26,8 @@ class BattleViewController: UIViewController {
         ]
         view.layer.insertSublayer(gradient, atIndex: 0)
 
+        mKyouenImageView.delegate = KyouenDelegate()
+
         AdMobUtil.show(self)
     }
 
