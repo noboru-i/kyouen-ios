@@ -9,7 +9,7 @@
 import UIKit
 
 class KyouenImageView: UIView {
-    var stage: TumeKyouenModel? {
+    var stage: KyouenStage? {
         didSet {
             resetButtons()
 
@@ -65,5 +65,14 @@ class KyouenImageView: UIView {
             CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
         buttons.append(button)
         addSubview(button)
+    }
+}
+
+protocol KyouenStage {
+    var size: Int {
+        get
+    }
+    var stage: String {
+        get
     }
 }

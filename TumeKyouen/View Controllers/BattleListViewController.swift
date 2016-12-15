@@ -27,10 +27,7 @@ class BattleListViewController: UIViewController {
         Session.sendRequest(request) { result in
             switch result {
             case .Success(let response):
-                self.battleList = []
-                for battle in response {
-                    self.battleList?.append(battle)
-                }
+                self.battleList = response
                 self.tableView.reloadData()
             case .Failure(let error):
                 print("error: \(error)")
@@ -70,8 +67,7 @@ extension BattleListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let stageNo = SettingDao().loadStageNo()
-        let model = TumeKyouenDao().selectByStageNo(stageNo)
+        let model = battleList![indexPath.row]
 
         let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"BattleStoryboard", bundle:NSBundle.mainBundle())
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()

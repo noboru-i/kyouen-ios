@@ -24,7 +24,7 @@ struct RealtimeBattleRoomRequest: TumeKyouenRequestType {
     }
 }
 
-struct RealtimeBattleRoom: Decodable {
+struct RealtimeBattleRoom: Decodable, KyouenStage {
     let id: Int
     let size: Int
     let stage: String

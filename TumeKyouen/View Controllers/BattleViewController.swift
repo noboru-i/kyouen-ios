@@ -12,7 +12,7 @@ class BattleViewController: UIViewController {
     @IBOutlet private weak var mKyouenImageView: KyouenImageView!
     @IBOutlet private weak var mOverlayKyouenView: OverlayKyouenView!
 
-    var currentModel: TumeKyouenModel? = nil
+    var currentModel: RealtimeBattleRoom? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ class BattleViewController: UIViewController {
         if model.getStoneCount(2) != 4 {
             let alert = UIAlertController.alert("alert_less_stone")
             presentViewController(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.Not4Stone, stageNo: currentModel!.stageNo)
             return
         }
 
@@ -55,28 +54,27 @@ class BattleViewController: UIViewController {
             setStage(currentModel!, to: mKyouenImageView)
             let alert = UIAlertController.alert("alert_not_kyouen")
             presentViewController(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.NotKyouen, stageNo: currentModel!.stageNo)
             return
         }
 
-        // 共円の場合
-        TumeKyouenDao().updateClearFlag(currentModel!)
-        mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel!)
-        mOverlayKyouenView.layer.zPosition = 3
-
-        let alert = UIAlertController(title: NSLocalizedString("kyouen", comment: ""),
-            message: nil,
-            preferredStyle: .Alert)
-        let nextButton = UIAlertAction(title: "Next", style: .Default) { (_) -> Void in
-            let nextStageNo = Int(self.currentModel!.stageNo) + 1
-            self.moveStage(nextStageNo, direction: 1)
-        }
-        alert.addAction(nextButton)
-        presentViewController(alert, animated: true, completion: nil)
-
-        // クリアデータの送信
-        TumeKyouenServer().addStageUser(currentModel!.stageNo)
-        Analytics.sendKyouenEvent(.Kyouen, stageNo: currentModel!.stageNo)
+//        // 共円の場合
+//        TumeKyouenDao().updateClearFlag(currentModel!)
+//        mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel!)
+//        mOverlayKyouenView.layer.zPosition = 3
+//
+//        let alert = UIAlertController(title: NSLocalizedString("kyouen", comment: ""),
+//            message: nil,
+//            preferredStyle: .Alert)
+//        let nextButton = UIAlertAction(title: "Next", style: .Default) { (_) -> Void in
+//            let nextStageNo = Int(self.currentModel!.stageNo) + 1
+//            self.moveStage(nextStageNo, direction: 1)
+//        }
+//        alert.addAction(nextButton)
+//        presentViewController(alert, animated: true, completion: nil)
+//
+//        // クリアデータの送信
+//        TumeKyouenServer().addStageUser(currentModel!.stageNo)
+//        Analytics.sendKyouenEvent(.Kyouen, stageNo: currentModel!.stageNo)
     }
 
     // MARK: - private methods
@@ -114,12 +112,10 @@ class BattleViewController: UIViewController {
         SettingDao().saveStageNo(Int(model.stageNo))
     }
 
-    private func setStage(model: TumeKyouenModel, to imageView: KyouenImageView) {
+    private func setStage(model: RealtimeBattleRoom, to imageView: KyouenImageView) {
         currentModel = model
         imageView.stage = currentModel
 
         mOverlayKyouenView.alpha = 0
-
-        Analytics.sendShowEvent(model.stageNo)
     }
 }
