@@ -32,22 +32,22 @@ class TwitterManager {
                     }
                     let responseStr = NSString(data: responseData!, encoding: String.Encoding.utf8.rawValue)
                     let parts = responseStr!.components(separatedBy: "&")
-                    var oauthToken: NSString! = nil
-                    var oauthTokenSecret: NSString! = nil
+                    var oauthToken: String? = nil
+                    var oauthTokenSecret: String? = nil
                     for line in parts {
                         let keyValue = line.components(separatedBy: "=")
                         let key = keyValue[0]
                         if key == "oauth_token" {
-                            oauthToken = keyValue[1] as NSString!
+                            oauthToken = keyValue[1]
                         } else if key == "oauth_token_secret" {
-                            oauthTokenSecret = keyValue[1] as NSString!
+                            oauthTokenSecret = keyValue[1]
                         }
                     }
 
                     if oauthToken != nil && oauthTokenSecret != nil {
                         // 保存する
                         let dao = TwitterTokenDao()
-                        dao.saveToken(oauthToken, oauthTokenSecret: oauthTokenSecret)
+                        dao.saveToken(oauthToken!, oauthTokenSecret: oauthTokenSecret!)
                     }
 
                     DispatchQueue.main.async(execute: {
@@ -60,9 +60,9 @@ class TwitterManager {
 
     func _step1WithCompletion(_ completion: @escaping TKAPIHandler) {
         let url = URL(string: "https://api.twitter.com/oauth/request_token")!
-        let dict = ["x_auth_mode" : "reverse_auth"]
+        let dict = ["x_auth_mode": "reverse_auth"]
         let step1Request = SignedRequest.init(url: url, parameters: dict, requestMethod: SignedRequestMethod.post)
-        step1Request.performRequestWithHandler({data, response, error in
+        step1Request.performRequestWithHandler({data, _, error in
             DispatchQueue.global().async(execute: {
                 completion(data, error)
             })
@@ -78,7 +78,7 @@ class TwitterManager {
         let step2Request = requestWithUrl(authTokenURL, parameters: step2Params, requestMethod: SLRequestMethod.POST)
         step2Request.account = account
         // (Data?, HTTPURLResponse?, Error?) -> Swift.Void
-        step2Request.perform(handler: {(responseData, urlResponse, error) -> Void in
+        step2Request.perform(handler: {(responseData, _, error) -> Void in
             DispatchQueue.global().async(execute: {
                 completion(responseData, error)
             })

@@ -13,7 +13,7 @@ class SettingDao {
     func saveStageNo(_ stageNo: Int) {
         let defaults = UserDefaults.standard
         // save as NSNumber (since Objective-C)
-        defaults.set(NSNumber.init(value: stageNo as Int), forKey: "stageNo")
+        defaults.set(NSNumber.init(value: stageNo), forKey: "stageNo")
         defaults.synchronize()
     }
 

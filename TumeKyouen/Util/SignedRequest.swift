@@ -65,7 +65,7 @@ class SignedRequest {
     }
 
     func performRequestWithHandler(_ handler: @escaping SignedRequestHandler) {
-        NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, connectionError in
+        NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, _ in
             handler(data, response, nil)
         })
     }

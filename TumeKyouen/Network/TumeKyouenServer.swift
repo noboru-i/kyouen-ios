@@ -45,7 +45,7 @@ class TumeKyouenServer {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = TimeZone(identifier: "UTC")
 
-        var sendJson = [Dictionary<String, String>]()
+        var sendJson = [[String: String]]()
         for model in stages {
             sendJson.append(
                 [
@@ -71,7 +71,7 @@ class TumeKyouenServer {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    if let json = response.result.value as? [String:AnyObject]!{
+                    if let json = response.result.value as? [String:AnyObject]! {
                         let jsonData = json["data"] as? NSArray
                         print("jsonData: \(jsonData)")
                         callback(jsonData, nil)
@@ -85,11 +85,11 @@ class TumeKyouenServer {
 
     func addStageUser(_ stageNo: NSNumber) {
         let url = serverDomain + "/page/add"
-        Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
+        _ = Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
     }
 
     func registDeviceToken(_ deviceToken: String) {
         let url = serverDomain + "/apns/regist"
-        Alamofire.request(url, method: .post, parameters: ["device_token": deviceToken])
+        _ = Alamofire.request(url, method: .post, parameters: ["device_token": deviceToken])
     }
 }

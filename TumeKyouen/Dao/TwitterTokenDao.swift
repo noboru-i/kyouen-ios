@@ -9,7 +9,7 @@
 import Foundation
 
 class TwitterTokenDao {
-    func saveToken(_ oauthToken: NSString, oauthTokenSecret: NSString) {
+    func saveToken(_ oauthToken: String, oauthTokenSecret: String) {
         let defaults = UserDefaults.standard
         defaults.set(oauthToken, forKey: "oauthToken")
         defaults.set(oauthTokenSecret, forKey: "oauthTokenSecret")

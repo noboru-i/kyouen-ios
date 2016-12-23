@@ -11,19 +11,13 @@ struct Line: CustomStringConvertible {
     fileprivate var p1: Point
     fileprivate var p2: Point
     var a: Double {
-        get {
-            return p1.y - p2.y
-        }
+        return p1.y - p2.y
     }
     var b: Double {
-        get {
-            return p2.x - p1.x
-        }
+        return p2.x - p1.x
     }
     var c: Double {
-        get {
-            return p1.x * p2.y - p2.x * p1.y
-        }
+        return p1.x * p2.y - p2.x * p1.y
     }
 
     init(p1: Point, p2: Point) {
