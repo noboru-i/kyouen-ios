@@ -399,7 +399,7 @@
 				CLASSPREFIX = TK;
 				LastSwiftUpdateCheck = 0710;
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = noboru;
 				TargetAttributes = {
 					689825A816D9320C00D89D0B = {
