@@ -17,7 +17,7 @@ struct GameModel {
         self.stage = stage
     }
 
-    func getStoneCount(state: Int) -> Int {
+    func getStoneCount(_ state: Int) -> Int {
         let stateString = Character(String(state))
 
         return stage.characters.reduce(0) { (count, c) -> Int in
@@ -35,31 +35,31 @@ struct GameModel {
         let l23 = p2.getMidperpendicular(p3)
 
         // 交点を求める
-        let intersection123 = l12.getIntersection(l23)
-        if intersection123 == nil {
+        guard let intersection123 = l12.getIntersection(l23) else {
             // p1,p2,p3が直線上に存在する場合
             let l34 = p3.getMidperpendicular(p4)
             let intersection234 = l23.getIntersection(l34)
             if intersection234 == nil {
                 // p2,p3,p4が直線状に存在する場合
-                return KyouenData.LineKyouen([p1, p2, p3, p4], Line(p1: p1, p2: p2))
+                return KyouenData.lineKyouen([p1, p2, p3, p4], Line(p1: p1, p2: p2))
             }
-        } else {
-            let dist1 = p1.getDistance(intersection123)
-            let dist2 = p4.getDistance(intersection123)
-            if fabs(dist1 - dist2) < 0.0000001 {
-                return KyouenData.OvalKyouen([p1, p2, p3, p4], intersection123, dist1)
-            }
+            return nil
+        }
+
+        let dist1 = p1.getDistance(intersection123)
+        let dist2 = p4.getDistance(intersection123)
+        if fabs(dist1 - dist2) < 0.0000001 {
+            return KyouenData.ovalKyouen([p1, p2, p3, p4], intersection123, dist1)
         }
         return nil
     }
 
-    func getStonePoints(state: Int) -> [Point] {
+    func getStonePoints(_ state: Int) -> [Point] {
         let stateString = Character(String(state))
 
         // 指定されたstateと同一文字の座標を取得
         var points = [Point]()
-        for (index, c) in stage.characters.enumerate() {
+        for (index, c) in stage.characters.enumerated() {
             if c == stateString {
                 let x = index % size
                 let y = floor(Double(index) / Double(size))

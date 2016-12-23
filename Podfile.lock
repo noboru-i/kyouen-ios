@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.5.1)
+  - Alamofire (4.2.0)
   - Firebase (3.8.0):
     - Firebase/Core (= 3.8.0)
   - Firebase/AdMob (3.8.0):
@@ -28,17 +28,17 @@ PODS:
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
-  - SVProgressHUD (2.0.3)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
+  - Alamofire (~> 4.0)
   - Firebase
   - Firebase/AdMob
   - OAuthCore (~> 0.0.1)
-  - SVProgressHUD (~> 2.0.0)
+  - SVProgressHUD (~> 2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
@@ -49,8 +49,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: b13d30213c30389a493937c2c65461e219545b07
+PODFILE CHECKSUM: c0eba9bd19648a99d533a18a7eb517cc68c02980
 
 COCOAPODS: 1.1.1

@@ -10,12 +10,12 @@ import UIKit
 
 class StoneButton: UIButton {
     enum ButtonState: Int {
-        case Blank = 0
-        case Black = 1
-        case White = 2
+        case blank = 0
+        case black = 1
+        case white = 2
     }
 
-    var stoneState: ButtonState = .Blank
+    var stoneState: ButtonState = .blank
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,67 +24,67 @@ class StoneButton: UIButton {
     init(stoneSize: CGFloat, defaultState: ButtonState) {
         super.init(frame: CGRect(x: 0, y: 0, width: stoneSize, height: stoneSize))
         stoneState = defaultState
-        addTarget(self, action: #selector(StoneButton.changeState(_:)), forControlEvents: .TouchUpInside)
+        addTarget(self, action: #selector(StoneButton.changeState(_:)), for: .touchUpInside)
     }
 
     func changeState(_: AnyObject) {
         switch stoneState {
-        case .Blank:
+        case .blank:
             return
-        case .Black:
-            stoneState = .White
-        case .White:
-            stoneState = .Black
+        case .black:
+            stoneState = .white
+        case .white:
+            stoneState = .black
         }
         setNeedsDisplay()
     }
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let width = bounds.size.width
         let context = UIGraphicsGetCurrentContext()
 
         switch stoneState {
-        case .Black:
+        case .black:
             // 黒い石を描画
-            CGContextSetRGBFillColor(context!, 0.0, 0.0, 0.0, 1.0)
-            CGContextFillEllipseInRect(context!, CGRect(x: 0, y: 0, width: width, height: width))
+            context!.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            context!.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
 
             let colorspace = CGColorSpaceCreateDeviceRGB()
-            let colorsBuffer: CFArray = [
-                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 1.0, alpha: 1.0).CGColor,
-                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.0, alpha: 1.0).CGColor
-            ]
+            let colorsBuffer = [
+                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor,
+                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.0, alpha: 1.0).cgColor
+            ] as CFArray
             let locations: [CGFloat] = [0.0, 1.0]
-            let gradient = CGGradientCreateWithColors(colorspace, colorsBuffer, locations)
+            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)
             let center = CGPoint(x: width * 0.4, y: width * 0.4)
-            CGContextDrawRadialGradient(context!, gradient!, center, 0, center, width * 0.3, .DrawsBeforeStartLocation)
-        case .White:
+            context!.drawRadialGradient(gradient!, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 0.3, options: .drawsBeforeStartLocation)
+        case .white:
             // 白い石を描画
-            CGContextSetRGBFillColor(context!, 1.0, 1.0, 1.0, 1.0)
-            CGContextFillEllipseInRect(context!, CGRect(x: 0, y: 0, width: width, height: width))
+            context!.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            context!.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
 
             let colorspace = CGColorSpaceCreateDeviceRGB()
-            let colorsBuffer: CFArray = [
-                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.8, alpha: 1.0).CGColor,
-                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 1.0, alpha: 1.0).CGColor
-            ]
+            let colorsBuffer = [
+                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.8, alpha: 1.0).cgColor,
+                UIColor.init(hue: 0.0, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor
+            ] as CFArray
             let locations: [CGFloat] = [0.0, 1.0]
-            let gradient = CGGradientCreateWithColors(colorspace, colorsBuffer, locations)
+            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)
             let center = CGPoint(x: width * 2 / 5, y: width * 2 / 5)
-            CGContextDrawRadialGradient(context!, gradient!, center, 0, center, width * 2 / 7, .DrawsBeforeStartLocation)
-        case .Blank:
+            context!.drawRadialGradient(gradient!, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 2 / 7, options: .drawsBeforeStartLocation)
+        case .blank:
             // マス目の描画
-            CGContextSetRGBStrokeColor(context!, 0.25, 0.25, 0.25, 1.0)
+            context!.setStrokeColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.0)
             let points = [
                 CGPoint(x: 0, y: width / 2),
                 CGPoint(x: width, y: width / 2),
                 CGPoint(x: width / 2, y: 0),
                 CGPoint(x: width / 2, y: width)
             ]
-            CGContextSetLineWidth(context!, 2)
-            CGContextStrokeLineSegments(context!, points, 4)
+            context!.setLineWidth(2)
+            context!.strokeLineSegments(between: points)
         }
 
-        super.drawRect(rect)
+        super.draw(rect)
     }
 }

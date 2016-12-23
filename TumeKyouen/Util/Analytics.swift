@@ -16,18 +16,18 @@ class Analytics {
         case NotKyouen = "kyouen - not selected"
     }
 
-    class func sendShowEvent(stageNo: NSNumber) {
-        FIRAnalytics.logEventWithName(kFIREventViewItem, parameters: [
-            kFIRParameterContentType: "stage",
-            kFIRParameterValue: stageNo.stringValue
+    class func sendShowEvent(_ stageNo: NSNumber) {
+        FIRAnalytics.logEvent(withName: kFIREventViewItem, parameters: [
+            kFIRParameterContentType: "stage" as NSObject,
+            kFIRParameterValue: stageNo.stringValue as NSObject
             ]
         )
     }
 
-    class func sendKyouenEvent(event: KyouenEvent, stageNo: NSNumber) {
-        FIRAnalytics.logEventWithName(kFIREventViewItem, parameters: [
-            kFIRParameterContentType: event.rawValue,
-            kFIRParameterValue: stageNo.stringValue
+    class func sendKyouenEvent(_ event: KyouenEvent, stageNo: NSNumber) {
+        FIRAnalytics.logEvent(withName: kFIREventViewItem, parameters: [
+            kFIRParameterContentType: event.rawValue as NSObject,
+            kFIRParameterValue: stageNo.stringValue as NSObject
             ]
         )
     }

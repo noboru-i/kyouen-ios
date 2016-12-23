@@ -11,7 +11,7 @@ import CoreData
 @objc(TumeKyouenModel)
 class TumeKyouenModel: NSManagedObject {
     @NSManaged var stageNo: NSNumber
-    @NSManaged var clearDate: NSDate
+    @NSManaged var clearDate: Date
     @NSManaged var clearFlag: NSNumber
     @NSManaged var size: NSNumber
     @NSManaged var stage: String

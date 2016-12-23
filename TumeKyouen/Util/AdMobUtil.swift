@@ -9,7 +9,7 @@
 import GoogleMobileAds
 
 class AdMobUtil {
-    class func show(controller: UIViewController) {
+    class func show(_ controller: UIViewController) {
         let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         var frame = bannerView.frame
         frame.origin.x = (controller.view.frame.size.width - frame.size.width) / 2
@@ -21,6 +21,6 @@ class AdMobUtil {
         bannerView.rootViewController = controller
         controller.view.addSubview(bannerView)
 
-        bannerView.loadRequest(GADRequest())
+        bannerView.load(GADRequest())
     }
 }

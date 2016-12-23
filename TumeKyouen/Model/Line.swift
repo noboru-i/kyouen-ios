@@ -8,8 +8,8 @@
 
 // swiftlint:disable variable_name
 struct Line: CustomStringConvertible {
-    private var p1: Point
-    private var p2: Point
+    fileprivate var p1: Point
+    fileprivate var p2: Point
     var a: Double {
         get {
             return p1.y - p2.y
@@ -31,15 +31,15 @@ struct Line: CustomStringConvertible {
         self.p2 = p2
     }
 
-    func getX(y: Double) -> Double {
+    func getX(_ y: Double) -> Double {
         return -1 * (self.b * y + self.c) / self.a
     }
 
-    func getY(x: Double) -> Double {
+    func getY(_ x: Double) -> Double {
         return -1 * (self.a * x + self.c) / self.b
     }
 
-    func getIntersection(l2: Line) -> Point! {
+    func getIntersection(_ l2: Line) -> Point? {
         let f1 = self.p2.x - self.p1.x
         let g1 = self.p2.y - self.p1.y
         let f2 = l2.p2.x - l2.p1.x
