@@ -10,9 +10,7 @@ import Foundation
 import Alamofire
 
 class TumeKyouenServer {
-    //#define SERVER_DOMAIN @"https://my-android-server.appspot.com"
-    //// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
-    let serverDomain = "https://my-android-server.appspot.com"
+    let serverDomain = "http://my-android-server.appspot.com:8080"
 
     func getStageData(currentMaxStageNo: Int, callback: (String!, NSError!) -> Void) {
         let url = serverDomain + "/kyouen/get"
@@ -36,6 +34,14 @@ class TumeKyouenServer {
                 // TODO: when failed
                 if response.result.isSuccess {
                     callback(response.result.value, nil)
+                }
+
+                // save cookie
+                if let headers = response.response?.allHeaderFields as? [String: String] {
+                    let cookies = NSHTTPCookie.cookiesWithResponseHeaderFields(headers, forURL: response.response!.URL!)
+                    cookies.forEach({ (cookie) in
+                        NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(cookie)
+                    })
                 }
             }
     }

@@ -13,6 +13,10 @@
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
 		681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A31C6234B000F7B444 /* TwitterTokenDao.swift */; };
 		681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAEC1DD0C284009F5349 /* Analytics.swift */; };
+		681AAAF11DD9F65E009F5349 /* BattleListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */; };
+		681AAAF31DD9FD3D009F5349 /* BattleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */; };
+		681AAAF51DDA132E009F5349 /* BattleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681AAAF41DDA132E009F5349 /* BattleListCell.swift */; };
+		681AAAF71DDB445A009F5349 /* BattleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681AAAF61DDB445A009F5349 /* BattleListCell.xib */; };
 		681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */; };
 		681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B222E1DCAD8B4005FBD8C /* BorderButton.swift */; };
 		681B22311DCB1F3B005FBD8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681B22301DCB1F3B005FBD8C /* GoogleService-Info.plist */; };
@@ -24,6 +28,8 @@
 		6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6831FDC616E1BF0A00291810 /* initial_stage.csv */; };
 		68390B5D179305E000954896 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5B179301E700954896 /* Social.framework */; };
 		68390B5F17A3B0A500954896 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68390B5E17A3B0A500954896 /* Accounts.framework */; };
+		683EE2231DDC9F1A00D6BD7A /* RealtimeBattleRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683EE2221DDC9F1A00D6BD7A /* RealtimeBattleRooms.swift */; };
+		683EE2251DDCA1EA00D6BD7A /* TumeKyouenRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683EE2241DDCA1EA00D6BD7A /* TumeKyouenRequestType.swift */; };
 		685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915EF1C6706DB001FF3AA /* KyouenImageView.swift */; };
 		685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915F11C6706EA001FF3AA /* StoneButton.swift */; };
 		685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */; };
@@ -50,6 +56,8 @@
 		6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */; };
 		6898268F16DA592000D89D0B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6898268E16DA592000D89D0B /* CoreData.framework */; };
 		6899B32218704B5A00C0441E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6899B32118704B5A00C0441E /* AVFoundation.framework */; };
+		68A398501DF83BE60069939C /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A3984F1DF83BE60069939C /* BattleViewController.swift */; };
+		68A398541DF83C6A0069939C /* BattleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */; };
 		68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B183A918E3348400CCF333 /* CoreTelephony.framework */; };
 		68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68B8F98818E86D5500EDC03A /* Settings.bundle */; };
 		68BD36171791973C00B45FDE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68BD36161791973C00B45FDE /* CFNetwork.framework */; };
@@ -65,6 +73,10 @@
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
 		681150A31C6234B000F7B444 /* TwitterTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterTokenDao.swift; sourceTree = "<group>"; };
 		681AAAEC1DD0C284009F5349 /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BattleListStoryboard.storyboard; sourceTree = "<group>"; };
+		681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListViewController.swift; sourceTree = "<group>"; };
+		681AAAF41DDA132E009F5349 /* BattleListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleListCell.swift; sourceTree = "<group>"; };
+		681AAAF61DDB445A009F5349 /* BattleListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BattleListCell.xib; sourceTree = "<group>"; };
 		681B22281DCAD6BD005FBD8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/KyouenStoryboard.storyboard; sourceTree = "<group>"; };
 		681B222B1DCAD6C5005FBD8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
 		681B222D1DCAD6C7005FBD8C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/KyouenStoryboard.strings; sourceTree = "<group>"; };
@@ -80,6 +92,8 @@
 		6831FDC616E1BF0A00291810 /* initial_stage.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initial_stage.csv; sourceTree = "<group>"; };
 		68390B5B179301E700954896 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		68390B5E17A3B0A500954896 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		683EE2221DDC9F1A00D6BD7A /* RealtimeBattleRooms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealtimeBattleRooms.swift; sourceTree = "<group>"; };
+		683EE2241DDCA1EA00D6BD7A /* TumeKyouenRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenRequestType.swift; sourceTree = "<group>"; };
 		685915EF1C6706DB001FF3AA /* KyouenImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyouenImageView.swift; sourceTree = "<group>"; };
 		685915F11C6706EA001FF3AA /* StoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoneButton.swift; sourceTree = "<group>"; };
 		685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayKyouenView.swift; sourceTree = "<group>"; };
@@ -115,6 +129,8 @@
 		6898268916DA2A5B00D89D0B /* TumeKyouen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TumeKyouen.xcdatamodel; sourceTree = "<group>"; };
 		6898268E16DA592000D89D0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6899B32118704B5A00C0441E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		68A3984F1DF83BE60069939C /* BattleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
+		68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BattleStoryboard.storyboard; sourceTree = "<group>"; };
 		68B183A918E3348400CCF333 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		68B8F98818E86D5500EDC03A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		68BD36161791973C00B45FDE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -198,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				686D0E731C54A1AF00A67A0E /* TumeKyouenServer.swift */,
+				683EE2241DDCA1EA00D6BD7A /* TumeKyouenRequestType.swift */,
+				683EE2221DDC9F1A00D6BD7A /* RealtimeBattleRooms.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -304,6 +322,8 @@
 				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
 				6831FDC616E1BF0A00291810 /* initial_stage.csv */,
 				6898268816DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld */,
+				681AAAF01DD9F65E009F5349 /* BattleListStoryboard.storyboard */,
+				68A398531DF83C6A0069939C /* BattleStoryboard.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -326,6 +346,8 @@
 				685915F11C6706EA001FF3AA /* StoneButton.swift */,
 				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
 				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
+				681AAAF41DDA132E009F5349 /* BattleListCell.swift */,
+				681AAAF61DDB445A009F5349 /* BattleListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,8 +371,10 @@
 		68AFAE3C16EA30D10076DE31 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				68A3984F1DF83BE60069939C /* BattleViewController.swift */,
 				68252F911C6A022E008E6E85 /* TitleViewController.swift */,
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
+				681AAAF21DD9FD3D009F5349 /* BattleListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -441,9 +465,12 @@
 				689825C616D9320C00D89D0B /* MainStoryboard.storyboard in Resources */,
 				681B22271DCAD6BD005FBD8C /* KyouenStoryboard.storyboard in Resources */,
 				68B8F98918E86D5500EDC03A /* Settings.bundle in Resources */,
+				681AAAF71DDB445A009F5349 /* BattleListCell.xib in Resources */,
 				688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
+				681AAAF11DD9F65E009F5349 /* BattleListStoryboard.storyboard in Resources */,
+				68A398541DF83C6A0069939C /* BattleStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,18 +542,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A398501DF83BE60069939C /* BattleViewController.swift in Sources */,
 				686D0E7E1C5F962D00A67A0E /* TumeKyouenModel.swift in Sources */,
 				686D5B481C6EF8A00059A480 /* UIAlertController+Additions.swift in Sources */,
 				68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */,
+				683EE2231DDC9F1A00D6BD7A /* RealtimeBattleRooms.swift in Sources */,
 				68FB69371C6CAE8C003883FE /* AppDelegate.swift in Sources */,
 				68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */,
 				6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
+				683EE2251DDCA1EA00D6BD7A /* TumeKyouenRequestType.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
 				686D0E781C5BB1FE00A67A0E /* Point.swift in Sources */,
 				68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
+				681AAAF31DD9FD3D009F5349 /* BattleListViewController.swift in Sources */,
 				68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */,
 				681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
@@ -538,6 +569,7 @@
 				685915F01C6706DB001FF3AA /* KyouenImageView.swift in Sources */,
 				681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */,
 				686D0E741C54A1AF00A67A0E /* TumeKyouenServer.swift in Sources */,
+				681AAAF51DDA132E009F5349 /* BattleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

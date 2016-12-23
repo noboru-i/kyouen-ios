@@ -9,7 +9,7 @@
 import UIKit
 
 class KyouenImageView: UIView {
-    var stage: TumeKyouenModel? {
+    var stage: KyouenStage? {
         didSet {
             resetButtons()
 
@@ -17,7 +17,13 @@ class KyouenImageView: UIView {
             for (index, c) in stage!.stage.characters.enumerate() {
                 let state = Int(String(c))!
                 addButton(index, StoneButton.ButtonState(rawValue: state)!)
+                setButtonDelegate()
             }
+        }
+    }
+    var delegate: TapDelegate = TumeKyouenDelegate() {
+        didSet {
+            setButtonDelegate()
         }
     }
 
@@ -40,6 +46,13 @@ class KyouenImageView: UIView {
             button.removeFromSuperview()
         }
         buttons = [StoneButton]()
+        setButtonDelegate()
+    }
+
+    private func setButtonDelegate() {
+        buttons.forEach { (button) in
+            button.delegate = delegate
+        }
     }
 
     private func addButton(index: Int, _ state: StoneButton.ButtonState) {
@@ -52,5 +65,14 @@ class KyouenImageView: UIView {
             CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
         buttons.append(button)
         addSubview(button)
+    }
+}
+
+protocol KyouenStage {
+    var size: Int {
+        get
+    }
+    var stage: String {
+        get
     }
 }

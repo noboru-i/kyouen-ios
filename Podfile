@@ -3,6 +3,8 @@ use_frameworks!
 
 target 'TumeKyouen' do
   pod 'Alamofire', '~> 3.0'
+  pod 'APIKit', '~> 2.0'
+  pod 'Himotoki', '~> 2.1.1'
   pod 'OAuthCore', '~> 0.0.1'
   pod 'SVProgressHUD', '~> 2.0.0'
   pod 'Firebase'

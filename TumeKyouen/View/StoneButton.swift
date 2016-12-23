@@ -16,6 +16,7 @@ class StoneButton: UIButton {
     }
 
     var stoneState: ButtonState = .Blank
+    var delegate: TapDelegate = TumeKyouenDelegate()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,15 +28,12 @@ class StoneButton: UIButton {
         addTarget(self, action: #selector(StoneButton.changeState(_:)), forControlEvents: .TouchUpInside)
     }
 
+    func overrideTapEvent(delegate: TapDelegate) {
+        self.delegate = delegate
+    }
+
     func changeState(_: AnyObject) {
-        switch stoneState {
-        case .Blank:
-            return
-        case .Black:
-            stoneState = .White
-        case .White:
-            stoneState = .Black
-        }
+        stoneState = delegate.tap(stoneState)
         setNeedsDisplay()
     }
 
@@ -86,5 +84,35 @@ class StoneButton: UIButton {
         }
 
         super.drawRect(rect)
+    }
+}
+
+protocol TapDelegate {
+    func tap(currentState: StoneButton.ButtonState) -> StoneButton.ButtonState
+}
+
+struct TumeKyouenDelegate: TapDelegate {
+    func tap(currentState: StoneButton.ButtonState) -> StoneButton.ButtonState {
+        switch currentState {
+        case .Blank:
+            return .Blank
+        case .Black:
+            return .White
+        case .White:
+            return .Black
+        }
+    }
+}
+
+struct KyouenDelegate: TapDelegate {
+    func tap(currentState: StoneButton.ButtonState) -> StoneButton.ButtonState {
+        switch currentState {
+        case .Blank:
+            return .Black
+        case .Black:
+            return .Black
+        case .White:
+            return .White
+        }
     }
 }

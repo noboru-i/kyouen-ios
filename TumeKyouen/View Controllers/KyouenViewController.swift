@@ -199,7 +199,7 @@ class KyouenViewController: UIViewController {
         }
         mStageNo.text = String(format: "STAGE:%@", currentModel!.stageNo)
         mCreator.text = String(format: "created by %@", arguments: [currentModel!.creator])
-        imageView.stage = currentModel
+        imageView.stage = KyouenStageModel(size: Int(model.size), stage: model.stage)
 
         mOverlayKyouenView.alpha = 0
 
@@ -216,4 +216,9 @@ class KyouenViewController: UIViewController {
         // 移動ボタンを有効化
         mNextButton.enabled = true
     }
+}
+
+struct KyouenStageModel: KyouenStage {
+    let size: Int
+    var stage: String
 }
