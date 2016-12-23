@@ -17,15 +17,24 @@ enum SignedRequestMethod {
 typealias SignedRequestHandler = (Data?, URLResponse?, NSError?) -> Void
 
 class SignedRequest {
-    static var gTKConsumerKey: String? = nil
-    static var gTKConsumerSecret: String? = nil
+    static var consumerKey: String {
+        let bundle = Bundle.main
+        if let key = bundle.infoDictionary!["TWITTER_CONSUMER_KEY"] as? String {
+            return key
+        }
+        abort()
+    }
+    static var consumerSecret: String {
+        let bundle = Bundle.main
+        if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String! {
+            return secret
+        }
+        abort()
+    }
 
-    let authToken: String? = nil
-    let authTokenSecret: String? = nil
-
-    var url: URL
-    var parameters: [String:String]
-    var signedRequestMethod: SignedRequestMethod
+    private var url: URL
+    private var parameters: [String:String]
+    private var signedRequestMethod: SignedRequestMethod
 
     init(url: URL, parameters: [String:String], requestMethod: SignedRequestMethod) {
         self.url = url
@@ -54,8 +63,8 @@ class SignedRequest {
         let bodyData = paramsAsString.data(using: String.Encoding.utf8)
         let authorizationHeader = OAuthorizationHeader(
             url, method, bodyData,
-            SignedRequest.consumerKey(), SignedRequest.consumerSecret(),
-            authToken, authTokenSecret)
+            SignedRequest.consumerKey, SignedRequest.consumerSecret,
+            nil, nil)
         let request = NSMutableURLRequest(url: url)
         request.timeoutInterval = 8
         request.httpMethod = method
@@ -68,25 +77,5 @@ class SignedRequest {
         NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, _ in
             handler(data, response, nil)
         })
-    }
-
-    class func consumerKey() -> String {
-        if gTKConsumerKey == nil {
-            let bundle = Bundle.main
-            if let key = bundle.infoDictionary!["TWITTER_CONSUMER_KEY"] as? String {
-                gTKConsumerKey = key
-            }
-        }
-        return gTKConsumerKey!
-    }
-
-    class func consumerSecret() -> String {
-        if gTKConsumerSecret == nil {
-            let bundle = Bundle.main
-            if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String! {
-                gTKConsumerSecret = secret
-            }
-        }
-        return gTKConsumerSecret!
     }
 }

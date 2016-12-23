@@ -27,19 +27,19 @@ class OverlayKyouenView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        guard let kyouenData = self.kyouenData else {
+        guard let kyouenData = kyouenData else {
             alpha = 0
             return
         }
 
         alpha = 1
-        let context = UIGraphicsGetCurrentContext()
-        context!.setStrokeColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
-        context!.setLineWidth(3)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setStrokeColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
+        context.setLineWidth(3)
 
         let width = Double(bounds.size.width)
         let size = Double(tumeKyouenModel!.size)
-        let stoneSize: Double = 306.0 / Double(size)
+        let stoneSize: Double = Double(frame.width) / Double(size)
         switch kyouenData {
         case .lineKyouen(_, let line):
             // 直線の場合
@@ -53,7 +53,7 @@ class OverlayKyouenView: UIView {
         super.draw(rect)
     }
 
-    fileprivate func drawLine(_ context: CGContext?, line: Line, size: Double, width: Double, stoneSize: Double) {
+    private func drawLine(_ context: CGContext, line: Line, size: Double, width: Double, stoneSize: Double) {
         var startX: Double = 0.0
         var startY: Double = 0.0
         var endX: Double = 0.0
@@ -89,10 +89,10 @@ class OverlayKyouenView: UIView {
             CGPoint(x: CGFloat(startX), y: CGFloat(startY)),
             CGPoint(x: CGFloat(endX), y: CGFloat(endY))
         ]
-        context!.strokeLineSegments(between: points)
+        context.strokeLineSegments(between: points)
     }
 
-    fileprivate func drawOval(_ context: CGContext?, center: Point, radius: Double, stoneSize: Double) {
+    private func drawOval(_ context: CGContext, center: Point, radius: Double, stoneSize: Double) {
         let cx = (center.x + 0.5) * stoneSize
         let cy = (center.y + 0.5) * stoneSize
         let radius = radius * stoneSize
@@ -101,6 +101,6 @@ class OverlayKyouenView: UIView {
             y: CGFloat(cy - radius),
             width: CGFloat(radius * 2),
             height: CGFloat(radius * 2))
-        context!.strokeEllipse(in: rectEllipse)
+        context.strokeEllipse(in: rectEllipse)
     }
 }

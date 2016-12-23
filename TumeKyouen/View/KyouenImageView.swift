@@ -9,19 +9,19 @@
 import UIKit
 
 class KyouenImageView: UIView {
-    var stage: TumeKyouenModel? {
+    var stage: TumeKyouenModel! {
         didSet {
             resetButtons()
 
             // 設定されているステージ情報を反映
-            for (index, c) in stage!.stage.characters.enumerated() {
+            for (index, c) in stage.stage.characters.enumerated() {
                 let state = Int(String(c))!
                 addButton(index, StoneButton.ButtonState(rawValue: state)!)
             }
         }
     }
 
-    fileprivate var buttons = [StoneButton]()
+    private var buttons = [StoneButton]()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,15 +35,15 @@ class KyouenImageView: UIView {
         }
     }
 
-    fileprivate func resetButtons() {
-        for button in buttons {
+    private func resetButtons() {
+        buttons.forEach { (button) in
             button.removeFromSuperview()
         }
         buttons = [StoneButton]()
     }
 
-    fileprivate func addButton(_ index: Int, _ state: StoneButton.ButtonState) {
-        let size = Int(stage!.size)
+    private func addButton(_ index: Int, _ state: StoneButton.ButtonState) {
+        let size = Int(stage.size)
         let x = index % size
         let y = index / size
         let stoneSize = frame.width / CGFloat(size)

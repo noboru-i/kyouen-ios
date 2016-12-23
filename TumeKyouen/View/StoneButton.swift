@@ -41,13 +41,13 @@ class StoneButton: UIButton {
 
     override func draw(_ rect: CGRect) {
         let width = bounds.size.width
-        let context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()!
 
         switch stoneState {
         case .black:
             // 黒い石を描画
-            context!.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            context!.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
+            context.setFillColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            context.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
 
             let colorspace = CGColorSpaceCreateDeviceRGB()
             let colorsBuffer = [
@@ -55,13 +55,13 @@ class StoneButton: UIButton {
                 UIColor.init(hue: 0.0, saturation: 0.0, brightness: 0.0, alpha: 1.0).cgColor
             ] as CFArray
             let locations: [CGFloat] = [0.0, 1.0]
-            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)
+            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)!
             let center = CGPoint(x: width * 0.4, y: width * 0.4)
-            context!.drawRadialGradient(gradient!, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 0.3, options: .drawsBeforeStartLocation)
+            context.drawRadialGradient(gradient, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 0.3, options: .drawsBeforeStartLocation)
         case .white:
             // 白い石を描画
-            context!.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            context!.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
+            context.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            context.fillEllipse(in: CGRect(x: 0, y: 0, width: width, height: width))
 
             let colorspace = CGColorSpaceCreateDeviceRGB()
             let colorsBuffer = [
@@ -69,20 +69,20 @@ class StoneButton: UIButton {
                 UIColor.init(hue: 0.0, saturation: 0.0, brightness: 1.0, alpha: 1.0).cgColor
             ] as CFArray
             let locations: [CGFloat] = [0.0, 1.0]
-            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)
+            let gradient = CGGradient(colorsSpace: colorspace, colors: colorsBuffer, locations: locations)!
             let center = CGPoint(x: width * 2 / 5, y: width * 2 / 5)
-            context!.drawRadialGradient(gradient!, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 2 / 7, options: .drawsBeforeStartLocation)
+            context.drawRadialGradient(gradient, startCenter: center, startRadius: 0, endCenter: center, endRadius: width * 2 / 7, options: .drawsBeforeStartLocation)
         case .blank:
             // マス目の描画
-            context!.setStrokeColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.0)
+            context.setStrokeColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1.0)
             let points = [
                 CGPoint(x: 0, y: width / 2),
                 CGPoint(x: width, y: width / 2),
                 CGPoint(x: width / 2, y: 0),
                 CGPoint(x: width / 2, y: width)
             ]
-            context!.setLineWidth(2)
-            context!.strokeLineSegments(between: points)
+            context.setLineWidth(2)
+            context.strokeLineSegments(between: points)
         }
 
         super.draw(rect)

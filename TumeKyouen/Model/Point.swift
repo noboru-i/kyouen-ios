@@ -12,30 +12,29 @@ import Foundation
 struct Point: CustomStringConvertible {
     var x: Double
     var y: Double
+    var abs: Double {
+        return sqrt(x * x + y * y)
+    }
 
     init(x: Double, y: Double) {
         self.x = x
         self.y = y
     }
 
-    func abs() -> Double {
-        return sqrt(self.x * self.x + self.y * self.y)
-    }
-
     func getMidperpendicular(_ p2: Point) -> Line {
-        let midpoint = self.getMidpoint(p2)
+        let midpoint = getMidpoint(p2)
         let dif = self - p2
-        let gradient = Point(x: dif.y, y:-1 * dif.x)
+        let gradient = Point(x: dif.y, y: -1 * dif.x)
 
         return Line(p1: midpoint, p2: midpoint + gradient)
     }
 
     func getMidpoint(_ p2: Point) -> Point {
-        return Point(x:(self.x + p2.x) / 2, y:(self.y + p2.y) / 2)
+        return Point(x:(x + p2.x) / 2, y:(y + p2.y) / 2)
     }
 
     func getDistance(_ p2: Point) -> Double {
-        return (self - p2).abs()
+        return (self - p2).abs
     }
 
     var description: String {

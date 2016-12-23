@@ -8,7 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable variable_name
 enum KyouenData: CustomStringConvertible {
     case lineKyouen([Point], Line)
     case ovalKyouen([Point], Point, Double)
@@ -22,4 +21,3 @@ enum KyouenData: CustomStringConvertible {
         }
     }
 }
-// swiftlint:enable variable_name
