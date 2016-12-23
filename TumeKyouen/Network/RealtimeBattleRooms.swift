@@ -24,6 +24,18 @@ struct RealtimeBattleRoomRequest: TumeKyouenRequestType {
     }
 }
 
+struct PostRealtimeBattleRoomRequest: TumeKyouenRequestType {
+    typealias Response = RealtimeBattleRoom
+
+    var method: HTTPMethod {
+        return .POST
+    }
+
+    var path: String {
+        return "/realtime/room"
+    }
+}
+
 struct RealtimeBattleRoom: Decodable, KyouenStage {
     let id: Int
     let size: Int

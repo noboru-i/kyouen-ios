@@ -19,10 +19,43 @@ class BattleListViewController: UIViewController {
     var battleList: [RealtimeBattleRoom]?
 
     override func viewDidLoad() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .Add,
+            target: self,
+            action: #selector(BattleListViewController.tapAdd(_ :)))
+
         tableView.registerNib(UINib(nibName: "BattleListCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
 
+        fetchList()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRowAtIndexPath(indexPathForSelectedRow, animated: true)
+        }
+    }
+
+    func tapAdd(_: AnyObject) {
+        let request = PostRealtimeBattleRoomRequest()
+        Session.sendRequest(request) { result in
+            switch result {
+            case .Success:
+                self.fetchList()
+            case .Failure(.ResponseError(let error as UnAuthorizedError)):
+                print("error2: \(error)")
+                let alert = UIAlertController.alert("alert_unauthorized")
+                self.presentViewController(alert, animated: true, completion: nil)
+            case .Failure(let error):
+                print("error1: \(error)")
+            }
+        }
+    }
+
+    private func fetchList() {
         let request = RealtimeBattleRoomRequest()
         Session.sendRequest(request) { result in
             switch result {
@@ -32,14 +65,6 @@ class BattleListViewController: UIViewController {
             case .Failure(let error):
                 print("error: \(error)")
             }
-        }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if let indexPathForSelectedRow = tableView.indexPathForSelectedRow {
-            tableView.deselectRowAtIndexPath(indexPathForSelectedRow, animated: true)
         }
     }
 }

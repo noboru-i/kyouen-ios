@@ -35,6 +35,14 @@ class TumeKyouenServer {
                 if response.result.isSuccess {
                     callback(response.result.value, nil)
                 }
+
+                // save cookie
+                if let headers = response.response?.allHeaderFields as? [String: String] {
+                    let cookies = NSHTTPCookie.cookiesWithResponseHeaderFields(headers, forURL: response.response!.URL!)
+                    cookies.forEach({ (cookie) in
+                        NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(cookie)
+                    })
+                }
             }
     }
 
