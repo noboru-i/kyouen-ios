@@ -11,19 +11,13 @@ struct Line: CustomStringConvertible {
     private var p1: Point
     private var p2: Point
     var a: Double {
-        get {
-            return p1.y - p2.y
-        }
+        return p1.y - p2.y
     }
     var b: Double {
-        get {
-            return p2.x - p1.x
-        }
+        return p2.x - p1.x
     }
     var c: Double {
-        get {
-            return p1.x * p2.y - p2.x * p1.y
-        }
+        return p1.x * p2.y - p2.x * p1.y
     }
 
     init(p1: Point, p2: Point) {
@@ -31,17 +25,17 @@ struct Line: CustomStringConvertible {
         self.p2 = p2
     }
 
-    func getX(y: Double) -> Double {
-        return -1 * (self.b * y + self.c) / self.a
+    func getX(_ y: Double) -> Double {
+        return -1 * (b * y + c) / a
     }
 
-    func getY(x: Double) -> Double {
-        return -1 * (self.a * x + self.c) / self.b
+    func getY(_ x: Double) -> Double {
+        return -1 * (a * x + c) / b
     }
 
-    func getIntersection(l2: Line) -> Point! {
-        let f1 = self.p2.x - self.p1.x
-        let g1 = self.p2.y - self.p1.y
+    func getIntersection(_ l2: Line) -> Point? {
+        let f1 = p2.x - p1.x
+        let g1 = p2.y - p1.y
         let f2 = l2.p2.x - l2.p1.x
         let g2 = l2.p2.y - l2.p1.y
 
@@ -50,11 +44,11 @@ struct Line: CustomStringConvertible {
             return nil
         }
 
-        let dx = l2.p1.x - self.p1.x
-        let dy = l2.p1.y - self.p1.y
+        let dx = l2.p1.x - p1.x
+        let dy = l2.p1.y - p1.y
         let t1 = (f2 * dy - g2 * dx) / det
 
-        return Point(x: self.p1.x + f1 * t1, y: self.p1.y + g1 * t1)
+        return Point(x: p1.x + f1 * t1, y: p1.y + g1 * t1)
     }
 
     var description: String {

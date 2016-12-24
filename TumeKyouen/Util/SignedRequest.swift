@@ -9,36 +9,45 @@
 import OAuthCore
 
 enum SignedRequestMethod {
-    case GET
-    case POST
-    case DELETE
+    case get
+    case post
+    case delete
 }
 
-typealias SignedRequestHandler = (NSData?, NSURLResponse?, NSError?) -> Void
+typealias SignedRequestHandler = (Data?, URLResponse?, NSError?) -> Void
 
 class SignedRequest {
-    static var gTKConsumerKey: String? = nil
-    static var gTKConsumerSecret: String? = nil
+    static var consumerKey: String {
+        let bundle = Bundle.main
+        if let key = bundle.infoDictionary!["TWITTER_CONSUMER_KEY"] as? String {
+            return key
+        }
+        abort()
+    }
+    static var consumerSecret: String {
+        let bundle = Bundle.main
+        if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String! {
+            return secret
+        }
+        abort()
+    }
 
-    let authToken: String? = nil
-    let authTokenSecret: String? = nil
+    private var url: URL
+    private var parameters: [String:String]
+    private var signedRequestMethod: SignedRequestMethod
 
-    var url: NSURL
-    var parameters: [String:String]
-    var signedRequestMethod: SignedRequestMethod
-
-    init(url: NSURL, parameters: [String:String], requestMethod: SignedRequestMethod) {
+    init(url: URL, parameters: [String:String], requestMethod: SignedRequestMethod) {
         self.url = url
         self.parameters = parameters
         self.signedRequestMethod = requestMethod
     }
 
-    func _buildRequest() -> NSURLRequest {
+    func _buildRequest() -> URLRequest {
         let method: String
         switch signedRequestMethod {
-        case .POST:
+        case .post:
             method = "POST"
-        case .DELETE:
+        case .delete:
             method = "DELETE"
         default:
             method = "GET"
@@ -51,42 +60,22 @@ class SignedRequest {
         }
 
         // Create the authorization header and attach to our request
-        let bodyData = paramsAsString.dataUsingEncoding(NSUTF8StringEncoding)
+        let bodyData = paramsAsString.data(using: String.Encoding.utf8)
         let authorizationHeader = OAuthorizationHeader(
             url, method, bodyData,
-            SignedRequest.consumerKey(), SignedRequest.consumerSecret(),
-            authToken, authTokenSecret)
-        let request = NSMutableURLRequest(URL: url)
+            SignedRequest.consumerKey, SignedRequest.consumerSecret,
+            nil, nil)
+        let request = NSMutableURLRequest(url: url)
         request.timeoutInterval = 8
-        request.HTTPMethod = method
+        request.httpMethod = method
         request.setValue(authorizationHeader, forHTTPHeaderField: "Authorization")
-        request.HTTPBody = bodyData
-        return request
+        request.httpBody = bodyData
+        return request as URLRequest
     }
 
-    func performRequestWithHandler(handler: SignedRequestHandler) {
-        NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: NSOperationQueue.mainQueue(), completionHandler: {response, data, connectionError in
+    func performRequestWithHandler(_ handler: @escaping SignedRequestHandler) {
+        NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, _ in
             handler(data, response, nil)
         })
-    }
-
-    class func consumerKey() -> String {
-        if gTKConsumerKey == nil {
-            let bundle = NSBundle.mainBundle()
-            if let key = bundle.infoDictionary!["TWITTER_CONSUMER_KEY"] as? String {
-                gTKConsumerKey = key
-            }
-        }
-        return gTKConsumerKey!
-    }
-
-    class func consumerSecret() -> String {
-        if gTKConsumerSecret == nil {
-            let bundle = NSBundle.mainBundle()
-            if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String! {
-                gTKConsumerSecret = secret
-            }
-        }
-        return gTKConsumerSecret!
     }
 }

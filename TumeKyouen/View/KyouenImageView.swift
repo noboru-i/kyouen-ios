@@ -9,12 +9,12 @@
 import UIKit
 
 class KyouenImageView: UIView {
-    var stage: TumeKyouenModel? {
+    var stage: TumeKyouenModel! {
         didSet {
             resetButtons()
 
             // 設定されているステージ情報を反映
-            for (index, c) in stage!.stage.characters.enumerate() {
+            for (index, c) in stage.stage.characters.enumerated() {
                 let state = Int(String(c))!
                 addButton(index, StoneButton.ButtonState(rawValue: state)!)
             }
@@ -25,8 +25,8 @@ class KyouenImageView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        userInteractionEnabled = true
-        backgroundColor = UIColor.greenColor()
+        isUserInteractionEnabled = true
+        backgroundColor = UIColor.green
     }
 
     func getCurrentStage() -> String {
@@ -36,20 +36,20 @@ class KyouenImageView: UIView {
     }
 
     private func resetButtons() {
-        for button in buttons {
+        buttons.forEach { (button) in
             button.removeFromSuperview()
         }
         buttons = [StoneButton]()
     }
 
-    private func addButton(index: Int, _ state: StoneButton.ButtonState) {
-        let size = Int(stage!.size)
+    private func addButton(_ index: Int, _ state: StoneButton.ButtonState) {
+        let size = Int(stage.size)
         let x = index % size
         let y = index / size
         let stoneSize = frame.width / CGFloat(size)
         let button = StoneButton(stoneSize: stoneSize, defaultState: state)
-        button.transform = CGAffineTransformMakeTranslation(
-            CGFloat(x) * button.frame.size.width, CGFloat(y) * button.frame.size.width)
+        button.transform = CGAffineTransform(
+            translationX: CGFloat(x) * button.frame.size.width, y: CGFloat(y) * button.frame.size.width)
         buttons.append(button)
         addSubview(button)
     }

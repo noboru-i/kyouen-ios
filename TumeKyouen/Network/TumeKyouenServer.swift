@@ -14,9 +14,9 @@ class TumeKyouenServer {
     //// #define SERVER_DOMAIN @"http://kyouen.jp:8080"
     let serverDomain = "https://my-android-server.appspot.com"
 
-    func getStageData(currentMaxStageNo: Int, callback: (String!, NSError!) -> Void) {
+    func getStageData(_ currentMaxStageNo: Int, callback: @escaping (String?, Error?) -> Void) {
         let url = serverDomain + "/kyouen/get"
-        Alamofire.request(.GET, url, parameters: ["stageNo": String(currentMaxStageNo)])
+        Alamofire.request(url, method: .get, parameters: ["stageNo": String(currentMaxStageNo)])
             .responseString { response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(response.result.value)")
@@ -27,9 +27,9 @@ class TumeKyouenServer {
             }
     }
 
-    func registUser(token: NSString, tokenSecret: NSString, callback: (NSString!, NSError!) -> Void) {
+    func registUser(_ token: String, tokenSecret: String, callback: @escaping (String?, Error?) -> Void) {
         let url = serverDomain + "/page/api_login"
-        Alamofire.request(.POST, url, parameters: ["token": token, "token_secret": tokenSecret])
+        Alamofire.request(url, method: .post, parameters: ["token": token, "token_secret": tokenSecret])
             .responseString { response in
                 print("Success: \(response.result.isSuccess)")
                 print("Response String: \(response.result.value)")
@@ -40,17 +40,17 @@ class TumeKyouenServer {
             }
     }
 
-    func addAllStageUser(stages: [TumeKyouenModel], callback: (NSArray!, NSError!) -> Void) {
-        let formatter = NSDateFormatter()
+    func addAllStageUser(_ stages: [TumeKyouenModel], callback: @escaping (NSArray?, Error?) -> Void) {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.timeZone = NSTimeZone(name: "UTC")
+        formatter.timeZone = TimeZone(identifier: "UTC")
 
-        var sendJson = [Dictionary<String, String>]()
+        var sendJson = [[String: String]]()
         for model in stages {
             sendJson.append(
                 [
-                    "stageNo": String(model.stageNo),
-                    "clearDate": formatter.stringFromDate(model.clearDate)
+                    "stageNo": String(describing: model.stageNo),
+                    "clearDate": formatter.string(from: model.clearDate as Date)
                 ]
             )
         }
@@ -58,8 +58,8 @@ class TumeKyouenServer {
 
         let sendJsonStr: String
         do {
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(sendJson, options: [])
-            sendJsonStr = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
+            let jsonData = try JSONSerialization.data(withJSONObject: sendJson, options: [])
+            sendJsonStr = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
         } catch {
             print("Error!: \(error)")
             fatalError("JSON serialization error")
@@ -67,30 +67,29 @@ class TumeKyouenServer {
         print("sendJsonStr = \(sendJsonStr)")
 
         let url = serverDomain + "/page/add_all"
-        Alamofire.request(.POST, url, parameters: ["data": sendJsonStr])
+        Alamofire.request(url, method: .post, parameters: ["data": sendJsonStr])
             .responseJSON { response in
                 switch response.result {
-                case .Success:
-                    if let JSON = response.result.value {
-                        let jsonData = JSON["data"] as? NSArray
+                case .success:
+                    if let json = response.result.value as? [String:AnyObject]! {
+                        let jsonData = json["data"] as? NSArray
                         print("jsonData: \(jsonData)")
                         callback(jsonData, nil)
                         return
                     }
-                    callback(nil, nil)
-                case .Failure(let error):
-                    callback(nil, error)
+                case .failure(let error):
+                    callback(nil, error as NSError?)
                 }
             }
     }
 
-    func addStageUser(stageNo: NSNumber) {
+    func addStageUser(_ stageNo: NSNumber) {
         let url = serverDomain + "/page/add"
-        Alamofire.request(.POST, url, parameters: ["stageNo": stageNo])
+        _ = Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
     }
 
-    func registDeviceToken(deviceToken: NSString) {
+    func registDeviceToken(_ deviceToken: String) {
         let url = serverDomain + "/apns/regist"
-        Alamofire.request(.POST, url, parameters: ["device_token": deviceToken])
+        _ = Alamofire.request(url, method: .post, parameters: ["device_token": deviceToken])
     }
 }

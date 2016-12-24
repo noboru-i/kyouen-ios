@@ -9,25 +9,24 @@
 import CoreData
 
 class TumeKyouenDao: BaseDao {
-    func insertWithCsvString(csv: String) -> Bool {
-        let lines = csv.componentsSeparatedByString("\n")
-        for row in lines {
-            let items = row.componentsSeparatedByString(",")
+    func insertWithCsvString(_ csv: String) {
+        let lines = csv.components(separatedBy: "\n")
+        lines.forEach { (row) in
+            let items = row.components(separatedBy: ",")
 
-            if let newObject = NSEntityDescription.insertNewObjectForEntityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext) as? TumeKyouenModel {
-                newObject.stageNo = Int(items[0])!
-                newObject.size = Int(items[1])!
+            if let newObject = NSEntityDescription.insertNewObject(forEntityName: "TumeKyouenModel", into: managedObjectContext) as? TumeKyouenModel {
+                newObject.stageNo = NSNumber.init(value: Int(items[0])!)
+                newObject.size = NSNumber.init(value: Int(items[1])!)
                 newObject.stage = items[2]
                 newObject.creator = items[3]
             }
         }
         _ = try? managedObjectContext.save()
-        return true
     }
 
-    func selectByStageNo(stageNo: Int) -> TumeKyouenModel? {
-        let fetchRequest = NSFetchRequest()
-        let entity = NSEntityDescription.entityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext)
+    func selectByStageNo(_ stageNo: Int) -> TumeKyouenModel? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "TumeKyouenModel", in: managedObjectContext)
         fetchRequest.entity = entity
 
         // 条件
@@ -35,41 +34,33 @@ class TumeKyouenDao: BaseDao {
         fetchRequest.predicate = predicate
 
         // 取得
-        do {
-            let results = try managedObjectContext.executeFetchRequest(fetchRequest)
-            if results.count != 1 {
-                return nil
-            }
-
-            if let model = results[0] as? TumeKyouenModel {
-                return model
-            }
-        } catch {
-            // no-op
+        guard let results = try? managedObjectContext.fetch(fetchRequest) else {
+            return nil
+        }
+        if results.count != 1 {
+            return nil
+        }
+        if let model = results[0] as? TumeKyouenModel {
+            return model
         }
         abort()
     }
 
     func selectCount() -> Int {
-        let fetchRequest = NSFetchRequest()
-        let entity = NSEntityDescription.entityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "TumeKyouenModel", in: managedObjectContext)
         fetchRequest.entity = entity
 
         // 取得
-        do {
-            let count = try managedObjectContext.countForFetchRequest(fetchRequest)
-            if count == NSNotFound {
-                return 0
-            }
-            return count
-        } catch {
+        guard let count = try? managedObjectContext.count(for: fetchRequest) else {
             return 0
         }
+        return count
     }
 
     func selectCountClearStage() -> Int {
-        let fetchRequest = NSFetchRequest()
-        let entity = NSEntityDescription.entityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "TumeKyouenModel", in: managedObjectContext)
         fetchRequest.entity = entity
 
         // 条件
@@ -81,18 +72,13 @@ class TumeKyouenDao: BaseDao {
         fetchRequest.sortDescriptors = [stageNoDescriptor]
 
         // 取得
-        do {
-            let count = try managedObjectContext.countForFetchRequest(fetchRequest)
-            if count == NSNotFound {
+        guard let count = try? managedObjectContext.count(for: fetchRequest) else {
                 return 0
-            }
-            return count
-        } catch {
-            return 0
         }
+        return count
     }
 
-    func updateClearFlag(model: TumeKyouenModel, date: NSDate = NSDate()) {
+    func updateClearFlag(_ model: TumeKyouenModel, date: Date = Date()) {
         model.clearDate = date
         model.clearFlag = 1
 
@@ -100,8 +86,8 @@ class TumeKyouenDao: BaseDao {
     }
 
     func selectAllClearStage() -> [TumeKyouenModel] {
-        let fetchRequest = NSFetchRequest()
-        let entity = NSEntityDescription.entityForName("TumeKyouenModel", inManagedObjectContext: managedObjectContext)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        let entity = NSEntityDescription.entity(forEntityName: "TumeKyouenModel", in: managedObjectContext)
         fetchRequest.entity = entity
 
         // 条件
@@ -121,17 +107,17 @@ class TumeKyouenDao: BaseDao {
         return []
     }
 
-    func updateSyncClearData(clearStages: [NSDictionary]) {
-        let formatter = NSDateFormatter()
+    func updateSyncClearData(_ clearStages: [NSDictionary]) {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        formatter.timeZone = NSTimeZone(name: "UTC")
+        formatter.timeZone = TimeZone(identifier: "UTC")
 
-        for dic in clearStages {
+        clearStages.forEach { (dic) in
             if let stageNo = dic["stageNo"] as? Int {
                 if let model = selectByStageNo(stageNo) {
                     let clearDateString = dic["clearDate"]
                     if let c = clearDateString as? String {
-                        let clearDate = formatter.dateFromString(c)!
+                        let clearDate = formatter.date(from: c)!
                         updateClearFlag(model, date: clearDate)
                     }
                 }

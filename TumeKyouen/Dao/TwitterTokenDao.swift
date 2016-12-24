@@ -9,20 +9,20 @@
 import Foundation
 
 class TwitterTokenDao {
-    func saveToken(oauthToken: NSString, oauthTokenSecret: NSString) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(oauthToken, forKey: "oauthToken")
-        defaults.setObject(oauthTokenSecret, forKey: "oauthTokenSecret")
+    func saveToken(_ oauthToken: String, oauthTokenSecret: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(oauthToken, forKey: "oauthToken")
+        defaults.set(oauthTokenSecret, forKey: "oauthTokenSecret")
         defaults.synchronize()
     }
 
     func getOauthToken() -> String? {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.objectForKey("oauthToken") as? String
+        let defaults = UserDefaults.standard
+        return defaults.object(forKey: "oauthToken") as? String
     }
 
     func getOauthTokenSecret() -> String? {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.objectForKey("oauthTokenSecret") as? String
+        let defaults = UserDefaults.standard
+        return defaults.object(forKey: "oauthTokenSecret") as? String
     }
 }

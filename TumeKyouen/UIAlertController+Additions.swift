@@ -10,13 +10,13 @@ import UIKit
 
 extension UIAlertController {
 
-    static func alert(titleKey: String) -> UIAlertController {
+    static func alert(_ titleKey: String) -> UIAlertController {
         let alert = UIAlertController(
             title: NSLocalizedString(titleKey, comment: ""),
             message: nil,
-            preferredStyle: .Alert
+            preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
 
         return alert

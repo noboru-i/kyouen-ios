@@ -16,9 +16,9 @@ class TitleViewController: UIViewController {
     @IBOutlet private weak var syncButton: UIButton!
     @IBOutlet private weak var stageCountLabel: UILabel!
 
-    var accountStore: ACAccountStore! = nil
-    let twitterManager = TwitterManager()
-    var accounts = [ACAccount]()
+    private var accountStore: ACAccountStore! = nil
+    private let twitterManager = TwitterManager()
+    private var accounts = [ACAccount]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,10 @@ class TitleViewController: UIViewController {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [
-            UIColor.blackColor().CGColor,
-            UIColor.darkGrayColor().CGColor
+            UIColor.black.cgColor,
+            UIColor.darkGray.cgColor
         ]
-        view.layer.insertSublayer(gradient, atIndex: 0)
+        view.layer.insertSublayer(gradient, at: 0)
 
         // AdMob
         AdMobUtil.show(self)
@@ -38,18 +38,20 @@ class TitleViewController: UIViewController {
         sendTwitterAccount()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshCounts()
         refreshTwitterAccounts()
     }
 
-    @IBAction func startKyouen(_: AnyObject) {
+    // MARK: - Actions
+
+    @IBAction private func startKyouen(_: AnyObject) {
         // 前回終了時のステージ番号を渡す
         let stageNo = SettingDao().loadStageNo()
         let model = TumeKyouenDao().selectByStageNo(stageNo)
 
-        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:NSBundle.mainBundle())
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:Bundle.main)
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
         if let vc = kyouenViewController as? KyouenViewController {
             vc.currentModel = model
@@ -60,18 +62,18 @@ class TitleViewController: UIViewController {
     @IBAction private func connectTwitterAction(_: AnyObject) {
         if accounts.count == 0 {
             let alert = UIAlertController.alert("alert_no_twitter_account")
-            presentViewController(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             return
         }
 
         let title = NSLocalizedString("action_title_choose", comment: "")
-        let sheet = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+        let sheet = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         let handler = { (action: UIAlertAction) -> Void in
-            let index = sheet.actions.indexOf(action)!
+            let index = sheet.actions.index(of: action)!
             SVProgressHUD.show()
-            self.twitterManager.performReverseAuthForAccount(self.accounts[index], withHandler: {responseData, error in
+            self.twitterManager.performReverseAuthForAccount(self.accounts[index], withHandler: {responseData, _ in
                 if responseData == nil {
-                    SVProgressHUD.showErrorWithStatus(NSLocalizedString("progress_auth_fail", comment: ""))
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("progress_auth_fail", comment: ""))
                     return
                 }
 
@@ -81,10 +83,10 @@ class TitleViewController: UIViewController {
 
         }
         for acct in accounts {
-            sheet.addAction(UIAlertAction(title: acct.username, style: .Default, handler: handler))
+            sheet.addAction(UIAlertAction(title: acct.username, style: .default, handler: handler))
         }
-        sheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        presentViewController(sheet, animated: true, completion: nil)
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(sheet, animated: true, completion: nil)
     }
 
     @IBAction private func syncDataAction(_: AnyObject) {
@@ -94,17 +96,18 @@ class TitleViewController: UIViewController {
         TumeKyouenServer().addAllStageUser(stages, callback: {response, error in
             if error != nil {
                 // 通信が異常終了
-                SVProgressHUD.showErrorWithStatus(error.localizedDescription)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                return
             }
             var responseData = [NSDictionary]()
-            for item in response {
+            for item in response! {
                 if let dic = item as? NSDictionary {
                     responseData.append(dic)
                 }
             }
             TumeKyouenDao().updateSyncClearData(responseData)
             self.refreshCounts()
-            SVProgressHUD.showSuccessWithStatus(NSLocalizedString("progress_sync_complete", comment: ""))
+            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_sync_complete", comment: ""))
         })
     }
 
@@ -122,7 +125,7 @@ class TitleViewController: UIViewController {
             return
         }
         obtainAccessToAccountsWithBlock({granted in
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 if !granted {
                     return
                 }
@@ -132,13 +135,13 @@ class TitleViewController: UIViewController {
         })
     }
 
-    private func obtainAccessToAccountsWithBlock(block: (Bool) -> ()) {
+    private func obtainAccessToAccountsWithBlock(_ block: @escaping (Bool) -> Void) {
         accountStore = ACAccountStore()
-        let twitterType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
+        let twitterType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         let handler: ACAccountStoreRequestAccessCompletionHandler = {granted, error in
             if granted {
                 self.accounts.removeAll()
-                for account in self.accountStore.accountsWithAccountType(twitterType) {
+                for account in self.accountStore.accounts(with: twitterType) {
                     if let account = account as? ACAccount {
                         self.accounts.append(account)
                     }
@@ -146,7 +149,7 @@ class TitleViewController: UIViewController {
             }
             block(granted)
         }
-        accountStore.requestAccessToAccountsWithType(twitterType, options: nil, completion: handler)
+        accountStore.requestAccessToAccounts(with: twitterType, options: nil, completion: handler)
     }
 
     private func refreshCounts() {
@@ -157,15 +160,15 @@ class TitleViewController: UIViewController {
         stageCountLabel.text = String(format: "%ld/%ld", arguments: [clearCount, allCount])
     }
 
-    private func getStage(maxStageNo: Int) {
+    private func getStage(_ maxStageNo: Int) {
         TumeKyouenServer().getStageData(maxStageNo, callback: {result, error in
             if error != nil {
                 // 取得できなかった
                 self.refreshCounts()
-                SVProgressHUD.showErrorWithStatus(error.localizedDescription)
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
             }
-            if result.characters.count == 0 {
+            if result?.characters.count == 0 {
                 // 取得できなかった
                 self.refreshCounts()
                 SVProgressHUD.dismiss()
@@ -179,11 +182,9 @@ class TitleViewController: UIViewController {
             }
 
             // データの登録
-            if !TumeKyouenDao().insertWithCsvString(result) {
-                // エラー発生時
-            }
+            TumeKyouenDao().insertWithCsvString(result!)
             self.refreshCounts()
-            let lines = result.componentsSeparatedByString("\n")
+            let lines = result!.components(separatedBy: "\n")
             self.getStage(maxStageNo + lines.count)
         })
     }
@@ -191,21 +192,21 @@ class TitleViewController: UIViewController {
     private func sendTwitterAccount() {
         // 認証情報を送信
         let dao = TwitterTokenDao()
-        let oauthToken = dao.getOauthToken()
-        let oauthTokenSecret = dao.getOauthTokenSecret()
-        if oauthToken == nil || oauthTokenSecret == nil {
-            SVProgressHUD.dismiss()
-            return
+        guard let oauthToken = dao.getOauthToken(),
+            let oauthTokenSecret = dao.getOauthTokenSecret() else {
+                SVProgressHUD.dismiss()
+                return
         }
+
         SVProgressHUD.show()
-        TumeKyouenServer().registUser(oauthToken!, tokenSecret: oauthTokenSecret!, callback: {response, error in
+        TumeKyouenServer().registUser(oauthToken, tokenSecret: oauthTokenSecret, callback: {_, error in
             if error != nil {
-                SVProgressHUD.showErrorWithStatus(NSLocalizedString("progress_auth_fail", comment: ""))
+                SVProgressHUD.showError(withStatus: NSLocalizedString("progress_auth_fail", comment: ""))
                 return
             }
-            self.twitterButton.hidden = true
-            self.syncButton.hidden = false
-            SVProgressHUD.showSuccessWithStatus(NSLocalizedString("progress_auth_success", comment: ""))
+            self.twitterButton.isHidden = true
+            self.syncButton.isHidden = false
+            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_auth_success", comment: ""))
         })
     }
 }

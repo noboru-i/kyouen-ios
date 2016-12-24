@@ -17,15 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     // MARK: - Application lifecycle
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // 例外のハンドリング
         NSSetUncaughtExceptionHandler { exception in
             print(exception.name)
-            print(exception.reason)
+            print(exception.reason ?? "")
             print(exception.callStackSymbols.description)
         }
 
-        SVProgressHUD.setDefaultMaskType(.Black)
+        SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.setMinimumDismissTimeInterval(0)
 
         initializeData()
@@ -33,47 +33,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
 
         // PUSH通知の設定
-        let settings = UIUserNotificationSettings(forTypes: [.Badge, .Sound, .Alert], categories: nil)
-        UIApplication.sharedApplication().registerForRemoteNotifications()
-        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+        UIApplication.shared.registerForRemoteNotifications()
+        UIApplication.shared.registerUserNotificationSettings(settings)
 
         return true
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Badgeの消去
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = "\(deviceToken)"
-            .stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString:"<>"))
-            .stringByReplacingOccurrencesOfString(" ", withString: "")
+            .trimmingCharacters(in: CharacterSet(charactersIn:"<>"))
+            .replacingOccurrences(of: " ", with: "")
         print("deviceToken: \(token)")
 
         let server = TumeKyouenServer()
         server.registDeviceToken(token)
     }
 
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Errorinregistration:\(error)")
     }
 
     // MARK: - Core Data stack
     lazy var managedObjectContext: NSManagedObjectContext = {
         let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = NSBundle.mainBundle().URLForResource("TumeKyouen", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        let modelURL = Bundle.main.url(forResource: "TumeKyouen", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-        let storeURL = self.applicationDocumentsDirectory.URLByAppendingPathComponent("TumeKyouen.CDBStore")
+        let storeURL = self.applicationDocumentsDirectory.appendingPathComponent("TumeKyouen.CDBStore")
         let options = [
             NSMigratePersistentStoresAutomaticallyOption: true,
             NSInferMappingModelAutomaticallyOption: true
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
         } catch {
             NSLog("Unresolved error \(error)")
             abort()
@@ -91,26 +91,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Application's documents directory
-    lazy var applicationDocumentsDirectory: NSURL = {
-        return NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last!
+    lazy var applicationDocumentsDirectory: URL = {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
     }()
 
     // MARK: -
     private func initializeData() {
         let dao = TumeKyouenDao()
-        let count = dao.selectCount()
-        if count != 0 {
+        if dao.selectCount() != 0 {
             print("初期データ投入の必要なし")
             return
         }
 
-        let csvUrl = NSBundle.mainBundle().URLForResource("initial_stage", withExtension: "csv")
-        do {
-            let content = try String(contentsOfURL: csvUrl!, encoding: NSUTF8StringEncoding)
-            dao.insertWithCsvString(content)
-        } catch {
-            print("cannot load initial_stage.csv")
-            abort()
-        }
+        let csvUrl = Bundle.main.url(forResource: "initial_stage", withExtension: "csv")!
+        let content = try? String(contentsOf: csvUrl, encoding: String.Encoding.utf8)
+        dao.insertWithCsvString(content!)
     }
 }

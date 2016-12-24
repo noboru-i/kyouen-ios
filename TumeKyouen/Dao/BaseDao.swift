@@ -11,7 +11,7 @@ import CoreData
 
 class BaseDao {
     lazy var managedObjectContext: NSManagedObjectContext = {
-        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             abort()
         }
         return appDelegate.managedObjectContext
