@@ -96,21 +96,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: -
-    fileprivate func initializeData() {
+    private func initializeData() {
         let dao = TumeKyouenDao()
-        let count = dao.selectCount()
-        if count != 0 {
+        if dao.selectCount() != 0 {
             print("初期データ投入の必要なし")
             return
         }
 
-        let csvUrl = Bundle.main.url(forResource: "initial_stage", withExtension: "csv")
-        do {
-            let content = try String(contentsOf: csvUrl!, encoding: String.Encoding.utf8)
-            dao.insertWithCsvString(content)
-        } catch {
-            print("cannot load initial_stage.csv")
-            abort()
-        }
+        let csvUrl = Bundle.main.url(forResource: "initial_stage", withExtension: "csv")!
+        let content = try? String(contentsOf: csvUrl, encoding: String.Encoding.utf8)
+        dao.insertWithCsvString(content!)
     }
 }
