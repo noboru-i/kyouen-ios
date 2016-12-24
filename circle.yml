@@ -1,7 +1,7 @@
 machine:
   timezone: Asia/Tokyo
   xcode:
-    version: "8.0"
+    version: "8.2"
   environment:
     GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
 dependencies:
