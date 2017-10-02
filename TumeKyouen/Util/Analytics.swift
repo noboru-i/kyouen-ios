@@ -17,17 +17,17 @@ class Analytics {
     }
 
     class func sendShowEvent(_ stageNo: NSNumber) {
-        FIRAnalytics.logEvent(withName: kFIREventViewItem, parameters: [
-            kFIRParameterContentType: "stage" as NSObject,
-            kFIRParameterValue: stageNo.stringValue as NSObject
+        Firebase.Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+            AnalyticsParameterContentType: "stage" as NSObject,
+            AnalyticsParameterValue: stageNo.stringValue as NSObject
             ]
         )
     }
 
     class func sendKyouenEvent(_ event: KyouenEvent, stageNo: NSNumber) {
-        FIRAnalytics.logEvent(withName: kFIREventViewItem, parameters: [
-            kFIRParameterContentType: event.rawValue as NSObject,
-            kFIRParameterValue: stageNo.stringValue as NSObject
+        Firebase.Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+            AnalyticsParameterContentType: event.rawValue as NSObject,
+            AnalyticsParameterValue: stageNo.stringValue as NSObject
             ]
         )
     }
