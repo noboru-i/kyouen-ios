@@ -42,7 +42,7 @@ class SignedRequest {
         self.signedRequestMethod = requestMethod
     }
 
-    func _buildRequest() -> URLRequest {
+    func buildRequest() -> URLRequest {
         let method: String
         switch signedRequestMethod {
         case .post:
@@ -74,7 +74,7 @@ class SignedRequest {
     }
 
     func performRequestWithHandler(_ handler: @escaping SignedRequestHandler) {
-        NSURLConnection.sendAsynchronousRequest(_buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, _ in
+        NSURLConnection.sendAsynchronousRequest(buildRequest(), queue: OperationQueue.main, completionHandler: {response, data, _ in
             handler(data, response, nil)
         })
     }

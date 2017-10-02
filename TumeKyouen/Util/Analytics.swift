@@ -11,9 +11,9 @@ import Firebase
 class Analytics {
 
     enum KyouenEvent: String {
-        case Kyouen = "kyouen"
-        case Not4Stone = "kyouen - not 4 stone"
-        case NotKyouen = "kyouen - not selected"
+        case kyouen = "kyouen"
+        case not4Stone = "kyouen - not 4 stone"
+        case notKyouen = "kyouen - not selected"
     }
 
     class func sendShowEvent(_ stageNo: NSNumber) {

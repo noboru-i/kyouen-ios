@@ -58,7 +58,7 @@ class KyouenViewController: UIViewController {
         if model.getStoneCount(2) != 4 {
             let alert = UIAlertController.alert("alert_less_stone")
             present(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.Not4Stone, stageNo: currentModel.stageNo)
+            Analytics.sendKyouenEvent(.not4Stone, stageNo: currentModel.stageNo)
             return
         }
 
@@ -67,7 +67,7 @@ class KyouenViewController: UIViewController {
             setStage(currentModel, to: mKyouenImageView1)
             let alert = UIAlertController.alert("alert_not_kyouen")
             present(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.NotKyouen, stageNo: currentModel.stageNo)
+            Analytics.sendKyouenEvent(.notKyouen, stageNo: currentModel.stageNo)
             return
         }
 
@@ -89,7 +89,7 @@ class KyouenViewController: UIViewController {
 
         // クリアデータの送信
         TumeKyouenServer().addStageUser(currentModel.stageNo)
-        Analytics.sendKyouenEvent(.Kyouen, stageNo: currentModel.stageNo)
+        Analytics.sendKyouenEvent(.kyouen, stageNo: currentModel.stageNo)
     }
 
     @IBAction private func selectStage(_: AnyObject) {
