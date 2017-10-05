@@ -12,7 +12,7 @@ test:
   pre:
     - openssl aes-256-cbc -k $DECRYPT_KEY -d -in TumeKyouen/Resources/encrypted_GoogleService-Info.plist -out TumeKyouen/Resources/GoogleService-Info.plist
   override:
-    - bundle exec fastlane analyze
+    - bundle exec fastlane beta
 deployment:
   master:
     branch: master
