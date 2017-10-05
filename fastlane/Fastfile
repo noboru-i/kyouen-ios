@@ -27,7 +27,8 @@ platform :ios do
   lane :beta do
     gym(
       scheme: scheme_name_adhoc,
-      configuration: 'AdHoc'
+      configuration: 'AdHoc',
+      export_method: 'ad-hoc'
     )
 
     UI.message 'Save Artifacts'
