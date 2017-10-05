@@ -27,8 +27,7 @@ platform :ios do
   lane :beta do
     gym(
       scheme: scheme_name_adhoc,
-      configuration: 'AdHoc',
-      use_legacy_build_api: true
+      configuration: 'AdHoc'
     )
 
     UI.message 'Save Artifacts'
@@ -53,8 +52,7 @@ platform :ios do
 
     gym(
       scheme: scheme_name_store,
-      configuration: 'Release',
-      use_legacy_build_api: true
+      configuration: 'Release'
     )
 
     pilot(
