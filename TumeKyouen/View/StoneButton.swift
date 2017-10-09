@@ -27,7 +27,7 @@ class StoneButton: UIButton {
         addTarget(self, action: #selector(StoneButton.changeState(_:)), for: .touchUpInside)
     }
 
-    func changeState(_: AnyObject) {
+    @objc func changeState(_: AnyObject) {
         switch stoneState {
         case .blank:
             return

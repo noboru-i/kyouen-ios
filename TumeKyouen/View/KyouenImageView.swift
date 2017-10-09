@@ -43,7 +43,7 @@ class KyouenImageView: UIView {
     }
 
     private func addButton(_ index: Int, _ state: StoneButton.ButtonState) {
-        let size = Int(stage.size)
+        let size = Int(truncating: stage.size)
         let x = index % size
         let y = index / size
         let stoneSize = frame.width / CGFloat(size)
