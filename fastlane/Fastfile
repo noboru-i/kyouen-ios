@@ -25,10 +25,10 @@ platform :ios do
 
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
+    cert
+    sigh
     gym(
-      scheme: scheme_name_adhoc,
-      configuration: 'AdHoc',
-      export_method: 'ad-hoc'
+      scheme: scheme_name_adhoc
     )
 
     UI.message 'Save Artifacts'
