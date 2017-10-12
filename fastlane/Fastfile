@@ -28,7 +28,8 @@ platform :ios do
     cert
     sigh
     gym(
-      scheme: scheme_name_adhoc
+      scheme: scheme_name_adhoc,
+      export_method: 'ad-hoc'
     )
 
     UI.message 'Save Artifacts'
