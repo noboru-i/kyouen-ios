@@ -26,7 +26,9 @@ platform :ios do
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     cert
-    sigh
+    sigh(
+      adhoc: true
+    )
     gym(
       scheme: scheme_name_adhoc,
       export_method: 'ad-hoc'
