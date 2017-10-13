@@ -51,7 +51,7 @@ class TitleViewController: UIViewController {
         let stageNo = SettingDao().loadStageNo()
         let model = TumeKyouenDao().selectByStageNo(stageNo)
 
-        let kyouenStoryboard: UIStoryboard = UIStoryboard(name:"KyouenStoryboard", bundle:Bundle.main)
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name: "KyouenStoryboard", bundle: Bundle.main)
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
         if let vc = kyouenViewController as? KyouenViewController {
             vc.currentModel = model

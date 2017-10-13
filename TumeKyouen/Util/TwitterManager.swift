@@ -84,7 +84,7 @@ class TwitterManager {
         })
     }
 
-    private func requestWithUrl(_ url: URL, parameters dict: [String:String], requestMethod: SLRequestMethod) -> SLRequest {
+    private func requestWithUrl(_ url: URL, parameters dict: [String: String], requestMethod: SLRequestMethod) -> SLRequest {
         return SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: requestMethod, url: url, parameters: dict)
     }
 }
