@@ -1,9 +1,7 @@
 machine:
   timezone: Asia/Tokyo
   xcode:
-    version: "8.2"
-  environment:
-    GYM_CODE_SIGNING_IDENTITY: "iPhone Distribution: NOBORU ISHIKURA (56W5SXE4HE)"
+    version: "9.0"
 dependencies:
   pre:
     - brew update
@@ -12,7 +10,7 @@ test:
   pre:
     - openssl aes-256-cbc -k $DECRYPT_KEY -d -in TumeKyouen/Resources/encrypted_GoogleService-Info.plist -out TumeKyouen/Resources/GoogleService-Info.plist
   override:
-    - bundle exec fastlane analyze
+    - bundle exec fastlane beta
 deployment:
   master:
     branch: master

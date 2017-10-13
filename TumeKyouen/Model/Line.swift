@@ -6,7 +6,6 @@
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
-// swiftlint:disable variable_name
 struct Line: CustomStringConvertible {
     private var p1: Point
     private var p2: Point
@@ -55,4 +54,3 @@ struct Line: CustomStringConvertible {
         return "p1 = \(p1), p2 = \(p2), a = \(a), b = \(b), c = \(c)"
     }
 }
-// swiftlint:enable variable_name

@@ -59,12 +59,10 @@ struct GameModel {
 
         // 指定されたstateと同一文字の座標を取得
         var points = [Point]()
-        for (index, c) in stage.characters.enumerated() {
-            if c == stateString {
-                let x = index % size
-                let y = floor(Double(index) / Double(size))
-                points.append(Point(x: Double(x), y: y))
-            }
+        for (index, c) in stage.characters.enumerated() where c == stateString {
+            let x = index % size
+            let y = floor(Double(index) / Double(size))
+            points.append(Point(x: Double(x), y: y))
         }
         return points
     }

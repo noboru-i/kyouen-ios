@@ -1,4 +1,4 @@
-fastlane_version '1.107.0'
+fastlane_version '2.61.0'
 
 default_platform :ios
 
@@ -6,8 +6,6 @@ default_platform :ios
 scheme_name_adhoc = 'TumeKyouen_adhoc'
 scheme_name_store = 'TumeKyouen_release'
 deploygate_user_name = 'noboru-i'
-project_name = 'TumeKyouen'
-bundle_id = 'hm.orz.chaos114.TumeKyouen'
 plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 # And you need to set environment variables.
@@ -16,7 +14,6 @@ plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
-
   lane :build_for_appium do
     xcodebuild(
       scheme: scheme_name_adhoc,
@@ -28,10 +25,13 @@ platform :ios do
 
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
+    cert
+    sigh(
+      adhoc: true
+    )
     gym(
       scheme: scheme_name_adhoc,
-      configuration: "AdHoc",
-      use_legacy_build_api: true
+      export_method: 'ad-hoc'
     )
 
     UI.message 'Save Artifacts'
@@ -56,8 +56,7 @@ platform :ios do
 
     gym(
       scheme: scheme_name_store,
-      configuration: "Release",
-      use_legacy_build_api: true
+      configuration: 'Release'
     )
 
     pilot(
@@ -82,26 +81,30 @@ platform :ios do
   desc 'This may comment to pull request'
   lane :analyze do
     xcode_analyze
-    lint
+    # lint
   end
 
   private_lane :xcode_analyze do
     xcodebuild(
-      analyze: true,
+      clean: true,
+      build: true,
       scheme: scheme_name_adhoc,
-      configuration: "AdHoc",
+      configuration: 'AdHoc',
       derivedDataPath: './derivedData',
+      buildlog_path: './log',
+      raw_buildlog: true,
       build_settings: {
-        "CODE_SIGN_IDENTITY" => ENV['GYM_CODE_SIGNING_IDENTITY']
+        'CODE_SIGN_IDENTITY' => ENV['GYM_CODE_SIGNING_IDENTITY'],
+        'OTHER_SWIFT_FLAGS' => '-Xfrontend -debug-time-function-bodies'
       }
     )
 
-    sh <<-EOS
-cd ../;
-ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
-    | checkstyle_filter-git diff origin/master \
-    | saddler report --require saddler/reporter/github --reporter #{reporter}
-    EOS
+#     sh <<-EOS
+# cd ../;
+# ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
+#     | checkstyle_filter-git diff origin/master \
+#     | saddler report --require saddler/reporter/github --reporter #{reporter}
+#     EOS
   end
 
   private_lane :lint do

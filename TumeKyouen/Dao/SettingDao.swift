@@ -23,6 +23,6 @@ class SettingDao {
         guard let stageNo = defaults.object(forKey: "stageNo") as? NSNumber else {
             return 1
         }
-        return Int(stageNo)
+        return Int(truncating: stageNo)
     }
 }

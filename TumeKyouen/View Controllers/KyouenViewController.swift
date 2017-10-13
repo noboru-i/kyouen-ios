@@ -43,22 +43,22 @@ class KyouenViewController: UIViewController {
 
     // MARK: - actions
     @IBAction private func moveNextStage(_: AnyObject) {
-        let nextStageNo = Int(currentModel.stageNo) + 1
+        let nextStageNo = Int(truncating: currentModel.stageNo) + 1
         moveStage(nextStageNo, direction: 1)
     }
 
     @IBAction private func movePrevStage(_: AnyObject) {
-        let nextStageNo = Int(currentModel.stageNo) - 1
+        let nextStageNo = Int(truncating: currentModel.stageNo) - 1
         moveStage(nextStageNo, direction: -1)
     }
 
     @IBAction private func checkKyouen(_: AnyObject) {
-        let model = GameModel(size: Int(currentModel.size), stage: mKyouenImageView1.getCurrentStage())
+        let model = GameModel(size: Int(truncating: currentModel.size), stage: mKyouenImageView1.getCurrentStage())
         // 4つ選択されているかのチェック
         if model.getStoneCount(2) != 4 {
             let alert = UIAlertController.alert("alert_less_stone")
             present(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.Not4Stone, stageNo: currentModel.stageNo)
+            Analytics.sendKyouenEvent(.not4Stone, stageNo: currentModel.stageNo)
             return
         }
 
@@ -67,7 +67,7 @@ class KyouenViewController: UIViewController {
             setStage(currentModel, to: mKyouenImageView1)
             let alert = UIAlertController.alert("alert_not_kyouen")
             present(alert, animated: true, completion: nil)
-            Analytics.sendKyouenEvent(.NotKyouen, stageNo: currentModel.stageNo)
+            Analytics.sendKyouenEvent(.notKyouen, stageNo: currentModel.stageNo)
             return
         }
 
@@ -81,7 +81,7 @@ class KyouenViewController: UIViewController {
             message: nil,
             preferredStyle: .alert)
         let nextButton = UIAlertAction(title: "Next", style: .default) { (_) -> Void in
-            let nextStageNo = Int(self.currentModel.stageNo) + 1
+            let nextStageNo = Int(truncating: self.currentModel.stageNo) + 1
             self.moveStage(nextStageNo, direction: 1)
         }
         alert.addAction(nextButton)
@@ -89,7 +89,7 @@ class KyouenViewController: UIViewController {
 
         // クリアデータの送信
         TumeKyouenServer().addStageUser(currentModel.stageNo)
-        Analytics.sendKyouenEvent(.Kyouen, stageNo: currentModel.stageNo)
+        Analytics.sendKyouenEvent(.kyouen, stageNo: currentModel.stageNo)
     }
 
     @IBAction private func selectStage(_: AnyObject) {
@@ -147,7 +147,7 @@ class KyouenViewController: UIViewController {
         setStageWithAnimation(model, direction: direction)
 
         // 表示したステージ番号を保存
-        SettingDao().saveStageNo(Int(model.stageNo))
+        SettingDao().saveStageNo(Int(truncating: model.stageNo))
     }
 
     private func setStageWithAnimation(_ model: TumeKyouenModel, direction: Int) {
@@ -204,7 +204,7 @@ class KyouenViewController: UIViewController {
         Analytics.sendShowEvent(model.stageNo)
     }
 
-    func endSetStageAnimation() {
+    @objc func endSetStageAnimation() {
         if currentModel.stageNo != 1 {
             // ステージ１の場合は戻れない
             mPrevButton.isEnabled = true

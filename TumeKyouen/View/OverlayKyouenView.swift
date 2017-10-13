@@ -38,7 +38,7 @@ class OverlayKyouenView: UIView {
         context.setLineWidth(3)
 
         let width = Double(bounds.size.width)
-        let size = Double(tumeKyouenModel!.size)
+        let size = Double(truncating: tumeKyouenModel!.size)
         let stoneSize: Double = Double(frame.width) / Double(size)
         switch kyouenData {
         case .lineKyouen(_, let line):

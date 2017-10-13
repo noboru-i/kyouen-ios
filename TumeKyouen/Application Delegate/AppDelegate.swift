@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         initializeData()
 
-        FIRApp.configure()
+        FirebaseApp.configure()
 
         // PUSH通知の設定
         let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)

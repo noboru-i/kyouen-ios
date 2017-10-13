@@ -18,8 +18,6 @@ class TumeKyouenServer {
         let url = serverDomain + "/kyouen/get"
         Alamofire.request(url, method: .get, parameters: ["stageNo": String(currentMaxStageNo)])
             .responseString { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
                 // TODO: when failed
                 if response.result.isSuccess {
                     callback(response.result.value, nil)
@@ -31,8 +29,6 @@ class TumeKyouenServer {
         let url = serverDomain + "/page/api_login"
         Alamofire.request(url, method: .post, parameters: ["token": token, "token_secret": tokenSecret])
             .responseString { response in
-                print("Success: \(response.result.isSuccess)")
-                print("Response String: \(response.result.value)")
                 // TODO: when failed
                 if response.result.isSuccess {
                     callback(response.result.value, nil)
@@ -73,7 +69,6 @@ class TumeKyouenServer {
                 case .success:
                     if let json = response.result.value as? [String:AnyObject]! {
                         let jsonData = json["data"] as? NSArray
-                        print("jsonData: \(jsonData)")
                         callback(jsonData, nil)
                         return
                     }

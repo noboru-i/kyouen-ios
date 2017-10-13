@@ -8,7 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable variable_name
 struct Point: CustomStringConvertible {
     var x: Double
     var y: Double
@@ -49,4 +48,3 @@ func + (left: Point, right: Point) -> Point {
 func - (left: Point, right: Point) -> Point {
     return Point(x: left.x - right.x, y: left.y - right.y)
 }
-// swiftlint:enable variable_name
