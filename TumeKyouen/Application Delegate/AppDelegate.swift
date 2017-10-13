@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = "\(deviceToken)"
-            .trimmingCharacters(in: CharacterSet(charactersIn:"<>"))
+            .trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
             .replacingOccurrences(of: " ", with: "")
         print("deviceToken: \(token)")
 

@@ -29,7 +29,7 @@ struct Point: CustomStringConvertible {
     }
 
     func getMidpoint(_ p2: Point) -> Point {
-        return Point(x:(x + p2.x) / 2, y:(y + p2.y) / 2)
+        return Point(x: (x + p2.x) / 2, y: (y + p2.y) / 2)
     }
 
     func getDistance(_ p2: Point) -> Double {

@@ -33,10 +33,10 @@ class SignedRequest {
     }
 
     private var url: URL
-    private var parameters: [String:String]
+    private var parameters: [String: String]
     private var signedRequestMethod: SignedRequestMethod
 
-    init(url: URL, parameters: [String:String], requestMethod: SignedRequestMethod) {
+    init(url: URL, parameters: [String: String], requestMethod: SignedRequestMethod) {
         self.url = url
         self.parameters = parameters
         self.signedRequestMethod = requestMethod
