@@ -17,7 +17,6 @@
 		681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B222E1DCAD8B4005FBD8C /* BorderButton.swift */; };
 		681B22311DCB1F3B005FBD8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 681B22301DCB1F3B005FBD8C /* GoogleService-Info.plist */; };
 		68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F891C68A13A008E6E85 /* AdMobUtil.swift */; };
-		68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8B1C68A145008E6E85 /* TwitterManager.swift */; };
 		68252F8E1C68A151008E6E85 /* SignedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8D1C68A151008E6E85 /* SignedRequest.swift */; };
 		68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */; };
 		68252F921C6A022E008E6E85 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68252F911C6A022E008E6E85 /* TitleViewController.swift */; };
@@ -60,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
+		51F78E3F1F91D07F000DF8F5 /* TumeKyouen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Bridging-Header.h"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
 		681150A11C6234A300F7B444 /* SettingDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDao.swift; sourceTree = "<group>"; };
@@ -73,7 +73,6 @@
 		681B22321DCB24BD005FBD8C /* develop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = develop.entitlements; sourceTree = "<group>"; };
 		681B22341DCB2745005FBD8C /* release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = release.entitlements; sourceTree = "<group>"; };
 		68252F891C68A13A008E6E85 /* AdMobUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobUtil.swift; sourceTree = "<group>"; };
-		68252F8B1C68A145008E6E85 /* TwitterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
 		68252F8D1C68A151008E6E85 /* SignedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedRequest.swift; sourceTree = "<group>"; };
 		68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KyouenViewController.swift; sourceTree = "<group>"; };
 		68252F911C6A022E008E6E85 /* TitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +268,7 @@
 		689825B316D9320C00D89D0B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51F78E3F1F91D07F000DF8F5 /* TumeKyouen-Bridging-Header.h */,
 				689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */,
 				689825B516D9320C00D89D0B /* Localizable.strings */,
 				688C015118E9C08F00EECC9A /* InfoPlist.strings */,
@@ -312,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				68252F891C68A13A008E6E85 /* AdMobUtil.swift */,
-				68252F8B1C68A145008E6E85 /* TwitterManager.swift */,
 				68252F8D1C68A151008E6E85 /* SignedRequest.swift */,
 				681AAAEC1DD0C284009F5349 /* Analytics.swift */,
 			);
@@ -469,9 +468,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -543,7 +545,6 @@
 				68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
-				68252F8C1C68A145008E6E85 /* TwitterManager.swift in Sources */,
 				681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
@@ -672,7 +673,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = TumeKyouenAdHoc;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TumeKyouen/TumeKyouen-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -806,7 +807,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = TumeKyouenDevelop;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TumeKyouen/TumeKyouen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -840,7 +841,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = TumeKyouenDistribution;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TumeKyouen/TumeKyouen-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

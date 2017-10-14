@@ -7,6 +7,7 @@ target 'TumeKyouen' do
   pod 'SVProgressHUD', '~> 2.1'
   pod 'Firebase'
   pod 'Firebase/AdMob'
+  pod 'TwitterKit'
 end
 
 post_install do |installer|
