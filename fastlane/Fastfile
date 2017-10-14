@@ -54,6 +54,8 @@ platform :ios do
       value: ENV['CIRCLE_BUILD_NUM']
     )
 
+    cert
+    sigh
     gym(
       scheme: scheme_name_store,
       configuration: 'Release'
