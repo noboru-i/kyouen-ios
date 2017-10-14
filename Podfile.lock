@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - Fabric (1.6.13)
   - Firebase (4.2.0):
     - Firebase/Core (= 4.2.0)
   - Firebase/AdMob (4.2.0):
@@ -30,6 +31,10 @@ PODS:
   - OAuthCore (0.0.1):
     - NSData+Base64
   - SVProgressHUD (2.2.1)
+  - TwitterCore (2.8.0):
+    - Fabric
+  - TwitterKit (2.8.1):
+    - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -37,9 +42,11 @@ DEPENDENCIES:
   - Firebase/AdMob
   - OAuthCore (~> 0.0.1)
   - SVProgressHUD (~> 2.1)
+  - TwitterKit
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
   Firebase: 9548cae14d69718add12d75a5b312893f7ef89c7
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseCore: 9a6cc1e3eaf75905390f9220596ad4fd8f92faee
@@ -50,7 +57,9 @@ SPEC CHECKSUMS:
   NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: b909c590351a1f72369899e3a1049481d1cf590b
+PODFILE CHECKSUM: f38b76de0879db9fa5fb1f79dfd3a36352427c77
 
 COCOAPODS: 1.3.1

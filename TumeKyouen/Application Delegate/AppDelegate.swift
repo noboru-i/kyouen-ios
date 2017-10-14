@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
+        Twitter.sharedInstance().start(withConsumerKey: SignedRequest.consumerKey,
+                                       consumerSecret: SignedRequest.consumerSecret)
+
         // PUSH通知の設定
         let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
         UIApplication.shared.registerForRemoteNotifications()
@@ -57,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Errorinregistration:\(error)")
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        return Twitter.sharedInstance().application(app, open: url, options: options)
     }
 
     // MARK: - Core Data stack
