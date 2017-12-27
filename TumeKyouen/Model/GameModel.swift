@@ -20,7 +20,7 @@ struct GameModel {
     func getStoneCount(_ state: Int) -> Int {
         let stateString = Character(String(state))
 
-        return stage.characters.reduce(0) { (count, c) -> Int in
+        return stage.reduce(0) { (count, c) -> Int in
             count + (c == stateString ? 1 : 0)
         }
     }
@@ -59,7 +59,7 @@ struct GameModel {
 
         // 指定されたstateと同一文字の座標を取得
         var points = [Point]()
-        for (index, c) in stage.characters.enumerated() where c == stateString {
+        for (index, c) in stage.enumerated() where c == stateString {
             let x = index % size
             let y = floor(Double(index) / Double(size))
             points.append(Point(x: Double(x), y: y))

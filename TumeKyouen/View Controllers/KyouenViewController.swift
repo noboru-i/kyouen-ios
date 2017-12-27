@@ -124,7 +124,7 @@ class KyouenViewController: UIViewController {
             SVProgressHUD.show()
 
             TumeKyouenServer().getStageData(stageNo - 1, callback: {result, error in
-                if error != nil || result == nil || result!.characters.count == 0 {
+                if error != nil || result == nil || result!.count == 0 {
                     // 取得できなかった
                     SVProgressHUD.dismiss()
                     return

@@ -14,7 +14,7 @@ class KyouenImageView: UIView {
             resetButtons()
 
             // 設定されているステージ情報を反映
-            for (index, c) in stage.stage.characters.enumerated() {
+            for (index, c) in stage.stage.enumerated() {
                 let state = Int(String(c))!
                 addButton(index, StoneButton.ButtonState(rawValue: state)!)
             }
