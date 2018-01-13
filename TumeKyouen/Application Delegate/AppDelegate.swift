@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-        Twitter.sharedInstance().start(withConsumerKey: SignedRequest.consumerKey,
+        TWTRTwitter.sharedInstance().start(withConsumerKey: SignedRequest.consumerKey,
                                        consumerSecret: SignedRequest.consumerSecret)
 
         // PUSH通知の設定
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
-        return Twitter.sharedInstance().application(app, open: url, options: options)
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
 
     // MARK: - Core Data stack

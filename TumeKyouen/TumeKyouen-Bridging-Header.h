@@ -9,6 +9,6 @@
 #ifndef TumeKyouen_Bridging_Header_h
 #define TumeKyouen_Bridging_Header_h
 
-#import <TwitterKit/TwitterKit.h>
+#import <TwitterKit/TWTRKit.h>
 
 #endif /* TumeKyouen_Bridging_Header_h */
