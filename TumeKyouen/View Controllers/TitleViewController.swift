@@ -58,7 +58,7 @@ class TitleViewController: UIViewController {
     }
 
     @IBAction private func connectTwitterAction(_: AnyObject) {
-        Twitter.sharedInstance().logIn(completion: { (session, error) in
+        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
             guard let session = session else {
                 print("error: \(error!.localizedDescription)")
                 return
