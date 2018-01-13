@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'TumeKyouen' do
@@ -7,7 +7,8 @@ target 'TumeKyouen' do
   pod 'SVProgressHUD', '~> 2.1'
   pod 'Firebase'
   pod 'Firebase/AdMob'
-  pod 'TwitterKit'
+  pod 'TwitterCore', '~> 2.0'
+  pod 'TwitterKit', '~> 2.0'
 end
 
 post_install do |installer|
