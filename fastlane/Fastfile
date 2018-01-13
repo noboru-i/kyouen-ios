@@ -54,6 +54,12 @@ platform :ios do
       value: ENV['CIRCLE_BUILD_NUM']
     )
 
+    set_info_plist_value(
+      path: plist_file_path,
+      key: 'CFBundleShortVersionString',
+      value: ENV['CIRCLE_TAG'].sub('v', '')
+    )
+
     cert
     sigh
     gym(
