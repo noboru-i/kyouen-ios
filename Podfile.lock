@@ -1,27 +1,44 @@
 PODS:
-  - Alamofire (4.5.1)
-  - Fabric (1.6.13)
-  - Firebase (4.2.0):
-    - Firebase/Core (= 4.2.0)
-  - Firebase/AdMob (4.2.0):
+  - Alamofire (4.6.0)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
+  - Firebase (4.8.0):
+    - Firebase/Core (= 4.8.0)
+  - Firebase/AdMob (4.8.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.24.0)
-  - Firebase/Core (4.2.0):
-    - FirebaseAnalytics (= 4.0.3)
-    - FirebaseCore (= 4.0.7)
-  - FirebaseAnalytics (4.0.3):
+    - Google-Mobile-Ads-SDK (= 7.27.0)
+  - Firebase/Core (4.8.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.13)
+  - Firebase/Performance (4.8.0):
+    - Firebase/Core
+    - FirebasePerformance (= 1.1.0)
+  - FirebaseAnalytics (4.0.5):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseCore (4.0.7):
+  - FirebaseCore (4.0.13):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseInstanceID (2.0.3)
-  - Google-Mobile-Ads-SDK (7.24.0)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - FirebaseInstanceID (2.0.8):
+    - FirebaseCore (~> 4.0)
+  - FirebasePerformance (1.1.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - FirebaseSwizzlingUtilities (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+    - Protobuf (~> 3.1)
+  - FirebaseSwizzlingUtilities (1.0.0)
+  - Google-Mobile-Ads-SDK (7.27.0)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/Logger (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -30,7 +47,8 @@ PODS:
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
-  - SVProgressHUD (2.2.1)
+  - Protobuf (3.5.0)
+  - SVProgressHUD (2.2.2)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
@@ -38,28 +56,37 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Crashlytics (~> 3.9.3)
+  - Fabric (~> 1.7.2)
   - Firebase
   - Firebase/AdMob
+  - Firebase/Performance
   - OAuthCore (~> 0.0.1)
   - SVProgressHUD (~> 2.1)
-  - TwitterKit
+  - TwitterCore (~> 2.0)
+  - TwitterKit (~> 2.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Fabric: 2fb5676bc811af011a04513451f463dac6803206
-  Firebase: 9548cae14d69718add12d75a5b312893f7ef89c7
-  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
-  FirebaseCore: 9a6cc1e3eaf75905390f9220596ad4fd8f92faee
-  FirebaseInstanceID: a4fc702b5a026f7322964376047f1a3f1f7cc6ff
-  Google-Mobile-Ads-SDK: f405b7acb098fe89e6fcd05fdbf400c1a5bcb935
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseCore: 3c02ec652db3d03fdc8bc6d9154af3e20d64b6f5
+  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  FirebasePerformance: 3877d097c59956aa2d7a317dbae503c2b4e78459
+  FirebaseSwizzlingUtilities: f1c49a5a372ac852c853722a5891a0a5e2344a6c
+  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
-  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: f38b76de0879db9fa5fb1f79dfd3a36352427c77
+PODFILE CHECKSUM: 6202a38c8960c8344215e87c81c949c90aa70300
 
 COCOAPODS: 1.3.1
