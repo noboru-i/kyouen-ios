@@ -7,8 +7,11 @@ target 'TumeKyouen' do
   pod 'SVProgressHUD', '~> 2.1'
   pod 'Firebase'
   pod 'Firebase/AdMob'
+  pod 'Firebase/Performance'
   pod 'TwitterCore', '~> 2.0'
   pod 'TwitterKit', '~> 2.0'
+  pod 'Fabric', '~> 1.7.2'
+  pod 'Crashlytics', '~> 3.9.3'
 end
 
 post_install do |installer|
