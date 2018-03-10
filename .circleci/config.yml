@@ -5,6 +5,7 @@ defaults: &defaults
     xcode: "9.2.0"
   working_directory: /Users/distiller/project
   environment:
+    DEPLOYGATE_USER: noboru-i
     FL_OUTPUT_DIR: /Users/distiller/project/output
     GYM_OUTPUT_NAME: app.ipa
   # For fix ruby error

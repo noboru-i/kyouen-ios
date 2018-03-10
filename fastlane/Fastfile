@@ -3,9 +3,8 @@ fastlane_version '2.61.0'
 default_platform :ios
 
 # You need to set your project values.
-scheme_name_adhoc = 'TumeKyouen_adhoc'
-scheme_name_store = 'TumeKyouen_release'
-deploygate_user_name = 'noboru-i'
+SCHEME_NAME_ADHOC = 'TumeKyouen_adhoc'
+SCHEME_NAME_STORE = 'TumeKyouen_release'
 plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 TEAM_ID = '56W5SXE4HE'
@@ -13,7 +12,6 @@ BUNDLE_ID_DEV = 'hm.orz.chaos114.TumeKyouen'
 PROVISIONING_PROFILE_NAME_DEV = 'TumeKyouenAdHoc'
 
 # And you need to set environment variables.
-# DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
@@ -23,7 +21,7 @@ platform :ios do
 
   lane :build_for_appium do
     xcodebuild(
-      scheme: scheme_name_adhoc,
+      scheme: SCHEME_NAME_ADHOC,
       build: true,
       sdk: 'iphonesimulator',
       derivedDataPath: 'build'
@@ -35,7 +33,7 @@ platform :ios do
     setup_provisioning_profiles
 
     build_app(
-      scheme: scheme_name_adhoc,
+      scheme: SCHEME_NAME_ADHOC,
       export_method: 'ad-hoc',
       export_options: {
         provisioningProfiles: {
@@ -47,9 +45,6 @@ platform :ios do
 
     message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
     deploygate(
-      api_token: ENV['DEPLOY_GATE_KEY'],
-      user: deploygate_user_name,
-      ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
       message: message
     )
   end
@@ -71,7 +66,7 @@ platform :ios do
     )
 
     build_app(
-      scheme: scheme_name_store,
+      scheme: SCHEME_NAME_STORE,
       configuration: 'Release'
     )
 
@@ -90,28 +85,6 @@ platform :ios do
       tag_name: "v#{version}",
       is_prerelease: false,
       upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
-    )
-  end
-
-  desc 'Analyze codes'
-  desc 'This may comment to pull request'
-  lane :analyze do
-    xcode_analyze
-  end
-
-  private_lane :xcode_analyze do
-    xcodebuild(
-      clean: true,
-      build: true,
-      scheme: scheme_name_adhoc,
-      configuration: 'AdHoc',
-      derivedDataPath: './derivedData',
-      buildlog_path: './log',
-      raw_buildlog: true,
-      build_settings: {
-        'CODE_SIGN_IDENTITY' => ENV['GYM_CODE_SIGNING_IDENTITY'],
-        'OTHER_SWIFT_FLAGS' => '-Xfrontend -debug-time-function-bodies'
-      }
     )
   end
 
