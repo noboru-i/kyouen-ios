@@ -10,7 +10,6 @@ plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 
 # And you need to set environment variables.
 # DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
-# GITHUB_ACCESS_TOKEN : GitHub access token, using when comment to Pull Request and create release.
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
@@ -89,7 +88,6 @@ platform :ios do
   desc 'This may comment to pull request'
   lane :analyze do
     xcode_analyze
-    # lint
   end
 
   private_lane :xcode_analyze do
@@ -106,55 +104,5 @@ platform :ios do
         'OTHER_SWIFT_FLAGS' => '-Xfrontend -debug-time-function-bodies'
       }
     )
-
-#     sh <<-EOS
-# cd ../;
-# ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
-#     | checkstyle_filter-git diff origin/master \
-#     | saddler report --require saddler/reporter/github --reporter #{reporter}
-#     EOS
-  end
-
-  private_lane :lint do
-    create_lint_config
-
-    swiftlint(
-      output_file: 'swiftlint.result.json',
-      config_file: '.swiftlint-ci.yml'
-    )
-
-    sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
-
-    sh <<-EOS
-cd ../;
-cat swiftlint.result.json \
-    | swiftlint_translate_checkstyle_format translate \
-    | checkstyle_filter-git diff origin/master \
-    | saddler report --require saddler/reporter/github --reporter #{reporter}
-    EOS
-
-    delete_lint_config
-  end
-
-  def create_lint_config
-    File.delete('../.swiftlint-ci.yml') if File.exist?('../.swiftlint-ci.yml')
-    require 'yaml'
-    config = YAML.load_file('../.swiftlint.yml')
-    config['reporter'] = 'json'
-    open('../.swiftlint-ci.yml', 'w') do |file|
-      YAML.dump(config, file)
-    end
-  end
-
-  def delete_lint_config
-    File.delete('../.swiftlint-ci.yml')
-  end
-
-  def reporter
-    if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-      'Saddler::Reporter::Github::CommitReviewComment'
-    else
-      'Saddler::Reporter::Github::PullRequestReviewComment'
-    end
   end
 end
