@@ -13,6 +13,10 @@ plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
   lane :build_for_appium do
     xcodebuild(
       scheme: scheme_name_adhoc,
@@ -24,7 +28,7 @@ platform :ios do
 
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
-    cert
+    get_certificates
     sigh(
       adhoc: true
     )
