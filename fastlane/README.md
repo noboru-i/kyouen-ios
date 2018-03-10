@@ -31,13 +31,6 @@ Submit a new Beta Build to DeployGate
 fastlane ios release
 ```
 Submit a new Release Build to TestFlight
-### ios analyze
-```
-fastlane ios analyze
-```
-Analyze codes
-
-This may comment to pull request
 
 ----
 

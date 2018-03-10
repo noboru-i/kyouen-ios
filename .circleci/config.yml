@@ -80,6 +80,18 @@ jobs:
           at: /Users/distiller/project
       - run:
           name: Build ipa
+          command: bundle exec fastlane beta
+      - store_artifacts:
+          path: /Users/distiller/project/output
+          destination: output
+
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /Users/distiller/project
+      - run:
+          name: Build ipa
           command: bundle exec fastlane release
       - store_artifacts:
           path: /Users/distiller/project/output
@@ -96,3 +108,9 @@ workflows:
           filters:
             branches:
               only: master
+      - release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
