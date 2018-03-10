@@ -2,14 +2,14 @@ fastlane_version '2.61.0'
 
 default_platform :ios
 
-# You need to set your project values.
 SCHEME_NAME_ADHOC = 'TumeKyouen_adhoc'
 SCHEME_NAME_STORE = 'TumeKyouen_release'
-plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
+PLIST_FILE_PATH = 'TumeKyouen/TumeKyouen-Info.plist'
 
 TEAM_ID = '56W5SXE4HE'
-BUNDLE_ID_DEV = 'hm.orz.chaos114.TumeKyouen'
+BUNDLE_ID = 'hm.orz.chaos114.TumeKyouen'
 PROVISIONING_PROFILE_NAME_DEV = 'TumeKyouenAdHoc'
+PROVISIONING_PROFILE_NAME_RELEASE = 'TumeKyouenDistribution'
 
 # And you need to set environment variables.
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
@@ -37,7 +37,7 @@ platform :ios do
       export_method: 'ad-hoc',
       export_options: {
         provisioningProfiles: {
-          BUNDLE_ID_DEV => PROVISIONING_PROFILE_NAME_DEV
+          BUNDLE_ID => PROVISIONING_PROFILE_NAME_DEV
         }
       },
       xcargs: "DEVELOPMENT_TEAM='#{TEAM_ID}' PROVISIONING_PROFILE_SPECIFIER='#{PROVISIONING_PROFILE_NAME_DEV}'"
@@ -49,25 +49,32 @@ platform :ios do
     )
   end
 
+  # TODO not tested
   desc 'Submit a new Release Build to TestFlight'
   lane :release do
     setup_provisioning_profiles
 
     set_info_plist_value(
-      path: plist_file_path,
+      path: PLIST_FILE_PATH,
       key: 'CFBundleVersion',
       value: ENV['CIRCLE_BUILD_NUM']
     )
 
     set_info_plist_value(
-      path: plist_file_path,
+      path: PLIST_FILE_PATH,
       key: 'CFBundleShortVersionString',
       value: ENV['CIRCLE_TAG'].sub('v', '')
     )
 
     build_app(
       scheme: SCHEME_NAME_STORE,
-      configuration: 'Release'
+      export_method: 'app-store',
+      export_options: {
+        provisioningProfiles: {
+          BUNDLE_ID => PROVISIONING_PROFILE_NAME_RELEASE
+        }
+      },
+      xcargs: "DEVELOPMENT_TEAM='#{TEAM_ID}' PROVISIONING_PROFILE_SPECIFIER='#{PROVISIONING_PROFILE_NAME_RELEASE}'"
     )
 
     pilot(
@@ -84,7 +91,7 @@ platform :ios do
       description: '',
       tag_name: "v#{version}",
       is_prerelease: false,
-      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
+      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH], lane_context[SharedValues::DSYM_OUTPUT_PATH]]
     )
   end
 
