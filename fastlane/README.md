@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios build_for_appium
 ```
 
+### ios test
+```
+fastlane ios test
+```
+Run unit testing
 ### ios beta
 ```
 fastlane ios beta

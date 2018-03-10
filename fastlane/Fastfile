@@ -28,6 +28,15 @@ platform :ios do
     )
   end
 
+  desc 'Run unit testing'
+  lane :test do
+    setup_provisioning_profiles
+
+    run_tests(
+      scheme: SCHEME_NAME_ADHOC
+    )
+  end
+
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
     setup_provisioning_profiles

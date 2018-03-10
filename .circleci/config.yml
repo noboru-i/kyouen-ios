@@ -56,8 +56,8 @@ jobs:
           command: openssl aes-256-cbc -k $DECRYPT_KEY -d -in TumeKyouen/Resources/encrypted_GoogleService-Info.plist -out TumeKyouen/Resources/GoogleService-Info.plist
 
       - run:
-          name: Build and run tests
-          command: bundle exec fastlane beta
+          name: Run unit test
+          command: bundle exec fastlane test
       - run:
           name: Run Danger
           command: bundle exec danger

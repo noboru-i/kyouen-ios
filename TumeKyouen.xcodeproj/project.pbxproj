@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09A8D7F10BDA9CE6061BF6C6 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42AC321364E9246DFB76548 /* Pods_TumeKyouen.framework */; };
+		51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
 		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
@@ -57,8 +58,21 @@
 		68FB69371C6CAE8C003883FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB69361C6CAE8C003883FE /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		51581CA02053C0E9008C3613 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 689825A116D9320C00D89D0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 689825A816D9320C00D89D0B;
+			remoteInfo = TumeKyouen;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
+		51581C9B2053C0E9008C3613 /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumeKyouenTests.swift; sourceTree = "<group>"; };
+		51581C9F2053C0E9008C3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51F78E3F1F91D07F000DF8F5 /* TumeKyouen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Bridging-Header.h"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
@@ -102,9 +116,6 @@
 		689825B016D9320C00D89D0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouen-Info.plist"; sourceTree = "<group>"; };
 		689825B616D9320C00D89D0B /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumeKyouenTests-Info.plist"; sourceTree = "<group>"; };
-		689825DC16D9320C00D89D0B /* TumeKyouenTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumeKyouenTests.h; sourceTree = "<group>"; };
-		689825DD16D9320C00D89D0B /* TumeKyouenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumeKyouenTests.m; sourceTree = "<group>"; };
 		6898262216D934DA00D89D0B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6898262416D934E300D89D0B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6898262616D934EC00D89D0B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -127,6 +138,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		51581C982053C0E9008C3613 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		689825A616D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +181,15 @@
 				35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		51581C9C2053C0E9008C3613 /* TumeKyouenTests */ = {
+			isa = PBXGroup;
+			children = (
+				51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */,
+				51581C9F2053C0E9008C3613 /* Info.plist */,
+			);
+			path = TumeKyouenTests;
 			sourceTree = "<group>";
 		};
 		681B22331DCB2693005FBD8C /* Entitlements */ = {
@@ -205,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				689825B216D9320C00D89D0B /* TumeKyouen */,
-				689825D616D9320C00D89D0B /* TumeKyouenTests */,
+				51581C9C2053C0E9008C3613 /* TumeKyouenTests */,
 				689825AB16D9320C00D89D0B /* Frameworks */,
 				689825AA16D9320C00D89D0B /* Products */,
 				1F66310A0771A48475440513 /* Pods */,
@@ -216,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				689825A916D9320C00D89D0B /* TumeKyouen.app */,
+				51581C9B2053C0E9008C3613 /* TumeKyouenTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,24 +300,6 @@
 				689825B416D9320C00D89D0B /* TumeKyouen-Info.plist */,
 				689825B516D9320C00D89D0B /* Localizable.strings */,
 				688C015118E9C08F00EECC9A /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		689825D616D9320C00D89D0B /* TumeKyouenTests */ = {
-			isa = PBXGroup;
-			children = (
-				689825DC16D9320C00D89D0B /* TumeKyouenTests.h */,
-				689825DD16D9320C00D89D0B /* TumeKyouenTests.m */,
-				689825D716D9320C00D89D0B /* Supporting Files */,
-			);
-			path = TumeKyouenTests;
-			sourceTree = "<group>";
-		};
-		689825D716D9320C00D89D0B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				689825D816D9320C00D89D0B /* TumeKyouenTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -368,6 +378,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		51581C9A2053C0E9008C3613 /* TumeKyouenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51581CA22053C0E9008C3613 /* Build configuration list for PBXNativeTarget "TumeKyouenTests" */;
+			buildPhases = (
+				51581C972053C0E9008C3613 /* Sources */,
+				51581C982053C0E9008C3613 /* Frameworks */,
+				51581C992053C0E9008C3613 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51581CA12053C0E9008C3613 /* PBXTargetDependency */,
+			);
+			name = TumeKyouenTests;
+			productName = TumeKyouenTests;
+			productReference = 51581C9B2053C0E9008C3613 /* TumeKyouenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		689825A816D9320C00D89D0B /* TumeKyouen */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 689825E116D9320C00D89D0B /* Build configuration list for PBXNativeTarget "TumeKyouen" */;
@@ -397,11 +425,16 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TK;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0920;
 				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = noboru;
 				TargetAttributes = {
+					51581C9A2053C0E9008C3613 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 689825A816D9320C00D89D0B;
+					};
 					689825A816D9320C00D89D0B = {
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
@@ -428,11 +461,19 @@
 			projectRoot = "";
 			targets = (
 				689825A816D9320C00D89D0B /* TumeKyouen */,
+				51581C9A2053C0E9008C3613 /* TumeKyouenTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		51581C992053C0E9008C3613 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		689825A716D9320C00D89D0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -554,6 +595,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		51581C972053C0E9008C3613 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		689825A516D9320C00D89D0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,6 +633,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		51581CA12053C0E9008C3613 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 689825A816D9320C00D89D0B /* TumeKyouen */;
+			targetProxy = 51581CA02053C0E9008C3613 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */ = {
@@ -628,6 +685,99 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		51581CA32053C0E9008C3613 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TumeKyouenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = hm.orz.chaos114.TumeKyouenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+			};
+			name = Debug;
+		};
+		51581CA42053C0E9008C3613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TumeKyouenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = hm.orz.chaos114.TumeKyouenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+			};
+			name = Release;
+		};
+		51581CA52053C0E9008C3613 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = TumeKyouenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = hm.orz.chaos114.TumeKyouenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TumeKyouen.app/TumeKyouen";
+			};
+			name = AdHoc;
+		};
 		6809D16B1CE5ADAA00BD207D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -875,6 +1025,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		51581CA22053C0E9008C3613 /* Build configuration list for PBXNativeTarget "TumeKyouenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51581CA32053C0E9008C3613 /* Debug */,
+				51581CA42053C0E9008C3613 /* Release */,
+				51581CA52053C0E9008C3613 /* AdHoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		689825A416D9320C00D89D0B /* Build configuration list for PBXProject "TumeKyouen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
