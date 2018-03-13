@@ -11,7 +11,7 @@ target 'TumeKyouen' do
   pod 'TwitterCore', '~> 3.0'
   pod 'TwitterKit', '~> 3.0'
   pod 'Fabric', '~> 1.7.2'
-  pod 'Crashlytics', '~> 3.9.3'
+  pod 'Crashlytics', '~> 3.9'
 end
 
 post_install do |installer|

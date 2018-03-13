@@ -2,69 +2,88 @@ fastlane_version '2.61.0'
 
 default_platform :ios
 
-# You need to set your project values.
-scheme_name_adhoc = 'TumeKyouen_adhoc'
-scheme_name_store = 'TumeKyouen_release'
-deploygate_user_name = 'noboru-i'
-plist_file_path = 'TumeKyouen/TumeKyouen-Info.plist'
+SCHEME_NAME_ADHOC = 'TumeKyouen_adhoc'
+SCHEME_NAME_STORE = 'TumeKyouen_release'
+PLIST_FILE_PATH = 'TumeKyouen/TumeKyouen-Info.plist'
+
+TEAM_ID = '56W5SXE4HE'
+BUNDLE_ID = 'hm.orz.chaos114.TumeKyouen'
+PROVISIONING_PROFILE_NAME_DEV = 'TumeKyouenAdHoc'
+PROVISIONING_PROFILE_NAME_RELEASE = 'TumeKyouenDistribution'
 
 # And you need to set environment variables.
-# DEPLOY_GATE_KEY : DeployGate API key, using when upload to DeployGate.
-# GITHUB_ACCESS_TOKEN : GitHub access token, using when comment to Pull Request and create release.
 # KEY_PASSWORD : p12 password, using when import *.p12 files.
 
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
   lane :build_for_appium do
     xcodebuild(
-      scheme: scheme_name_adhoc,
+      scheme: SCHEME_NAME_ADHOC,
       build: true,
       sdk: 'iphonesimulator',
       derivedDataPath: 'build'
     )
   end
 
+  desc 'Run unit testing'
+  lane :test do
+    setup_provisioning_profiles
+
+    run_tests(
+      scheme: SCHEME_NAME_ADHOC
+    )
+  end
+
   desc 'Submit a new Beta Build to DeployGate'
   lane :beta do
-    cert
-    sigh(
-      adhoc: true
-    )
-    gym(
-      scheme: scheme_name_adhoc,
-      export_method: 'ad-hoc'
-    )
+    setup_provisioning_profiles
 
-    UI.message 'Save Artifacts'
-    sh "cp #{lane_context[SharedValues::IPA_OUTPUT_PATH]} $CIRCLE_ARTIFACTS"
+    build_app(
+      scheme: SCHEME_NAME_ADHOC,
+      export_method: 'ad-hoc',
+      export_options: {
+        provisioningProfiles: {
+          BUNDLE_ID => PROVISIONING_PROFILE_NAME_DEV
+        }
+      },
+      xcargs: "DEVELOPMENT_TEAM='#{TEAM_ID}' PROVISIONING_PROFILE_SPECIFIER='#{PROVISIONING_PROFILE_NAME_DEV}'"
+    )
 
     message = "Commit: #{ENV['CIRCLE_SHA1']} / #{last_git_commit[:message]}, Build: #{ENV['CIRCLE_BUILD_NUM']}"
     deploygate(
-      api_token: ENV['DEPLOY_GATE_KEY'],
-      user: deploygate_user_name,
-      ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
       message: message
     )
   end
 
+  # TODO not tested
   desc 'Submit a new Release Build to TestFlight'
   lane :release do
+    setup_provisioning_profiles
+
     set_info_plist_value(
-      path: plist_file_path,
+      path: PLIST_FILE_PATH,
       key: 'CFBundleVersion',
       value: ENV['CIRCLE_BUILD_NUM']
     )
 
     set_info_plist_value(
-      path: plist_file_path,
+      path: PLIST_FILE_PATH,
       key: 'CFBundleShortVersionString',
       value: ENV['CIRCLE_TAG'].sub('v', '')
     )
 
-    cert
-    sigh
-    gym(
-      scheme: scheme_name_store,
-      configuration: 'Release'
+    build_app(
+      scheme: SCHEME_NAME_STORE,
+      export_method: 'app-store',
+      export_options: {
+        provisioningProfiles: {
+          BUNDLE_ID => PROVISIONING_PROFILE_NAME_RELEASE
+        }
+      },
+      xcargs: "DEVELOPMENT_TEAM='#{TEAM_ID}' PROVISIONING_PROFILE_SPECIFIER='#{PROVISIONING_PROFILE_NAME_RELEASE}'"
     )
 
     pilot(
@@ -81,80 +100,27 @@ platform :ios do
       description: '',
       tag_name: "v#{version}",
       is_prerelease: false,
-      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH]]
+      upload_assets: [lane_context[SharedValues::IPA_OUTPUT_PATH], lane_context[SharedValues::DSYM_OUTPUT_PATH]]
     )
   end
 
-  desc 'Analyze codes'
-  desc 'This may comment to pull request'
-  lane :analyze do
-    xcode_analyze
-    # lint
-  end
+  private_lane :setup_provisioning_profiles do |options|
+    next unless Helper.ci?
 
-  private_lane :xcode_analyze do
-    xcodebuild(
-      clean: true,
-      build: true,
-      scheme: scheme_name_adhoc,
-      configuration: 'AdHoc',
-      derivedDataPath: './derivedData',
-      buildlog_path: './log',
-      raw_buildlog: true,
-      build_settings: {
-        'CODE_SIGN_IDENTITY' => ENV['GYM_CODE_SIGNING_IDENTITY'],
-        'OTHER_SWIFT_FLAGS' => '-Xfrontend -debug-time-function-bodies'
-      }
-    )
+    `curl -OL https://developer.apple.com/certificationauthority/AppleWWDRCA.cer`
+    import_certificate(
+      keychain_name: 'fastlane_tmp_keychain',
+      certificate_path: 'certificates/dist.p12',
+      certificate_password: ENV['IOS_CERTIFICATES_KEY_PASSWORD'],
+      keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD'])
+    import_certificate(
+      keychain_name: 'fastlane_tmp_keychain',
+      certificate_path: 'fastlane/AppleWWDRCA.cer',
+      keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD'])
 
-#     sh <<-EOS
-# cd ../;
-# ios_analytics translate --appName="#{project_name}" --derivedData="./derivedData" \
-#     | checkstyle_filter-git diff origin/master \
-#     | saddler report --require saddler/reporter/github --reporter #{reporter}
-#     EOS
-  end
-
-  private_lane :lint do
-    create_lint_config
-
-    swiftlint(
-      output_file: 'swiftlint.result.json',
-      config_file: '.swiftlint-ci.yml'
-    )
-
-    sh 'cp ../swiftlint.result.json $CIRCLE_ARTIFACTS/'
-
-    sh <<-EOS
-cd ../;
-cat swiftlint.result.json \
-    | swiftlint_translate_checkstyle_format translate \
-    | checkstyle_filter-git diff origin/master \
-    | saddler report --require saddler/reporter/github --reporter #{reporter}
-    EOS
-
-    delete_lint_config
-  end
-
-  def create_lint_config
-    File.delete('../.swiftlint-ci.yml') if File.exist?('../.swiftlint-ci.yml')
-    require 'yaml'
-    config = YAML.load_file('../.swiftlint.yml')
-    config['reporter'] = 'json'
-    open('../.swiftlint-ci.yml', 'w') do |file|
-      YAML.dump(config, file)
-    end
-  end
-
-  def delete_lint_config
-    File.delete('../.swiftlint-ci.yml')
-  end
-
-  def reporter
-    if ENV['CI_PULL_REQUEST'].nil? || ENV['CI_PULL_REQUEST'].empty?
-      'Saddler::Reporter::Github::CommitReviewComment'
-    else
-      'Saddler::Reporter::Github::PullRequestReviewComment'
-    end
+    Dir.glob('../certificates/*.mobileprovision').each {|filename|
+      puts filename
+      FastlaneCore::ProvisioningProfile.install(filename)
+    }
   end
 end
