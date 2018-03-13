@@ -7,7 +7,7 @@ defaults: &defaults
   environment:
     DEPLOYGATE_USER: noboru-i
     FL_OUTPUT_DIR: /Users/distiller/project/output
-    GYM_OUTPUT_NAME: app.ipa
+    GYM_OUTPUT_NAME: app
   # For fix ruby error
   shell: /bin/bash --login -eo pipefail
 
