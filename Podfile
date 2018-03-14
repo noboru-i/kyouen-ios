@@ -3,7 +3,6 @@ use_frameworks!
 
 target 'TumeKyouen' do
   pod 'OAuthCore', '~> 0.0.1'
-  pod 'SVProgressHUD', '~> 2.1'
   pod 'Firebase'
   pod 'Firebase/AdMob'
   pod 'Firebase/Performance'

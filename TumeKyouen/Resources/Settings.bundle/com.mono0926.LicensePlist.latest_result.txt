@@ -60,12 +60,6 @@ name: Protobuf, nameSpecified:
 body: This license applies…
 version: 3.5.0
 
-name: SVProgressHUD, nameSpecified: 
-body: MIT License
-
-Copyrig…
-version: 2.2.5
-
 name: TwitterCore, nameSpecified: 
 body: Copyright Twitter, I…
 version: 3.1.0
@@ -75,6 +69,8 @@ body: Twitter Kit: Copyrig…
 version: 3.3.0
 
 name: Alamofire, nameSpecified: , owner: Alamofire, version: 4.7.0
+
+name: SVProgressHUD, nameSpecified: , owner: SVProgressHUD, version: 2.2.5
 
 add-version-numbers: false
 

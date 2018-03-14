@@ -1,5 +1,5 @@
 framework module SVProgressHUD {
-  umbrella header "SVProgressHUD-umbrella.h"
+  umbrella header "SVProgressHUD.h"
 
   export *
   module * { export * }

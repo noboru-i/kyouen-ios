@@ -10,6 +10,7 @@
 		09A8D7F10BDA9CE6061BF6C6 /* Pods_TumeKyouen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42AC321364E9246DFB76548 /* Pods_TumeKyouen.framework */; };
 		51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */; };
 		51581CA720594987008C3613 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51581CA620594987008C3613 /* Alamofire.framework */; };
+		51581CAB2059611B008C3613 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51581CAA2059611B008C3613 /* SVProgressHUD.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
 		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
@@ -75,6 +76,7 @@
 		51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumeKyouenTests.swift; sourceTree = "<group>"; };
 		51581C9F2053C0E9008C3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51581CA620594987008C3613 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		51581CAA2059611B008C3613 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		51F78E3F1F91D07F000DF8F5 /* TumeKyouen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumeKyouen-Bridging-Header.h"; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		6811509F1C62349800F7B444 /* TumeKyouenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumeKyouenDao.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51581CAB2059611B008C3613 /* SVProgressHUD.framework in Frameworks */,
 				51581CA720594987008C3613 /* Alamofire.framework in Frameworks */,
 				68B183AA18E3348400CCF333 /* CoreTelephony.framework in Frameworks */,
 				6898262D16D9350000D89D0B /* StoreKit.framework in Frameworks */,
@@ -254,6 +257,7 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51581CAA2059611B008C3613 /* SVProgressHUD.framework */,
 				51581CA620594987008C3613 /* Alamofire.framework */,
 				68B183A918E3348400CCF333 /* CoreTelephony.framework */,
 				688A435F187059EF00B19834 /* iAd.framework */,
@@ -504,10 +508,12 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = "Carthage copy-frameworks";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -573,7 +579,6 @@
 				"${BUILT_PRODUCTS_DIR}/NSData+Base64/NSData_Base64.framework",
 				"${BUILT_PRODUCTS_DIR}/OAuthCore/OAuthCore.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -585,7 +590,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSData_Base64.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",

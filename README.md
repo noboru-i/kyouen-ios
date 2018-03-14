@@ -10,8 +10,12 @@
 2. merge to master branch.
 3. create tag. name mast be `vN.N.N` format.
 
-## How to update Acknowledgements
+## How to add library
+
+Add to Carthfile / Podfile.
 
 ```
-license-plist --output-path $PRODUCT_NAME/Resources/Settings.bundle
+carthage update --platform iOS --no-use-binaries --cache-builds
+bundle exec pod install
+license-plist --output-path TumeKyouen/Resources/Settings.bundle
 ```
