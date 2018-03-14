@@ -12,8 +12,3 @@ target 'TumeKyouen' do
   pod 'Fabric', '~> 1.7.2'
   pod 'Crashlytics', '~> 3.9'
 end
-
-post_install do |installer|
-    require 'fileutils'
-    FileUtils.cp_r('Pods/Target Support Files/Pods-Tumekyouen/Pods-TumeKyouen-acknowledgements.plist', 'TumeKyouen/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
-end

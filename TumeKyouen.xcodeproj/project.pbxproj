@@ -408,10 +408,10 @@
 				689825A516D9320C00D89D0B /* Sources */,
 				689825A616D9320C00D89D0B /* Frameworks */,
 				689825A716D9320C00D89D0B /* Resources */,
-				51BC12F51C194F4F00346BC9 /* ShellScript */,
+				51BC12F51C194F4F00346BC9 /* Run SwiftLint */,
 				884F5977CB5198348663636C /* [CP] Embed Pods Frameworks */,
 				63DAA4B9C4CFCA0B156D9F7F /* [CP] Copy Pods Resources */,
-				51727B4A2009D3CC000531FF /* ShellScript */,
+				51727B4A2009D3CC000531FF /* Run Fabric */,
 				51581CA820594B38008C3613 /* Carthage copy-frameworks */,
 			);
 			buildRules = (
@@ -513,26 +513,28 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		51727B4A2009D3CC000531FF /* ShellScript */ = {
+		51727B4A2009D3CC000531FF /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Fabric";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
-		51BC12F51C194F4F00346BC9 /* ShellScript */ = {
+		51BC12F51C194F4F00346BC9 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run SwiftLint";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,3 +9,9 @@
 1. update `CFBundleShortVersionString` by Xcode.
 2. merge to master branch.
 3. create tag. name mast be `vN.N.N` format.
+
+## How to update Acknowledgements
+
+```
+license-plist --output-path $PRODUCT_NAME/Resources/Settings.bundle
+```
