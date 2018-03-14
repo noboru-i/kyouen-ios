@@ -1,0 +1,1724 @@
+BCSymbolMap Version: 2.0
+Apple LLVM version 9.0.0 (clang-900.0.38)
+/Users/rajularora/Library/Developer/Xcode/DerivedData/TwitterCore-dvkaawflvixghbebncdaknjhocty/Build/Intermediates.noindex/ArchiveIntermediates/TwitterCore/IntermediateBuildFilesPath/TwitterCore.build/Release-iphoneos/TwitterCore.build/DerivedSources/TwitterCore_vers.c
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore
+-[TWTRScribeService initWithScribe:scribeAPIServiceConfig:]
+-[TWTRScribeService setSessionStore:networkingPipeline:]
+-[TWTRScribeService enqueueEvent:]
+-[TWTRScribeService enqueueEvents:]
+-[TWTRScribeService openScribe:]
+___32-[TWTRScribeService openScribe:]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[TWTRScribeService scribePendingEvents]
+___40-[TWTRScribeService scribePendingEvents]_block_invoke
+___40-[TWTRScribeService scribePendingEvents]_block_invoke_2
+___copy_helper_block_.38
+___destroy_helper_block_.39
+___copy_helper_block_.41
+___destroy_helper_block_.42
+-[TWTRScribeService scheduleScribe]
+___35-[TWTRScribeService scheduleScribe]_block_invoke
+___copy_helper_block_.57
+___destroy_helper_block_.58
+-[TWTRScribeService handleScribeOutgoingEvents:userID:completionHandler:]
+___73-[TWTRScribeService handleScribeOutgoingEvents:userID:completionHandler:]_block_invoke
+___copy_helper_block_.62
+___destroy_helper_block_.63
+-[TWTRScribeService mainThreadHandleScribeOutgoingEvents:userID:completionHandler:]
+___83-[TWTRScribeService mainThreadHandleScribeOutgoingEvents:userID:completionHandler:]_block_invoke
+___copy_helper_block_.84
+___destroy_helper_block_.85
+-[TWTRScribeService sendOutgoingEvents:userID:completionHandler:]
+-[TWTRScribeService enqueuePipelineRequest:userID:completionHandler:]
+___69-[TWTRScribeService enqueuePipelineRequest:userID:completionHandler:]_block_invoke
+___copy_helper_block_.103
+___destroy_helper_block_.104
+-[TWTRScribeService scribeServiceRequestParameters:]
+-[TWTRScribeService requestBuilder]
+-[TWTRScribeService URLRequestWithAttributionHeadersFromRequestBuilder:parameters:]
+-[TWTRScribeService URLRequestByAppendingAttributionHeadersToRequest:]
+-[TWTRScribeService existingUserIDs]
+-[TWTRScribeService isValidEventsArray:]
+-[TWTRScribeService scribe]
+-[TWTRScribeService sessionStore]
+-[TWTRScribeService networkingPipeline]
+-[TWTRScribeService scribeAPIServiceConfig]
+-[TWTRScribeService scribeTimer]
+-[TWTRScribeService setScribeTimer:]
+-[TWTRScribeService secondsToDelayScribe]
+-[TWTRScribeService setSecondsToDelayScribe:]
+-[TWTRScribeService scribeFailCount]
+-[TWTRScribeService setScribeFailCount:]
+-[TWTRScribeService .cxx_destruct]
+_OBJC_IVAR_$_TWTRScribeService._scribe
+_OBJC_IVAR_$_TWTRScribeService._scribeAPIServiceConfig
+_OBJC_IVAR_$_TWTRScribeService._sessionStore
+_OBJC_IVAR_$_TWTRScribeService._networkingPipeline
+___block_descriptor_tmp
+___block_descriptor_tmp.40
+___block_descriptor_tmp.43
+___block_descriptor_tmp.59
+___block_descriptor_tmp.64
+___block_descriptor_tmp.87
+___block_descriptor_tmp.106
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_TFSScribeEventParameters
+l_OBJC_LABEL_PROTOCOL_$_TFSScribeEventParameters
+l_OBJC_PROTOCOL_REFERENCE_$_TFSScribeEventParameters
+_OBJC_IVAR_$_TWTRScribeService._scribeTimer
+_OBJC_IVAR_$_TWTRScribeService._secondsToDelayScribe
+_OBJC_IVAR_$_TWTRScribeService._scribeFailCount
+l_OBJC_PROTOCOL_$_TFSScribeRequestHandler
+l_OBJC_LABEL_PROTOCOL_$_TFSScribeRequestHandler
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeService.m
+__destroy_helper_block_
+__copy_helper_block_
+__69-[TWTRScribeService enqueuePipelineRequest:userID:completionHandler:]_block_invoke
+__83-[TWTRScribeService mainThreadHandleScribeOutgoingEvents:userID:completionHandler:]_block_invoke
+__73-[TWTRScribeService handleScribeOutgoingEvents:userID:completionHandler:]_block_invoke
+__35-[TWTRScribeService scheduleScribe]_block_invoke
+__40-[TWTRScribeService scribePendingEvents]_block_invoke_2
+__40-[TWTRScribeService scribePendingEvents]_block_invoke
+__32-[TWTRScribeService openScribe:]_block_invoke
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRNetworkingConstants.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/API/TWTRAPIConstantsUser.m
++[TWTRUserAuthRequestSigner signedURLRequest:authConfig:session:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRUserAuthRequestSigner.m
++[TWTRSecItemWrapper secItemAdd:withResult:]
++[TWTRSecItemWrapper secItemDelete:]
++[TWTRSecItemWrapper secItemCopyMatching:withResult:]
++[TWTRSecItemWrapper secItemUpdate:withAttributes:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRSecItemWrapper.m
+-[TWTRMultipartFormElement initWithName:contentType:fileName:content:]
+-[TWTRMultipartFormElement documentData]
+___40-[TWTRMultipartFormElement documentData]_block_invoke
+-[TWTRMultipartFormElement name]
+-[TWTRMultipartFormElement contentType]
+-[TWTRMultipartFormElement fileName]
+-[TWTRMultipartFormElement content]
+-[TWTRMultipartFormElement .cxx_destruct]
+-[TWTRMultipartFormDocument init]
+-[TWTRMultipartFormDocument initWithFormElements:]
+-[TWTRMultipartFormDocument loadBodyDataWithCallbackQueue:completion:]
+___70-[TWTRMultipartFormDocument loadBodyDataWithCallbackQueue:completion:]_block_invoke
+___70-[TWTRMultipartFormDocument loadBodyDataWithCallbackQueue:completion:]_block_invoke_2
+___copy_helper_block_.85
+___destroy_helper_block_.86
+___copy_helper_block_.89
+___destroy_helper_block_.90
+-[TWTRMultipartFormDocument documentData]
+-[TWTRMultipartFormDocument boundary]
+-[TWTRMultipartFormDocument contentTypeHeaderField]
+-[TWTRMultipartFormDocument writeChannel]
+-[TWTRMultipartFormDocument serialIOHandlerQueue]
+-[TWTRMultipartFormDocument formElements]
+-[TWTRMultipartFormDocument .cxx_destruct]
+_OBJC_IVAR_$_TWTRMultipartFormElement._name
+_OBJC_IVAR_$_TWTRMultipartFormElement._contentType
+_OBJC_IVAR_$_TWTRMultipartFormElement._fileName
+_OBJC_IVAR_$_TWTRMultipartFormElement._content
+_OBJC_IVAR_$_TWTRMultipartFormDocument._serialIOHandlerQueue
+_OBJC_IVAR_$_TWTRMultipartFormDocument._formElements
+_OBJC_IVAR_$_TWTRMultipartFormDocument._boundary
+_OBJC_IVAR_$_TWTRMultipartFormDocument._contentTypeHeaderField
+___block_descriptor_tmp.88
+___block_descriptor_tmp.91
+_OBJC_IVAR_$_TWTRMultipartFormDocument._writeChannel
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRMultipartFormDocument.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRMultipartFormDocument.h
+__70-[TWTRMultipartFormDocument loadBodyDataWithCallbackQueue:completion:]_block_invoke_2
+__70-[TWTRMultipartFormDocument loadBodyDataWithCallbackQueue:completion:]_block_invoke
+__40-[TWTRMultipartFormElement documentData]_block_invoke
+-[TWTRAPINetworkErrorsShim initWithHTTPResponse:responseData:]
+-[TWTRAPINetworkErrorsShim validate]
++[TWTRAPINetworkErrorsShim acceptableHTTPStatusCodes]
+-[TWTRAPINetworkErrorsShim firstNormalizedAPIErrorInResponseBody:]
+-[TWTRAPINetworkErrorsShim response]
+-[TWTRAPINetworkErrorsShim setResponse:]
+-[TWTRAPINetworkErrorsShim responseData]
+-[TWTRAPINetworkErrorsShim setResponseData:]
+-[TWTRAPINetworkErrorsShim .cxx_destruct]
+-[TWTRAPIResponseValidator validateResponse:data:error:]
+_OBJC_IVAR_$_TWTRAPINetworkErrorsShim._response
+_OBJC_IVAR_$_TWTRAPINetworkErrorsShim._responseData
+l_OBJC_PROTOCOL_$_TWTRNetworkingResponseValidating
+l_OBJC_LABEL_PROTOCOL_$_TWTRNetworkingResponseValidating
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAPINetworkErrorsShim.m
++[TWTRDateFormatters serverParsingDateFormatter]
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
++[TWTRDateFormatters HTTPDateHeaderParsingFormatter]
++[TWTRDateFormatters dayAndMonthDateFormatter]
++[TWTRDateFormatters systemLongDateFormatter]
++[TWTRDateFormatters shortHistoricalDateFormatter]
++[TWTRDateFormatters cache]
++[TWTRDateFormatters resetCache]
++[TWTRDateFormatters setLocale:]
++[TWTRDateFormatters locale]
+_internalCache
+_internalLocale
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRDateFormatters.m
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
++[TWTRGuestAuthRequestSigner signedURLRequest:session:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRGuestAuthRequestSigner.m
+-[TWTRKeychainWrapper initWithAccount:service:accessGroup:]
+___59-[TWTRKeychainWrapper initWithAccount:service:accessGroup:]_block_invoke
+___59-[TWTRKeychainWrapper initWithAccount:service:accessGroup:]_block_invoke.14
+___copy_helper_block_.15
+___destroy_helper_block_.16
+-[TWTRKeychainWrapper setObject:forKey:]
+-[TWTRKeychainWrapper objectForKey:]
+-[TWTRKeychainWrapper resetKeychainItem]
+-[TWTRKeychainWrapper dictionaryToSecItemFormat:]
+-[TWTRKeychainWrapper secItemFormatToDictionary:]
+-[TWTRKeychainWrapper writeToKeychain]
+___38-[TWTRKeychainWrapper writeToKeychain]_block_invoke
+___copy_helper_block_.49
+___destroy_helper_block_.50
+-[TWTRKeychainWrapper executeAccessGroupBlockWithBlock:withBlockToRunOnSimulator:]
+-[TWTRKeychainWrapper keychainItemData]
+-[TWTRKeychainWrapper setKeychainItemData:]
+-[TWTRKeychainWrapper genericPasswordQuery]
+-[TWTRKeychainWrapper setGenericPasswordQuery:]
+-[TWTRKeychainWrapper .cxx_destruct]
+_OBJC_IVAR_$_TWTRKeychainWrapper._genericPasswordQuery
+_OBJC_IVAR_$_TWTRKeychainWrapper._keychainItemData
+___block_descriptor_tmp.17
+___block_descriptor_tmp.51
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRKeychainWrapper.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRKeychainWrapper.h
+__38-[TWTRKeychainWrapper writeToKeychain]_block_invoke
+__59-[TWTRKeychainWrapper initWithAccount:service:accessGroup:]_block_invoke.14
+__59-[TWTRKeychainWrapper initWithAccount:service:accessGroup:]_block_invoke
+-[TWTRScribeClientEventNamespace initWithClient:page:section:component:element:action:]
++[TWTRScribeClientEventNamespace scribeKey]
+-[TWTRScribeClientEventNamespace dictionaryRepresentation]
++[TWTRScribeClientEventNamespace errorNamespace]
+-[TWTRScribeClientEventNamespace isEqual:]
+-[TWTRScribeClientEventNamespace hash]
+-[TWTRScribeClientEventNamespace description]
+-[TWTRScribeClientEventNamespace client]
+-[TWTRScribeClientEventNamespace page]
+-[TWTRScribeClientEventNamespace section]
+-[TWTRScribeClientEventNamespace component]
+-[TWTRScribeClientEventNamespace element]
+-[TWTRScribeClientEventNamespace action]
+-[TWTRScribeClientEventNamespace .cxx_destruct]
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._client
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._page
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._section
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._component
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._element
+_OBJC_IVAR_$_TWTRScribeClientEventNamespace._action
+l_OBJC_PROTOCOL_$_TWTRScribeSerializable
+l_OBJC_LABEL_PROTOCOL_$_TWTRScribeSerializable
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeClientEventNamespace.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeClientEventNamespace.h
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/TWTRConstants.m
+-[TWTRUserAPIClient initWithAuthConfig:authToken:authTokenSecret:]
+-[TWTRUserAPIClient GET:parameters:]
+-[TWTRUserAPIClient POST:parameters:]
+-[TWTRUserAPIClient DELETE:parameters:]
+-[TWTRUserAPIClient URLRequestWithMethod:URLString:parameters:]
++[TWTRUserAPIClient hostWithPortFromURL:]
+-[TWTRUserAPIClient authToken]
+-[TWTRUserAPIClient authTokenSecret]
+-[TWTRUserAPIClient .cxx_destruct]
+_OBJC_IVAR_$_TWTRUserAPIClient._authToken
+_OBJC_IVAR_$_TWTRUserAPIClient._authTokenSecret
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRUserAPIClient.m
+-[TWTRNetworking initWithAuthConfig:]
+-[TWTRNetworking URLRequestForGETMethodWithURLString:parameters:]
+-[TWTRNetworking URLRequestForPOSTMethodWithURLString:parameters:]
+-[TWTRNetworking URLRequestForDELETEMethodWithURLString:parameters:]
+-[TWTRNetworking sendAsynchronousRequest:completion:]
+___53-[TWTRNetworking sendAsynchronousRequest:completion:]_block_invoke
+___53-[TWTRNetworking sendAsynchronousRequest:completion:]_block_invoke_2
+___copy_helper_block_.22
+___destroy_helper_block_.23
++[TWTRNetworking URLSession]
+___28+[TWTRNetworking URLSession]_block_invoke
+___copy_helper_block_.43
+___destroy_helper_block_.44
++[TWTRNetworking defaultConfiguration]
++[TWTRNetworking defaultAdditionalHeaders]
+-[TWTRNetworking URLRequestWithMethod:URLString:parameters:]
+-[TWTRNetworking operationQueue]
+___32-[TWTRNetworking operationQueue]_block_invoke
+-[TWTRNetworking authConfig]
+-[TWTRNetworking .cxx_destruct]
+_OBJC_IVAR_$_TWTRNetworking._authConfig
+___block_descriptor_tmp.25
+_URLSession.URLSession
+_URLSession.onceToken
+___block_descriptor_tmp.45
+_operationQueue._operationQueue
+_operationQueue.onceToken
+___block_descriptor_tmp.110
+___block_literal_global
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRNetworking.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRNetworking.h
+__32-[TWTRNetworking operationQueue]_block_invoke
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/usr/include/dispatch/once.h
+__28+[TWTRNetworking URLSession]_block_invoke
+__53-[TWTRNetworking sendAsynchronousRequest:completion:]_block_invoke_2
+__53-[TWTRNetworking sendAsynchronousRequest:completion:]_block_invoke
+-[TWTRRequestSigningOperation init]
+-[TWTRRequestSigningOperation initWithPackage:success:cancel:]
+-[TWTRRequestSigningOperation main]
+-[TWTRRequestSigningOperation cancel]
+-[TWTRRequestSigningOperation invokeSuccessBlock:]
+-[TWTRRequestSigningOperation invokeCancelBlock]
+-[TWTRRequestSigningOperation didInvokeCompletionBlock]
+-[TWTRRequestSigningOperation signRequest:]
+-[TWTRRequestSigningOperation networkingPackage]
+-[TWTRRequestSigningOperation successCallbackToExecute]
+-[TWTRRequestSigningOperation setSuccessCallbackToExecute:]
+-[TWTRRequestSigningOperation cancelCallbackToExecute]
+-[TWTRRequestSigningOperation setCancelCallbackToExecute:]
+-[TWTRRequestSigningOperation .cxx_destruct]
+-[TWTRGuestRequestSigningOperation initWithPackage:sessionProvider:success:cancel:]
+-[TWTRGuestRequestSigningOperation signRequest:]
+-[TWTRGuestRequestSigningOperation sessionProvider]
+-[TWTRGuestRequestSigningOperation .cxx_destruct]
+-[TWTRUserRequestSigningOperation initWithPackage:sessionProvider:success:cancel:]
+-[TWTRUserRequestSigningOperation signRequest:]
+-[TWTRUserRequestSigningOperation sessionProvider]
+-[TWTRUserRequestSigningOperation .cxx_destruct]
+_OBJC_IVAR_$_TWTRRequestSigningOperation._networkingPackage
+_OBJC_IVAR_$_TWTRRequestSigningOperation._successCallbackToExecute
+_OBJC_IVAR_$_TWTRRequestSigningOperation._cancelCallbackToExecute
+_OBJC_IVAR_$_TWTRGuestRequestSigningOperation._sessionProvider
+_OBJC_IVAR_$_TWTRUserRequestSigningOperation._sessionProvider
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRRequestSigningOperation.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRRequestSigningOperation.h
++[TWTRColorUtil blackColor]
++[TWTRColorUtil whiteColor]
++[TWTRColorUtil blueColor]
+___26+[TWTRColorUtil blueColor]_block_invoke
++[TWTRColorUtil blueTextColor]
+___30+[TWTRColorUtil blueTextColor]_block_invoke
++[TWTRColorUtil lightBlueColor]
+___31+[TWTRColorUtil lightBlueColor]_block_invoke
++[TWTRColorUtil mediumBlueColor]
+___32+[TWTRColorUtil mediumBlueColor]_block_invoke
++[TWTRColorUtil darkBlueColor]
+___30+[TWTRColorUtil darkBlueColor]_block_invoke
++[TWTRColorUtil redColor]
+___25+[TWTRColorUtil redColor]_block_invoke
++[TWTRColorUtil darkRedColor]
+___29+[TWTRColorUtil darkRedColor]_block_invoke
++[TWTRColorUtil darkPurpleColor]
+___32+[TWTRColorUtil darkPurpleColor]_block_invoke
++[TWTRColorUtil deepPurpleColor]
+___32+[TWTRColorUtil deepPurpleColor]_block_invoke
++[TWTRColorUtil mediumPurpleColor]
+___34+[TWTRColorUtil mediumPurpleColor]_block_invoke
++[TWTRColorUtil grayColor]
+___26+[TWTRColorUtil grayColor]_block_invoke
++[TWTRColorUtil borderGrayColor]
+___32+[TWTRColorUtil borderGrayColor]_block_invoke
++[TWTRColorUtil darkBorderGrayColor]
+___36+[TWTRColorUtil darkBorderGrayColor]_block_invoke
++[TWTRColorUtil grayTextColor]
+___30+[TWTRColorUtil grayTextColor]_block_invoke
++[TWTRColorUtil darkGrayTextColor]
+___34+[TWTRColorUtil darkGrayTextColor]_block_invoke
++[TWTRColorUtil faintGrayColor]
+___31+[TWTRColorUtil faintGrayColor]_block_invoke
++[TWTRColorUtil mediumGrayColor]
+___32+[TWTRColorUtil mediumGrayColor]_block_invoke
++[TWTRColorUtil darkGrayColor]
+___30+[TWTRColorUtil darkGrayColor]_block_invoke
++[TWTRColorUtil textColor]
+___26+[TWTRColorUtil textColor]_block_invoke
++[TWTRColorUtil imagePlaceholderColor]
+___38+[TWTRColorUtil imagePlaceholderColor]_block_invoke
++[TWTRColorUtil hexWithColor:]
++[TWTRColorUtil colorFromHex:]
++[TWTRColorUtil imageWithColor:]
++[TWTRColorUtil isLightColor:]
++[TWTRColorUtil isLightColor:lightnessThreshold:]
++[TWTRColorUtil isOpaqueColor:]
++[TWTRColorUtil secondaryTextColorFromPrimaryTextColor:backgroundColor:]
++[TWTRColorUtil secondaryTextColorFromPrimaryTextColor:backgroundColor:minAlpha:maxAlpha:]
++[TWTRColorUtil mediaBackgroundColorFromBackgroundColor:]
++[TWTRColorUtil logoColorFromBackgroundColor:]
++[TWTRColorUtil contrastingTextColorFromBackgroundColor:]
++[TWTRColorUtil darkerColorForColor:lightnessLevel:]
++[TWTRColorUtil lighterColorForColor:lightnessLevel:]
+_blueColor.blueColor
+_blueColor.onceToken
+_blueTextColor.color
+_blueTextColor.onceToken
+___block_descriptor_tmp.6
+___block_literal_global.7
+_lightBlueColor.lightBlueColor
+_lightBlueColor.onceToken
+___block_descriptor_tmp.8
+___block_literal_global.9
+_mediumBlueColor.mediumBlueColor
+_mediumBlueColor.onceToken
+___block_descriptor_tmp.10
+___block_literal_global.11
+_darkBlueColor.darkBlueColor
+_darkBlueColor.onceToken
+___block_descriptor_tmp.12
+___block_literal_global.13
+_redColor.redColor
+_redColor.onceToken
+___block_descriptor_tmp.14
+___block_literal_global.15
+_darkRedColor.darkRedColor
+_darkRedColor.onceToken
+___block_descriptor_tmp.16
+___block_literal_global.17
+_darkPurpleColor.darkPurpleColor
+_darkPurpleColor.onceToken
+___block_descriptor_tmp.18
+___block_literal_global.19
+_deepPurpleColor.deepPurpleColor
+_deepPurpleColor.onceToken
+___block_descriptor_tmp.20
+___block_literal_global.21
+_mediumPurpleColor.mediumPurpleColor
+_mediumPurpleColor.onceToken
+___block_descriptor_tmp.22
+___block_literal_global.23
+_grayColor.grayColor
+_grayColor.onceToken
+___block_descriptor_tmp.24
+___block_literal_global.25
+_borderGrayColor.borderGrayColor
+_borderGrayColor.onceToken
+___block_descriptor_tmp.28
+___block_literal_global.29
+_darkBorderGrayColor.darkBorderGrayColor
+_darkBorderGrayColor.onceToken
+___block_descriptor_tmp.30
+___block_literal_global.31
+_grayTextColor.color
+_grayTextColor.onceToken
+___block_descriptor_tmp.32
+___block_literal_global.33
+_darkGrayTextColor.color
+_darkGrayTextColor.onceToken
+___block_descriptor_tmp.34
+___block_literal_global.35
+_faintGrayColor.faintGrayColor
+_faintGrayColor.onceToken
+___block_descriptor_tmp.36
+___block_literal_global.37
+_mediumGrayColor.mediumGrayColor
+_mediumGrayColor.onceToken
+___block_descriptor_tmp.38
+___block_literal_global.39
+_darkGrayColor.darkGrayColor
+_darkGrayColor.onceToken
+___block_literal_global.41
+_textColor.textColor
+_textColor.onceToken
+___block_descriptor_tmp.42
+___block_literal_global.43
+_imagePlaceholderColor.imagePlaceholderColor
+_imagePlaceholderColor.onceToken
+___block_descriptor_tmp.44
+___block_literal_global.45
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRColorUtil.m
+__38+[TWTRColorUtil imagePlaceholderColor]_block_invoke
+__26+[TWTRColorUtil textColor]_block_invoke
+__30+[TWTRColorUtil darkGrayColor]_block_invoke
+__32+[TWTRColorUtil mediumGrayColor]_block_invoke
+__31+[TWTRColorUtil faintGrayColor]_block_invoke
+__34+[TWTRColorUtil darkGrayTextColor]_block_invoke
+__30+[TWTRColorUtil grayTextColor]_block_invoke
+__36+[TWTRColorUtil darkBorderGrayColor]_block_invoke
+__32+[TWTRColorUtil borderGrayColor]_block_invoke
+__26+[TWTRColorUtil grayColor]_block_invoke
+__34+[TWTRColorUtil mediumPurpleColor]_block_invoke
+__32+[TWTRColorUtil deepPurpleColor]_block_invoke
+__32+[TWTRColorUtil darkPurpleColor]_block_invoke
+__29+[TWTRColorUtil darkRedColor]_block_invoke
+__25+[TWTRColorUtil redColor]_block_invoke
+__30+[TWTRColorUtil darkBlueColor]_block_invoke
+__32+[TWTRColorUtil mediumBlueColor]_block_invoke
+__31+[TWTRColorUtil lightBlueColor]_block_invoke
+__30+[TWTRColorUtil blueTextColor]_block_invoke
+__26+[TWTRColorUtil blueColor]_block_invoke
++[TWTRFileManager cacheDirectory]
+___33+[TWTRFileManager cacheDirectory]_block_invoke
++[TWTRFileManager createFileWithName:inDirectory:]
++[TWTRFileManager writeDictionary:toFileName:inDirectory:]
++[TWTRFileManager readDictionaryFromFileName:inDirectory:]
++[TWTRFileManager pathForFileName:inDirectory:]
+_cacheDirectory.dirPath
+_cacheDirectory.onceToken
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRFileManager.m
+__33+[TWTRFileManager cacheDirectory]_block_invoke
+-[TWTRGuestSessionRefreshStrategy initWithAuthConfig:APIServiceConfig:]
++[TWTRGuestSessionRefreshStrategy expiredStatusCodes]
+___53+[TWTRGuestSessionRefreshStrategy expiredStatusCodes]_block_invoke
++[TWTRGuestSessionRefreshStrategy canSupportSessionClass:]
++[TWTRGuestSessionRefreshStrategy isSessionExpiredBasedOnRequestResponse:]
++[TWTRGuestSessionRefreshStrategy isSessionExpiredBasedOnRequestError:]
+-[TWTRGuestSessionRefreshStrategy refreshSession:URLSession:completion:]
+___72-[TWTRGuestSessionRefreshStrategy refreshSession:URLSession:completion:]_block_invoke
+-[TWTRGuestSessionRefreshStrategy authConfig]
+-[TWTRGuestSessionRefreshStrategy accessToken]
+-[TWTRGuestSessionRefreshStrategy setAccessToken:]
+-[TWTRGuestSessionRefreshStrategy APIServiceConfig]
+-[TWTRGuestSessionRefreshStrategy .cxx_destruct]
+_OBJC_IVAR_$_TWTRGuestSessionRefreshStrategy._authConfig
+_OBJC_IVAR_$_TWTRGuestSessionRefreshStrategy._APIServiceConfig
+_expiredStatusCodes.validCodes
+_expiredStatusCodes.onceToken
+___block_descriptor_tmp.49
+_OBJC_IVAR_$_TWTRGuestSessionRefreshStrategy._accessToken
+l_OBJC_PROTOCOL_$_TWTRSessionRefreshStrategy
+l_OBJC_LABEL_PROTOCOL_$_TWTRSessionRefreshStrategy
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRSessionRefreshStrategy.m
+__72-[TWTRGuestSessionRefreshStrategy refreshSession:URLSession:completion:]_block_invoke
+__53+[TWTRGuestSessionRefreshStrategy expiredStatusCodes]_block_invoke
++[TFSScribe isDebugEnabled]
++[TFSScribe setDebugEnabled:]
+-[TFSScribe init]
+-[TFSScribe initWithStoreURL:]
+-[TFSScribe initWithStoreURL:modelURL:]
+-[TFSScribe open]
+-[TFSScribe openWithStartBlock:completionBlock:]
+___48-[TFSScribe openWithStartBlock:completionBlock:]_block_invoke
+-[TFSScribe close]
+-[TFSScribe closeWithStartBlock:completionBlock:]
+___49-[TFSScribe closeWithStartBlock:completionBlock:]_block_invoke
+___copy_helper_block_.33
+___destroy_helper_block_.34
+-[TFSScribe suspend]
+-[TFSScribe resume]
+-[TFSScribe enqueueEvent:]
+___26-[TFSScribe enqueueEvent:]_block_invoke
+___26-[TFSScribe enqueueEvent:]_block_invoke_2
+___copy_helper_block_.40
+___destroy_helper_block_.41
+___copy_helper_block_.46
+___destroy_helper_block_.47
+-[TFSScribe _enqueueEvent:timestamp:managedObjectContext:]
+___58-[TFSScribe _enqueueEvent:timestamp:managedObjectContext:]_block_invoke
+-[TFSScribe enqueueImpression:eventName:query:clientVersion:userID:]
+___68-[TFSScribe enqueueImpression:eventName:query:clientVersion:userID:]_block_invoke
+___68-[TFSScribe enqueueImpression:eventName:query:clientVersion:userID:]_block_invoke_2
+___copy_helper_block_.94
+___destroy_helper_block_.95
+___copy_helper_block_.97
+___destroy_helper_block_.98
+-[TFSScribe _enqueueImpression:eventName:query:clientVersion:timestamp:userID:managedObjectContext:]
+-[TFSScribe flushUserID:requestHandler:]
+-[TFSScribe flushUserID:token:requestHandler:]
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke_2
+___copy_helper_block_.110
+___destroy_helper_block_.111
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.113
+___copy_helper_block_.116
+___destroy_helper_block_.117
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.119
+___copy_helper_block_.120
+___destroy_helper_block_.121
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.123
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke_2.124
+___copy_helper_block_.127
+___destroy_helper_block_.128
+___46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.130
+___copy_helper_block_.131
+___destroy_helper_block_.132
+___copy_helper_block_.134
+___destroy_helper_block_.135
+___copy_helper_block_.140
+___destroy_helper_block_.141
+-[TFSScribe _batchImpressionsForUserID:requestHandler:managedObjectContext:]
+___76-[TFSScribe _batchImpressionsForUserID:requestHandler:managedObjectContext:]_block_invoke
+___copy_helper_block_.171
+___destroy_helper_block_.172
+___76-[TFSScribe _batchImpressionsForUserID:requestHandler:managedObjectContext:]_block_invoke.175
+___copy_helper_block_.178
+___destroy_helper_block_.179
+-[TFSScribe _flushEventsWithRequestID:userID:managedObjectContext:]
+___67-[TFSScribe _flushEventsWithRequestID:userID:managedObjectContext:]_block_invoke
+___copy_helper_block_.194
+___destroy_helper_block_.195
+___67-[TFSScribe _flushEventsWithRequestID:userID:managedObjectContext:]_block_invoke.207
+___copy_helper_block_.210
+___destroy_helper_block_.211
+-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]
+___82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke
+___copy_helper_block_.218
+___destroy_helper_block_.219
+___82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke.221
+___82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke_2
+___copy_helper_block_.227
+___destroy_helper_block_.228
+-[TFSScribe deleteUserID:]
+___26-[TFSScribe deleteUserID:]_block_invoke
+___26-[TFSScribe deleteUserID:]_block_invoke_2
+___copy_helper_block_.234
+___destroy_helper_block_.235
+___copy_helper_block_.237
+___destroy_helper_block_.238
+-[TFSScribe _deleteEventsForUserID:managedObjectContext:]
+___57-[TFSScribe _deleteEventsForUserID:managedObjectContext:]_block_invoke
+___copy_helper_block_.240
+___destroy_helper_block_.241
+-[TFSScribe _deleteImpressionsForUserID:managedObjectContext:]
+___62-[TFSScribe _deleteImpressionsForUserID:managedObjectContext:]_block_invoke
+___copy_helper_block_.243
+___destroy_helper_block_.244
+-[TFSScribe _setupManagedObjectContext]
+-[TFSScribe _performInManagedObjectContext:]
+___44-[TFSScribe _performInManagedObjectContext:]_block_invoke
+___copy_helper_block_.275
+___destroy_helper_block_.276
+-[TFSScribe _removePersistentStore]
+-[TFSScribe _resetScribeEvents]
+___31-[TFSScribe _resetScribeEvents]_block_invoke
+___31-[TFSScribe _resetScribeEvents]_block_invoke_2
+___copy_helper_block_.300
+___destroy_helper_block_.301
+-[TFSScribe _handleScribeError:]
+-[TFSScribe _modelURL]
+-[TFSScribe errorDelegate]
+-[TFSScribe setErrorDelegate:]
+-[TFSScribe .cxx_destruct]
+_OBJC_IVAR_$_TFSScribe._storeURL
+_OBJC_IVAR_$_TFSScribe._modelURL
+_OBJC_IVAR_$_TFSScribe._queue
+_OBJC_IVAR_$_TFSScribe._managedObjectContext
+___block_descriptor_tmp.35
+_OBJC_IVAR_$_TFSScribe._flags
+___block_descriptor_tmp.48
+___block_descriptor_tmp.96
+___block_descriptor_tmp.99
+_OBJC_IVAR_$_TFSScribe._requestID
+___block_descriptor_tmp.112
+___block_descriptor_tmp.118
+___block_descriptor_tmp.122
+___block_descriptor_tmp.129
+___block_descriptor_tmp.133
+___block_descriptor_tmp.137
+___block_descriptor_tmp.142
+___block_descriptor_tmp.174
+___block_descriptor_tmp.181
+___block_descriptor_tmp.197
+___block_descriptor_tmp.212
+___block_descriptor_tmp.220
+___block_descriptor_tmp.222
+___block_descriptor_tmp.229
+___block_descriptor_tmp.236
+___block_descriptor_tmp.239
+___block_descriptor_tmp.242
+___block_descriptor_tmp.245
+___block_descriptor_tmp.277
+___block_descriptor_tmp.298
+___block_literal_global.299
+___block_descriptor_tmp.302
+_OBJC_IVAR_$_TFSScribe._errorDelegate
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TFSScribe/TFSScribe.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TFSScribe/TFSScribe.h
+__31-[TFSScribe _resetScribeEvents]_block_invoke_2
+__31-[TFSScribe _resetScribeEvents]_block_invoke
+__44-[TFSScribe _performInManagedObjectContext:]_block_invoke
+__62-[TFSScribe _deleteImpressionsForUserID:managedObjectContext:]_block_invoke
+__57-[TFSScribe _deleteEventsForUserID:managedObjectContext:]_block_invoke
+__26-[TFSScribe deleteUserID:]_block_invoke_2
+__26-[TFSScribe deleteUserID:]_block_invoke
+__82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke_2
+__82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke.221
+__82-[TFSScribe _didFlushEventsWithRequestID:disposition:userID:managedObjectContext:]_block_invoke
+__67-[TFSScribe _flushEventsWithRequestID:userID:managedObjectContext:]_block_invoke.207
+__67-[TFSScribe _flushEventsWithRequestID:userID:managedObjectContext:]_block_invoke
+__76-[TFSScribe _batchImpressionsForUserID:requestHandler:managedObjectContext:]_block_invoke.175
+__76-[TFSScribe _batchImpressionsForUserID:requestHandler:managedObjectContext:]_block_invoke
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.130
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke_2.124
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.123
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.119
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke.113
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke_2
+__46-[TFSScribe flushUserID:token:requestHandler:]_block_invoke
+__68-[TFSScribe enqueueImpression:eventName:query:clientVersion:userID:]_block_invoke_2
+__68-[TFSScribe enqueueImpression:eventName:query:clientVersion:userID:]_block_invoke
+__58-[TFSScribe _enqueueEvent:timestamp:managedObjectContext:]_block_invoke
+__26-[TFSScribe enqueueEvent:]_block_invoke_2
+__26-[TFSScribe enqueueEvent:]_block_invoke
+__49-[TFSScribe closeWithStartBlock:completionBlock:]_block_invoke
+__48-[TFSScribe openWithStartBlock:completionBlock:]_block_invoke
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TFSScribe/TFSScribeEvent.m
++[TWTRResourcesUtil bundleWithBundlePath:]
++[TWTRResourcesUtil localizedBundleWithBundle:]
++[TWTRResourcesUtil localizedBundleWithBundlePath:]
++[TWTRResourcesUtil localizedStringForKey:bundlePath:]
++[TWTRResourcesUtil screenScale]
++[TWTRResourcesUtil deviceModel]
++[TWTRResourcesUtil OSVersionString]
++[TWTRResourcesUtil platform]
++[TWTRResourcesUtil setKitVersion:]
++[TWTRResourcesUtil userAgentFromKitBundle]
++[TWTRResourcesUtil localizedApplicationDisplayName]
++[TWTRResourcesUtil hostGetOSVersion]
++[TWTRResourcesUtil hostOSBuildVersion]
++[TWTRResourcesUtil hostSysctlEntry:]
+_kitVersion
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Resources/TWTRResourcesUtil.m
+-[TWTRAuthenticationProvider authenticateWithCompletion:]
++[TWTRAuthenticationProvider validateResponseWithResponse:data:connectionError:completion:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRAuthenticationProvider.m
+-[TWTRAuthConfig initWithConsumerKey:consumerSecret:]
+-[TWTRAuthConfig initWithCoder:]
+-[TWTRAuthConfig encodeWithCoder:]
+-[TWTRAuthConfig isEqual:]
+-[TWTRAuthConfig isEqualToAuthConfig:]
+-[TWTRAuthConfig hash]
+-[TWTRAuthConfig consumerKey]
+-[TWTRAuthConfig setConsumerKey:]
+-[TWTRAuthConfig consumerSecret]
+-[TWTRAuthConfig setConsumerSecret:]
+-[TWTRAuthConfig .cxx_destruct]
+_OBJC_IVAR_$_TWTRAuthConfig._consumerKey
+_OBJC_IVAR_$_TWTRAuthConfig._consumerSecret
+l_OBJC_PROTOCOL_$_NSCoding
+l_OBJC_LABEL_PROTOCOL_$_NSCoding
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAuthConfig.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAuthConfig.h
++[TWTRDateUtil isDateInCurrentYear:]
++[TWTRDateUtil accessibilityTextForDate:]
++[TWTRDateUtil isDate:withinInterval:fromDate:]
++[TWTRDateUtil date:isWithinSameUTCDayAsDate:]
++[TWTRDateUtil UTCDateWithYear:month:day:hour:minute:second:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRDateUtil.m
+-[TWTRUserSessionVerifier initWithDelegate:maxDesiredInterval:]
+-[TWTRUserSessionVerifier startVerificationAfterDelay:]
+___55-[TWTRUserSessionVerifier startVerificationAfterDelay:]_block_invoke
+-[TWTRUserSessionVerifier startVerification]
+-[TWTRUserSessionVerifier addHooksForFutureVerifications]
+-[TWTRUserSessionVerifier dealloc]
+-[TWTRUserSessionVerifier verifyNowIfNecessary]
+-[TWTRUserSessionVerifier isPastMaxDesiredInterval]
+-[TWTRUserSessionVerifier delegate]
+-[TWTRUserSessionVerifier setDelegate:]
+-[TWTRUserSessionVerifier maxDesiredInterval]
+-[TWTRUserSessionVerifier lastVerifiedTimestamp]
+-[TWTRUserSessionVerifier setLastVerifiedTimestamp:]
+-[TWTRUserSessionVerifier alreadyStarted]
+-[TWTRUserSessionVerifier setAlreadyStarted:]
+-[TWTRUserSessionVerifier .cxx_destruct]
+_OBJC_IVAR_$_TWTRUserSessionVerifier._delegate
+_OBJC_IVAR_$_TWTRUserSessionVerifier._maxDesiredInterval
+_OBJC_IVAR_$_TWTRUserSessionVerifier._alreadyStarted
+_OBJC_IVAR_$_TWTRUserSessionVerifier._lastVerifiedTimestamp
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRUserSessionVerifier.m
+__55-[TWTRUserSessionVerifier startVerificationAfterDelay:]_block_invoke
+-[TWTRGuestAuthProvider initWithAuthConfig:apiServiceConfig:accessToken:]
+-[TWTRGuestAuthProvider authenticateWithCompletion:]
+___52-[TWTRGuestAuthProvider authenticateWithCompletion:]_block_invoke
+___52-[TWTRGuestAuthProvider authenticateWithCompletion:]_block_invoke_2
+-[TWTRGuestAuthProvider activateNewGuestTokenRequest]
+-[TWTRGuestAuthProvider guestAuthResponseFromValidationResponseDictionary:]
+-[TWTRGuestAuthProvider apiServiceConfig]
+-[TWTRGuestAuthProvider authConfig]
+-[TWTRGuestAuthProvider accessToken]
+-[TWTRGuestAuthProvider appAPIClient]
+-[TWTRGuestAuthProvider setAppAPIClient:]
+-[TWTRGuestAuthProvider .cxx_destruct]
+_OBJC_IVAR_$_TWTRGuestAuthProvider._authConfig
+_OBJC_IVAR_$_TWTRGuestAuthProvider._apiServiceConfig
+_OBJC_IVAR_$_TWTRGuestAuthProvider._accessToken
+_OBJC_IVAR_$_TWTRGuestAuthProvider._appAPIClient
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRGuestAuthProvider.m
+__52-[TWTRGuestAuthProvider authenticateWithCompletion:]_block_invoke_2
+__52-[TWTRGuestAuthProvider authenticateWithCompletion:]_block_invoke
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRAuthenticationConstants.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAPIServiceConfig.m
+TWTRAPIURLWithParams
+TWTRAPIURLWithPath
+-[TWTRScribeMediaDetails initWithPublisherID:contentID:mediaType:]
++[TWTRScribeMediaDetails scribeKey]
+-[TWTRScribeMediaDetails dictionaryRepresentation]
+-[TWTRScribeMediaDetails publisherID]
+-[TWTRScribeMediaDetails contentID]
+-[TWTRScribeMediaDetails mediaType]
+-[TWTRScribeMediaDetails .cxx_destruct]
+_OBJC_IVAR_$_TWTRScribeMediaDetails._publisherID
+_OBJC_IVAR_$_TWTRScribeMediaDetails._contentID
+_OBJC_IVAR_$_TWTRScribeMediaDetails._mediaType
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeMediaDetails.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeMediaDetails.h
+_getASManager
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRIdentifier.m
+getASManager
+TWTRIdentifierForAdvertising
+isTrackingForAdvertisingEnabled
+isAdvertisingSupportFrameworkLinked
+-[TWTRScribeEvent init]
+-[TWTRScribeEvent initWithUserID:tweetID:category:eventNamespace:items:]
+-[TWTRScribeEvent initWithUserID:eventInfo:category:eventNamespace:items:]
+-[TWTRScribeEvent standardParameters]
+-[TWTRScribeEvent dictionaryRepresentation]
+-[TWTRScribeEvent data]
++[TWTRScribeEvent categoryStringFromEnum:]
+-[TWTRScribeEvent userID]
+-[TWTRScribeEvent tweetID]
+-[TWTRScribeEvent eventInfo]
+-[TWTRScribeEvent category]
+-[TWTRScribeEvent eventNamespace]
+-[TWTRScribeEvent items]
+-[TWTRScribeEvent timestamp]
+-[TWTRScribeEvent currentLanguage]
+-[TWTRScribeEvent .cxx_destruct]
+-[TWTRErrorScribeEvent dictionaryRepresentation]
+-[TWTRErrorScribeEvent initWithError:message:]
+-[TWTRErrorScribeEvent error]
+-[TWTRErrorScribeEvent errorMessage]
+-[TWTRErrorScribeEvent .cxx_destruct]
+_OBJC_IVAR_$_TWTRScribeEvent._userID
+_OBJC_IVAR_$_TWTRScribeEvent._tweetID
+_OBJC_IVAR_$_TWTRScribeEvent._category
+_OBJC_IVAR_$_TWTRScribeEvent._eventNamespace
+_OBJC_IVAR_$_TWTRScribeEvent._currentLanguage
+_OBJC_IVAR_$_TWTRScribeEvent._timestamp
+_OBJC_IVAR_$_TWTRScribeEvent._items
+_OBJC_IVAR_$_TWTRScribeEvent._eventInfo
+_OBJC_IVAR_$_TWTRErrorScribeEvent._error
+_OBJC_IVAR_$_TWTRErrorScribeEvent._errorMessage
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeEvent.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeEvent.h
+detailsForError
+errorDescription
+-[TWTRGenericKeychainQuery initWithService:account:genericValue:accessGroup:]
++[TWTRGenericKeychainQuery queryForAllItems]
++[TWTRGenericKeychainQuery queryForService:]
++[TWTRGenericKeychainQuery queryForAccount:]
++[TWTRGenericKeychainQuery queryForService:account:]
++[TWTRGenericKeychainQuery queryForGenericValue:]
++[TWTRGenericKeychainQuery queryForAccessGroup:]
+-[TWTRGenericKeychainQuery queryDictionary]
+___43-[TWTRGenericKeychainQuery queryDictionary]_block_invoke
+-[TWTRGenericKeychainQuery service]
+-[TWTRGenericKeychainQuery account]
+-[TWTRGenericKeychainQuery genericValue]
+-[TWTRGenericKeychainQuery accessGroup]
+-[TWTRGenericKeychainQuery .cxx_destruct]
+-[TWTRGenericKeychainItem initWithService:account:secret:]
+-[TWTRGenericKeychainItem initWithService:account:secret:genericValue:]
+-[TWTRGenericKeychainItem initWithService:account:secret:genericValue:accessGroup:]
++[TWTRGenericKeychainItem keychainItemFromRawObject:]
+-[TWTRGenericKeychainItem hash]
+-[TWTRGenericKeychainItem isEqual:]
+-[TWTRGenericKeychainItem isEqualToKeychainItem:]
++[TWTRGenericKeychainItem synchronouslyAccessKeychain:]
+___55+[TWTRGenericKeychainItem synchronouslyAccessKeychain:]_block_invoke
+___55+[TWTRGenericKeychainItem synchronouslyAccessKeychain:]_block_invoke_2
+___copy_helper_block_.77
+___destroy_helper_block_.78
+-[TWTRGenericKeychainItem storeInKeychain:]
+-[TWTRGenericKeychainItem storeInKeychainReplacingExisting:error:]
+___66-[TWTRGenericKeychainItem storeInKeychainReplacingExisting:error:]_block_invoke
+-[TWTRGenericKeychainItem removeFromKeychain:]
+___46-[TWTRGenericKeychainItem removeFromKeychain:]_block_invoke
+___copy_helper_block_.102
+___destroy_helper_block_.103
++[TWTRGenericKeychainItem removeAllItemsForQuery:error:]
+___56+[TWTRGenericKeychainItem removeAllItemsForQuery:error:]_block_invoke
+___copy_helper_block_.109
+___destroy_helper_block_.110
+-[TWTRGenericKeychainItem unsynchronizedRemoveFromKeychain:]
++[TWTRGenericKeychainItem unsynchronizedStoredItemsMatchingQuery:error:]
++[TWTRGenericKeychainItem storedItemsMatchingQuery:error:]
+___58+[TWTRGenericKeychainItem storedItemsMatchingQuery:error:]_block_invoke
++[TWTRGenericKeychainItem storedItemsMatchingQueryDictionary:error:]
+-[TWTRGenericKeychainItem fullRawRepresentation]
+-[TWTRGenericKeychainItem simpleRawRepresentation]
+-[TWTRGenericKeychainItem existingKeychainItem]
++[TWTRGenericKeychainItem errorWithStatus:]
++[TWTRGenericKeychainItem errorDescriptionForKeychainOsCode:]
+-[TWTRGenericKeychainItem service]
+-[TWTRGenericKeychainItem account]
+-[TWTRGenericKeychainItem secret]
+-[TWTRGenericKeychainItem genericValue]
+-[TWTRGenericKeychainItem lastSavedDate]
+-[TWTRGenericKeychainItem accessGroup]
+-[TWTRGenericKeychainItem .cxx_destruct]
+_OBJC_IVAR_$_TWTRGenericKeychainQuery._service
+_OBJC_IVAR_$_TWTRGenericKeychainQuery._account
+_OBJC_IVAR_$_TWTRGenericKeychainQuery._genericValue
+_OBJC_IVAR_$_TWTRGenericKeychainQuery._accessGroup
+_OBJC_IVAR_$_TWTRGenericKeychainItem._service
+_OBJC_IVAR_$_TWTRGenericKeychainItem._account
+_OBJC_IVAR_$_TWTRGenericKeychainItem._secret
+_OBJC_IVAR_$_TWTRGenericKeychainItem._genericValue
+_OBJC_IVAR_$_TWTRGenericKeychainItem._accessGroup
+_OBJC_IVAR_$_TWTRGenericKeychainItem._lastSavedDate
+_synchronouslyAccessKeychain:.queue
+_synchronouslyAccessKeychain:.onceToken
+___block_descriptor_tmp.76
+___block_descriptor_tmp.79
+___block_descriptor_tmp.104
+___block_descriptor_tmp.123
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRGenericKeychainItem.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRGenericKeychainItem.h
+__58+[TWTRGenericKeychainItem storedItemsMatchingQuery:error:]_block_invoke
+__56+[TWTRGenericKeychainItem removeAllItemsForQuery:error:]_block_invoke
+__46-[TWTRGenericKeychainItem removeFromKeychain:]_block_invoke
+__66-[TWTRGenericKeychainItem storeInKeychainReplacingExisting:error:]_block_invoke
+__55+[TWTRGenericKeychainItem synchronouslyAccessKeychain:]_block_invoke_2
+__55+[TWTRGenericKeychainItem synchronouslyAccessKeychain:]_block_invoke
+__43-[TWTRGenericKeychainQuery queryDictionary]_block_invoke
+-[TWTRNetworkingPipeline initWithURLSession:responseValidator:]
+-[TWTRNetworkingPipeline enqueueRequest:sessionStore:]
+-[TWTRNetworkingPipeline enqueueRequest:sessionStore:requestingUser:]
+-[TWTRNetworkingPipeline enqueueRequest:sessionStore:requestingUser:completion:]
+-[TWTRNetworkingPipeline userQueueForUser:]
+___43-[TWTRNetworkingPipeline userQueueForUser:]_block_invoke
+___43-[TWTRNetworkingPipeline userQueueForUser:]_block_invoke.29
+-[TWTRNetworkingPipeline enqueueGuestPackage:]
+-[TWTRNetworkingPipeline enqueueUserPackage:]
+-[TWTRNetworkingPipeline responseValidator]
+-[TWTRNetworkingPipeline userQueueLookupTable]
+-[TWTRNetworkingPipeline guestQueue]
+-[TWTRNetworkingPipeline URLSession]
+-[TWTRNetworkingPipeline .cxx_destruct]
+_OBJC_IVAR_$_TWTRNetworkingPipeline._guestQueue
+_OBJC_IVAR_$_TWTRNetworkingPipeline._userQueueLookupTable
+_OBJC_IVAR_$_TWTRNetworkingPipeline._URLSession
+_OBJC_IVAR_$_TWTRNetworkingPipeline._responseValidator
+_userQueueForUser:.serialQueue
+_userQueueForUser:.onceToken
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipeline.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipeline.h
+__43-[TWTRNetworkingPipeline userQueueForUser:]_block_invoke.29
+__43-[TWTRNetworkingPipeline userQueueForUser:]_block_invoke
++[TWTRCore bundleIdentifier]
++[TWTRCore kitDisplayVersion]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/TWTRCoreConstants.m
+-[TWTRAppAPIClient initWithAuthConfig:accessToken:]
+-[TWTRAppAPIClient URLRequestWithMethod:URLString:parameters:]
+-[TWTRAppAPIClient authHeaderValue]
+-[TWTRAppAPIClient accessToken]
+-[TWTRAppAPIClient setAccessToken:]
+-[TWTRAppAPIClient .cxx_destruct]
+_OBJC_IVAR_$_TWTRAppAPIClient._accessToken
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAppAPIClient.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TwitterAppAPIClient+Subclasses.h
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAppAPIClient.h
++[TWTRAPIServiceConfigRegistry defaultRegistry]
+___47+[TWTRAPIServiceConfigRegistry defaultRegistry]_block_invoke
+-[TWTRAPIServiceConfigRegistry init]
+-[TWTRAPIServiceConfigRegistry registerServiceConfig:forType:]
+-[TWTRAPIServiceConfigRegistry configForType:]
+-[TWTRAPIServiceConfigRegistry registeredConfigs]
+-[TWTRAPIServiceConfigRegistry .cxx_destruct]
+_defaultRegistry.registry
+_defaultRegistry.onceToken
+_OBJC_IVAR_$_TWTRAPIServiceConfigRegistry._registeredConfigs
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAPIServiceConfigRegistry.m
+__47+[TWTRAPIServiceConfigRegistry defaultRegistry]_block_invoke
+-[TWTRAuthConfigSessionsValidator initWithConfigStore:sessionStore:]
+-[TWTRAuthConfigSessionsValidator validateSessionStoreContainsValidAuthConfig]
+-[TWTRAuthConfigSessionsValidator doesSessionStoreNeedPurge]
+-[TWTRAuthConfigSessionsValidator purgeSessionsFromSessionStore]
+-[TWTRAuthConfigSessionsValidator configStore]
+-[TWTRAuthConfigSessionsValidator sessionStore]
+-[TWTRAuthConfigSessionsValidator .cxx_destruct]
+_OBJC_IVAR_$_TWTRAuthConfigSessionsValidator._configStore
+_OBJC_IVAR_$_TWTRAuthConfigSessionsValidator._sessionStore
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAuthConfigSessionsValidator.m
+-[TWTRScribeItem initWithItemType:itemID:]
+-[TWTRScribeItem initWithItemType:itemID:cardEvent:mediaDetails:]
+-[TWTRScribeItem initWithItemType:itemID:cardEvent:mediaDetails:filterDetails:]
++[TWTRScribeItem scribeKey]
+-[TWTRScribeItem dictionaryRepresentation]
+-[TWTRScribeItem itemType]
+-[TWTRScribeItem itemID]
+-[TWTRScribeItem cardEvent]
+-[TWTRScribeItem mediaDetails]
+-[TWTRScribeItem filterDetails]
+-[TWTRScribeItem .cxx_destruct]
+_OBJC_IVAR_$_TWTRScribeItem._itemType
+_OBJC_IVAR_$_TWTRScribeItem._cardEvent
+_OBJC_IVAR_$_TWTRScribeItem._itemID
+_OBJC_IVAR_$_TWTRScribeItem._mediaDetails
+_OBJC_IVAR_$_TWTRScribeItem._filterDetails
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeItem.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeItem.h
+-[TWTRScribeCardEvent initWithPromotionCardType:]
++[TWTRScribeCardEvent scribeKey]
+-[TWTRScribeCardEvent dictionaryRepresentation]
+-[TWTRScribeCardEvent promotionCardType]
+_OBJC_IVAR_$_TWTRScribeCardEvent._promotionCardType
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeCardEvent.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/Models/TWTRScribeCardEvent.h
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/API/TWTRAPIErrorCode.m
+-[TWTRTokenOnlyAuthSession initWithToken:secret:]
++[TWTRTokenOnlyAuthSession authSessionWithToken:secret:]
+-[TWTRTokenOnlyAuthSession initWithCoder:]
+-[TWTRTokenOnlyAuthSession encodeWithCoder:]
+-[TWTRTokenOnlyAuthSession authToken]
+-[TWTRTokenOnlyAuthSession authTokenSecret]
+-[TWTRTokenOnlyAuthSession userID]
+-[TWTRTokenOnlyAuthSession .cxx_destruct]
+_OBJC_IVAR_$_TWTRTokenOnlyAuthSession._authToken
+_OBJC_IVAR_$_TWTRTokenOnlyAuthSession._authTokenSecret
+_OBJC_IVAR_$_TWTRTokenOnlyAuthSession._userID
+l_OBJC_PROTOCOL_$_TWTRBaseSession
+l_OBJC_LABEL_PROTOCOL_$_TWTRBaseSession
+l_OBJC_PROTOCOL_$_TWTRAuthSession
+l_OBJC_LABEL_PROTOCOL_$_TWTRAuthSession
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRTokenOnlyAuthSession.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRTokenOnlyAuthSession.h
+-[TWTRURLSessionDelegate init]
+-[TWTRURLSessionDelegate URLSession:task:didReceiveChallenge:completionHandler:]
+-[TWTRURLSessionDelegate trustEvaluator]
+-[TWTRURLSessionDelegate .cxx_destruct]
+_OBJC_IVAR_$_TWTRURLSessionDelegate._trustEvaluator
+l_OBJC_PROTOCOL_$_NSURLSessionDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLSessionDelegate
+l_OBJC_PROTOCOL_$_NSURLSessionTaskDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLSessionTaskDelegate
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRURLSessionDelegate.m
+-[TWTRScribeFilterDetails initWithFilters:]
+-[TWTRScribeFilterDetails initWithRequestedTweets:totalFilters:totalFilteredTweets:]
++[TWTRScribeFilterDetails scribeKey]
+-[TWTRScribeFilterDetails stringRepresentation]
+-[TWTRScribeFilterDetails dictionaryRepresentation]
+-[TWTRScribeFilterDetails totalFilteredTweets]
+-[TWTRScribeFilterDetails setTotalFilteredTweets:]
+-[TWTRScribeFilterDetails requestedTweets]
+-[TWTRScribeFilterDetails setRequestedTweets:]
+-[TWTRScribeFilterDetails totalFilters]
+-[TWTRScribeFilterDetails setTotalFilters:]
+-[TWTRScribeFilterDetails scribeType]
+_OBJC_IVAR_$_TWTRScribeFilterDetails._scribeType
+_OBJC_IVAR_$_TWTRScribeFilterDetails._totalFilters
+_OBJC_IVAR_$_TWTRScribeFilterDetails._requestedTweets
+_OBJC_IVAR_$_TWTRScribeFilterDetails._totalFilteredTweets
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeFilterDetails.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TWTRScribeFilterDetails.h
++[TWTRNetworkingUtil queryStringFromParameters:]
++[TWTRNetworkingUtil percentEscapedQueryStringWithString:encoding:]
++[TWTRNetworkingUtil parametersFromQueryString:]
+___48+[TWTRNetworkingUtil parametersFromQueryString:]_block_invoke
++[TWTRNetworkingUtil percentUnescapedQueryStringWithString:encoding:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRNetworkingUtil.m
+__48+[TWTRNetworkingUtil parametersFromQueryString:]_block_invoke
++[TWTROAuth1aAuthRequestSigner signedURLRequest:authConfig:session:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTROAuth1aRequestSigner.m
+-[TWTRGCOAuth initWithConsumerKey:consumerSecret:accessToken:tokenSecret:]
+-[TWTRGCOAuth request]
+-[TWTRGCOAuth authorizationHeader]
+___34-[TWTRGCOAuth authorizationHeader]_block_invoke
+-[TWTRGCOAuth signature]
+-[TWTRGCOAuth signatureBase]
++[TWTRGCOAuth setUserAgent:]
++[TWTRGCOAuth setTimestampOffset:]
++[TWTRGCOAuth timestampOffset]
++[TWTRGCOAuth setHTTPShouldHandleCookies:]
++[TWTRGCOAuth nonce]
++[TWTRGCOAuth timeStamp]
++[TWTRGCOAuth queryStringFromParameters:]
+___41+[TWTRGCOAuth queryStringFromParameters:]_block_invoke
+___copy_helper_block_.147
+___destroy_helper_block_.148
++[TWTRGCOAuth URLRequestForPath:HTTPMethod:parameters:scheme:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestFromRequest:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:GETParameters:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:GETParameters:scheme:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:DELETEParameters:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:DELETEParameters:scheme:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:POSTParameters:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth URLRequestForPath:POSTParameters:scheme:host:consumerKey:consumerSecret:accessToken:tokenSecret:]
++[TWTRGCOAuth hostAndPortForURL:]
++[TWTRGCOAuth isMultipartFormRequest:]
++[TWTRGCOAuth isJSONRequest:]
+-[TWTRGCOAuth requestParameters]
+-[TWTRGCOAuth setRequestParameters:]
+-[TWTRGCOAuth HTTPMethod]
+-[TWTRGCOAuth setHTTPMethod:]
+-[TWTRGCOAuth URL]
+-[TWTRGCOAuth setURL:]
+-[TWTRGCOAuth .cxx_destruct]
+_TWTRGCOAuthUserAgent
+_OBJC_IVAR_$_TWTRGCOAuth.OAuthParameters
+_OBJC_IVAR_$_TWTRGCOAuth.signatureSecret
+_TWTRGCOAuthUseHTTPSCookieStorage
+_TWTRGCOAuthTimestampOffset
+___block_descriptor_tmp.149
+_OBJC_IVAR_$_TWTRGCOAuth.__parameters
+_OBJC_IVAR_$_TWTRGCOAuth.__method
+_OBJC_IVAR_$_TWTRGCOAuth.__url
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/ThirdParty/TWTRGCOAuth.m
+__41+[TWTRGCOAuth queryStringFromParameters:]_block_invoke
+__34-[TWTRGCOAuth authorizationHeader]_block_invoke
++[TWTRAppInstallationUUID appInstallationUUID]
+___46+[TWTRAppInstallationUUID appInstallationUUID]_block_invoke
+_appInstallationUUID.sUUIDString
+_appInstallationUUID.onceToken
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Resources/TWTRAppInstallationUUID.m
+__46+[TWTRAppInstallationUUID appInstallationUUID]_block_invoke
++[TWTRNetworkSessionProvider userSessionWithAuthConfig:APIServiceConfig:errorLogger:completion:]
+___96+[TWTRNetworkSessionProvider userSessionWithAuthConfig:APIServiceConfig:errorLogger:completion:]_block_invoke
++[TWTRNetworkSessionProvider verifyUserSession:withAuthConfig:APIServiceConfig:URLSession:completion:]
+___102+[TWTRNetworkSessionProvider verifyUserSession:withAuthConfig:APIServiceConfig:URLSession:completion:]_block_invoke
+___copy_helper_block_.34
+___destroy_helper_block_.35
++[TWTRNetworkSessionProvider verifySessionWithAuthToken:authSecret:withAuthConfig:APIServiceConfig:URLSession:completion:]
+___122+[TWTRNetworkSessionProvider verifySessionWithAuthToken:authSecret:withAuthConfig:APIServiceConfig:URLSession:completion:]_block_invoke
+___copy_helper_block_.48
+___destroy_helper_block_.49
++[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:URLSession:accessToken:completion:]
+___108+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:URLSession:accessToken:completion:]_block_invoke
+___copy_helper_block_.56
+___destroy_helper_block_.57
++[TWTRNetworkSessionProvider callUserCompletionWithResponseDict:withError:completion:]
+___86+[TWTRNetworkSessionProvider callUserCompletionWithResponseDict:withError:completion:]_block_invoke
+___copy_helper_block_.65
+___destroy_helper_block_.66
++[TWTRNetworkSessionProvider sessionWithResponseDict:]
++[TWTRNetworkSessionProvider appSessionWithAuthConfig:APIServiceConfig:completion:]
+___83+[TWTRNetworkSessionProvider appSessionWithAuthConfig:APIServiceConfig:completion:]_block_invoke
+___83+[TWTRNetworkSessionProvider appSessionWithAuthConfig:APIServiceConfig:completion:]_block_invoke_2
+___copy_helper_block_.80
+___destroy_helper_block_.81
++[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:accessToken:completion:]
+___97+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:accessToken:completion:]_block_invoke
+___97+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:accessToken:completion:]_block_invoke_2
+___copy_helper_block_.92
+___destroy_helper_block_.93
+___copy_helper_block_.95
+___destroy_helper_block_.96
++[TWTRNetworkSessionProvider callGuestCompletion:withSession:error:]
++[TWTRNetworkSessionProvider userSessionWithAuthToken:authTokenSecret:fromResponseData:]
+___block_descriptor_tmp.37
+___block_descriptor_tmp.68
+___block_descriptor_tmp.82
+___block_descriptor_tmp.94
+___block_descriptor_tmp.97
+l_OBJC_PROTOCOL_$_TWTRNetworkSessionProvider
+l_OBJC_LABEL_PROTOCOL_$_TWTRNetworkSessionProvider
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRNetworkSessionProvider.m
+__97+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:accessToken:completion:]_block_invoke_2
+__97+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:accessToken:completion:]_block_invoke
+__83+[TWTRNetworkSessionProvider appSessionWithAuthConfig:APIServiceConfig:completion:]_block_invoke_2
+__83+[TWTRNetworkSessionProvider appSessionWithAuthConfig:APIServiceConfig:completion:]_block_invoke
+__86+[TWTRNetworkSessionProvider callUserCompletionWithResponseDict:withError:completion:]_block_invoke
+__108+[TWTRNetworkSessionProvider guestSessionWithAuthConfig:APIServiceConfig:URLSession:accessToken:completion:]_block_invoke
+__122+[TWTRNetworkSessionProvider verifySessionWithAuthToken:authSecret:withAuthConfig:APIServiceConfig:URLSession:completion:]_block_invoke
+__102+[TWTRNetworkSessionProvider verifyUserSession:withAuthConfig:APIServiceConfig:URLSession:completion:]_block_invoke
+__96+[TWTRNetworkSessionProvider userSessionWithAuthConfig:APIServiceConfig:errorLogger:completion:]_block_invoke
+-[TWTRSessionStore initWithAuthConfig:APIServiceConfig:refreshStrategies:URLSession:errorLogger:]
+-[TWTRSessionStore initWithAuthConfig:APIServiceConfig:refreshStrategies:URLSession:errorLogger:accessGroup:]
+-[TWTRSessionStore reloadSessionStore]
+-[TWTRSessionStore saveSession:completion:]
+-[TWTRSessionStore saveSession:withVerification:completion:]
+___60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke
+___60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke_2
+___copy_helper_block_.37
+___destroy_helper_block_.38
+___60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke.43
+___copy_helper_block_.44
+___destroy_helper_block_.45
+-[TWTRSessionStore saveSessionWithAuthToken:authTokenSecret:completion:]
+___72-[TWTRSessionStore saveSessionWithAuthToken:authTokenSecret:completion:]_block_invoke
+___72-[TWTRSessionStore saveSessionWithAuthToken:authTokenSecret:completion:]_block_invoke_2
+___copy_helper_block_.51
+___destroy_helper_block_.52
+-[TWTRSessionStore sessionForUserID:]
+___37-[TWTRSessionStore sessionForUserID:]_block_invoke
+___copy_helper_block_.63
+___destroy_helper_block_.64
+-[TWTRSessionStore existingUserSessions]
+-[TWTRSessionStore hasLoggedInUsers]
+-[TWTRSessionStore session]
+-[TWTRSessionStore logInWithSystemAccountsCompletion:]
+___54-[TWTRSessionStore logInWithSystemAccountsCompletion:]_block_invoke
+___54-[TWTRSessionStore logInWithSystemAccountsCompletion:]_block_invoke_2
+___copy_helper_block_.79
+___destroy_helper_block_.80
+___copy_helper_block_.82
+___destroy_helper_block_.83
+-[TWTRSessionStore logOutUserID:]
+-[TWTRSessionStore fetchGuestSessionWithCompletion:]
+___52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke
+___copy_helper_block_.93
+___destroy_helper_block_.94
+___52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke.98
+___52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke_2
+___copy_helper_block_.101
+___destroy_helper_block_.102
+___copy_helper_block_.104
+___destroy_helper_block_.105
+-[TWTRSessionStore refreshSessionClass:sessionID:completion:]
+___61-[TWTRSessionStore refreshSessionClass:sessionID:completion:]_block_invoke
+___copy_helper_block_.175
+___destroy_helper_block_.176
+___61-[TWTRSessionStore refreshSessionClass:sessionID:completion:]_block_invoke.179
+___copy_helper_block_.182
+___destroy_helper_block_.183
+-[TWTRSessionStore isExpiredSession:response:]
+-[TWTRSessionStore isExpiredSession:error:]
+-[TWTRSessionStore isExpiredSession:response:error:]
+-[TWTRSessionStore sessionRefreshStrategyForSessionClass:]
++[TWTRSessionStore concurrentSessionQueue]
+___42+[TWTRSessionStore concurrentSessionQueue]_block_invoke
+-[TWTRSessionStore guestSessionServiceName]
+-[TWTRSessionStore userSessionServiceName]
+-[TWTRSessionStore namespacedServiceNameWithName:]
+-[TWTRSessionStore guestSession]
+___32-[TWTRSessionStore guestSession]_block_invoke
+___copy_helper_block_.215
+___destroy_helper_block_.216
+-[TWTRSessionStore setGuestSession:]
+___36-[TWTRSessionStore setGuestSession:]_block_invoke
+___copy_helper_block_.220
+___destroy_helper_block_.221
+-[TWTRSessionStore unsafeSetGuestSession:]
+-[TWTRSessionStore guestSessionQuery]
+-[TWTRSessionStore sessionWithSessionID:]
+___41-[TWTRSessionStore sessionWithSessionID:]_block_invoke
+___copy_helper_block_.235
+___destroy_helper_block_.236
+-[TWTRSessionStore removeSessionWithSessionID:]
+___47-[TWTRSessionStore removeSessionWithSessionID:]_block_invoke
+___copy_helper_block_.242
+___destroy_helper_block_.243
+-[TWTRSessionStore storeSession:]
+___33-[TWTRSessionStore storeSession:]_block_invoke
+___copy_helper_block_.251
+___destroy_helper_block_.252
+-[TWTRSessionStore allUserSessions]
+___35-[TWTRSessionStore allUserSessions]_block_invoke
+___copy_helper_block_.256
+___destroy_helper_block_.257
+-[TWTRSessionStore userSessionQueryWithID:]
+-[TWTRSessionStore saveOauthToken:]
+-[TWTRSessionStore isValidOauthToken:]
+-[TWTRSessionStore primeWriteThroughCaches]
+___43-[TWTRSessionStore primeWriteThroughCaches]_block_invoke
+___copy_helper_block_.267
+___destroy_helper_block_.268
+-[TWTRSessionStore unsafePrimeGuestSessionCache]
+-[TWTRSessionStore unsafePrimeUserSessionCache]
+-[TWTRSessionStore unsafeCacheSession:]
+-[TWTRSessionStore unsafeAllCachedUserSessions]
+-[TWTRSessionStore unsafeCachedSessionWithSessionID:]
+-[TWTRSessionStore unsafePurgeCachedSessionWithSessionID:]
+-[TWTRSessionStore indexOfCachedSessionWithSessionID:]
+___54-[TWTRSessionStore indexOfCachedSessionWithSessionID:]_block_invoke
+___copy_helper_block_.288
+___destroy_helper_block_.289
+-[TWTRSessionStore unsafePersistAuthSession:]
+-[TWTRSessionStore unsafePersistGuestSession:]
+-[TWTRSessionStore unsafePersistSession:service:sessionID:]
+-[TWTRSessionStore saveKeychainItem:]
+-[TWTRSessionStore unsafeDeleteUserSessionWithSessionID:]
+-[TWTRSessionStore unsafeDeleteGuestSession]
+-[TWTRSessionStore unsafeDeleteSessionForService:sessionID:]
+-[TWTRSessionStore unsafeLoadAllUserSessions]
+___45-[TWTRSessionStore unsafeLoadAllUserSessions]_block_invoke
+-[TWTRSessionStore unsafeLoadGuestSession]
+___42-[TWTRSessionStore unsafeLoadGuestSession]_block_invoke
+-[TWTRSessionStore unsafeLoadSessionsWithQuery:passingTest:]
+-[TWTRSessionStore keychainItemsMatchingQuery:]
+-[TWTRSessionStore transformedKeychainItems:passingTest:]
+___57-[TWTRSessionStore transformedKeychainItems:passingTest:]_block_invoke
+___57-[TWTRSessionStore transformedKeychainItems:passingTest:]_block_invoke_2
+___copy_helper_block_.359
+___destroy_helper_block_.360
+-[TWTRSessionStore updateKeychainItemsAccessGroupIfNeeded:]
+-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]
+___65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke
+___65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke_2
+___65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke_3
+___copy_helper_block_.378
+___destroy_helper_block_.379
+___copy_helper_block_.381
+___destroy_helper_block_.382
+___65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke.385
+___copy_helper_block_.386
+___destroy_helper_block_.387
+___copy_helper_block_.389
+___destroy_helper_block_.390
+___65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke.397
+___copy_helper_block_.398
+___destroy_helper_block_.399
+-[TWTRSessionStore refreshGuestSessionWithStrategy:completion:]
+___63-[TWTRSessionStore refreshGuestSessionWithStrategy:completion:]_block_invoke
+___63-[TWTRSessionStore refreshGuestSessionWithStrategy:completion:]_block_invoke_2
+___copy_helper_block_.402
+___destroy_helper_block_.403
+___copy_helper_block_.405
+___destroy_helper_block_.406
+-[TWTRSessionStore destroyAllSessions]
+-[TWTRSessionStore authConfig]
+-[TWTRSessionStore URLSession]
+-[TWTRSessionStore authSessionCache]
+-[TWTRSessionStore setAuthSessionCache:]
+-[TWTRSessionStore refreshStrategies]
+-[TWTRSessionStore accessGroup]
+-[TWTRSessionStore oauthToken]
+-[TWTRSessionStore setOauthToken:]
+-[TWTRSessionStore errorLogger]
+-[TWTRSessionStore APIServiceConfig]
+-[TWTRSessionStore userLogoutHook]
+-[TWTRSessionStore setUserLogoutHook:]
+-[TWTRSessionStore userSessionSavedCompletion]
+-[TWTRSessionStore setUserSessionSavedCompletion:]
+-[TWTRSessionStore .cxx_destruct]
+_OBJC_IVAR_$_TWTRSessionStore._APIServiceConfig
+_OBJC_IVAR_$_TWTRSessionStore._authConfig
+_OBJC_IVAR_$_TWTRSessionStore._accessGroup
+_OBJC_IVAR_$_TWTRSessionStore._errorLogger
+_OBJC_IVAR_$_TWTRSessionStore._authSessionCache
+_OBJC_IVAR_$_TWTRSessionStore._refreshStrategies
+_OBJC_IVAR_$_TWTRSessionStore._URLSession
+___block_descriptor_tmp.46
+___block_descriptor_tmp.50
+___block_descriptor_tmp.53
+___block_descriptor_tmp.66
+___block_descriptor_tmp.81
+___block_descriptor_tmp.84
+___block_descriptor_tmp.95
+___block_descriptor_tmp.103
+___block_descriptor_tmp.107
+l_OBJC_PROTOCOL_REFERENCE_$_TWTRAuthSession
+___block_descriptor_tmp.178
+___block_descriptor_tmp.184
+_concurrentSessionQueue.queue
+_concurrentSessionQueue.onceToken
+___block_descriptor_tmp.202
+_OBJC_IVAR_$_TWTRSessionStore._guestSession
+___block_descriptor_tmp.217
+___block_descriptor_tmp.237
+___block_descriptor_tmp.244
+___block_descriptor_tmp.253
+___block_descriptor_tmp.258
+_OBJC_IVAR_$_TWTRSessionStore._oauthToken
+___block_descriptor_tmp.269
+___block_descriptor_tmp.290
+___block_descriptor_tmp.317
+___block_literal_global.318
+___block_descriptor_tmp.323
+___block_literal_global.324
+___block_descriptor_tmp.350
+___block_literal_global.351
+___block_descriptor_tmp.362
+___block_descriptor_tmp.380
+___block_descriptor_tmp.384
+___block_descriptor_tmp.388
+___block_descriptor_tmp.392
+___block_descriptor_tmp.400
+___block_descriptor_tmp.404
+___block_descriptor_tmp.407
+_OBJC_IVAR_$_TWTRSessionStore._userLogoutHook
+_OBJC_IVAR_$_TWTRSessionStore._userSessionSavedCompletion
+l_OBJC_PROTOCOL_$_TWTRUserSessionStore
+l_OBJC_LABEL_PROTOCOL_$_TWTRUserSessionStore
+l_OBJC_PROTOCOL_$_TWTRGuestSessionStore
+l_OBJC_LABEL_PROTOCOL_$_TWTRGuestSessionStore
+l_OBJC_PROTOCOL_$_TWTRSessionRefreshingStore
+l_OBJC_LABEL_PROTOCOL_$_TWTRSessionRefreshingStore
+l_OBJC_PROTOCOL_$_TWTRSessionStore
+l_OBJC_LABEL_PROTOCOL_$_TWTRSessionStore
+l_OBJC_PROTOCOL_$_TWTRUserSessionStore_Private
+l_OBJC_LABEL_PROTOCOL_$_TWTRUserSessionStore_Private
+l_OBJC_PROTOCOL_$_TWTRSessionStore_Private
+l_OBJC_LABEL_PROTOCOL_$_TWTRSessionStore_Private
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRSessionStore.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRSessionStore_Private.h
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/V2/TWTRSessionStore.h
+__63-[TWTRSessionStore refreshGuestSessionWithStrategy:completion:]_block_invoke_2
+__63-[TWTRSessionStore refreshGuestSessionWithStrategy:completion:]_block_invoke
+__65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke.397
+__65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke.385
+__65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke_3
+__65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke_2
+__65-[TWTRSessionStore refreshAuthSessionID:withStrategy:completion:]_block_invoke
+__57-[TWTRSessionStore transformedKeychainItems:passingTest:]_block_invoke_2
+__57-[TWTRSessionStore transformedKeychainItems:passingTest:]_block_invoke
+__42-[TWTRSessionStore unsafeLoadGuestSession]_block_invoke
+__45-[TWTRSessionStore unsafeLoadAllUserSessions]_block_invoke
+__54-[TWTRSessionStore indexOfCachedSessionWithSessionID:]_block_invoke
+__43-[TWTRSessionStore primeWriteThroughCaches]_block_invoke
+__35-[TWTRSessionStore allUserSessions]_block_invoke
+__33-[TWTRSessionStore storeSession:]_block_invoke
+__47-[TWTRSessionStore removeSessionWithSessionID:]_block_invoke
+__41-[TWTRSessionStore sessionWithSessionID:]_block_invoke
+__36-[TWTRSessionStore setGuestSession:]_block_invoke
+__32-[TWTRSessionStore guestSession]_block_invoke
+__42+[TWTRSessionStore concurrentSessionQueue]_block_invoke
+__61-[TWTRSessionStore refreshSessionClass:sessionID:completion:]_block_invoke.179
+__61-[TWTRSessionStore refreshSessionClass:sessionID:completion:]_block_invoke
+__52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke_2
+__52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke.98
+__52-[TWTRSessionStore fetchGuestSessionWithCompletion:]_block_invoke
+__54-[TWTRSessionStore logInWithSystemAccountsCompletion:]_block_invoke_2
+__54-[TWTRSessionStore logInWithSystemAccountsCompletion:]_block_invoke
+__37-[TWTRSessionStore sessionForUserID:]_block_invoke
+__72-[TWTRSessionStore saveSessionWithAuthToken:authTokenSecret:completion:]_block_invoke_2
+__72-[TWTRSessionStore saveSessionWithAuthToken:authTokenSecret:completion:]_block_invoke
+__60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke.43
+__60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke_2
+__60-[TWTRSessionStore saveSession:withVerification:completion:]_block_invoke
+-[TWTRNetworkingPipelineQueue initWithType:URLSession:responseValidator:]
++[TWTRNetworkingPipelineQueue guestPipelineQueueWithURLSession:responseValidator:]
++[TWTRNetworkingPipelineQueue userPipelineQueueWithURLSession:responseValidator:]
+-[TWTRNetworkingPipelineQueue enqueuePipelinePackage:]
+___54-[TWTRNetworkingPipelineQueue enqueuePipelinePackage:]_block_invoke
+-[TWTRNetworkingPipelineQueue setSession:]
+-[TWTRNetworkingPipelineQueue requestSigningOperationWithPackage:]
+-[TWTRNetworkingPipelineQueue guestRequestSigningOperationWithPackage:successBlock:cancelBlock:]
+___96-[TWTRNetworkingPipelineQueue guestRequestSigningOperationWithPackage:successBlock:cancelBlock:]_block_invoke
+-[TWTRNetworkingPipelineQueue userRequestSigningOperationWithPackage:successBlock:cancelBlock:]
+___95-[TWTRNetworkingPipelineQueue userRequestSigningOperationWithPackage:successBlock:cancelBlock:]_block_invoke
+-[TWTRNetworkingPipelineQueue requestSigningSuccessBlock:]
+___58-[TWTRNetworkingPipelineQueue requestSigningSuccessBlock:]_block_invoke
+___copy_helper_block_.69
+___destroy_helper_block_.70
+-[TWTRNetworkingPipelineQueue requestSigningCancelBlock:]
+___57-[TWTRNetworkingPipelineQueue requestSigningCancelBlock:]_block_invoke
+___copy_helper_block_.75
+___destroy_helper_block_.76
+-[TWTRNetworkingPipelineQueue fetchSessionIfNeededForPackage:]
+___62-[TWTRNetworkingPipelineQueue fetchSessionIfNeededForPackage:]_block_invoke
+___copy_helper_block_.86
+___destroy_helper_block_.87
+-[TWTRNetworkingPipelineQueue cancelAllPendingRequests]
+-[TWTRNetworkingPipelineQueue fetchSessionForPackage:]
+___54-[TWTRNetworkingPipelineQueue fetchSessionForPackage:]_block_invoke
+___54-[TWTRNetworkingPipelineQueue fetchSessionForPackage:]_block_invoke.101
+-[TWTRNetworkingPipelineQueue refreshSession:forPackage:]
+___57-[TWTRNetworkingPipelineQueue refreshSession:forPackage:]_block_invoke
+___57-[TWTRNetworkingPipelineQueue refreshSession:forPackage:]_block_invoke_2
+___copy_helper_block_.126
+___destroy_helper_block_.127
+___copy_helper_block_.133
+___destroy_helper_block_.134
+-[TWTRNetworkingPipelineQueue handleSessionStoreResponse:error:]
+___64-[TWTRNetworkingPipelineQueue handleSessionStoreResponse:error:]_block_invoke
+-[TWTRNetworkingPipelineQueue beginFetchingOrRefreshingSession]
+-[TWTRNetworkingPipelineQueue endFetchingOrRefreshingSession]
+-[TWTRNetworkingPipelineQueue appendInFlightTask:forPackage:]
+___61-[TWTRNetworkingPipelineQueue appendInFlightTask:forPackage:]_block_invoke
+___copy_helper_block_.153
+___destroy_helper_block_.154
+-[TWTRNetworkingPipelineQueue markPackageAsCancelled:]
+___54-[TWTRNetworkingPipelineQueue markPackageAsCancelled:]_block_invoke
+___copy_helper_block_.170
+___destroy_helper_block_.171
+-[TWTRNetworkingPipelineQueue isPackageCancelled:shouldRemoveIfNecessary:]
+___74-[TWTRNetworkingPipelineQueue isPackageCancelled:shouldRemoveIfNecessary:]_block_invoke
+-[TWTRNetworkingPipelineQueue withCancellationSupportQueueAsync:]
+-[TWTRNetworkingPipelineQueue withCancellationSupportQueueSync:]
+-[TWTRNetworkingPipelineQueue sendRequestForPackage:withSignedRequest:]
+___71-[TWTRNetworkingPipelineQueue sendRequestForPackage:withSignedRequest:]_block_invoke
+___copy_helper_block_.195
+___destroy_helper_block_.196
+-[TWTRNetworkingPipelineQueue packageRequest:session:didReceiveError:]
+-[TWTRNetworkingPipelineQueue packageRequest:session:didReceiveResponse:data:]
+-[TWTRNetworkingPipelineQueue invokeCancelCallbackForPackage:]
+-[TWTRNetworkingPipelineQueue invokeCallbackForPackage:withData:response:error:]
+-[TWTRNetworkingPipelineQueue validateResponse:data:error:]
+-[TWTRNetworkingPipelineQueue syncLocalTime:]
++[TWTRNetworkingPipelineQueue sessionFetchFailureError]
++[TWTRNetworkingPipelineQueue fetchCancelledErrorForPackage:]
+-[TWTRNetworkingPipelineQueue queueType]
+-[TWTRNetworkingPipelineQueue responseValidator]
+-[TWTRNetworkingPipelineQueue serialAccessQueue]
+-[TWTRNetworkingPipelineQueue cancellationSupportQueue]
+-[TWTRNetworkingPipelineQueue isFetchingSession]
+-[TWTRNetworkingPipelineQueue setFetchingSession:]
+-[TWTRNetworkingPipelineQueue session]
+-[TWTRNetworkingPipelineQueue sessionFetchError]
+-[TWTRNetworkingPipelineQueue setSessionFetchError:]
+-[TWTRNetworkingPipelineQueue operationQueue]
+-[TWTRNetworkingPipelineQueue URLSession]
+-[TWTRNetworkingPipelineQueue inFlightTasks]
+-[TWTRNetworkingPipelineQueue invokedPackages]
+-[TWTRNetworkingPipelineQueue pendingCancellations]
+-[TWTRNetworkingPipelineQueue logNetworkRequest]
+-[TWTRNetworkingPipelineQueue .cxx_destruct]
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._URLSession
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._queueType
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._serialAccessQueue
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._operationQueue
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._responseValidator
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._invokedPackages
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._inFlightTasks
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._pendingCancellations
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._cancellationSupportQueue
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._logNetworkRequest
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._session
+___block_descriptor_tmp.65
+___block_descriptor_tmp.72
+___block_descriptor_tmp.77
+___block_descriptor_tmp.98
+___block_descriptor_tmp.128
+___block_descriptor_tmp.135
+___block_descriptor_tmp.155
+___block_descriptor_tmp.172
+___block_descriptor_tmp.177
+___block_descriptor_tmp.198
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._fetchingSession
+_OBJC_IVAR_$_TWTRNetworkingPipelineQueue._sessionFetchError
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipelineQueue.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipelineQueue.h
+__71-[TWTRNetworkingPipelineQueue sendRequestForPackage:withSignedRequest:]_block_invoke
+__74-[TWTRNetworkingPipelineQueue isPackageCancelled:shouldRemoveIfNecessary:]_block_invoke
+__54-[TWTRNetworkingPipelineQueue markPackageAsCancelled:]_block_invoke
+__61-[TWTRNetworkingPipelineQueue appendInFlightTask:forPackage:]_block_invoke
+__64-[TWTRNetworkingPipelineQueue handleSessionStoreResponse:error:]_block_invoke
+__57-[TWTRNetworkingPipelineQueue refreshSession:forPackage:]_block_invoke_2
+__57-[TWTRNetworkingPipelineQueue refreshSession:forPackage:]_block_invoke
+__54-[TWTRNetworkingPipelineQueue fetchSessionForPackage:]_block_invoke.101
+__54-[TWTRNetworkingPipelineQueue fetchSessionForPackage:]_block_invoke
+__62-[TWTRNetworkingPipelineQueue fetchSessionIfNeededForPackage:]_block_invoke
+__57-[TWTRNetworkingPipelineQueue requestSigningCancelBlock:]_block_invoke
+__58-[TWTRNetworkingPipelineQueue requestSigningSuccessBlock:]_block_invoke
+__95-[TWTRNetworkingPipelineQueue userRequestSigningOperationWithPackage:successBlock:cancelBlock:]_block_invoke
+__96-[TWTRNetworkingPipelineQueue guestRequestSigningOperationWithPackage:successBlock:cancelBlock:]_block_invoke
+__54-[TWTRNetworkingPipelineQueue enqueuePipelinePackage:]_block_invoke
+-[TWTRAuthConfigStore initWithNameSpace:]
+-[TWTRAuthConfigStore saveAuthConfig:]
+-[TWTRAuthConfigStore lastSavedAuthConfig]
+-[TWTRAuthConfigStore forgetAuthConfig]
+-[TWTRAuthConfigStore nameSpacedServiceKey]
+-[TWTRAuthConfigStore nameSpacedAccountKey]
+-[TWTRAuthConfigStore authConfigQuery]
+-[TWTRAuthConfigStore persistAuthConfig:withKeychainItem:]
+-[TWTRAuthConfigStore nameSpace]
+-[TWTRAuthConfigStore .cxx_destruct]
+_OBJC_IVAR_$_TWTRAuthConfigStore._nameSpace
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAuthConfigStore.m
++[TWTRCoreLanguage preferredLanguage]
+___37+[TWTRCoreLanguage preferredLanguage]_block_invoke
+_preferredLanguage.preferred
+_preferredLanguage.onceToken
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Resources/TWTRCoreLanguage.m
+__37+[TWTRCoreLanguage preferredLanguage]_block_invoke
+-[TWTRSession initWithSessionDictionary:]
+-[TWTRSession initWithSSOResponse:]
+-[TWTRSession initWithAuthToken:authTokenSecret:userName:userID:]
++[TWTRSession isValidSessionDictionary:]
+___40+[TWTRSession isValidSessionDictionary:]_block_invoke
+-[TWTRSession dictionaryRepresentation]
+-[TWTRSession initWithCoder:]
+-[TWTRSession encodeWithCoder:]
+-[TWTRSession hash]
+-[TWTRSession isEqual:]
+-[TWTRSession isEqualToSession:]
+-[TWTRSession debugDescription]
+-[TWTRSession authToken]
+-[TWTRSession authTokenSecret]
+-[TWTRSession userName]
+-[TWTRSession userID]
+-[TWTRSession .cxx_destruct]
+_OBJC_IVAR_$_TWTRSession._authToken
+_OBJC_IVAR_$_TWTRSession._authTokenSecret
+_OBJC_IVAR_$_TWTRSession._userName
+_OBJC_IVAR_$_TWTRSession._userID
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRSession.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRSession.h
+__40+[TWTRSession isValidSessionDictionary:]_block_invoke
+-[TWTRX509Certificate initWithCertificate:]
+-[TWTRX509Certificate fingerprint]
+-[TWTRX509Certificate publicKey]
+-[TWTRX509Certificate parseSequenceLength:offset:length:]
+-[TWTRX509Certificate findEnclosingSequence:offset:]
+-[TWTRX509Certificate findRsaOidOffset:length:]
+-[TWTRX509Certificate dealloc]
+-[TWTRX509Certificate .cxx_destruct]
+_OBJC_IVAR_$_TWTRX509Certificate._certificateDataRef
+_OBJC_IVAR_$_TWTRX509Certificate._certificateLength
+_OBJC_IVAR_$_TWTRX509Certificate._certificateBytes
+_OBJC_IVAR_$_TWTRX509Certificate._fingerprint
+_OBJC_IVAR_$_TWTRX509Certificate._publicKey
+_RSA_OID_BYTES
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Security/TWTRX509Certificate.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Analytics/TFSScribe/TFSScribeImpression.m
+-[TWTRAppleSocialAuthenticaticationProvider initWithAuthConfig:apiServiceConfig:errorLogger:]
+-[TWTRAppleSocialAuthenticaticationProvider authenticateWithCompletion:]
+___72-[TWTRAppleSocialAuthenticaticationProvider authenticateWithCompletion:]_block_invoke
+___72-[TWTRAppleSocialAuthenticaticationProvider authenticateWithCompletion:]_block_invoke_2
+___copy_helper_block_.45
+___destroy_helper_block_.46
+-[TWTRAppleSocialAuthenticaticationProvider requestAccessForTwitterAccountsWithCompletion:]
+___91-[TWTRAppleSocialAuthenticaticationProvider requestAccessForTwitterAccountsWithCompletion:]_block_invoke
+___91-[TWTRAppleSocialAuthenticaticationProvider requestAccessForTwitterAccountsWithCompletion:]_block_invoke_2
+___copy_helper_block_.55
+___destroy_helper_block_.56
+___copy_helper_block_.58
+___destroy_helper_block_.59
+-[TWTRAppleSocialAuthenticaticationProvider getTwitterAccounts]
+-[TWTRAppleSocialAuthenticaticationProvider performTwitterRequestWithURL:parameters:account:completion:]
+-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:completion:]
+___80-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:completion:]_block_invoke
+___copy_helper_block_.108
+___destroy_helper_block_.109
+-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:withAuthToken:completion:]
+___94-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:withAuthToken:completion:]_block_invoke
+___copy_helper_block_.136
+___destroy_helper_block_.137
+-[TWTRAppleSocialAuthenticaticationProvider showActionSheetWithCompletion:]
+___75-[TWTRAppleSocialAuthenticaticationProvider showActionSheetWithCompletion:]_block_invoke
+___copy_helper_block_.150
+___destroy_helper_block_.151
+-[TWTRAppleSocialAuthenticaticationProvider actionSheet]
+-[TWTRAppleSocialAuthenticaticationProvider actionSheet:clickedButtonAtIndex:]
+-[TWTRAppleSocialAuthenticaticationProvider actionSheetCancel:]
+-[TWTRAppleSocialAuthenticaticationProvider accountStore]
+-[TWTRAppleSocialAuthenticaticationProvider accounts]
+-[TWTRAppleSocialAuthenticaticationProvider setAccounts:]
+-[TWTRAppleSocialAuthenticaticationProvider authConfig]
+-[TWTRAppleSocialAuthenticaticationProvider errorLogger]
+-[TWTRAppleSocialAuthenticaticationProvider apiServiceConfig]
+-[TWTRAppleSocialAuthenticaticationProvider twitterClient]
+-[TWTRAppleSocialAuthenticaticationProvider .cxx_destruct]
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._authConfig
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._accountStore
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._apiServiceConfig
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._errorLogger
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._twitterClient
+___block_descriptor_tmp.57
+___block_descriptor_tmp.60
+___block_descriptor_tmp.111
+___block_descriptor_tmp.139
+___block_descriptor_tmp.152
+_OBJC_IVAR_$_TWTRAppleSocialAuthenticaticationProvider._accounts
+l_OBJC_PROTOCOL_$_UIActionSheetDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIActionSheetDelegate
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRAppleSocialAuthenticaticationProvider.m
+__75-[TWTRAppleSocialAuthenticaticationProvider showActionSheetWithCompletion:]_block_invoke
+__94-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:withAuthToken:completion:]_block_invoke
+__80-[TWTRAppleSocialAuthenticaticationProvider getAuthTokenWithAccount:completion:]_block_invoke
+__91-[TWTRAppleSocialAuthenticaticationProvider requestAccessForTwitterAccountsWithCompletion:]_block_invoke_2
+__91-[TWTRAppleSocialAuthenticaticationProvider requestAccessForTwitterAccountsWithCompletion:]_block_invoke
+__72-[TWTRAppleSocialAuthenticaticationProvider authenticateWithCompletion:]_block_invoke_2
+__72-[TWTRAppleSocialAuthenticaticationProvider authenticateWithCompletion:]_block_invoke
+-[TWTRAPIDateSync initWithHTTPResponse:]
+-[TWTRAPIDateSync sync]
+-[TWTRAPIDateSync response]
+-[TWTRAPIDateSync setResponse:]
+-[TWTRAPIDateSync .cxx_destruct]
+_OBJC_IVAR_$_TWTRAPIDateSync._response
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/TWTRAPIDateSync.m
++[TWTRDictUtil twtr_arrayForKey:inDict:]
++[TWTRDictUtil twtr_CGFloatForKey:inDict:]
++[TWTRDictUtil twtr_doubleForKey:inDict:]
++[TWTRDictUtil twtr_boolForKey:inDict:]
++[TWTRDictUtil twtr_intForKey:inDict:]
++[TWTRDictUtil twtr_longlongForKey:inDict:]
++[TWTRDictUtil twtr_unsignedIntegerForKey:inDict:]
++[TWTRDictUtil twtr_stringFromNumberForKey:inDict:]
++[TWTRDictUtil twtr_objectForKey:inDict:]
++[TWTRDictUtil twtr_stringForKey:inDict:]
++[TWTRDictUtil twtr_dateForKey:inDict:]
++[TWTRDictUtil twtr_dictForKey:inDict:]
++[TWTRDictUtil twtr_numberForKey:inDict:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRDictUtil.m
++[TWTRMultiThreadUtil assertMainThread]
++[TWTRMultiThreadUtil warnForBackgroundThreadUsage]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRMultiThreadUtil.m
++[TWTRAuthenticator authenticationResponseForAuthType:]
++[TWTRAuthenticator logoutAuthType:]
++[TWTRAuthenticator saveAuthenticationWithDictionary:forAuthType:error:]
++[TWTRAuthenticator keychainWrapperForAuthType:]
++[TWTRAuthenticator readAuthDirectoryForAuthType:]
++[TWTRAuthenticator authTypeStringForAuthType:]
++[TWTRAuthenticator keychainAccountStringForAuthType:]
++[TWTRAuthenticator authPlistFilenameForAuthType:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRAuthenticator.m
+-[TWTRGuestSession initWithSessionDictionary:]
+-[TWTRGuestSession initWithSessionDictionary:creationDate:]
+-[TWTRGuestSession initWithAccessToken:guestToken:]
+-[TWTRGuestSession initWithAccessToken:guestToken:creationDate:]
+-[TWTRGuestSession hash]
+-[TWTRGuestSession isEqual:]
+-[TWTRGuestSession isEqualToGuestSession:]
+-[TWTRGuestSession debugDescription]
+-[TWTRGuestSession probablyNeedsRefreshing]
+-[TWTRGuestSession initWithCoder:]
+-[TWTRGuestSession encodeWithCoder:]
+-[TWTRGuestSession accessToken]
+-[TWTRGuestSession guestToken]
+-[TWTRGuestSession creationDate]
+-[TWTRGuestSession .cxx_destruct]
+_OBJC_IVAR_$_TWTRGuestSession._accessToken
+_OBJC_IVAR_$_TWTRGuestSession._guestToken
+_OBJC_IVAR_$_TWTRGuestSession._creationDate
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRGuestSession.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRGuestSession.h
++[TWTRUtils dictionaryWithQueryString:]
++[TWTRUtils queryStringFromDictionary:]
++[TWTRUtils urlEncodedStringForString:]
++[TWTRUtils urlDecodedStringForString:]
++[TWTRUtils base64EncodedStringWithData:]
++[TWTRUtils mainAppWindow]
++[TWTRUtils topViewController]
++[TWTRUtils topViewControllerWithRootViewController:]
++[TWTRUtils localizedLongAppName]
++[TWTRUtils localizedShortAppName]
++[TWTRUtils isEqualOrBothNil:other:]
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Utilities/TWTRUtils.m
+-[TWTRNetworkingPipelinePackage initWithRequest:sessionStore:userID:completion:]
+-[TWTRNetworkingPipelinePackage copyForRetry]
++[TWTRNetworkingPipelinePackage packageWithRequest:sessionStore:userID:completion:]
+-[TWTRNetworkingPipelinePackage copyWithZone:]
+-[TWTRNetworkingPipelinePackage request]
+-[TWTRNetworkingPipelinePackage sessionStore]
+-[TWTRNetworkingPipelinePackage userID]
+-[TWTRNetworkingPipelinePackage callback]
+-[TWTRNetworkingPipelinePackage attemptCounter]
+-[TWTRNetworkingPipelinePackage setAttemptCounter:]
+-[TWTRNetworkingPipelinePackage UUID]
+-[TWTRNetworkingPipelinePackage .cxx_destruct]
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._request
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._sessionStore
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._userID
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._callback
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._attemptCounter
+_OBJC_IVAR_$_TWTRNetworkingPipelinePackage._UUID
+l_OBJC_PROTOCOL_$_NSCopying
+l_OBJC_LABEL_PROTOCOL_$_NSCopying
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipelinePackage.m
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Pipeline/TWTRNetworkingPipelinePackage.h
++[TWTRServerTrustEvaluator initialize]
+___38+[TWTRServerTrustEvaluator initialize]_block_invoke
+-[TWTRServerTrustEvaluator evaluateServerTrust:forDomain:]
++[TWTRServerTrustEvaluator isPinnedSPKI:]
++[TWTRServerTrustEvaluator hexDecode:decoded:]
++[TWTRServerTrustEvaluator isCertificateChainCached:]
++[TWTRServerTrustEvaluator cacheValidCertificateChain:]
+-[TWTRServerTrustEvaluator pinnedPublicKeys]
+-[TWTRServerTrustEvaluator setPinnedPublicKeys:]
+-[TWTRServerTrustEvaluator .cxx_destruct]
+_initialize.onceToken
+_TWTRCertificateCache
+_TWTR_TWITTER_PINS
+_OBJC_IVAR_$_TWTRServerTrustEvaluator._pinnedPublicKeys
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Networking/Security/TWTRServerTrustEvaluator.m
+__38+[TWTRServerTrustEvaluator initialize]_block_invoke
+-[TWTRAppAuthProvider initWithAuthConfig:apiServiceConfig:]
+-[TWTRAppAuthProvider authenticateWithCompletion:]
+___50-[TWTRAppAuthProvider authenticateWithCompletion:]_block_invoke
+-[TWTRAppAuthProvider appAuthTokenRequest]
+-[TWTRAppAuthProvider base64EncodedBasicAuthHeader]
+-[TWTRAppAuthProvider authConfig]
+-[TWTRAppAuthProvider apiServiceConfig]
+-[TWTRAppAuthProvider networkingClient]
+-[TWTRAppAuthProvider setNetworkingClient:]
+-[TWTRAppAuthProvider .cxx_destruct]
+_OBJC_IVAR_$_TWTRAppAuthProvider._authConfig
+_OBJC_IVAR_$_TWTRAppAuthProvider._apiServiceConfig
+_OBJC_IVAR_$_TWTRAppAuthProvider._networkingClient
+/Users/rajularora/Dev/twitter-kit-apple/sdk/TwitterCore/TwitterCore/Identity/TWTRAppAuthProvider.m
+__50-[TWTRAppAuthProvider authenticateWithCompletion:]_block_invoke
