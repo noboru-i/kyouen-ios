@@ -12,7 +12,7 @@
 
 ## How to add library
 
-Add to Carthfile / Podfile.
+Add library to Carthfile or Podfile.
 
 ```
 carthage update --platform iOS --no-use-binaries --cache-builds
