@@ -1,0 +1,22 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "3.3.0",
+  "iOS" : [
+    {
+      "name" : "TwitterShareExtensionUI",
+      "hash" : "deafd8fd4c49d5bd0632d6c2357b4c9ca1f44d23d93152551899fb5ceeb97e01"
+    },
+    {
+      "name" : "TwitterKit",
+      "hash" : "6c7109580706231add55228d7ef8383ed346abee58bfbe285552f5613260b5c2"
+    }
+  ]
+}

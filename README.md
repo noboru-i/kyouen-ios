@@ -9,3 +9,13 @@
 1. update `CFBundleShortVersionString` by Xcode.
 2. merge to master branch.
 3. create tag. name mast be `vN.N.N` format.
+
+## How to add library
+
+Add library to Carthfile or Podfile.
+
+```
+carthage update --platform iOS --no-use-binaries --cache-builds
+bundle exec pod install
+license-plist --output-path TumeKyouen/Resources/Settings.bundle
+```

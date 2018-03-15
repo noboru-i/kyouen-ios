@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "3.1.0",
+  "iOS" : [
+    {
+      "name" : "TwitterCore",
+      "hash" : "80860af08f9b33b0fc995932afa21e48655ae0af8a09a4a0444ad67c66249b7d"
+    }
+  ]
+}
