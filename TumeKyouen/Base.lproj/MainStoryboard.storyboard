@@ -19,7 +19,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TumeKyouen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afL-oT-hP3">
-                                <rect key="frame" x="120" y="124" width="141" height="29"/>
+                                <rect key="frame" x="117.66666666666669" y="124" width="140" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="gi1-zL-M01"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -147,10 +150,9 @@
                             <constraint firstItem="liz-OA-lDZ" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="LMa-rf-8Pm"/>
                             <constraint firstItem="liz-OA-lDZ" firstAttribute="bottom" secondItem="fuw-k3-mVu" secondAttribute="bottom" id="OQ0-pO-JFM"/>
                             <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="141" id="ZM2-75-q2D"/>
-                            <constraint firstItem="fuw-k3-mVu" firstAttribute="trailing" secondItem="afL-oT-hP3" secondAttribute="trailing" constant="114" id="cJL-JC-cNc"/>
-                            <constraint firstItem="afL-oT-hP3" firstAttribute="leading" secondItem="fuw-k3-mVu" secondAttribute="leading" constant="120" id="hfj-fU-kgi"/>
                             <constraint firstItem="fuw-k3-mVu" firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
                             <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
+                            <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="leH-uV-1ED"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="fuw-k3-mVu" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
                             <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
