@@ -91,7 +91,7 @@ platform :ios do
       skip_waiting_for_build_processing: true
     )
 
-    version = get_info_plist_value(path: plist_file_path, key: 'CFBundleShortVersionString')
+    version = get_info_plist_value(path: PLIST_FILE_PATH, key: 'CFBundleShortVersionString')
     set_github_release(
       repository_name: "#{ENV['CIRCLE_PROJECT_USERNAME']}/#{ENV['CIRCLE_PROJECT_REPONAME']}",
       api_token: ENV['GITHUB_ACCESS_TOKEN'],
