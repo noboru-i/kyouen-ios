@@ -23,4 +23,10 @@ class AdMobUtil {
 
         bannerView.load(GADRequest())
     }
+
+    class func applyUnitId(bannerView: GADBannerView, controller: UIViewController) {
+        bannerView.adUnitID = "a15122454742422"
+        bannerView.rootViewController = controller
+        bannerView.load(GADRequest())
+    }
 }

@@ -7,12 +7,14 @@
 //
 
 import SVProgressHUD
+import GoogleMobileAds
 
 class KyouenViewController: UIViewController {
     @IBOutlet private weak var mPrevButton: UIButton!
     @IBOutlet private weak var mNextButton: UIButton!
     @IBOutlet private weak var mStageNo: UILabel!
     @IBOutlet private weak var mCreator: UILabel!
+    @IBOutlet private weak var bannerView: GADBannerView!
     @IBOutlet private weak var mKyouenImageView1: KyouenImageView!
     @IBOutlet private weak var mKyouenImageView2: KyouenImageView!
     @IBOutlet private weak var mOverlayKyouenView: OverlayKyouenView!
@@ -31,7 +33,7 @@ class KyouenViewController: UIViewController {
         ]
         view.layer.insertSublayer(gradient, at: 0)
 
-        AdMobUtil.show(self)
+        AdMobUtil.applyUnitId(bannerView: bannerView, controller: self)
     }
 
     override func viewDidLayoutSubviews() {

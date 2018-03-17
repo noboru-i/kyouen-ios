@@ -46,6 +46,8 @@
 	<string>7o7Mn96LxBHSPomoXdK8Yw</string>
 	<key>TWITTER_CONSUMER_SECRET</key>
 	<string>zN2xVBE7QqjS3tJLEH8MPmzIpa9FQ3gWDclSALCMBE</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIRequiredDeviceCapabilities</key>

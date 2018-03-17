@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHJ-b6-MhR">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,25 +14,24 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="TitleViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="92N-fl-bZT"/>
-                        <viewControllerLayoutGuide type="bottom" id="DcR-Kc-9aH"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TumeKyouen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afL-oT-hP3">
-                                <rect key="frame" x="90" y="100" width="140" height="29"/>
+                                <rect key="frame" x="117.66666666666669" y="124" width="140" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="gi1-zL-M01"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="120" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEa-3G-MJv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="60" y="260" width="200" height="44"/>
+                                <rect key="frame" x="87" y="294" width="200" height="44"/>
                                 <accessibility key="accessibilityConfiguration" identifier="TITLE_01"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="QM7-l0-fzz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="QM7-l0-fzz"/>
                                     <constraint firstAttribute="height" constant="44" id="pXc-FY-6zn"/>
                                 </constraints>
                                 <state key="normal" title="Start">
@@ -53,16 +53,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" placeholderIntrinsicWidth="65" placeholderIntrinsicHeight="21" text="0000/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-Fz-0B5">
-                                <rect key="frame" x="233" y="312" width="65" height="21"/>
+                                <rect key="frame" x="260" y="346" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="60" y="349" width="200" height="44"/>
+                                <rect key="frame" x="88" y="383" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5YG-cY-gar"/>
-                                    <constraint firstAttribute="width" constant="200" id="oeM-iu-rxY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="oeM-iu-rxY"/>
                                 </constraints>
                                 <state key="normal" title="Get stages">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,9 +84,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-He-KSv" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <rect key="frame" x="88" y="435" width="200" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8cP-M7-3DM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="8cP-M7-3DM"/>
                                     <constraint firstAttribute="height" constant="44" id="aBf-u4-69F"/>
                                 </constraints>
                                 <state key="normal" title="Sign in with twitter">
@@ -109,9 +109,9 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="60" y="401" width="200" height="44"/>
+                                <rect key="frame" x="88" y="435" width="200" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="9c2-V7-yBS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="9c2-V7-yBS"/>
                                     <constraint firstAttribute="height" constant="44" id="HoR-IQ-hAb"/>
                                 </constraints>
                                 <state key="normal" title="Sync cleared info">
@@ -133,25 +133,37 @@
                                     <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liz-OA-lDZ" customClass="GADBannerView">
+                                <rect key="frame" x="27" y="728" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5MW-76-RNw"/>
+                                    <constraint firstAttribute="width" constant="320" id="fMl-SS-gWb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" id="3Jz-Zv-3a1"/>
-                            <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="131" id="7eG-pR-8Lp"/>
-                            <constraint firstAttribute="centerX" secondItem="4H9-9j-SQX" secondAttribute="centerX" id="Hfa-df-qKT"/>
-                            <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="92N-fl-bZT" secondAttribute="bottom" constant="36" id="ZgT-x1-4es"/>
-                            <constraint firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
+                            <constraint firstItem="fuw-k3-mVu" firstAttribute="centerX" secondItem="uEa-3G-MJv" secondAttribute="centerX" id="3Jz-Zv-3a1"/>
+                            <constraint firstItem="afL-oT-hP3" firstAttribute="top" secondItem="fuw-k3-mVu" secondAttribute="top" constant="36" id="4HH-0z-GHP"/>
+                            <constraint firstItem="fuw-k3-mVu" firstAttribute="centerX" secondItem="4H9-9j-SQX" secondAttribute="centerX" id="Hfa-df-qKT"/>
+                            <constraint firstItem="liz-OA-lDZ" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="LMa-rf-8Pm"/>
+                            <constraint firstItem="liz-OA-lDZ" firstAttribute="bottom" secondItem="fuw-k3-mVu" secondAttribute="bottom" id="OQ0-pO-JFM"/>
+                            <constraint firstItem="uEa-3G-MJv" firstAttribute="top" secondItem="afL-oT-hP3" secondAttribute="bottom" constant="141" id="ZM2-75-q2D"/>
+                            <constraint firstItem="fuw-k3-mVu" firstAttribute="centerX" secondItem="AOV-He-KSv" secondAttribute="centerX" id="hhT-19-ifH"/>
                             <constraint firstItem="AOV-He-KSv" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="hko-6A-0jY"/>
-                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
+                            <constraint firstItem="afL-oT-hP3" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="leH-uV-1ED"/>
+                            <constraint firstItem="aLh-Fz-0B5" firstAttribute="centerX" secondItem="fuw-k3-mVu" secondAttribute="centerX" constant="105" id="oGK-Wt-fxu"/>
                             <constraint firstItem="4H9-9j-SQX" firstAttribute="top" secondItem="aLh-Fz-0B5" secondAttribute="bottom" constant="16" id="qiY-fM-Bup"/>
-                            <constraint firstAttribute="centerX" secondItem="afL-oT-hP3" secondAttribute="centerX" id="ql8-Cv-zCJ"/>
                             <constraint firstItem="aLh-Fz-0B5" firstAttribute="top" secondItem="uEa-3G-MJv" secondAttribute="bottom" constant="8" id="vdE-GV-xge"/>
                             <constraint firstItem="yfo-Eg-GFX" firstAttribute="top" secondItem="4H9-9j-SQX" secondAttribute="bottom" constant="8" id="wcE-41-NId"/>
-                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="xQm-SK-sFE"/>
+                            <constraint firstItem="yfo-Eg-GFX" firstAttribute="centerX" secondItem="fuw-k3-mVu" secondAttribute="centerX" id="xQm-SK-sFE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="fuw-k3-mVu"/>
                     </view>
                     <navigationItem key="navigationItem" id="sJP-uf-2ZN"/>
                     <connections>
+                        <outlet property="bannerView" destination="liz-OA-lDZ" id="D0B-0g-qO1"/>
                         <outlet property="stageCountLabel" destination="aLh-Fz-0B5" id="Gyb-fJ-dR2"/>
                         <outlet property="syncButton" destination="yfo-Eg-GFX" id="ClF-bS-K9E"/>
                         <outlet property="twitterButton" destination="AOV-He-KSv" id="9iW-h7-FdG"/>
@@ -168,7 +180,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="w6H-c4-19t">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

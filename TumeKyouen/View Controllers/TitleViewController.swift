@@ -10,11 +10,13 @@ import UIKit
 import QuartzCore
 import Accounts
 import SVProgressHUD
+import GoogleMobileAds
 
 class TitleViewController: UIViewController {
     @IBOutlet private weak var twitterButton: UIButton!
     @IBOutlet private weak var syncButton: UIButton!
     @IBOutlet private weak var stageCountLabel: UILabel!
+    @IBOutlet private weak var bannerView: GADBannerView!
 
     private var accountStore: ACAccountStore! = nil
     private var accounts = [ACAccount]()
@@ -32,7 +34,7 @@ class TitleViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
 
         // AdMob
-        AdMobUtil.show(self)
+        AdMobUtil.applyUnitId(bannerView: bannerView, controller: self)
 
         sendTwitterAccount()
     }
