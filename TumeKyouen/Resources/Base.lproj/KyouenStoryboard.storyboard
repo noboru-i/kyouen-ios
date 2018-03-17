@@ -61,7 +61,7 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" text="created by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-zV-4tR" userLabel="Creator">
                                         <rect key="frame" x="62.666666666666657" y="44" width="249.99999999999997" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="QpX-uh-dVw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="QpX-uh-dVw"/>
                                             <constraint firstAttribute="height" constant="16" id="s10-GI-60J"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
