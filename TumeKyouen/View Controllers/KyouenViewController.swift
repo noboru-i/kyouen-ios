@@ -10,14 +10,14 @@ import SVProgressHUD
 import GoogleMobileAds
 
 class KyouenViewController: UIViewController {
-    @IBOutlet private weak var mPrevButton: UIButton!
-    @IBOutlet private weak var mNextButton: UIButton!
-    @IBOutlet private weak var mStageNo: UILabel!
-    @IBOutlet private weak var mCreator: UILabel!
+    @IBOutlet private weak var prevButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var stageNoLabel: UILabel!
+    @IBOutlet private weak var creatorLabel: UILabel!
     @IBOutlet private weak var bannerView: GADBannerView!
-    @IBOutlet private weak var mKyouenImageView1: KyouenImageView!
-    @IBOutlet private weak var mKyouenImageView2: KyouenImageView!
-    @IBOutlet private weak var mOverlayKyouenView: OverlayKyouenView!
+    @IBOutlet private weak var kyouenImageView1: KyouenImageView!
+    @IBOutlet private weak var kyouenImageView2: KyouenImageView!
+    @IBOutlet private weak var overlayKyouenView: OverlayKyouenView!
 
     var currentModel: TumeKyouenModel!
 
@@ -40,7 +40,7 @@ class KyouenViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         // 初期化
-        setStage(currentModel, to: mKyouenImageView1!)
+        setStage(currentModel, to: kyouenImageView1!)
     }
 
     // MARK: - actions
@@ -55,7 +55,7 @@ class KyouenViewController: UIViewController {
     }
 
     @IBAction private func checkKyouen(_: AnyObject) {
-        let model = GameModel(size: Int(truncating: currentModel.size), stage: mKyouenImageView1.getCurrentStage())
+        let model = GameModel(size: Int(truncating: currentModel.size), stage: kyouenImageView1.getCurrentStage())
         // 4つ選択されているかのチェック
         if model.getStoneCount(2) != 4 {
             let alert = UIAlertController.alert("alert_less_stone")
@@ -66,7 +66,7 @@ class KyouenViewController: UIViewController {
 
         // 共円のチェック
         guard let kyouenData = model.isKyouen() else {
-            setStage(currentModel, to: mKyouenImageView1)
+            setStage(currentModel, to: kyouenImageView1)
             let alert = UIAlertController.alert("alert_not_kyouen")
             present(alert, animated: true, completion: nil)
             Analytics.sendKyouenEvent(.notKyouen, stageNo: currentModel.stageNo)
@@ -75,9 +75,9 @@ class KyouenViewController: UIViewController {
 
         // 共円の場合
         TumeKyouenDao().updateClearFlag(currentModel)
-        mStageNo.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
-        mOverlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel)
-        mOverlayKyouenView.layer.zPosition = 3
+        stageNoLabel.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
+        overlayKyouenView.drawKyouen(kyouenData, tumeKyouenModel: currentModel)
+        overlayKyouenView.layer.zPosition = 3
 
         let alert = UIAlertController(title: NSLocalizedString("kyouen", comment: ""),
             message: nil,
@@ -153,14 +153,14 @@ class KyouenViewController: UIViewController {
     }
 
     private func setStageWithAnimation(_ model: TumeKyouenModel, direction: Int) {
-        let currentImageView = self.mKyouenImageView1!
-        let nextImageView = self.mKyouenImageView2!
+        let currentImageView = self.kyouenImageView1!
+        let nextImageView = self.kyouenImageView2!
         nextImageView.alpha = 1.0
         setStage(model, to: nextImageView)
 
         // 移動ボタンを無効化
-        mPrevButton.isEnabled = false
-        mNextButton.isEnabled = false
+        prevButton.isEnabled = false
+        nextButton.isEnabled = false
 
         // 次に表示するViewを画面外に用意
         var frame = currentImageView.frame
@@ -180,26 +180,26 @@ class KyouenViewController: UIViewController {
         nextImageView.frame = frame
         UIView.commitAnimations()
 
-        mKyouenImageView1 = nextImageView
-        mKyouenImageView2 = currentImageView
+        kyouenImageView1 = nextImageView
+        kyouenImageView2 = currentImageView
     }
 
     private func setStage(_ model: TumeKyouenModel, to imageView: KyouenImageView) {
         // 移動ボタンを無効化
-        mPrevButton.isEnabled = false
-        mNextButton.isEnabled = false
+        prevButton.isEnabled = false
+        nextButton.isEnabled = false
 
         currentModel = model
         if currentModel.clearFlag == 1 {
-            mStageNo.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
+            stageNoLabel.textColor = UIColor(red: 1.0, green: 0.3, blue: 0.3, alpha: 1)
         } else {
-            mStageNo.textColor = UIColor.white
+            stageNoLabel.textColor = UIColor.white
         }
-        mStageNo.text = String(format: "STAGE:%@", currentModel.stageNo)
-        mCreator.text = String(format: "created by %@", arguments: [currentModel.creator])
+        stageNoLabel.text = String(format: "STAGE:%@", currentModel.stageNo)
+        creatorLabel.text = String(format: "created by %@", arguments: [currentModel.creator])
         imageView.stage = currentModel
 
-        mOverlayKyouenView.alpha = 0
+        overlayKyouenView.alpha = 0
 
         endSetStageAnimation()
 
@@ -209,9 +209,9 @@ class KyouenViewController: UIViewController {
     @objc func endSetStageAnimation() {
         if currentModel.stageNo != 1 {
             // ステージ１の場合は戻れない
-            mPrevButton.isEnabled = true
+            prevButton.isEnabled = true
         }
         // 移動ボタンを有効化
-        mNextButton.isEnabled = true
+        nextButton.isEnabled = true
     }
 }

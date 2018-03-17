@@ -23,45 +23,45 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agw-YI-7Ey" userLabel="title layout">
                                 <rect key="frame" x="0.0" y="88" width="375" height="68"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="STAGE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-14-5lR">
-                                        <rect key="frame" x="111" y="8" width="154" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J6I-iE-JU7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDF-Aj-76H" userLabel="Prev Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
+                                                <state key="normal" title="Prev">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="movePrevStage:" destination="DeH-oH-Jb1" eventType="touchUpInside" id="wSu-a7-Kny"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="STAGE:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-14-5lR" userLabel="Stage No">
+                                                <rect key="frame" x="90.000000000000014" y="0.0" width="192.33333333333337" height="44"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDk-SS-JDk" userLabel="Next Button">
+                                                <rect key="frame" x="282.33333333333331" y="0.0" width="92.666666666666686" height="44"/>
+                                                <state key="normal" title="Next">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="moveNextStage:" destination="DeH-oH-Jb1" eventType="touchUpInside" id="AwY-F8-bhQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="JKm-GJ-OhU"/>
-                                            <constraint firstAttribute="height" constant="24" id="ob3-BX-zyM"/>
+                                            <constraint firstAttribute="height" constant="44" id="VCv-ud-V6m"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDF-Aj-76H">
-                                        <rect key="frame" x="5" y="8" width="80" height="44"/>
+                                    </stackView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" text="created by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-zV-4tR" userLabel="Creator">
+                                        <rect key="frame" x="62.666666666666657" y="44" width="249.99999999999997" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="RtI-gL-Ep7"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="k0I-bT-aW2"/>
-                                        </constraints>
-                                        <state key="normal" title="Prev">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="movePrevStage:" destination="DeH-oH-Jb1" eventType="touchUpInside" id="wSu-a7-Kny"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDk-SS-JDk">
-                                        <rect key="frame" x="290" y="8" width="80" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="KNE-Ye-mC3"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Y7R-6Z-2Yd"/>
-                                        </constraints>
-                                        <state key="normal" title="Next">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="moveNextStage:" destination="DeH-oH-Jb1" eventType="touchUpInside" id="AwY-F8-bhQ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="created by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjg-zV-4tR">
-                                        <rect key="frame" x="62" y="52" width="250" height="16"/>
-                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="QpX-uh-dVw"/>
                                             <constraint firstAttribute="height" constant="16" id="s10-GI-60J"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -69,10 +69,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0h-Ai-Yuq">
-                                        <rect key="frame" x="110" y="21" width="154" height="24"/>
+                                        <rect key="frame" x="110" y="0.0" width="154" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="154" id="1Lw-VR-rPD"/>
-                                            <constraint firstAttribute="height" constant="24" id="VCM-zR-QTd"/>
+                                            <constraint firstAttribute="height" constant="44" id="VCM-zR-QTd"/>
                                         </constraints>
                                         <state key="normal">
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,18 +84,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="fjg-zV-4tR" firstAttribute="leading" secondItem="Agw-YI-7Ey" secondAttribute="leadingMargin" constant="54" id="3fJ-rO-NpU"/>
-                                    <constraint firstItem="hXc-14-5lR" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" constant="8" id="7ON-52-6WA"/>
-                                    <constraint firstItem="m0h-Ai-Yuq" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" constant="21" id="UON-Mm-DbK"/>
-                                    <constraint firstAttribute="trailing" secondItem="hDk-SS-JDk" secondAttribute="trailing" constant="5" id="VYO-oo-vUK"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="fjg-zV-4tR" secondAttribute="trailing" constant="55" id="a50-KO-BUx"/>
-                                    <constraint firstItem="dDF-Aj-76H" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" constant="8" id="dwt-fh-QjL"/>
+                                    <constraint firstItem="fjg-zV-4tR" firstAttribute="centerX" secondItem="Agw-YI-7Ey" secondAttribute="centerX" id="Cpy-45-LMc"/>
+                                    <constraint firstAttribute="trailing" secondItem="J6I-iE-JU7" secondAttribute="trailing" id="Gni-5K-Y5q"/>
+                                    <constraint firstItem="fjg-zV-4tR" firstAttribute="top" secondItem="m0h-Ai-Yuq" secondAttribute="bottom" id="IfD-oH-TdU"/>
+                                    <constraint firstItem="m0h-Ai-Yuq" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" id="UON-Mm-DbK"/>
+                                    <constraint firstItem="J6I-iE-JU7" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" id="fQh-Im-B9V"/>
                                     <constraint firstAttribute="height" constant="68" id="mVf-xC-Q0p"/>
                                     <constraint firstItem="m0h-Ai-Yuq" firstAttribute="centerX" secondItem="Agw-YI-7Ey" secondAttribute="centerX" id="mv1-uc-0Sp"/>
-                                    <constraint firstItem="fjg-zV-4tR" firstAttribute="top" secondItem="hDk-SS-JDk" secondAttribute="bottom" id="qhS-at-DA9"/>
-                                    <constraint firstAttribute="centerX" secondItem="hXc-14-5lR" secondAttribute="centerX" id="xCu-WC-t7u"/>
-                                    <constraint firstItem="dDF-Aj-76H" firstAttribute="leading" secondItem="Agw-YI-7Ey" secondAttribute="leading" constant="5" id="xGJ-Fx-Gqg"/>
-                                    <constraint firstItem="hDk-SS-JDk" firstAttribute="top" secondItem="Agw-YI-7Ey" secondAttribute="top" constant="8" id="yNL-BI-DsN"/>
+                                    <constraint firstItem="J6I-iE-JU7" firstAttribute="leading" secondItem="Agw-YI-7Ey" secondAttribute="leading" id="yG9-zB-7WU"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-qF-t8M" userLabel="Next Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target">
@@ -112,10 +108,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wt-NJ-6ZQ" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
-                                <rect key="frame" x="80" y="531" width="215" height="30"/>
+                                <rect key="frame" x="67.666666666666686" y="531" width="240" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GOX-kr-1OD"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="215" id="wap-SX-wZ3"/>
+                                    <constraint firstAttribute="height" constant="44" id="GOX-kr-1OD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="wap-SX-wZ3"/>
                                 </constraints>
                                 <state key="normal" title="Kyouen!!">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,13 +166,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bannerView" destination="6N0-9G-uE8" id="Xq3-yP-voF"/>
-                        <outlet property="mCreator" destination="fjg-zV-4tR" id="Gaw-eo-dly"/>
-                        <outlet property="mKyouenImageView1" destination="p8q-mv-6Xj" id="wFg-t4-HOh"/>
-                        <outlet property="mKyouenImageView2" destination="WqF-qF-t8M" id="WKT-PI-GrW"/>
-                        <outlet property="mNextButton" destination="hDk-SS-JDk" id="gbv-5N-AfI"/>
-                        <outlet property="mOverlayKyouenView" destination="ppW-kf-JuQ" id="wS7-wU-SzK"/>
-                        <outlet property="mPrevButton" destination="dDF-Aj-76H" id="nha-og-DbU"/>
-                        <outlet property="mStageNo" destination="hXc-14-5lR" id="gtT-u4-1i0"/>
+                        <outlet property="creatorLabel" destination="fjg-zV-4tR" id="Gaw-eo-dly"/>
+                        <outlet property="kyouenImageView1" destination="p8q-mv-6Xj" id="wFg-t4-HOh"/>
+                        <outlet property="kyouenImageView2" destination="WqF-qF-t8M" id="WKT-PI-GrW"/>
+                        <outlet property="nextButton" destination="hDk-SS-JDk" id="gbv-5N-AfI"/>
+                        <outlet property="overlayKyouenView" destination="ppW-kf-JuQ" id="wS7-wU-SzK"/>
+                        <outlet property="prevButton" destination="dDF-Aj-76H" id="nha-og-DbU"/>
+                        <outlet property="stageNoLabel" destination="hXc-14-5lR" id="gtT-u4-1i0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2F-Xh-bWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
