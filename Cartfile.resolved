@@ -1,4 +1,4 @@
 binary "https://ton.twimg.com/syndication/twitterkit/ios/TwitterCore.json" "3.1.0"
 binary "https://ton.twimg.com/syndication/twitterkit/ios/TwitterKit.json" "3.3.0"
-github "Alamofire/Alamofire" "4.7.0"
+github "Alamofire/Alamofire" "4.7.1"
 github "SVProgressHUD/SVProgressHUD" "2.2.5"

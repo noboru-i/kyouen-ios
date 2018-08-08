@@ -16,10 +16,10 @@ PODS:
   - FirebaseAnalytics (4.1.0):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.17):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseInstanceID (2.0.9):
     - FirebaseCore (~> 4.0)
   - FirebasePerformance (1.1.2):
@@ -27,7 +27,7 @@ PODS:
     - FirebaseInstanceID (~> 2.0)
     - FirebaseSwizzlingUtilities (~> 1.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.5)
   - FirebaseSwizzlingUtilities (1.0.0)
@@ -35,7 +35,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.3)
   - GoogleToolboxForMac/Logger (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.3)":
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GTMSessionFetcher/Core (1.1.14)
   - nanopb (0.3.8):
@@ -43,9 +43,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NSData+Base64 (1.0.0)
+  - "NSData+Base64 (1.0.0)"
   - OAuthCore (0.0.1):
-    - NSData+Base64
+    - "NSData+Base64"
   - Protobuf (3.5.0)
 
 DEPENDENCIES:
@@ -55,6 +55,24 @@ DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Performance
   - OAuthCore (~> 0.0.1)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebasePerformance
+    - FirebaseSwizzlingUtilities
+    - Google-Mobile-Ads-SDK
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - nanopb
+    - "NSData+Base64"
+    - OAuthCore
+    - Protobuf
 
 SPEC CHECKSUMS:
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
@@ -69,10 +87,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: 390ea358e5a0d0133153806f744662dad933d06b
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
+  "NSData+Base64": 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
 PODFILE CHECKSUM: 731e3ba0b05422cd8733bd1325959ed8363485e6
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
