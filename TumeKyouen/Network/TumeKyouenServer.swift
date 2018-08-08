@@ -67,7 +67,7 @@ class TumeKyouenServer {
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    if let json = response.result.value as? [String: AnyObject]! {
+                    if let json = response.result.value as? [String: AnyObject] {
                         let jsonData = json["data"] as? NSArray
                         callback(jsonData, nil)
                         return

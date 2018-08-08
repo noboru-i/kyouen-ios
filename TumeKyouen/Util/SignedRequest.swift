@@ -18,7 +18,7 @@ class SignedRequest {
     }
     static var consumerSecret: String {
         let bundle = Bundle.main
-        if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String! {
+        if let secret = bundle.infoDictionary!["TWITTER_CONSUMER_SECRET"] as? String {
             return secret
         }
         abort()
