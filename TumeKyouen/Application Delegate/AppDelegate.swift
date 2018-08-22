@@ -51,9 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
 
-        // TODO: message
-        print("show toast.")
-        return false
+        let alert = UIAlertController.alert("alert_fetch_first")
+        guard let navigationController = window?.rootViewController as? UINavigationController else {
+            return false
+        }
+        navigationController.present(alert, animated: true, completion: nil)
+        return true
     }
 
     private func handleUniversalLinks(_ userActivity: NSUserActivity) -> Bool {
