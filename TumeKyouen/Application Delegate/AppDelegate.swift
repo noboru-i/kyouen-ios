@@ -43,6 +43,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        if userActivity.activityType != NSUserActivityTypeBrowsingWeb {
+            return false
+        }
+        if handleUniversalLinks(userActivity) {
+            return true
+        }
+
+        let alert = UIAlertController.alert("alert_fetch_first")
+        guard let navigationController = window?.rootViewController as? UINavigationController else {
+            return false
+        }
+        navigationController.present(alert, animated: true, completion: nil)
+        return true
+    }
+
+    private func handleUniversalLinks(_ userActivity: NSUserActivity) -> Bool {
+        guard let webpageURL = userActivity.webpageURL else {
+            return false
+        }
+        guard let stageNo = getStageNo(url: webpageURL) else {
+            return false
+        }
+        guard let model = TumeKyouenDao().selectByStageNo(stageNo) else {
+            return false
+        }
+        let kyouenStoryboard: UIStoryboard = UIStoryboard(name: "KyouenStoryboard", bundle: Bundle.main)
+        let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
+        guard let vc = kyouenViewController as? KyouenViewController else {
+            return false
+        }
+        guard let navigationController = window?.rootViewController as? UINavigationController else {
+            return false
+        }
+
+        vc.currentModel = model
+        navigationController.pushViewController(kyouenViewController!, animated: true)
+        return true
+    }
+
+    private func getStageNo(url webpageURL: URL) -> Int? {
+        if let components = NSURLComponents(url: webpageURL, resolvingAgainstBaseURL: true), let pathComponents = components.queryItems {
+            for item in pathComponents where item.name == "open" {
+                if let number = item.value {
+                    return Int(number)
+                }
+            }
+        }
+        return nil
+    }
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Badgeの消去
         UIApplication.shared.applicationIconBadgeNumber = 0

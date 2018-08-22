@@ -77,6 +77,7 @@
 		09AA5DE74D2B40100B73174B /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
 		511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		51581C9B2053C0E9008C3613 /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumeKyouenTests.swift; sourceTree = "<group>"; };
 		51581C9F2053C0E9008C3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -265,6 +266,7 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */,
 				51AB93F1205965FC00E28E52 /* TwitterKit.framework */,
 				51AB93F0205965FC00E28E52 /* TwitterShareExtensionUI.framework */,
 				51581CAA2059611B008C3613 /* SVProgressHUD.framework */,
@@ -459,6 +461,9 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
