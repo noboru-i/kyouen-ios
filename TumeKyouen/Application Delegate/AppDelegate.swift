@@ -18,13 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Application lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // 例外のハンドリング
-        NSSetUncaughtExceptionHandler { exception in
-            print(exception.name)
-            print(exception.reason ?? "")
-            print(exception.callStackSymbols.description)
-        }
-
         SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.setMinimumDismissTimeInterval(0)
 
