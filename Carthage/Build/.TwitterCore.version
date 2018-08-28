@@ -8,11 +8,11 @@
   "tvOS" : [
 
   ],
-  "commitish" : "3.1.0",
+  "commitish" : "3.2.0",
   "iOS" : [
     {
       "name" : "TwitterCore",
-      "hash" : "80860af08f9b33b0fc995932afa21e48655ae0af8a09a4a0444ad67c66249b7d"
+      "hash" : "cdca8c7891bb8a4dfd79dd504fc7193cc3696e92503f979a7512117596a336f8"
     }
   ]
 }
