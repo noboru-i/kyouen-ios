@@ -297,7 +297,7 @@
 		689825B216D9320C00D89D0B /* TumeKyouen */ = {
 			isa = PBXGroup;
 			children = (
-				6898269016DA5E1900D89D0B /* Application Delegate */,
+				6898269016DA5E1900D89D0B /* Application */,
 				68AFAE3C16EA30D10076DE31 /* View Controllers */,
 				6831FDC816E32E3800291810 /* Dao */,
 				68AFAE3816EA30320076DE31 /* Dto */,
@@ -360,12 +360,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6898269016DA5E1900D89D0B /* Application Delegate */ = {
+		6898269016DA5E1900D89D0B /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				68FB69361C6CAE8C003883FE /* AppDelegate.swift */,
 			);
-			path = "Application Delegate";
+			path = Application;
 			sourceTree = "<group>";
 		};
 		68AFAE3816EA30320076DE31 /* Dto */ = {
