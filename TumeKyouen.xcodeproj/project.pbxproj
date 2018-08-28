@@ -254,15 +254,16 @@
 			path = Entitlements;
 			sourceTree = "<group>";
 		};
-		6831FDC816E32E3800291810 /* Dao */ = {
+		6831FDC816E32E3800291810 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				6811509D1C62348A00F7B444 /* BaseDao.swift */,
 				6811509F1C62349800F7B444 /* TumeKyouenDao.swift */,
+				686D0E7D1C5F962D00A67A0E /* TumeKyouenModel.swift */,
 				681150A11C6234A300F7B444 /* SettingDao.swift */,
 				681150A31C6234B000F7B444 /* TwitterTokenDao.swift */,
 			);
-			path = Dao;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		686D5B461C6EF8700059A480 /* Extensions */ = {
@@ -336,8 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				6898269016DA5E1900D89D0B /* Application */,
-				6831FDC816E32E3800291810 /* Dao */,
-				68AFAE3816EA30320076DE31 /* Dto */,
+				6831FDC816E32E3800291810 /* Database */,
 				689825FE16D933AC00D89D0B /* Views */,
 				68AFAE3D16EA32F00076DE31 /* Model */,
 				6890DEAF16F614E8001E6A09 /* Network */,
@@ -399,14 +399,6 @@
 				68FB69361C6CAE8C003883FE /* AppDelegate.swift */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		68AFAE3816EA30320076DE31 /* Dto */ = {
-			isa = PBXGroup;
-			children = (
-				686D0E7D1C5F962D00A67A0E /* TumeKyouenModel.swift */,
-			);
-			path = Dto;
 			sourceTree = "<group>";
 		};
 		68AFAE3D16EA32F00076DE31 /* Model */ = {
