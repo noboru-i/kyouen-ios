@@ -11,6 +11,7 @@ import QuartzCore
 import Accounts
 import SVProgressHUD
 import GoogleMobileAds
+import TwitterKit
 
 class TitleViewController: UIViewController {
     @IBOutlet private weak var twitterButton: UIButton!
