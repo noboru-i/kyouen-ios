@@ -210,6 +210,7 @@
 		512E84A121358D2A00E4427A /* Kyouen */ = {
 			isa = PBXGroup;
 			children = (
+				512E84A3213592EB00E4427A /* Views */,
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
 				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
 			);
@@ -222,6 +223,17 @@
 				511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		512E84A3213592EB00E4427A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
+				685915F11C6706EA001FF3AA /* StoneButton.swift */,
+				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
+				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		51581C9C2053C0E9008C3613 /* TumeKyouenTests */ = {
@@ -377,10 +389,6 @@
 				512E84A221358F2800E4427A /* LaunchScreen */,
 				512E84A021358C4000E4427A /* Title */,
 				512E84A121358D2A00E4427A /* Kyouen */,
-				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
-				685915F11C6706EA001FF3AA /* StoneButton.swift */,
-				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
-				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
