@@ -270,7 +270,7 @@
 			children = (
 				686D5B471C6EF8A00059A480 /* UIAlertController+Additions.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		6890DEAF16F614E8001E6A09 /* Network */ = {
