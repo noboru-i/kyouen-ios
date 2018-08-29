@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SVProgressHUD
 import Firebase
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
