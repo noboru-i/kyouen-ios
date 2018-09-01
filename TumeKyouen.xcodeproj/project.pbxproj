@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		511B938C205A9F7900BEC907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */; };
+		512E84A72136DB8500E4427A /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E84A62136DB8500E4427A /* TitleViewModel.swift */; };
 		51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */; };
 		51581CA720594987008C3613 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51581CA620594987008C3613 /* Alamofire.framework */; };
 		51581CAB2059611B008C3613 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51581CAA2059611B008C3613 /* SVProgressHUD.framework */; };
+		5171CB8E213AB31F0003DC19 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5171CB8C213AB31E0003DC19 /* RxSwift.framework */; };
+		5171CB8F213AB31F0003DC19 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5171CB8D213AB31F0003DC19 /* RxCocoa.framework */; };
 		51AB93F3205965FC00E28E52 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB93F1205965FC00E28E52 /* TwitterKit.framework */; };
 		51AB93F42059683100E28E52 /* TwitterShareExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB93F0205965FC00E28E52 /* TwitterShareExtensionUI.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
@@ -77,12 +80,15 @@
 		09AA5DE74D2B40100B73174B /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
 		511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		512E84A62136DB8500E4427A /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		51581C9B2053C0E9008C3613 /* TumeKyouenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumeKyouenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumeKyouenTests.swift; sourceTree = "<group>"; };
 		51581C9F2053C0E9008C3613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51581CA620594987008C3613 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		51581CAA2059611B008C3613 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		5171CB8C213AB31E0003DC19 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		5171CB8D213AB31F0003DC19 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		51AB93F0205965FC00E28E52 /* TwitterShareExtensionUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterShareExtensionUI.framework; path = Carthage/Build/iOS/TwitterShareExtensionUI.framework; sourceTree = "<group>"; };
 		51AB93F1205965FC00E28E52 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = Carthage/Build/iOS/TwitterKit.framework; sourceTree = "<group>"; };
 		6811509D1C62348A00F7B444 /* BaseDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 				689825AD16D9320C00D89D0B /* UIKit.framework in Frameworks */,
 				689825AF16D9320C00D89D0B /* Foundation.framework in Frameworks */,
 				689825B116D9320C00D89D0B /* CoreGraphics.framework in Frameworks */,
+				5171CB8E213AB31F0003DC19 /* RxSwift.framework in Frameworks */,
+				5171CB8F213AB31F0003DC19 /* RxCocoa.framework in Frameworks */,
 				6D8DCC8E84C0A78CF105761A /* Pods_TumeKyouen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +210,7 @@
 			children = (
 				68252F911C6A022E008E6E85 /* TitleViewController.swift */,
 				689825C416D9320C00D89D0B /* MainStoryboard.storyboard */,
+				512E84A62136DB8500E4427A /* TitleViewModel.swift */,
 			);
 			path = Title;
 			sourceTree = "<group>";
@@ -304,6 +313,8 @@
 		689825AB16D9320C00D89D0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5171CB8D213AB31F0003DC19 /* RxCocoa.framework */,
+				5171CB8C213AB31E0003DC19 /* RxSwift.framework */,
 				5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */,
 				51AB93F1205965FC00E28E52 /* TwitterKit.framework */,
 				51AB93F0205965FC00E28E52 /* TwitterShareExtensionUI.framework */,
@@ -542,6 +553,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/TwitterCore.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TwitterKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TwitterShareExtensionUI.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = "Carthage copy-frameworks";
 			outputPaths = (
@@ -550,6 +563,8 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterCore.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterShareExtensionUI.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -662,6 +677,7 @@
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
 				681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */,
+				512E84A72136DB8500E4427A /* TitleViewModel.swift in Sources */,
 				685915F41C6706FE001FF3AA /* OverlayKyouenView.swift in Sources */,
 				68252F8A1C68A13A008E6E85 /* AdMobUtil.swift in Sources */,
 				686D0E761C5BB1F200A67A0E /* Line.swift in Sources */,

@@ -12,6 +12,7 @@ import Accounts
 import SVProgressHUD
 import GoogleMobileAds
 import TwitterKit
+import RxSwift
 
 class TitleViewController: UIViewController {
     @IBOutlet private weak var twitterButton: UIButton!
@@ -19,11 +20,17 @@ class TitleViewController: UIViewController {
     @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var bannerView: GADBannerView!
 
+    private let disposeBag = DisposeBag()
+
+    private let viewModel = TitleViewModel()
+
     private var accountStore: ACAccountStore! = nil
     private var accounts = [ACAccount]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        bind()
 
         // 背景色の描画
         let gradient = CAGradientLayer()
@@ -43,6 +50,13 @@ class TitleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshCounts()
+    }
+
+    private func bind() {
+        rx.sentMessage(#selector(viewWillAppear(_:)))
+            .map { _ in }
+            .bind(to: viewModel.viewWillAppear)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Actions
