@@ -100,9 +100,6 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="connectTwitterAction:" destination="2" eventType="touchUpInside" id="s6Y-a6-zjV"/>
-                                                </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Eg-GFX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
@@ -121,9 +118,6 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="syncDataAction:" destination="2" eventType="touchUpInside" id="hZ9-At-UpT"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

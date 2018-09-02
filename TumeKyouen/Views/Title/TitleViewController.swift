@@ -13,6 +13,7 @@ import SVProgressHUD
 import GoogleMobileAds
 import TwitterKit
 import RxSwift
+import RxCocoa
 
 class TitleViewController: UIViewController {
     @IBOutlet private weak var stageCountLabel: UILabel!
@@ -34,18 +35,21 @@ class TitleViewController: UIViewController {
 
         let viewModel = TitleViewModel(
             input: (
+                viewWillAppear: rx.sentMessage(#selector(viewWillAppear(_:)))
+                    .map { _ in }
+                    .asSignal(onErrorSignalWith: Signal.empty()),
                 startButtonTaps: startButton.rx.tap.asSignal(),
-                getStageTaps: getStageButton.rx.tap.asSignal()
+                getStageTaps: getStageButton.rx.tap.asSignal(),
+                connectTwitterTaps: twitterButton.rx.tap.asSignal(),
+                syncDataTaps: syncButton.rx.tap.asSignal()
             )
         )
 
-        rx.sentMessage(#selector(viewWillAppear(_:)))
-            .map { _ in }
-            .bind(to: viewModel.refreshStageCount)
-            .disposed(by: disposeBag)
-
         viewModel.stageCount
             .drive(stageCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        viewModel.loggedInStatus
+            .drive(onNext: handleLoggedInStatus)
             .disposed(by: disposeBag)
 
         viewModel.showLoading
@@ -61,6 +65,11 @@ class TitleViewController: UIViewController {
         viewModel.showError
             .bind { message in
                 SVProgressHUD.showError(withStatus: message)
+            }
+            .disposed(by: disposeBag)
+        viewModel.showSuccess
+            .bind { message in
+                SVProgressHUD.showSuccess(withStatus: message)
             }
             .disposed(by: disposeBag)
         viewModel.navigateToKyouen
@@ -82,11 +91,7 @@ class TitleViewController: UIViewController {
 
         // AdMob
         AdMobUtil.applyUnitId(bannerView: bannerView, controller: self)
-
-        sendTwitterAccount()
     }
-
-    // MARK: - Actions
 
     private func navigateToKyouen(model: TumeKyouenModel) {
         let kyouenStoryboard: UIStoryboard = UIStoryboard(name: "KyouenStoryboard", bundle: Bundle.main)
@@ -97,61 +102,17 @@ class TitleViewController: UIViewController {
         }
     }
 
-    @IBAction private func connectTwitterAction(_: AnyObject) {
-        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
-            guard let session = session else {
-                print("error: \(error!.localizedDescription)")
-                return
-            }
-            print("signed in as \(session.userName)")
-
-            let dao = TwitterTokenDao()
-            dao.saveToken(session.authToken, oauthTokenSecret: session.authTokenSecret)
-
-            self.sendTwitterAccount()
-        })
-    }
-
-    @IBAction private func syncDataAction(_: AnyObject) {
-        let stages = TumeKyouenDao().selectAllClearStage()
-
-        SVProgressHUD.show()
-        TumeKyouenServer().addAllStageUser(stages, callback: {response, error in
-            if error != nil {
-                // 通信が異常終了
-                SVProgressHUD.showError(withStatus: error!.localizedDescription)
-                return
-            }
-            var responseData = [NSDictionary]()
-            for item in response! {
-                if let dic = item as? NSDictionary {
-                    responseData.append(dic)
-                }
-            }
-            TumeKyouenDao().updateSyncClearData(responseData)
-            self.viewModel!.refreshStageCount.onNext(())
-            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_sync_complete", comment: ""))
-        })
-    }
-
-    private func sendTwitterAccount() {
-        // 認証情報を送信
-        let dao = TwitterTokenDao()
-        guard let oauthToken = dao.getOauthToken(),
-            let oauthTokenSecret = dao.getOauthTokenSecret() else {
-                SVProgressHUD.dismiss()
-                return
-        }
-
-        SVProgressHUD.show()
-        TumeKyouenServer().registUser(oauthToken, tokenSecret: oauthTokenSecret, callback: {_, error in
-            if error != nil {
-                SVProgressHUD.showError(withStatus: NSLocalizedString("progress_auth_fail", comment: ""))
-                return
-            }
+    private func handleLoggedInStatus(_ status: TitleViewModel.LoggedInStatus) {
+        switch status {
+        case .unknown:
+            self.twitterButton.isHidden = false
+            self.syncButton.isHidden = true
+        case .none:
+            self.twitterButton.isHidden = false
+            self.syncButton.isHidden = true
+        case .loggedIn:
             self.twitterButton.isHidden = true
             self.syncButton.isHidden = false
-            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_auth_success", comment: ""))
-        })
+        }
     }
 }
