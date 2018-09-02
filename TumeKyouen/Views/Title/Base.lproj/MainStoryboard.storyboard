@@ -57,9 +57,6 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="startKyouen:" destination="2" eventType="touchUpInside" id="1RO-nj-ir3"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-9j-SQX" customClass="BorderButton" customModule="TumeKyouen" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="200" height="44"/>
@@ -82,9 +79,6 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="getStages:" destination="2" eventType="touchUpInside" id="xmv-EJ-n5D"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ady-Xq-ujw" userLabel="Button">
                                         <rect key="frame" x="0.0" y="112" width="200" height="44"/>
@@ -173,7 +167,9 @@
                     <navigationItem key="navigationItem" id="sJP-uf-2ZN"/>
                     <connections>
                         <outlet property="bannerView" destination="liz-OA-lDZ" id="D0B-0g-qO1"/>
+                        <outlet property="getStageButton" destination="4H9-9j-SQX" id="yi1-Ng-43T"/>
                         <outlet property="stageCountLabel" destination="aLh-Fz-0B5" id="Gyb-fJ-dR2"/>
+                        <outlet property="startButton" destination="uEa-3G-MJv" id="3zW-Yu-RIq"/>
                         <outlet property="syncButton" destination="yfo-Eg-GFX" id="ClF-bS-K9E"/>
                         <outlet property="twitterButton" destination="AOV-He-KSv" id="9iW-h7-FdG"/>
                     </connections>

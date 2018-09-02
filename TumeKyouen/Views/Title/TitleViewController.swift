@@ -15,14 +15,16 @@ import TwitterKit
 import RxSwift
 
 class TitleViewController: UIViewController {
+    @IBOutlet private weak var stageCountLabel: UILabel!
+    @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var getStageButton: UIButton!
     @IBOutlet private weak var twitterButton: UIButton!
     @IBOutlet private weak var syncButton: UIButton!
-    @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var bannerView: GADBannerView!
 
     private let disposeBag = DisposeBag()
 
-    private let viewModel = TitleViewModel()
+    private var viewModel: TitleViewModel?
 
     private var accountStore: ACAccountStore! = nil
     private var accounts = [ACAccount]()
@@ -30,7 +32,44 @@ class TitleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
+        let viewModel = TitleViewModel(
+            input: (
+                startButtonTaps: startButton.rx.tap.asSignal(),
+                getStageTaps: getStageButton.rx.tap.asSignal()
+            )
+        )
+
+        rx.sentMessage(#selector(viewWillAppear(_:)))
+            .map { _ in }
+            .bind(to: viewModel.refreshStageCount)
+            .disposed(by: disposeBag)
+
+        viewModel.stageCount
+            .drive(stageCountLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.showLoading
+            .bind { _ in
+                SVProgressHUD.show()
+            }
+            .disposed(by: disposeBag)
+        viewModel.hideLoading
+            .bind { _ in
+                SVProgressHUD.dismiss()
+            }
+            .disposed(by: disposeBag)
+        viewModel.showError
+            .bind { message in
+                SVProgressHUD.showError(withStatus: message)
+            }
+            .disposed(by: disposeBag)
+        viewModel.navigateToKyouen
+            .bind { [weak self] model in
+                self?.navigateToKyouen(model: model)
+            }
+            .disposed(by: disposeBag)
+
+        self.viewModel = viewModel
 
         // 背景色の描画
         let gradient = CAGradientLayer()
@@ -47,25 +86,9 @@ class TitleViewController: UIViewController {
         sendTwitterAccount()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        refreshCounts()
-    }
-
-    private func bind() {
-        rx.sentMessage(#selector(viewWillAppear(_:)))
-            .map { _ in }
-            .bind(to: viewModel.viewWillAppear)
-            .disposed(by: disposeBag)
-    }
-
     // MARK: - Actions
 
-    @IBAction private func startKyouen(_: AnyObject) {
-        // 前回終了時のステージ番号を渡す
-        let stageNo = SettingDao().loadStageNo()
-        let model = TumeKyouenDao().selectByStageNo(stageNo)
-
+    private func navigateToKyouen(model: TumeKyouenModel) {
         let kyouenStoryboard: UIStoryboard = UIStoryboard(name: "KyouenStoryboard", bundle: Bundle.main)
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
         if let vc = kyouenViewController as? KyouenViewController {
@@ -106,53 +129,8 @@ class TitleViewController: UIViewController {
                 }
             }
             TumeKyouenDao().updateSyncClearData(responseData)
-            self.refreshCounts()
+            self.viewModel!.refreshStageCount.onNext(())
             SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_sync_complete", comment: ""))
-        })
-    }
-
-    @IBAction private func getStages(_: AnyObject) {
-        SVProgressHUD.show()
-
-        let stageCount = TumeKyouenDao().selectCount()
-        getStage(stageCount)
-    }
-
-    // MARK: - Private
-    private func refreshCounts() {
-        // ステージ番号の描画
-        let dao = TumeKyouenDao()
-        let clearCount = dao.selectCountClearStage()
-        let allCount = dao.selectCount()
-        stageCountLabel.text = String(format: "%ld/%ld", arguments: [clearCount, allCount])
-    }
-
-    private func getStage(_ maxStageNo: Int) {
-        TumeKyouenServer().getStageData(maxStageNo, callback: {result, error in
-            if error != nil {
-                // 取得できなかった
-                self.refreshCounts()
-                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                return
-            }
-            if result?.count == 0 {
-                // 取得できなかった
-                self.refreshCounts()
-                SVProgressHUD.dismiss()
-                return
-            }
-            if result == "no_data" {
-                // データなし
-                self.refreshCounts()
-                SVProgressHUD.dismiss()
-                return
-            }
-
-            // データの登録
-            TumeKyouenDao().insertWithCsvString(result!)
-            self.refreshCounts()
-            let lines = result!.components(separatedBy: "\n")
-            self.getStage(maxStageNo + lines.count)
         })
     }
 
