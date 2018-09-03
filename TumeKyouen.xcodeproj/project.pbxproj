@@ -15,7 +15,6 @@
 		5171CB8E213AB31F0003DC19 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5171CB8C213AB31E0003DC19 /* RxSwift.framework */; };
 		5171CB8F213AB31F0003DC19 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5171CB8D213AB31F0003DC19 /* RxCocoa.framework */; };
 		51AB93F3205965FC00E28E52 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB93F1205965FC00E28E52 /* TwitterKit.framework */; };
-		51AB93F42059683100E28E52 /* TwitterShareExtensionUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51AB93F0205965FC00E28E52 /* TwitterShareExtensionUI.framework */; };
 		6811509E1C62348A00F7B444 /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509D1C62348A00F7B444 /* BaseDao.swift */; };
 		681150A01C62349800F7B444 /* TumeKyouenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6811509F1C62349800F7B444 /* TumeKyouenDao.swift */; };
 		681150A21C6234A300F7B444 /* SettingDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681150A11C6234A300F7B444 /* SettingDao.swift */; };
@@ -165,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51AB93F42059683100E28E52 /* TwitterShareExtensionUI.framework in Frameworks */,
 				51AB93F3205965FC00E28E52 /* TwitterKit.framework in Frameworks */,
 				51581CAB2059611B008C3613 /* SVProgressHUD.framework in Frameworks */,
 				51581CA720594987008C3613 /* Alamofire.framework in Frameworks */,
@@ -552,7 +550,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TwitterCore.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/TwitterKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/TwitterShareExtensionUI.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
@@ -562,7 +559,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVProgressHUD.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterCore.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TwitterShareExtensionUI.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);

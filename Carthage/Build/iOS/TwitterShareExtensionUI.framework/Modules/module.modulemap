@@ -1,6 +1,0 @@
-framework module TwitterShareExtensionUI {
-  umbrella header "TwitterShareExtensionUI.h"
-
-  export *
-  module * { export * }
-}
