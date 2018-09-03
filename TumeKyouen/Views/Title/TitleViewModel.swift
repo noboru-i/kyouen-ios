@@ -17,18 +17,22 @@ final class TitleViewModel {
         case none
         case loggedIn
     }
-    private let disposeBag = DisposeBag()
+    enum DialogStatus {
+        case none
+        case loading
+        case error(String)
+        case success(String)
+    }
 
-    // Input
-    private let refreshStageCountStream = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
 
     // Outputs
     let stageCount: Driver<String>
+    let dialogStatus: Driver<DialogStatus>
     let loggedInStatus: Driver<LoggedInStatus>
-    private let showLoadingStream = PublishRelay<Void>()
-    private let hideLoadingStream = PublishRelay<Void>()
-    private let showErrorStream = PublishRelay<String>()
-    private let showSuccessStream = PublishRelay<String>()
+
+    private let refreshStageCountStream = PublishSubject<Void>()
+    private let dialogStatusRelay = PublishRelay<DialogStatus>()
     private let navigateToKyouenStream = PublishSubject<TumeKyouenModel>()
 
     private let sendTwitterAccountStream = PublishSubject<Void>()
@@ -50,6 +54,8 @@ final class TitleViewModel {
                 return Observable.just(String(format: "%ld/%ld", arguments: [clearCount, allCount]))
             }
             .asDriver(onErrorDriveWith: Driver.empty())
+        dialogStatus = dialogStatusRelay
+            .asDriver(onErrorDriveWith: Driver.empty())
         // TODO: あとで実装
         loggedInStatus = Driver.just(.unknown)
 
@@ -57,7 +63,7 @@ final class TitleViewModel {
             .emit(to: refreshStageCountStream)
             .disposed(by: disposeBag)
         input.viewWillAppear
-            .emit(to: sendTwitterAccountStream)
+            .emit(to: sendTwitterAccountStream) // TODO: move to `viewDidLoad`
             .disposed(by: disposeBag)
         input.startButtonTaps.asObservable()
             .flatMapLatest { _ -> Observable<TumeKyouenModel> in
@@ -67,10 +73,10 @@ final class TitleViewModel {
             }
             .bind(to: navigateToKyouenStream)
             .disposed(by: disposeBag)
-        // TODO: ?
+        // TODO: asObservable is really needed?
         input.getStageTaps.asObservable()
             .flatMapLatest { [weak self] _ -> Observable<Bool> in
-                self?.showLoadingStream.accept(())
+                self?.dialogStatusRelay.accept(.loading)
                 let stageCount = TumeKyouenDao().selectCount()
                 self?.getStage(stageCount)
                 return Observable.just(true)
@@ -104,22 +110,22 @@ final class TitleViewModel {
             if error != nil {
                 // 取得できなかった
                 self.refreshStageCountStream.onNext(())
-                self.hideLoadingStream.accept(())
+                self.dialogStatusRelay.accept(.none)
                 if let message = error?.localizedDescription {
-                    self.showErrorStream.accept(message)
+                    self.dialogStatusRelay.accept(.error(message))
                 }
                 return
             }
             if result?.count == 0 {
                 // 取得できなかった
                 self.refreshStageCountStream.onNext(())
-                self.hideLoadingStream.accept(())
+                self.dialogStatusRelay.accept(.none)
                 return
             }
             if result == "no_data" {
                 // データなし
                 self.refreshStageCountStream.onNext(())
-                self.hideLoadingStream.accept(())
+                self.dialogStatusRelay.accept(.none)
                 return
             }
 
@@ -149,11 +155,11 @@ final class TitleViewModel {
     private func syncData() {
         let stages = TumeKyouenDao().selectAllClearStage()
 
-        showLoadingStream.accept(())
+        dialogStatusRelay.accept(.loading)
         TumeKyouenServer().addAllStageUser(stages, callback: {response, error in
             if error != nil {
                 // 通信が異常終了
-                self.showErrorStream.accept(error!.localizedDescription)
+                self.dialogStatusRelay.accept(.error(error!.localizedDescription))
                 return
             }
             var responseData = [NSDictionary]()
@@ -164,7 +170,7 @@ final class TitleViewModel {
             }
             TumeKyouenDao().updateSyncClearData(responseData)
             self.refreshStageCountStream.onNext(())
-            self.showSuccessStream.accept(NSLocalizedString("progress_sync_complete", comment: ""))
+            self.dialogStatusRelay.accept(.success(NSLocalizedString("progress_sync_complete", comment: "")))
         })
 
     }
@@ -174,20 +180,20 @@ final class TitleViewModel {
         let dao = TwitterTokenDao()
         guard let oauthToken = dao.getOauthToken(),
             let oauthTokenSecret = dao.getOauthTokenSecret() else {
-                hideLoadingStream.accept(())
+                dialogStatusRelay.accept(.none)
                 return
         }
 
-        showLoadingStream.accept(())
+        dialogStatusRelay.accept(.loading)
         TumeKyouenServer().registUser(oauthToken, tokenSecret: oauthTokenSecret, callback: {_, error in
             if error != nil {
-                self.showErrorStream.accept(NSLocalizedString("progress_auth_fail", comment: ""))
+                self.dialogStatusRelay.accept(.error(NSLocalizedString("progress_auth_fail", comment: "")))
                 return
             }
             // TODO: あとで実装
 //            self.twitterButton.isHidden = true
 //            self.syncButton.isHidden = false
-            self.showSuccessStream.accept(NSLocalizedString("progress_auth_success", comment: ""))
+            self.dialogStatusRelay.accept(.success(NSLocalizedString("progress_auth_success", comment: "")))
         })
     }
 }
@@ -195,19 +201,6 @@ final class TitleViewModel {
 // MARK: Output
 
 extension TitleViewModel {
-    var showLoading: Observable<Void> {
-        return showLoadingStream.asObservable()
-    }
-    var hideLoading: Observable<Void> {
-        return hideLoadingStream.asObservable()
-    }
-    var showError: Observable<String> {
-        return showErrorStream.asObservable()
-    }
-    var showSuccess: Observable<String> {
-        return showSuccessStream.asObservable()
-    }
-
     var navigateToKyouen: Observable<TumeKyouenModel> {
         return navigateToKyouenStream.asObservable()
     }

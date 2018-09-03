@@ -8,7 +8,6 @@
 
 import UIKit
 import QuartzCore
-import Accounts
 import SVProgressHUD
 import GoogleMobileAds
 import TwitterKit
@@ -26,9 +25,6 @@ class TitleViewController: UIViewController {
     private let disposeBag = DisposeBag()
 
     private var viewModel: TitleViewModel?
-
-    private var accountStore: ACAccountStore! = nil
-    private var accounts = [ACAccount]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,25 +48,8 @@ class TitleViewController: UIViewController {
             .drive(onNext: handleLoggedInStatus)
             .disposed(by: disposeBag)
 
-        viewModel.showLoading
-            .bind { _ in
-                SVProgressHUD.show()
-            }
-            .disposed(by: disposeBag)
-        viewModel.hideLoading
-            .bind { _ in
-                SVProgressHUD.dismiss()
-            }
-            .disposed(by: disposeBag)
-        viewModel.showError
-            .bind { message in
-                SVProgressHUD.showError(withStatus: message)
-            }
-            .disposed(by: disposeBag)
-        viewModel.showSuccess
-            .bind { message in
-                SVProgressHUD.showSuccess(withStatus: message)
-            }
+        viewModel.dialogStatus
+            .drive(onNext: handleDialog)
             .disposed(by: disposeBag)
         viewModel.navigateToKyouen
             .bind { [weak self] model in
@@ -113,6 +92,19 @@ class TitleViewController: UIViewController {
         case .loggedIn:
             self.twitterButton.isHidden = true
             self.syncButton.isHidden = false
+        }
+    }
+
+    private func handleDialog(_ status: TitleViewModel.DialogStatus) {
+        switch status {
+        case .none:
+            SVProgressHUD.dismiss()
+        case .loading:
+            SVProgressHUD.show()
+        case let .error(message):
+            SVProgressHUD.showError(withStatus: message)
+        case let .success(message):
+            SVProgressHUD.showSuccess(withStatus: message)
         }
     }
 }
