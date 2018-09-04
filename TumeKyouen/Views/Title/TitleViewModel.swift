@@ -10,6 +10,8 @@ import Foundation
 import TwitterKit
 import RxSwift
 import RxCocoa
+import Moya
+import RxMoya
 
 final class TitleViewModel {
     enum LoggedInStatus {
@@ -62,9 +64,6 @@ final class TitleViewModel {
         input.viewWillAppear
             .emit(to: refreshStageCountStream)
             .disposed(by: disposeBag)
-        input.viewWillAppear
-            .emit(to: sendTwitterAccountStream) // TODO: move to `viewDidLoad`
-            .disposed(by: disposeBag)
         input.startButtonTaps.asObservable()
             .flatMapLatest { _ -> Observable<TumeKyouenModel> in
                 // 前回終了時のステージ番号を渡す
@@ -98,43 +97,29 @@ final class TitleViewModel {
             .subscribe()
             .disposed(by: disposeBag)
 
-        sendTwitterAccountStream
-            .subscribe { [weak self] _ in
-                self?.sendTwitterAccount()
-            }
-            .disposed(by: disposeBag)
+        sendTwitterAccount()
     }
 
     private func getStage(_ maxStageNo: Int) {
-        TumeKyouenServer().getStageData(maxStageNo, callback: {result, error in
-            if error != nil {
-                // 取得できなかった
-                self.refreshStageCountStream.onNext(())
-                self.dialogStatusRelay.accept(.none)
-                if let message = error?.localizedDescription {
-                    self.dialogStatusRelay.accept(.error(message))
+        let provider = MoyaProvider<TumeKyouenApi>()
+        provider.rx.request(.getKyouen(maxStageNo))
+            .filterSuccessfulStatusCodes()
+            .mapString()
+            .subscribe(onSuccess: { response in
+                if response.count == 0 || response == "no_data" {
+                    self.dialogStatusRelay.accept(.none)
+                    return
                 }
-                return
-            }
-            if result?.count == 0 {
-                // 取得できなかった
+                // データの登録
+                TumeKyouenDao().insertWithCsvString(response)
                 self.refreshStageCountStream.onNext(())
+                let lines = response.components(separatedBy: "\n")
+                self.getStage(maxStageNo + lines.count)
+            }, onError: { error in
                 self.dialogStatusRelay.accept(.none)
-                return
-            }
-            if result == "no_data" {
-                // データなし
-                self.refreshStageCountStream.onNext(())
-                self.dialogStatusRelay.accept(.none)
-                return
-            }
-
-            // データの登録
-            TumeKyouenDao().insertWithCsvString(result!)
-            self.refreshStageCountStream.onNext(())
-            let lines = result!.components(separatedBy: "\n")
-            self.getStage(maxStageNo + lines.count)
-        })
+                self.dialogStatusRelay.accept(.error(error.localizedDescription))
+            })
+            .disposed(by: disposeBag)
     }
 
     private func connectToTwitter() {
