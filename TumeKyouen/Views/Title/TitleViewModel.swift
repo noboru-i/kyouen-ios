@@ -72,29 +72,22 @@ final class TitleViewModel {
             }
             .bind(to: navigateToKyouenStream)
             .disposed(by: disposeBag)
-        // TODO: asObservable is really needed?
-        input.getStageTaps.asObservable()
-            .flatMapLatest { [weak self] _ -> Observable<Bool> in
-                self?.dialogStatusRelay.accept(.loading)
+        input.getStageTaps
+            .emit(onNext: { _ in
+                self.dialogStatusRelay.accept(.loading)
                 let stageCount = TumeKyouenDao().selectCount()
-                self?.getStage(stageCount)
-                return Observable.just(true)
-            }
-            .subscribe()
+                self.getStage(stageCount)
+            })
             .disposed(by: disposeBag)
-        input.connectTwitterTaps.asObservable()
-            .flatMapLatest { [weak self] _ -> Observable<Bool> in
-                self?.connectToTwitter()
-                return Observable.just(true)
-            }
-            .subscribe()
+        input.connectTwitterTaps
+            .emit(onNext: { _ in
+                self.connectToTwitter()
+            })
             .disposed(by: disposeBag)
-        input.syncDataTaps.asObservable()
-            .flatMapLatest { [weak self] _ -> Observable<Bool> in
-                self?.syncData()
-                return Observable.just(true)
-            }
-            .subscribe()
+        input.syncDataTaps
+            .emit(onNext: { _ in
+                self.syncData()
+            })
             .disposed(by: disposeBag)
 
         sendTwitterAccount()
