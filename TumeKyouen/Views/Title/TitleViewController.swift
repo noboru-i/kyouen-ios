@@ -8,22 +8,56 @@
 
 import UIKit
 import QuartzCore
-import Accounts
 import SVProgressHUD
 import GoogleMobileAds
 import TwitterKit
+import RxSwift
+import RxCocoa
 
 class TitleViewController: UIViewController {
+    @IBOutlet private weak var stageCountLabel: UILabel!
+    @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var getStageButton: UIButton!
     @IBOutlet private weak var twitterButton: UIButton!
     @IBOutlet private weak var syncButton: UIButton!
-    @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var bannerView: GADBannerView!
 
-    private var accountStore: ACAccountStore! = nil
-    private var accounts = [ACAccount]()
+    private let disposeBag = DisposeBag()
+
+    private var viewModel: TitleViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let viewModel = TitleViewModel(
+            input: (
+                viewWillAppear: rx.sentMessage(#selector(viewWillAppear(_:)))
+                    .map { _ in }
+                    .asSignal(onErrorSignalWith: Signal.empty()),
+                startButtonTaps: startButton.rx.tap.asSignal(),
+                getStageTaps: getStageButton.rx.tap.asSignal(),
+                connectTwitterTaps: twitterButton.rx.tap.asSignal(),
+                syncDataTaps: syncButton.rx.tap.asSignal()
+            )
+        )
+
+        viewModel.stageCount
+            .drive(stageCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        viewModel.loggedInStatus
+            .drive(onNext: handleLoggedInStatus)
+            .disposed(by: disposeBag)
+
+        viewModel.dialogStatus
+            .drive(onNext: handleDialog)
+            .disposed(by: disposeBag)
+        viewModel.navigateToKyouen
+            .bind { [weak self] model in
+                self?.navigateToKyouen(model: model)
+            }
+            .disposed(by: disposeBag)
+
+        self.viewModel = viewModel
 
         // 背景色の描画
         let gradient = CAGradientLayer()
@@ -36,22 +70,9 @@ class TitleViewController: UIViewController {
 
         // AdMob
         AdMobUtil.applyUnitId(bannerView: bannerView, controller: self)
-
-        sendTwitterAccount()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        refreshCounts()
-    }
-
-    // MARK: - Actions
-
-    @IBAction private func startKyouen(_: AnyObject) {
-        // 前回終了時のステージ番号を渡す
-        let stageNo = SettingDao().loadStageNo()
-        let model = TumeKyouenDao().selectByStageNo(stageNo)
-
+    private func navigateToKyouen(model: TumeKyouenModel) {
         let kyouenStoryboard: UIStoryboard = UIStoryboard(name: "KyouenStoryboard", bundle: Bundle.main)
         let kyouenViewController: UIViewController? = kyouenStoryboard.instantiateInitialViewController()
         if let vc = kyouenViewController as? KyouenViewController {
@@ -60,106 +81,30 @@ class TitleViewController: UIViewController {
         }
     }
 
-    @IBAction private func connectTwitterAction(_: AnyObject) {
-        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
-            guard let session = session else {
-                print("error: \(error!.localizedDescription)")
-                return
-            }
-            print("signed in as \(session.userName)")
-
-            let dao = TwitterTokenDao()
-            dao.saveToken(session.authToken, oauthTokenSecret: session.authTokenSecret)
-
-            self.sendTwitterAccount()
-        })
-    }
-
-    @IBAction private func syncDataAction(_: AnyObject) {
-        let stages = TumeKyouenDao().selectAllClearStage()
-
-        SVProgressHUD.show()
-        TumeKyouenServer().addAllStageUser(stages, callback: {response, error in
-            if error != nil {
-                // 通信が異常終了
-                SVProgressHUD.showError(withStatus: error!.localizedDescription)
-                return
-            }
-            var responseData = [NSDictionary]()
-            for item in response! {
-                if let dic = item as? NSDictionary {
-                    responseData.append(dic)
-                }
-            }
-            TumeKyouenDao().updateSyncClearData(responseData)
-            self.refreshCounts()
-            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_sync_complete", comment: ""))
-        })
-    }
-
-    @IBAction private func getStages(_: AnyObject) {
-        SVProgressHUD.show()
-
-        let stageCount = TumeKyouenDao().selectCount()
-        getStage(stageCount)
-    }
-
-    // MARK: - Private
-    private func refreshCounts() {
-        // ステージ番号の描画
-        let dao = TumeKyouenDao()
-        let clearCount = dao.selectCountClearStage()
-        let allCount = dao.selectCount()
-        stageCountLabel.text = String(format: "%ld/%ld", arguments: [clearCount, allCount])
-    }
-
-    private func getStage(_ maxStageNo: Int) {
-        TumeKyouenServer().getStageData(maxStageNo, callback: {result, error in
-            if error != nil {
-                // 取得できなかった
-                self.refreshCounts()
-                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                return
-            }
-            if result?.count == 0 {
-                // 取得できなかった
-                self.refreshCounts()
-                SVProgressHUD.dismiss()
-                return
-            }
-            if result == "no_data" {
-                // データなし
-                self.refreshCounts()
-                SVProgressHUD.dismiss()
-                return
-            }
-
-            // データの登録
-            TumeKyouenDao().insertWithCsvString(result!)
-            self.refreshCounts()
-            let lines = result!.components(separatedBy: "\n")
-            self.getStage(maxStageNo + lines.count)
-        })
-    }
-
-    private func sendTwitterAccount() {
-        // 認証情報を送信
-        let dao = TwitterTokenDao()
-        guard let oauthToken = dao.getOauthToken(),
-            let oauthTokenSecret = dao.getOauthTokenSecret() else {
-                SVProgressHUD.dismiss()
-                return
-        }
-
-        SVProgressHUD.show()
-        TumeKyouenServer().registUser(oauthToken, tokenSecret: oauthTokenSecret, callback: {_, error in
-            if error != nil {
-                SVProgressHUD.showError(withStatus: NSLocalizedString("progress_auth_fail", comment: ""))
-                return
-            }
+    private func handleLoggedInStatus(_ status: TitleViewModel.LoggedInStatus) {
+        switch status {
+        case .unknown:
+            self.twitterButton.isHidden = false
+            self.syncButton.isHidden = true
+        case .none:
+            self.twitterButton.isHidden = false
+            self.syncButton.isHidden = true
+        case .loggedIn:
             self.twitterButton.isHidden = true
             self.syncButton.isHidden = false
-            SVProgressHUD.showSuccess(withStatus: NSLocalizedString("progress_auth_success", comment: ""))
-        })
+        }
+    }
+
+    private func handleDialog(_ status: TitleViewModel.DialogStatus) {
+        switch status {
+        case .none:
+            SVProgressHUD.dismiss()
+        case .loading:
+            SVProgressHUD.show()
+        case let .error(message):
+            SVProgressHUD.showError(withStatus: message)
+        case let .success(message):
+            SVProgressHUD.showSuccess(withStatus: message)
+        }
     }
 }

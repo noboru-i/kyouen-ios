@@ -1,6 +1,7 @@
 # reporter: json
 disabled_rules:
   - todo # 開発中のみignore
+  - large_tuple
 excluded:
   - Carthage
   - Pods
