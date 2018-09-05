@@ -33,9 +33,10 @@ final class TitleViewModel {
     let dialogStatus: Driver<DialogStatus>
     let loggedInStatus: Driver<LoggedInStatus>
 
-    private let refreshStageCountStream = PublishSubject<Void>()
+    private let refreshStageCountStream = PublishRelay<Void>()
     private let dialogStatusRelay = PublishRelay<DialogStatus>()
-    private let navigateToKyouenStream = PublishSubject<TumeKyouenModel>()
+    private let navigateToKyouenStream = PublishRelay<TumeKyouenModel>()
+    private let loggedInStatusStream = PublishRelay<LoggedInStatus>()
 
     private let sendTwitterAccountStream = PublishSubject<Void>()
 
@@ -58,8 +59,7 @@ final class TitleViewModel {
             .asDriver(onErrorDriveWith: Driver.empty())
         dialogStatus = dialogStatusRelay
             .asDriver(onErrorDriveWith: Driver.empty())
-        // TODO: あとで実装
-        loggedInStatus = Driver.just(.unknown)
+        loggedInStatus = loggedInStatusStream.asDriver(onErrorDriveWith: Driver.empty())
 
         input.viewWillAppear
             .emit(to: refreshStageCountStream)
@@ -105,7 +105,7 @@ final class TitleViewModel {
                 }
                 // データの登録
                 TumeKyouenDao().insertWithCsvString(response)
-                self.refreshStageCountStream.onNext(())
+                self.refreshStageCountStream.accept(())
                 let lines = response.components(separatedBy: "\n")
                 self.getStage(maxStageNo + lines.count)
             }, onError: { error in
@@ -147,7 +147,7 @@ final class TitleViewModel {
                 }
             }
             TumeKyouenDao().updateSyncClearData(responseData)
-            self.refreshStageCountStream.onNext(())
+            self.refreshStageCountStream.accept(())
             self.dialogStatusRelay.accept(.success(NSLocalizedString("progress_sync_complete", comment: "")))
         })
 
@@ -168,9 +168,8 @@ final class TitleViewModel {
                 self.dialogStatusRelay.accept(.error(NSLocalizedString("progress_auth_fail", comment: "")))
                 return
             }
-            // TODO: あとで実装
-//            self.twitterButton.isHidden = true
-//            self.syncButton.isHidden = false
+
+            self.loggedInStatusStream.accept(.loggedIn)
             self.dialogStatusRelay.accept(.success(NSLocalizedString("progress_auth_success", comment: "")))
         })
     }
