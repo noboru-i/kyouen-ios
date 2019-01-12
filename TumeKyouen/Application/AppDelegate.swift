@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 import SVProgressHUD
 import Firebase
 import TwitterKit
@@ -37,9 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        consumerSecret: SignedRequest.consumerSecret)
 
         // PUSH通知の設定
-        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        UIApplication.shared.registerForRemoteNotifications()
-        UIApplication.shared.registerUserNotificationSettings(settings)
+        // TODO need this? https://github.com/firebase/quickstart-ios/blob/f6e361242d3cb660a528ff87b05d61db8ab38082/messaging/MessagingExampleSwift/AppDelegate.swift#L117
+//        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        application.registerForRemoteNotifications()
 
         return true
     }
