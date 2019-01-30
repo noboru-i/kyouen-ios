@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 import SVProgressHUD
 import Firebase
 import TwitterKit
@@ -37,14 +38,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        consumerSecret: SignedRequest.consumerSecret)
 
         // PUSH通知の設定
-        let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-        UIApplication.shared.registerForRemoteNotifications()
-        UIApplication.shared.registerUserNotificationSettings(settings)
+        // TODO need this? https://github.com/firebase/quickstart-ios/blob/f6e361242d3cb660a528ff87b05d61db8ab38082/messaging/MessagingExampleSwift/AppDelegate.swift#L117
+//        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        application.registerForRemoteNotifications()
+        Messaging.messaging().subscribe(toTopic: "all") { error in
+            print("Subscribed to 'all' topic \(error.debugDescription)")
+        }
 
         return true
     }
 
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         if userActivity.activityType != NSUserActivityTypeBrowsingWeb {
             return false
         }
@@ -106,8 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .replacingOccurrences(of: " ", with: "")
         print("deviceToken: \(token)")
 
-        let server = TumeKyouenServer()
-        server.registDeviceToken(token)
+        // no need to send to my server (use Firebase topic).
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
