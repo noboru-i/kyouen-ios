@@ -46,6 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: authOptions,
             completionHandler: {_, _ in })
         application.registerForRemoteNotifications()
+        Messaging.messaging().subscribe(toTopic: "all") { error in
+            print("Subscribed to 'all' topic \(error.debugDescription)")
+        }
 
         return true
     }
@@ -112,8 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .replacingOccurrences(of: " ", with: "")
         print("deviceToken: \(token)")
 
-        let server = TumeKyouenServer()
-        server.registDeviceToken(token)
+        // no need to send to my server (use Firebase topic).
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

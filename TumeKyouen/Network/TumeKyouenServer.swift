@@ -82,9 +82,4 @@ class TumeKyouenServer {
         let url = serverDomain + "/page/add"
         _ = Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
     }
-
-    func registDeviceToken(_ deviceToken: String) {
-        let url = serverDomain + "/apns/regist"
-        _ = Alamofire.request(url, method: .post, parameters: ["device_token": deviceToken])
-    }
 }
