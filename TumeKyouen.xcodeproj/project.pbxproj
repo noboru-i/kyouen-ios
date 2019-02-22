@@ -609,7 +609,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -630,7 +630,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F90792AAA1C96FD5AB8280B1 /* [CP] Check Pods Manifest.lock */ = {

@@ -25,7 +25,8 @@ carthage bootstrap --platform iOS --no-use-binaries --cache-builds
 Add library to Carthfile or Podfile.
 
 ```
-bundle exec pod install # When you update Podfile
+bundle update
+bundle exec pod update # When you update Podfile
 carthage update --platform iOS --no-use-binaries --cache-builds # When you update Cartfile
 license-plist --output-path TumeKyouen/Resources/Settings.bundle
 ```
