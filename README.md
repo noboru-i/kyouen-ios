@@ -10,12 +10,23 @@
 2. merge to master branch.
 3. create tag. name mast be `vN.N.N` format.
 
+## How to setup
+
+install Carthage (e.g. `brew install carthage`)
+
+```
+bundle install --path vendor/bundle
+bundle exec pod install
+carthage bootstrap --platform iOS --no-use-binaries --cache-builds
+```
+
 ## How to add library
 
 Add library to Carthfile or Podfile.
 
 ```
-carthage update --platform iOS --no-use-binaries --cache-builds
-bundle exec pod install
+bundle update
+bundle exec pod update # When you update Podfile
+carthage update --platform iOS --no-use-binaries --cache-builds # When you update Cartfile
 license-plist --output-path TumeKyouen/Resources/Settings.bundle
 ```
