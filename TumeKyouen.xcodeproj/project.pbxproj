@@ -355,9 +355,9 @@
 		689825B216D9320C00D89D0B /* TumeKyouen */ = {
 			isa = PBXGroup;
 			children = (
-				6898269016DA5E1900D89D0B /* Application */,
+				68FB69361C6CAE8C003883FE /* AppDelegate.swift */,
 				6831FDC816E32E3800291810 /* Database */,
-				689825FE16D933AC00D89D0B /* Views */,
+				689825FE16D933AC00D89D0B /* Feature */,
 				68AFAE3D16EA32F00076DE31 /* Model */,
 				6890DEAF16F614E8001E6A09 /* Network */,
 				689825FB16D933AC00D89D0B /* Util */,
@@ -401,22 +401,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		689825FE16D933AC00D89D0B /* Views */ = {
+		689825FE16D933AC00D89D0B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
 				512E84A221358F2800E4427A /* LaunchScreen */,
 				512E84A021358C4000E4427A /* Title */,
 				512E84A121358D2A00E4427A /* Kyouen */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		6898269016DA5E1900D89D0B /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				68FB69361C6CAE8C003883FE /* AppDelegate.swift */,
-			);
-			path = Application;
+			path = Feature;
 			sourceTree = "<group>";
 		};
 		68AFAE3D16EA32F00076DE31 /* Model */ = {
