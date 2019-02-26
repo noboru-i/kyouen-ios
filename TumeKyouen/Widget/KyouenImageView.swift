@@ -50,7 +50,21 @@ class KyouenImageView: UIView {
         let button = StoneButton(stoneSize: stoneSize, defaultState: state)
         button.transform = CGAffineTransform(
             translationX: CGFloat(x) * button.frame.size.width, y: CGFloat(y) * button.frame.size.width)
+        button.delegate = self
         buttons.append(button)
         addSubview(button)
+    }
+}
+
+extension KyouenImageView: StoneButtonDelegate {
+    func onClickButton(button: StoneButton) {
+        switch button.stoneState {
+        case .blank:
+            return
+        case .black:
+            button.stoneState = .white
+        case .white:
+            button.stoneState = .black
+        }
     }
 }

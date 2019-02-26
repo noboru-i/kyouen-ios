@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol StoneButtonDelegate: class {
+    func onClickButton(button: StoneButton)
+}
+
 class StoneButton: UIButton {
     enum ButtonState: Int {
         case blank = 0
@@ -16,6 +20,7 @@ class StoneButton: UIButton {
     }
 
     var stoneState: ButtonState = .blank
+    weak var delegate: StoneButtonDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,14 +33,7 @@ class StoneButton: UIButton {
     }
 
     @objc func changeState(_: AnyObject) {
-        switch stoneState {
-        case .blank:
-            return
-        case .black:
-            stoneState = .white
-        case .white:
-            stoneState = .black
-        }
+        delegate?.onClickButton(button: self)
         setNeedsDisplay()
     }
 

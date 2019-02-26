@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5114E079222413CD006DA7B0 /* CreateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5114E078222413CD006DA7B0 /* CreateViewController.storyboard */; };
+		5114E07B2224144D006DA7B0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114E07A2224144D006DA7B0 /* CreateViewController.swift */; };
 		511B938C205A9F7900BEC907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */; };
 		512E84A72136DB8500E4427A /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E84A62136DB8500E4427A /* TitleViewModel.swift */; };
 		51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */; };
@@ -81,6 +83,8 @@
 /* Begin PBXFileReference section */
 		09AA5DE74D2B40100B73174B /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
+		5114E078222413CD006DA7B0 /* CreateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateViewController.storyboard; sourceTree = "<group>"; };
+		5114E07A2224144D006DA7B0 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		512E84A62136DB8500E4427A /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
@@ -211,6 +215,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5114E077222413A6006DA7B0 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				5114E07A2224144D006DA7B0 /* CreateViewController.swift */,
+				5114E078222413CD006DA7B0 /* CreateViewController.storyboard */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		5114E07C222416BB006DA7B0 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
+				685915F11C6706EA001FF3AA /* StoneButton.swift */,
+				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
+				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		512E84A021358C4000E4427A /* Title */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +248,6 @@
 		512E84A121358D2A00E4427A /* Kyouen */ = {
 			isa = PBXGroup;
 			children = (
-				512E84A3213592EB00E4427A /* Views */,
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
 				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
 			);
@@ -237,17 +260,6 @@
 				511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
-		512E84A3213592EB00E4427A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				685915EF1C6706DB001FF3AA /* KyouenImageView.swift */,
-				685915F11C6706EA001FF3AA /* StoneButton.swift */,
-				685915F31C6706FE001FF3AA /* OverlayKyouenView.swift */,
-				681B222E1DCAD8B4005FBD8C /* BorderButton.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		51581C9C2053C0E9008C3613 /* TumeKyouenTests */ = {
@@ -358,6 +370,7 @@
 				68FB69361C6CAE8C003883FE /* AppDelegate.swift */,
 				6831FDC816E32E3800291810 /* Database */,
 				689825FE16D933AC00D89D0B /* Feature */,
+				5114E07C222416BB006DA7B0 /* Widget */,
 				68AFAE3D16EA32F00076DE31 /* Model */,
 				6890DEAF16F614E8001E6A09 /* Network */,
 				689825FB16D933AC00D89D0B /* Util */,
@@ -407,6 +420,7 @@
 				512E84A221358F2800E4427A /* LaunchScreen */,
 				512E84A021358C4000E4427A /* Title */,
 				512E84A121358D2A00E4427A /* Kyouen */,
+				5114E077222413A6006DA7B0 /* Create */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -537,6 +551,7 @@
 				688C014F18E9C08F00EECC9A /* InfoPlist.strings in Resources */,
 				6878F9B718799A8800BBF8A9 /* Images.xcassets in Resources */,
 				6831FDC716E1BF0A00291810 /* initial_stage.csv in Resources */,
+				5114E079222413CD006DA7B0 /* CreateViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +696,7 @@
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
 				681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
+				5114E07B2224144D006DA7B0 /* CreateViewController.swift in Sources */,
 				686D0E7C1C5BBEE300A67A0E /* KyouenData.swift in Sources */,
 				681B222F1DCAD8B4005FBD8C /* BorderButton.swift in Sources */,
 				512E84A72136DB8500E4427A /* TitleViewModel.swift in Sources */,

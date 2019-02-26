@@ -36,6 +36,7 @@ final class TitleViewModel {
     private let refreshStageCountStream = PublishRelay<Void>()
     private let dialogStatusRelay = PublishRelay<DialogStatus>()
     private let navigateToKyouenStream = PublishRelay<TumeKyouenModel>()
+    private let navigateToCreateStream = PublishRelay<Void>()
     private let loggedInStatusStream = PublishRelay<LoggedInStatus>()
 
     private let sendTwitterAccountStream = PublishSubject<Void>()
@@ -45,6 +46,7 @@ final class TitleViewModel {
             viewWillAppear: Signal<()>,
             startButtonTaps: Signal<()>,
             getStageTaps: Signal<()>,
+            createStageTaps: Signal<()>,
             connectTwitterTaps: Signal<()>,
             syncDataTaps: Signal<()>
         )
@@ -78,6 +80,10 @@ final class TitleViewModel {
                 let stageCount = TumeKyouenDao().selectCount()
                 self.getStage(stageCount)
             })
+            .disposed(by: disposeBag)
+        input.createStageTaps.asObservable()
+            .flatMap { _ -> Observable<Void> in return Observable.just(Void()) }
+            .bind(to: navigateToCreateStream)
             .disposed(by: disposeBag)
         input.connectTwitterTaps
             .emit(onNext: { _ in
@@ -113,6 +119,10 @@ final class TitleViewModel {
                 self.dialogStatusRelay.accept(.error(error.localizedDescription))
             })
             .disposed(by: disposeBag)
+    }
+
+    private func createStage() {
+        print("!!!!!!!!!!!!!!!!!1")
     }
 
     private func connectToTwitter() {
@@ -180,5 +190,9 @@ final class TitleViewModel {
 extension TitleViewModel {
     var navigateToKyouen: Observable<TumeKyouenModel> {
         return navigateToKyouenStream.asObservable()
+    }
+
+    var navigateToCreate: Observable<Void> {
+        return navigateToCreateStream.asObservable()
     }
 }
