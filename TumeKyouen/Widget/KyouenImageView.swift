@@ -35,6 +35,12 @@ class KyouenImageView: UIView {
         }
     }
 
+    func hasStone() -> Bool {
+        return buttons.reduce(0) { (count, button) -> Int in
+            count + button.stoneState.rawValue
+        } > 0
+    }
+
     private func resetButtons() {
         buttons.forEach { (button) in
             button.removeFromSuperview()

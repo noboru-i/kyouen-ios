@@ -19,7 +19,12 @@ class StoneButton: UIButton {
         case white = 2
     }
 
-    var stoneState: ButtonState = .blank
+    var stoneState: ButtonState = .blank {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
     weak var delegate: StoneButtonDelegate?
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +39,6 @@ class StoneButton: UIButton {
 
     @objc func changeState(_: AnyObject) {
         delegate?.onClickButton(button: self)
-        setNeedsDisplay()
     }
 
     override func draw(_ rect: CGRect) {

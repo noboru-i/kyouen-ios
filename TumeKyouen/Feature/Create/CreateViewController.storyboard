@@ -34,15 +34,24 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEz-Qj-6bA">
                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="back one step"/>
+                                        <connections>
+                                            <action selector="onBackOneStep:" destination="OOX-tM-aDK" eventType="touchUpInside" id="gnd-Qq-o9U"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-Wh-oOG">
                                         <rect key="frame" x="123.5" y="0.0" width="112" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="reset"/>
+                                        <connections>
+                                            <action selector="onReset:" destination="OOX-tM-aDK" eventType="touchUpInside" id="xIH-Bn-1LI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-Kb-lqN">
                                         <rect key="frame" x="247.5" y="0.0" width="111.5" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="send stage"/>
+                                        <connections>
+                                            <action selector="onSendStage:" destination="OOX-tM-aDK" eventType="touchUpInside" id="3Jm-bm-eXb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -63,8 +72,11 @@
                         <viewLayoutGuide key="safeArea" id="5LF-Ab-q43"/>
                     </view>
                     <connections>
+                        <outlet property="backOneStepButton" destination="eEz-Qj-6bA" id="inx-PH-kwg"/>
                         <outlet property="kyouenView" destination="7OU-wT-bWl" id="b1K-3p-8vj"/>
                         <outlet property="overlayView" destination="EgC-bp-PyH" id="can-IY-e72"/>
+                        <outlet property="resetButton" destination="eQk-Wh-oOG" id="yGz-Qd-ROf"/>
+                        <outlet property="sendStageButton" destination="eiv-Kb-lqN" id="CbW-1D-IvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pq9-hU-umC" userLabel="First Responder" sceneMemberID="firstResponder"/>

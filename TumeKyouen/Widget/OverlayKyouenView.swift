@@ -26,6 +26,12 @@ class OverlayKyouenView: UIView {
         setNeedsDisplay()
     }
 
+    func reset() {
+        self.kyouenData = nil
+        self.tumeKyouenModel = nil
+        setNeedsDisplay()
+    }
+
     override func draw(_ rect: CGRect) {
         guard let kyouenData = kyouenData else {
             alpha = 0

@@ -13,6 +13,10 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var kyouenView: CreateKyouenView!
     @IBOutlet weak var overlayView: OverlayKyouenView!
 
+    @IBOutlet weak var backOneStepButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var sendStageButton: UIButton!
+
     var currentModel: TumeKyouenModel!
 
     override func viewDidLoad() {
@@ -29,6 +33,22 @@ class CreateViewController: UIViewController {
 
         kyouenView.delegate = self
 
+        prepareStage()
+        applyButtonState()
+    }
+
+    @IBAction func onBackOneStep(_ sender: Any) {
+        kyouenView.backOneStep()
+    }
+
+    @IBAction func onReset(_ sender: Any) {
+        kyouenView.reset()
+    }
+
+    @IBAction func onSendStage(_ sender: Any) {
+    }
+
+    private func prepareStage() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -39,12 +59,23 @@ class CreateViewController: UIViewController {
 
         kyouenView.stage = currentModel
     }
+
+    private func applyButtonState() {
+        let hasStone = kyouenView.hasStone()
+        backOneStepButton.isEnabled = hasStone
+        resetButton.isEnabled = hasStone
+        sendStageButton.isEnabled = overlayView.kyouenData != nil
+    }
 }
 
 extension CreateViewController: CreateKyouenDelegate {
     func onChangeStage(kyouen: KyouenData?) {
         if let kyouen = kyouen {
             overlayView.drawKyouen(kyouen, tumeKyouenModel: currentModel)
+        } else {
+            overlayView.reset()
         }
+
+        applyButtonState()
     }
 }

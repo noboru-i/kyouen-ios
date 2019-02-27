@@ -16,8 +16,26 @@ class CreateKyouenView: KyouenImageView {
 
     weak var delegate: CreateKyouenDelegate?
 
+    private var stackButton: [StoneButton] = []
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+
+    func backOneStep() {
+        guard let lastButton = stackButton.popLast() else {
+            return
+        }
+        lastButton.stoneState = .blank
+        delegate?.onChangeStage(kyouen: nil)
+    }
+
+    func reset() {
+        stackButton.forEach { (button) in
+            button.stoneState = .blank
+        }
+        stackButton.removeAll()
+        delegate?.onChangeStage(kyouen: nil)
     }
 
     private func checkKyouen() -> KyouenData? {
@@ -35,6 +53,7 @@ extension CreateKyouenView: StoneButtonDelegate {
     func onClickButton(button: StoneButton) {
         switch button.stoneState {
         case .blank:
+            stackButton.append(button)
             button.stoneState = .black
         case .black:
             return
