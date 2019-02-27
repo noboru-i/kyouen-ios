@@ -2,7 +2,7 @@
 //  KyouenImageView.swift
 //  TumeKyouen
 //
-//  Created by 石倉 昇 on 2016/02/07.
+//  Created by noboru-i on 2016/02/07.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
@@ -50,21 +50,10 @@ class KyouenImageView: UIView {
         let button = StoneButton(stoneSize: stoneSize, defaultState: state)
         button.transform = CGAffineTransform(
             translationX: CGFloat(x) * button.frame.size.width, y: CGFloat(y) * button.frame.size.width)
-        button.delegate = self
+        if let delegate = self as? StoneButtonDelegate {
+            button.delegate = delegate
+        }
         buttons.append(button)
         addSubview(button)
-    }
-}
-
-extension KyouenImageView: StoneButtonDelegate {
-    func onClickButton(button: StoneButton) {
-        switch button.stoneState {
-        case .blank:
-            return
-        case .black:
-            button.stoneState = .white
-        case .white:
-            button.stoneState = .black
-        }
     }
 }

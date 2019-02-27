@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DeH-oH-Jb1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DeH-oH-Jb1">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,12 +92,12 @@
                                     <constraint firstItem="J6I-iE-JU7" firstAttribute="leading" secondItem="Agw-YI-7Ey" secondAttribute="leading" id="yG9-zB-7WU"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-qF-t8M" userLabel="Next Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WqF-qF-t8M" userLabel="Next Kyouen Image View" customClass="TumeKyouenView" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="10" y="164" width="359" height="359"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-mv-6Xj" userLabel="Current Kyouen Image View" customClass="KyouenImageView" customModule="TumeKyouen" customModuleProvider="target">
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-mv-6Xj" userLabel="Current Kyouen Image View" customClass="TumeKyouenView" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="10" y="164" width="359" height="359"/>
-                            </imageView>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppW-kf-JuQ" customClass="OverlayKyouenView" customModule="TumeKyouen" customModuleProvider="target">
                                 <rect key="frame" x="10" y="164" width="359" height="359"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

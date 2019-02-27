@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510E3E2E2225861700D62378 /* CreateKyouenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510E3E2D2225861700D62378 /* CreateKyouenView.swift */; };
 		5114E079222413CD006DA7B0 /* CreateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5114E078222413CD006DA7B0 /* CreateViewController.storyboard */; };
 		5114E07B2224144D006DA7B0 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114E07A2224144D006DA7B0 /* CreateViewController.swift */; };
+		5114E07E22257C51006DA7B0 /* TumeKyouenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114E07D22257C51006DA7B0 /* TumeKyouenView.swift */; };
 		511B938C205A9F7900BEC907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */; };
 		512E84A72136DB8500E4427A /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E84A62136DB8500E4427A /* TitleViewModel.swift */; };
 		51581C9E2053C0E9008C3613 /* TumeKyouenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51581C9D2053C0E9008C3613 /* TumeKyouenTests.swift */; };
@@ -83,8 +85,10 @@
 /* Begin PBXFileReference section */
 		09AA5DE74D2B40100B73174B /* Pods_TumeKyouen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumeKyouen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EFF1C031FE3D0B0736DC45 /* Pods-TumeKyouen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumeKyouen.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-TumeKyouen/Pods-TumeKyouen.adhoc.xcconfig"; sourceTree = "<group>"; };
+		510E3E2D2225861700D62378 /* CreateKyouenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateKyouenView.swift; sourceTree = "<group>"; };
 		5114E078222413CD006DA7B0 /* CreateViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateViewController.storyboard; sourceTree = "<group>"; };
 		5114E07A2224144D006DA7B0 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		5114E07D22257C51006DA7B0 /* TumeKyouenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumeKyouenView.swift; sourceTree = "<group>"; };
 		511B938B205A9F7900BEC907 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		512E84A62136DB8500E4427A /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		5140AE082125D10C0085A8F7 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				5114E07A2224144D006DA7B0 /* CreateViewController.swift */,
 				5114E078222413CD006DA7B0 /* CreateViewController.storyboard */,
+				510E3E2D2225861700D62378 /* CreateKyouenView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			children = (
 				68252F8F1C6A0225008E6E85 /* KyouenViewController.swift */,
 				681B22291DCAD6BD005FBD8C /* KyouenStoryboard.storyboard */,
+				5114E07D22257C51006DA7B0 /* TumeKyouenView.swift */,
 			);
 			path = Kyouen;
 			sourceTree = "<group>";
@@ -690,9 +696,11 @@
 				5171CB95213D74300003DC19 /* TumeKyouenApi.swift in Sources */,
 				686D0E7A1C5BBED700A67A0E /* GameModel.swift in Sources */,
 				6898268A16DA2A5B00D89D0B /* TumeKyouen.xcdatamodeld in Sources */,
+				510E3E2E2225861700D62378 /* CreateKyouenView.swift in Sources */,
 				686D0E781C5BB1FE00A67A0E /* Point.swift in Sources */,
 				68252F901C6A0225008E6E85 /* KyouenViewController.swift in Sources */,
 				681150A41C6234B000F7B444 /* TwitterTokenDao.swift in Sources */,
+				5114E07E22257C51006DA7B0 /* TumeKyouenView.swift in Sources */,
 				681150A21C6234A300F7B444 /* SettingDao.swift in Sources */,
 				681AAAED1DD0C284009F5349 /* Analytics.swift in Sources */,
 				685915F21C6706EA001FF3AA /* StoneButton.swift in Sources */,
