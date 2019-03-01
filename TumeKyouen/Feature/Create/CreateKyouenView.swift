@@ -18,6 +18,10 @@ class CreateKyouenView: KyouenImageView {
 
     private var stackButton: [StoneButton] = []
 
+    var stoneCount: Int {
+        return stackButton.count
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -36,6 +40,10 @@ class CreateKyouenView: KyouenImageView {
         }
         stackButton.removeAll()
         delegate?.onChangeStage(kyouen: nil)
+    }
+
+    func getStageStateForSend() -> String {
+        return getCurrentStage().replacingOccurrences(of: "2", with: "1")
     }
 
     private func checkKyouen() -> KyouenData? {

@@ -82,4 +82,10 @@ class TumeKyouenServer {
         let url = serverDomain + "/page/add"
         _ = Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
     }
+
+    func postStage(_ data: String, callback: @escaping (Alamofire.DataResponse<String>) -> Void) {
+        let url = serverDomain + "/kyouen/regist"
+        Alamofire.request(url, method: .post, parameters: ["data": data])
+            .responseString { response in callback(response) }
+    }
 }
