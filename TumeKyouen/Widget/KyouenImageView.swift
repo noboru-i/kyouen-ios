@@ -41,6 +41,25 @@ class KyouenImageView: UIView {
         } > 0
     }
 
+    func turnBlack() {
+        buttons.forEach { button in
+            if button.stoneState == .white {
+                button.stoneState = .black
+            }
+        }
+    }
+
+    func turnWhite(_ points: [Point]) {
+        let size = Int(truncating: stage.size)
+        buttons.enumerated().forEach { (index, button) in
+            let x = index % size
+            let y = index / size
+            if points.contains(where: { p -> Bool in Int(p.x) == x && Int(p.y) == y }) {
+                button.stoneState = .white
+            }
+        }
+    }
+
     private func resetButtons() {
         buttons.forEach { (button) in
             button.removeFromSuperview()

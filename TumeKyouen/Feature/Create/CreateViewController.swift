@@ -150,6 +150,7 @@ class CreateViewController: UIViewController {
 
 extension CreateViewController: CreateKyouenDelegate {
     func onChangeStage(kyouen: KyouenData?) {
+        kyouenView.setKyouen(kyouen)
         if let kyouen = kyouen {
             onKyouen(kyouen: kyouen)
         } else {

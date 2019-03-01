@@ -42,6 +42,20 @@ class CreateKyouenView: KyouenImageView {
         delegate?.onChangeStage(kyouen: nil)
     }
 
+    func setKyouen(_ kyouenData: KyouenData?) {
+        guard let kyouenData = kyouenData else {
+            turnBlack()
+            return
+        }
+
+        switch kyouenData {
+        case .lineKyouen(let points, _):
+            turnWhite(points)
+        case .ovalKyouen(let points, _, _):
+            turnWhite(points)
+        }
+    }
+
     func getStageStateForSend() -> String {
         return getCurrentStage().replacingOccurrences(of: "2", with: "1")
     }
