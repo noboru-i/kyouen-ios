@@ -2,8 +2,8 @@
 //  TKSettingDao.swift
 //  TumeKyouen
 //
-//  Created by 石倉 昇 on 2016/02/03.
-//  Copyright © 2016年 noboru. All rights reserved.
+//  Created by noboru-i on 2016/02/03.
+//  Copyright © 2016 noboru. All rights reserved.
 //
 
 import Foundation
@@ -24,5 +24,19 @@ class SettingDao {
             return 1
         }
         return Int(truncating: stageNo)
+    }
+
+    func saveCreatorName(_ creatorName: String?) {
+        let defaults = UserDefaults.standard
+        defaults.set(creatorName, forKey: "creatorName")
+        defaults.synchronize()
+    }
+
+    func loadCreatorName() -> String {
+        let defaults = UserDefaults.standard
+        guard let creatorName = defaults.object(forKey: "creatorName") as? String else {
+            return "no name"
+        }
+        return creatorName
     }
 }

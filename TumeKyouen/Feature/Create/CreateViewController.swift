@@ -90,23 +90,24 @@ class CreateViewController: UIViewController {
         )
 
         alert.addTextField { textField in
-            // TODO load from UserDefaults
-            textField.text = "aaa"
+            textField.text = SettingDao().loadCreatorName()
         }
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: {[weak alert] (_) -> Void in
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {[weak self, weak alert] (_) -> Void in
             guard let textFields = alert?.textFields else {
                 return
             }
 
             let text = textFields.first?.text
-            print("text : " + text!)
-            // TODO save to UserDefaults
+            SettingDao().saveCreatorName(text)
+            self?.sendStage(creator: text ?? "")
         })
         alert.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
 
-    private func sendState(creator: String) {
+    private func sendStage(creator: String) {
         let size = currentModel.size.stringValue
         let stage = kyouenView.getStageStateForSend()
         let data = [size, stage, creator].joined(separator: ",")
@@ -117,15 +118,11 @@ class CreateViewController: UIViewController {
             SVProgressHUD.dismiss()
             switch response.result {
             case .success(let string):
-                print("success")
-                print(string)
                 if let message = self?.convertResponseToMessage(string) {
                     let alert = UIAlertController.alert(message)
                     self?.present(alert, animated: true, completion: nil)
                 }
-            case .failure(let error):
-                print("failure")
-                print(error)
+            case .failure:
                 let alert = UIAlertController.alert("create_result_failure")
                 self?.present(alert, animated: true, completion: nil)
             }
@@ -146,7 +143,7 @@ class CreateViewController: UIViewController {
             return NSLocalizedString("create_result_failure", comment: "")
         }
 
-        let stageNo = String(responseString[Range(matches.range, in: responseString)!])
+        let stageNo = String(responseString[Range(matches.range(at: 1), in: responseString)!])
         return String(format: NSLocalizedString("create_send_success_message", comment: ""), stageNo)
     }
 }
