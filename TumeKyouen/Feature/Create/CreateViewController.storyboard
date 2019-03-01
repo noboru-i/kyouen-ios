@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OOX-tM-aDK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create View Controller-->
+        <scene sceneID="Bsh-Ew-BHu">
+            <objects>
+                <viewController id="OOX-tM-aDK" customClass="CreateViewController" customModule="TumeKyouen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jjo-yr-KGt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OU-wT-bWl" customClass="CreateKyouenView" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="8" y="28" width="359" height="359"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-bp-PyH" customClass="OverlayKyouenView" customModule="TumeKyouen" customModuleProvider="target">
+                                <rect key="frame" x="8" y="28" width="359" height="359"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EgC-bp-PyH" secondAttribute="height" multiplier="1:1" id="vnr-SF-Gnw"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="u3o-9L-2hg">
+                                <rect key="frame" x="8" y="395" width="359" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEz-Qj-6bA">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="30"/>
+                                        <state key="normal" title="back one step"/>
+                                        <connections>
+                                            <action selector="onBackOneStep:" destination="OOX-tM-aDK" eventType="touchUpInside" id="gnd-Qq-o9U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-Wh-oOG">
+                                        <rect key="frame" x="123.5" y="0.0" width="112" height="30"/>
+                                        <state key="normal" title="reset"/>
+                                        <connections>
+                                            <action selector="onReset:" destination="OOX-tM-aDK" eventType="touchUpInside" id="xIH-Bn-1LI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiv-Kb-lqN">
+                                        <rect key="frame" x="247.5" y="0.0" width="111.5" height="30"/>
+                                        <state key="normal" title="send stage"/>
+                                        <connections>
+                                            <action selector="onSendStage:" destination="OOX-tM-aDK" eventType="touchUpInside" id="3Jm-bm-eXb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="bottom" secondItem="7OU-wT-bWl" secondAttribute="bottom" id="0uI-Br-jbj"/>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="leading" secondItem="5LF-Ab-q43" secondAttribute="leading" constant="8" id="2Td-DS-TIy"/>
+                            <constraint firstItem="5LF-Ab-q43" firstAttribute="trailing" secondItem="u3o-9L-2hg" secondAttribute="trailing" constant="8" id="3Vw-c4-oqA"/>
+                            <constraint firstItem="5LF-Ab-q43" firstAttribute="trailing" secondItem="EgC-bp-PyH" secondAttribute="trailing" constant="8" id="502-Ib-xbh"/>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="trailing" secondItem="7OU-wT-bWl" secondAttribute="trailing" id="5OO-2d-f3r"/>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="top" secondItem="7OU-wT-bWl" secondAttribute="top" id="AAi-Vk-hnE"/>
+                            <constraint firstItem="u3o-9L-2hg" firstAttribute="top" secondItem="7OU-wT-bWl" secondAttribute="bottom" constant="8" id="fqV-4K-GaH"/>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="top" secondItem="5LF-Ab-q43" secondAttribute="top" constant="8" id="k6V-av-pyt"/>
+                            <constraint firstItem="EgC-bp-PyH" firstAttribute="leading" secondItem="7OU-wT-bWl" secondAttribute="leading" id="mPV-L6-CcK"/>
+                            <constraint firstItem="u3o-9L-2hg" firstAttribute="leading" secondItem="5LF-Ab-q43" secondAttribute="leading" constant="8" id="wS7-Tx-jFl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5LF-Ab-q43"/>
+                    </view>
+                    <connections>
+                        <outlet property="backOneStepButton" destination="eEz-Qj-6bA" id="inx-PH-kwg"/>
+                        <outlet property="kyouenView" destination="7OU-wT-bWl" id="b1K-3p-8vj"/>
+                        <outlet property="overlayView" destination="EgC-bp-PyH" id="can-IY-e72"/>
+                        <outlet property="resetButton" destination="eQk-Wh-oOG" id="yGz-Qd-ROf"/>
+                        <outlet property="sendStageButton" destination="eiv-Kb-lqN" id="CbW-1D-IvO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pq9-hU-umC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149.59999999999999" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+</document>

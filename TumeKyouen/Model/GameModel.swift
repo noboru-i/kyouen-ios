@@ -25,9 +25,49 @@ struct GameModel {
         }
     }
 
-    func isKyouen() -> KyouenData! {
+    func hasKyouen() -> KyouenData? {
+        let stonePoints = getStonePoints(1)
+        if stonePoints.count < 4 {
+            return nil
+        }
+        for i in 0..<(stonePoints.count - 3) {
+            let p1 = stonePoints[i]
+            for j in (i+1)..<(stonePoints.count - 2) {
+                let p2 = stonePoints[j]
+                for k in (j+1)..<(stonePoints.count - 1) {
+                    let p3 = stonePoints[k]
+                    for l in (k+1)..<stonePoints.count {
+                        let p4 = stonePoints[l]
+                        let kyouen = isKyouen(points: [p1, p2, p3, p4])
+                        if kyouen != nil {
+                            return kyouen
+                        }
+                    }
+                }
+            }
+        }
+        return nil
+    }
 
+    func isKyouen() -> KyouenData! {
         let points = getStonePoints(2)
+        return isKyouen(points: points)
+    }
+
+    private func getStonePoints(_ state: Int) -> [Point] {
+        let stateString = Character(String(state))
+
+        // 指定されたstateと同一文字の座標を取得
+        var points = [Point]()
+        for (index, c) in stage.enumerated() where c == stateString {
+            let x = index % size
+            let y = floor(Double(index) / Double(size))
+            points.append(Point(x: Double(x), y: y))
+        }
+        return points
+    }
+
+    private func isKyouen(points: [Point]) -> KyouenData? {
         let (p1, p2, p3, p4) = (points[0], points[1], points[2], points[3])
         // p1,p2の垂直二等分線を求める
         let l12 = p1.getMidperpendicular(p2)
@@ -52,18 +92,5 @@ struct GameModel {
             return KyouenData.ovalKyouen([p1, p2, p3, p4], intersection123, dist1)
         }
         return nil
-    }
-
-    func getStonePoints(_ state: Int) -> [Point] {
-        let stateString = Character(String(state))
-
-        // 指定されたstateと同一文字の座標を取得
-        var points = [Point]()
-        for (index, c) in stage.enumerated() where c == stateString {
-            let x = index % size
-            let y = floor(Double(index) / Double(size))
-            points.append(Point(x: Double(x), y: y))
-        }
-        return points
     }
 }

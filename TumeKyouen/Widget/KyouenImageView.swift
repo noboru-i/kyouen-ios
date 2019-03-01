@@ -2,7 +2,7 @@
 //  KyouenImageView.swift
 //  TumeKyouen
 //
-//  Created by 石倉 昇 on 2016/02/07.
+//  Created by noboru-i on 2016/02/07.
 //  Copyright © 2016年 noboru. All rights reserved.
 //
 
@@ -35,6 +35,31 @@ class KyouenImageView: UIView {
         }
     }
 
+    func hasStone() -> Bool {
+        return buttons.reduce(0) { (count, button) -> Int in
+            count + button.stoneState.rawValue
+        } > 0
+    }
+
+    func turnBlack() {
+        buttons.forEach { button in
+            if button.stoneState == .white {
+                button.stoneState = .black
+            }
+        }
+    }
+
+    func turnWhite(_ points: [Point]) {
+        let size = Int(truncating: stage.size)
+        buttons.enumerated().forEach { (index, button) in
+            let x = index % size
+            let y = index / size
+            if points.contains(where: { p -> Bool in Int(p.x) == x && Int(p.y) == y }) {
+                button.stoneState = .white
+            }
+        }
+    }
+
     private func resetButtons() {
         buttons.forEach { (button) in
             button.removeFromSuperview()
@@ -50,6 +75,9 @@ class KyouenImageView: UIView {
         let button = StoneButton(stoneSize: stoneSize, defaultState: state)
         button.transform = CGAffineTransform(
             translationX: CGFloat(x) * button.frame.size.width, y: CGFloat(y) * button.frame.size.width)
+        if let delegate = self as? StoneButtonDelegate {
+            button.delegate = delegate
+        }
         buttons.append(button)
         addSubview(button)
     }

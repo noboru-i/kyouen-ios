@@ -18,6 +18,7 @@ class TitleViewController: UIViewController {
     @IBOutlet private weak var stageCountLabel: UILabel!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var getStageButton: UIButton!
+    @IBOutlet private weak var createButton: UIButton!
     @IBOutlet private weak var twitterButton: UIButton!
     @IBOutlet private weak var syncButton: UIButton!
     @IBOutlet private weak var bannerView: GADBannerView!
@@ -36,6 +37,7 @@ class TitleViewController: UIViewController {
                     .asSignal(onErrorSignalWith: Signal.empty()),
                 startButtonTaps: startButton.rx.tap.asSignal(),
                 getStageTaps: getStageButton.rx.tap.asSignal(),
+                createStageTaps: createButton.rx.tap.asSignal(),
                 connectTwitterTaps: twitterButton.rx.tap.asSignal(),
                 syncDataTaps: syncButton.rx.tap.asSignal()
             )
@@ -54,6 +56,11 @@ class TitleViewController: UIViewController {
         viewModel.navigateToKyouen
             .bind { [weak self] model in
                 self?.navigateToKyouen(model: model)
+            }
+            .disposed(by: disposeBag)
+        viewModel.navigateToCreate
+            .bind { [weak self] in
+                self?.navigateToCreate()
             }
             .disposed(by: disposeBag)
 
@@ -78,6 +85,14 @@ class TitleViewController: UIViewController {
         if let vc = kyouenViewController as? KyouenViewController {
             vc.currentModel = model
             self.navigationController?.pushViewController(kyouenViewController!, animated: true)
+        }
+    }
+
+    private func navigateToCreate() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "CreateViewController", bundle: Bundle.main)
+        let viewController: UIViewController? = storyboard.instantiateInitialViewController()
+        if let vc = viewController as? CreateViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
