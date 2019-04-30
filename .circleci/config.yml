@@ -33,6 +33,7 @@ jobs:
           paths:
             - vendor/bundle
 
+      # FIXME
       # - run:
       #     name: Install SwiftLint
       #     command: brew install swiftlint
@@ -41,12 +42,12 @@ jobs:
           name: Decrypt resource
           command: openssl aes-256-cbc -k $DECRYPT_KEY -d -in TumeKyouen/Resources/encrypted_GoogleService-Info.plist -out TumeKyouen/Resources/GoogleService-Info.plist
 
-      # - run:
-      #     name: Run unit test
-      #     command: bundle exec fastlane test
-      # - run:
-      #     name: Run Danger
-      #     command: bundle exec danger
+      - run:
+          name: Run unit test
+          command: bundle exec fastlane test
+      - run:
+          name: Run Danger
+          command: bundle exec danger
 
       - store_artifacts:
           path: /Users/distiller/project/output
