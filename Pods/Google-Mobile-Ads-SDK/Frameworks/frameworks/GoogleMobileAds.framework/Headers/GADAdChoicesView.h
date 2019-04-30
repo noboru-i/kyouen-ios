@@ -2,13 +2,11 @@
 //  GADAdChoicesView.h
 //  Google Mobile Ads SDK
 //
-//  Copyright 2016 Google Inc. All rights reserved.
+//  Copyright 2016 Google LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-#import <GoogleMobileAds/GADNativeAd.h>
 #import <GoogleMobileAds/GoogleMobileAdsDefines.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
