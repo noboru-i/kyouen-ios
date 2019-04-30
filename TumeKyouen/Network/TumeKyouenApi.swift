@@ -14,7 +14,7 @@ enum TumeKyouenApi {
 }
 
 extension TumeKyouenApi: TargetType {
-    var baseURL: URL { return URL(string: "https://my-android-server.appspot.com")! }
+    var baseURL: URL { return URL(string: "https://kyouen.app")! }
     var path: String {
         switch self {
         case .getKyouen:
