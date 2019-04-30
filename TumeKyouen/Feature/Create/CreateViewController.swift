@@ -34,8 +34,13 @@ class CreateViewController: UIViewController {
 
         kyouenView.delegate = self
 
-        prepareStage()
         applyButtonState()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        prepareStage()
     }
 
     @IBAction func onBackOneStep(_ sender: Any) {
