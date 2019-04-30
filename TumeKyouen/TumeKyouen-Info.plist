@@ -54,5 +54,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>GADIsAdManagerApp</key>
+	<true/>
 </dict>
 </plist>

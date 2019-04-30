@@ -2,7 +2,7 @@
 //  GADAudioVideoManagerDelegate.h
 //  Google Mobile Ads SDK
 //
-//  Copyright 2016 Google Inc. All rights reserved.
+//  Copyright 2016 Google LLC. All rights reserved.
 //
 
 #import <GoogleMobileAds/GoogleMobileAdsDefines.h>
@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// A set of methods to inform the delegate of audio video manager events.
-@protocol GADAudioVideoManagerDelegate<NSObject>
+@protocol GADAudioVideoManagerDelegate <NSObject>
 
 @optional
 
