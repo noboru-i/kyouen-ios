@@ -7,6 +7,6 @@ target 'TumeKyouen' do
   pod 'Firebase/Messaging'
   pod 'Firebase/AdMob'
   pod 'Firebase/Performance'
-  pod 'Fabric', '~> 1.7.2'
-  pod 'Crashlytics', '~> 3.9'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
