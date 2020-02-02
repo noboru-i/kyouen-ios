@@ -8,11 +8,11 @@
   "tvOS" : [
 
   ],
-  "commitish" : "3.4.0",
+  "commitish" : "3.4.2",
   "iOS" : [
     {
       "name" : "TwitterKit",
-      "hash" : "ce472315026820f4cc94107c8f4921b9f7a10dee22a42f9d06fa4c7b81ed3afb"
+      "hash" : "5c14caba195c88c63feb287130ecd29d95dbb6851c41943b8e93c8fccf8b6cf1"
     }
   ]
 }
