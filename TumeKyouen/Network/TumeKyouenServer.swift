@@ -14,22 +14,30 @@ class TumeKyouenServer {
 
     func getStageData(_ currentMaxStageNo: Int, callback: @escaping (String?, Error?) -> Void) {
         let url = serverDomain + "/kyouen/get"
-        Alamofire.request(url, method: .get, parameters: ["stageNo": String(currentMaxStageNo)])
+        AF.request(url, method: .get, parameters: ["stageNo": String(currentMaxStageNo)])
             .responseString { response in
-                // TODO: when failed
-                if response.result.isSuccess {
-                    callback(response.result.value, nil)
+                switch response.result {
+                case .success(let value):
+                    callback(value, nil)
+                case .failure(let error):
+                    // TODO handling error
+                    print("error: \(error)")
+                    return
                 }
             }
     }
 
     func registUser(_ token: String, tokenSecret: String, callback: @escaping (String?, Error?) -> Void) {
         let url = serverDomain + "/page/api_login"
-        Alamofire.request(url, method: .post, parameters: ["token": token, "token_secret": tokenSecret])
+        AF.request(url, method: .post, parameters: ["token": token, "token_secret": tokenSecret])
             .responseString { response in
-                // TODO: when failed
-                if response.result.isSuccess {
-                    callback(response.result.value, nil)
+                switch response.result {
+                case .success(let value):
+                    callback(value, nil)
+                case .failure(let error):
+                    // TODO handling error
+                    print("error: \(error)")
+                    return
                 }
             }
     }
@@ -61,11 +69,11 @@ class TumeKyouenServer {
         print("sendJsonStr = \(sendJsonStr)")
 
         let url = serverDomain + "/page/add_all"
-        Alamofire.request(url, method: .post, parameters: ["data": sendJsonStr])
+        AF.request(url, method: .post, parameters: ["data": sendJsonStr])
             .responseJSON { response in
                 switch response.result {
-                case .success:
-                    if let json = response.result.value as? [String: AnyObject] {
+                case .success(let value):
+                    if let json = value as? [String: AnyObject] {
                         let jsonData = json["data"] as? NSArray
                         callback(jsonData, nil)
                         return
@@ -78,12 +86,12 @@ class TumeKyouenServer {
 
     func addStageUser(_ stageNo: NSNumber) {
         let url = serverDomain + "/page/add"
-        _ = Alamofire.request(url, method: .post, parameters: ["stageNo": stageNo])
+        _ = AF.request(url, method: .post, parameters: ["stageNo": stageNo])
     }
 
-    func postStage(_ data: String, callback: @escaping (Alamofire.DataResponse<String>) -> Void) {
+    func postStage(_ data: String, callback: @escaping (AFDataResponse<String>) -> Void) {
         let url = serverDomain + "/kyouen/regist"
-        Alamofire.request(url, method: .post, parameters: ["data": data])
+        AF.request(url, method: .post, parameters: ["data": data])
             .responseString { response in callback(response) }
     }
 }

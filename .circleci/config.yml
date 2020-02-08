@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   macos:
-    xcode: "10.2.0"
+    xcode: 11.3.1
   working_directory: /Users/distiller/project
   environment:
     DEPLOYGATE_USER: noboru-i
@@ -19,7 +19,7 @@ jobs:
 
       - run:
           name: Set Ruby Version
-          command:  echo "ruby-2.4" > .ruby-version
+          command: echo 'chruby ruby-2.6' >> ~/.bash_profile
 
       - restore_cache:
           keys:
